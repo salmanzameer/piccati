@@ -2,8 +2,8 @@ development:
   adapter: postgresql
   encoding: unicode
   database: gallery_development
-  username: first
-  password: 12345
+  username: postgres
+  password: postgres
   host: localhost
   port: 5432
 
@@ -14,8 +14,8 @@ test:
   adapter: postgresql
   encoding: unicode
   database: gallery_test
-  username: first
-  password: 12345
+  username: postgres
+  password: postgres
   host: localhost
   port: 5432
 
@@ -23,7 +23,7 @@ production:
   adapter: postgresql
   encoding: unicode
   database: gallery_production
-  username: first
-  password: 12345
+  username: postgres
+  password: postgres
   host: localhost
   port: 5432

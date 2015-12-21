@@ -1,5 +1,5 @@
 <h1>Welcome to show1 page</h1>
-<%= link_to('Profile' ,photographers_profile_path)%>
+<%= link_to('Profile' ,photographer_path(current_photographer.id))%>
 <%= link_to('Client',photographer_clients_path)%>
 <%= link_to('Event')%>
 <%#= render 'layouts/show'%>
@@ -15,7 +15,7 @@
 			<th>Last_Name:</th>
 			<td><%= @client.last_name%></td>
 		</tr>
-	<tr>
+		<tr>
 			<th>User_Name:</th>
 			<td><%= @client.user_name%></td>
 		</tr>
@@ -23,7 +23,6 @@
 			<th>Password:</th>
 			<td><%= @client.password%></td>
 		</tr>
-		
 		<tr>
 			<th>Created_at</th>
 			<td><%= @client.created_at%></td>

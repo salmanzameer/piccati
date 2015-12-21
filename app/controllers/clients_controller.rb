@@ -17,7 +17,7 @@ class ClientsController < ApplicationController
    @client = Client.new(clientsparams)
      @client = current_photographer.clients.new(clientsparams)
         if @client.save
-          redirect_to :action => 'show1', :action => 'show1', :photographer_id => current_photographer.id, :client_id => @client.id
+          redirect_to :action => 'show1', :photographer_id => current_photographer.id, :client_id => @client.id
          else
            flash[:notice] ="Error"
             render('new')
