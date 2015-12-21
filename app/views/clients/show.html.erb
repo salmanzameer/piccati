@@ -1,0 +1,34 @@
+<h1>Clients#show</h1>
+<p>Find me in app/views/clients/show.html.erb</p>
+<%= render 'layouts/header'%>
+<%#= link_to('Event')%>
+<div class="show">
+	<table>
+		<tr>
+			<th>First_Name:</th>
+			<td><%= @client.first_name%></td>
+		</tr>
+		<tr>
+			<th>Last_Name:</th>
+			<td><%= @client.last_name%></td>
+		</tr>
+	<tr>
+			<th>User_Name:</th>
+			<td><%= @client.user_name%></td>
+		</tr>
+		<tr>
+			<th>Password:</th>
+			<td><%= @client.password%></td>
+		</tr>
+		
+		<tr>
+			<th>Created_at</th>
+			<td><%= @client.created_at%></td>
+		</tr>
+		<tr>
+			<th>Updated_at</th>
+			<td><%= @client.updated_at%></td>
+		</tr>
+	</table>
+	<%=  link_to('Back', :action => 'index')%>
+</div>

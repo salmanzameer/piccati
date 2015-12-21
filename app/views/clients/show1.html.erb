@@ -1,0 +1,37 @@
+<h1>Welcome to show1 page</h1>
+<%= link_to('Profile' ,photographers_profile_path)%>
+<%= link_to('Client',photographer_clients_path)%>
+<%= link_to('Event')%>
+<%#= render 'layouts/show'%>
+
+
+<div class="show">
+	<table>
+		<tr>
+			<th>First_Name:</th>
+			<td><%= @client.first_name%></td>
+		</tr>
+		<tr>
+			<th>Last_Name:</th>
+			<td><%= @client.last_name%></td>
+		</tr>
+	<tr>
+			<th>User_Name:</th>
+			<td><%= @client.user_name%></td>
+		</tr>
+		<tr>
+			<th>Password:</th>
+			<td><%= @client.password%></td>
+		</tr>
+		
+		<tr>
+			<th>Created_at</th>
+			<td><%= @client.created_at%></td>
+		</tr>
+		<tr>
+			<th>Updated_at</th>
+			<td><%= @client.updated_at%></td>
+		</tr>
+	</table>
+	<%=  link_to('Back', :action => 'index')%>
+</div>

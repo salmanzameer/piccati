@@ -1,0 +1,30 @@
+<h1>Events#index</h1>
+<p>Find me in app/views/events/index.html.erb</p>
+<%= render 'layouts/header'%>
+
+<div class="new">
+
+<table>
+	<tr>
+		<th>Client-Event</th>
+	</tr>
+
+		<% @event.each do |eve| %>
+	<tr>
+		
+	
+	<td class="action"> 
+	
+	<%= eve.name %>
+	<%= eve.image%>
+	<%#= link_to('Show')%>
+	<%#= link_to('Edit', edit_photographer_client_path(current_photographer,clt.id))%>
+    <%#= link_to('Event',photographer_client_events_path(current_photographer.id,clt.id))%>
+	<%#= link_to('Destroy',photographer_client_path(current_photographer,clt.id), :method => 'delete')%>
+	</td>
+	</tr>
+    <% end %>
+</table>
+<br>
+<%= link_to('Add-Event',{:action => 'new'})%>
+</div>

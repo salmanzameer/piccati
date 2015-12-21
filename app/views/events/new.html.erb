@@ -1,0 +1,24 @@
+<h1>Events#new</h1>
+<p>Find me in app/views/events/new.html.erb</p>
+<div class="Event">
+<%= render 'layouts/header'%>
+<%#binding.pry%>
+<%= form_for @event, url: photographer_client_events_path do |f| %>
+	<table class="table-class">
+	<tr>
+		<th>
+			Name:
+		</th>
+		<td><%= f.text_field :name %></td>
+	</tr>
+	<tr>
+		<th>Choose-file</th>
+		<td><%= f.file_field :image %></td>
+	</tr>
+		
+	</table>
+	<div class="btn">
+		<%= submit_tag('Submit')%>
+	</div>
+<% end %>
+</div>
