@@ -3,8 +3,9 @@
 <div class="Event">
 <%= render 'layouts/header'%>
 <%#binding.pry%>
-<%= form_for @event, url: photographer_client_events_path do |f| %>
-	<table class="table-class">
+
+<%= form_for @event, url: photographer_client_events_path, html: { multipart: true } do |f| %>
+	<table id="bcbc">
 	<tr>
 		<th>
 			Name:
@@ -13,12 +14,13 @@
 	</tr>
 	<tr>
 		<th>Choose-file</th>
-		<td><%= f.file_field :image %></td>
-	</tr>
-		<tr>
-			<td><%=image_tag("image.jpg") %></td>
-		</tr>
+		<td><%= f.file_field :image , multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+    </td>
+	  </tr>
 	</table>
+	<div id='uploader'>
+
+	</div>
 	<div class="btn">
 		<%= submit_tag('Submit')%>
 	</div>

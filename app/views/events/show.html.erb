@@ -6,7 +6,9 @@
 	<table class="show-event">
 	<tr>
 		<th>Name</th>
-		<td><%= @event.name%></td>
+
+		<td><%#= @event.name%></td>
+		<td><%= image_tag @event.last.images.last.image.url %></td>
 	</tr>
 		
 	</table>

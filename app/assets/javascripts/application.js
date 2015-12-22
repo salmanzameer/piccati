@@ -10,8 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
 //= require jquery
 //= require jquery_ujs
+//= require plupload.full.min.js 
+//= require moxie
+//= require plupload.dev
 //= require turbolinks
 //= require_tree .

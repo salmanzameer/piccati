@@ -6,4 +6,4 @@ class AddClient < ActiveRecord::Migration
   	add_column :clients, :email,     :string
   	add_column :clients, :password , :string
     end
-   end
+end

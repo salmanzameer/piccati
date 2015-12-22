@@ -10,7 +10,12 @@ Rails.application.routes.draw do
     end 
     resources :clients do
       get 'show1'
-      resources :events 
+      resources :events do 
+        collection do
+          get 'upload'
+          post 'upload'
+        end
+      end
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

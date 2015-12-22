@@ -4,7 +4,7 @@ class DeviseCreatePhotographers < ActiveRecord::Migration
       t.string :title
       t.string :firstname
       t.string :lastname
-      t.integer :contnumber
+      t.string :contnumber
       t.string :username
       ## Database authenticatable
       t.string :email,              null: false, default: ""

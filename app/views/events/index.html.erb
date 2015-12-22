@@ -16,15 +16,18 @@
 	<td class="action"> 
 	
 	<%= eve.name %>
-	<%= eve.image%>
-	<%#= link_to('Show')%>
+	
+	<%= link_to('Show', photographer_client_event_path(current_photographer.id, @event.first.client_id, @event.first.id))%>
 	<%#= link_to('Edit', edit_photographer_client_path(current_photographer,clt.id))%>
     <%#= link_to('Event',photographer_client_events_path(current_photographer.id,clt.id))%>
 	<%#= link_to('Destroy',photographer_client_path(current_photographer,clt.id), :method => 'delete')%>
-	</td>
+       
+  	</td>
+  	<% end %>
 	</tr>
-    <% end %>
+   
 </table>
+
 <br>
 <%= link_to('Add-Event',{:action => 'new'})%>
 </div>
