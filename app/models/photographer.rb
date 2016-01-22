@@ -8,9 +8,10 @@ class Photographer < ActiveRecord::Base
             validates :title,     presence: true
             validates :firstname, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
             validates :lastname,  format:  { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
-            validates :username,  format:   { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+            validates :username,  format:   { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }, presence: true, uniqueness: true
             validates :contnumber,format:{:with => /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/}
             has_many :clients
+            has_many :events, through: :clients
               
              
       end

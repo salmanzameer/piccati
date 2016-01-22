@@ -1,9 +1,13 @@
 class Event < ActiveRecord::Base
-   
-	belongs_to :client
+	
+	
 	has_many :images
+	
+	belongs_to :client	 
+    belongs_to :photographer
 	 
-
-   # mount_uploaders :attachment, AttachmentUploader 
-   # validates :name, presence: true 
+	validates :name,     presence: true 
+	validates :location, presence: true
+	validates :bridal ,  presence: true
+	validates :groom,    presence: true
 end

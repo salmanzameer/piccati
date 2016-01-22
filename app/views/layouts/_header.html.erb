@@ -1,3 +1,71 @@
-<%= link_to('Profile',profile_photographers_path) %>
-<%=link_to('Client',photographer_clients_path) %>
-<%#= link_to('Event',photographer_client_events_path(current_photographer,@client))%>
+
+ <!--  <nav class ="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+    <div class="navbar-header">
+
+   <! <a class="navbar-brand" href="#"><%#= image_tag("/images.png", :width => 75, :height => 50, 
+             :crop => :thumb, :gravity => :face, :radius => :max)%><%#= image_tag ('/images.png'), :height => '75', :width => '50', :align => 'left' %></a> -->
+      <!-- <ul class="nav nav-pills">
+      
+       <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+          <a class="navbar-brand" href="#"><%#= image_tag("/images.png", :width => 80, :height => 70, 
+             :crop => :thumb, :gravity => :face, :radius => :max , :align => 'left')%></a>
+          <input type="text" class="form-control" placeholder="Search" >
+           <%#= button_to ('Submit') ,class: "btn btn-primary-outline" %>
+         -->
+        <!-- <li class="dropdown">
+        <%# if current_photographer.present?%>
+          <a href="#" class="btn dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <! <span class="caret"> --><!-- </span></a> -->
+          <%#end%>
+          <!-- <ul class="dropdown-menu"> -->
+        <!-- <li><%#= link_to('Profile',api_v1_photographer_path(current_photographer)) if current_photographer.present? %></li><br> -->
+         <!--   <li><%#= link_to('Edit', edit_photographer_registration_path) if current_photographer.present? %> </li><br> -->
+         <!--  <li><%#= link_to('logout', destroy_photographer_session_path,:method => :delete) if current_photographer.present? %></li><br> -->
+       <!--     <li><%#= link_to('Client', new_api_v1_photographer_client_path(current_photographer)) if current_photographer.present? %></li>  -->                
+       <!-- </ul>
+       </li> -->
+       <!-- </div>
+          </form>
+          </ul> --> 
+<!-- </div>
+  </div>
+</nav> --> 
+
+
+
+<% if current_photographer.present? %>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><%= link_to image_tag("/images.png", :width => 80, :height => 54,  :crop => :thumb, :gravity => :face, :radius => :max , :align => 'left'),api_v1_photographer_path(current_photographer)%></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+       
+        <li><%= link_to('Clients', api_v1_photographer_clients_path(current_photographer)) if current_photographer.present?%></li>
+        <li><%= link_to('Events', api_v1_photographer_eventsinfo_path(current_photographer)) if current_photographer.present? %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+       
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to('Profile',api_v1_photographer_path(current_photographer)) if current_photographer.present? %></li><br>
+            <li><%= link_to('Edit', edit_photographer_registration_path) if current_photographer.present? %> </li><br>
+          </ul>
+          <li><%= link_to('logout', destroy_photographer_session_path,:method => :delete) if current_photographer.present? %></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<% end %>

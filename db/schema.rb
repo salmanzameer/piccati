@@ -11,27 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221120239) do
+ActiveRecord::Schema.define(version: 20160120084000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "clients", force: :cascade do |t|
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "user_name"
     t.string   "email"
     t.string   "password"
+    t.string   "authentication_token"
     t.integer  "photographer_id"
   end
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
+    t.string   "location"
+    t.string   "bridal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "client_id"
+    t.string   "groom"
   end
 
   create_table "images", force: :cascade do |t|
@@ -42,6 +46,7 @@ ActiveRecord::Schema.define(version: 20151221120239) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "client_id"
   end
 
   create_table "photographers", force: :cascade do |t|
@@ -62,6 +67,8 @@ ActiveRecord::Schema.define(version: 20151221120239) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "client_id"
+    t.integer  "event_id"
   end
 
   add_index "photographers", ["email"], name: "index_photographers_on_email", unique: true, using: :btree

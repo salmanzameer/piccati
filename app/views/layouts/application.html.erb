@@ -2,16 +2,14 @@
 <html>
 <head>
   <title>Gallery</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application' %>
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag  'custom', :media => 'screen' %>
+  
+  
   <%= csrf_meta_tags %>
-</head>
+ </head>
 <body>
-
-<% if notice %><p class="notice"><%= notice %></p><% end%>
-  <% if alert %><p class="alert"><%= alert %></p><% end %>
-
 <%= yield %>
-
 </body>
 </html>
