@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_client
+   
       @client = Client.where(email: params[:email], password: params[:password]).first 
   end
 

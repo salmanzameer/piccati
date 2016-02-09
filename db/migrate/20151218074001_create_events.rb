@@ -4,6 +4,7 @@ class CreateEvents < ActiveRecord::Migration
     	t.string "name"
     	t.string "location"
     	t.string "bridal"
+    	t.string "groom"
         t.timestamps null: false
     end
   end

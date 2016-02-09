@@ -1,0 +1,9 @@
+<h1>Photographer#profile</h1>
+<h2>Welcome ot proflie</h2>
+<%#= render %>
+<%= link_to('Profile')%>
+  <%#= link_to('Client', photographer_clients_path(current_photographer)) %>
+<%#= link_to('Event', photographer_events_path(current_photographer))%>
+  </br>
+ <%= link_to'logout', destroy_photographer_session_path, :method => :delete %> </br>
+ <%= link_to('Edit', edit_photographer_registration_path) %>

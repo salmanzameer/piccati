@@ -3,25 +3,23 @@ Rails.application.routes.draw do
 #  devise_for :photographers 
   
 
-devise_for :photographers
-# devise_scope :photographers do
-# root to: "devise/sessions#new"
-# end
+devise_for :photographers , controllers: {registrations: 'api/v1/registrations'}
 
 
   root to: "api/v1/photographers#sign_in"
-
+  get "api/v1/login" => "api/v1/pages#login"  
   namespace :api  do
     namespace :v1 do
-      resources :pages do
-        collection do
-         get 'login'
-       end
-     end
+     #  resources :pages do
+     #    collection do
+     #     get 'login'
+     #   end
+     # end
      resources :photographers do
-      collection do
+      member do
         get 'profile'
-        
+        #get 'update_password'
+        post 'update_password'
       end
       get 'eventsinfo'
       resources :clients do

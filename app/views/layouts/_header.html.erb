@@ -1,38 +1,4 @@
 
- <!--  <nav class ="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-    <div class="navbar-header">
-
-   <! <a class="navbar-brand" href="#"><%#= image_tag("/images.png", :width => 75, :height => 50, 
-             :crop => :thumb, :gravity => :face, :radius => :max)%><%#= image_tag ('/images.png'), :height => '75', :width => '50', :align => 'left' %></a> -->
-      <!-- <ul class="nav nav-pills">
-      
-       <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-          <a class="navbar-brand" href="#"><%#= image_tag("/images.png", :width => 80, :height => 70, 
-             :crop => :thumb, :gravity => :face, :radius => :max , :align => 'left')%></a>
-          <input type="text" class="form-control" placeholder="Search" >
-           <%#= button_to ('Submit') ,class: "btn btn-primary-outline" %>
-         -->
-        <!-- <li class="dropdown">
-        <%# if current_photographer.present?%>
-          <a href="#" class="btn dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <! <span class="caret"> --><!-- </span></a> -->
-          <%#end%>
-          <!-- <ul class="dropdown-menu"> -->
-        <!-- <li><%#= link_to('Profile',api_v1_photographer_path(current_photographer)) if current_photographer.present? %></li><br> -->
-         <!--   <li><%#= link_to('Edit', edit_photographer_registration_path) if current_photographer.present? %> </li><br> -->
-         <!--  <li><%#= link_to('logout', destroy_photographer_session_path,:method => :delete) if current_photographer.present? %></li><br> -->
-       <!--     <li><%#= link_to('Client', new_api_v1_photographer_client_path(current_photographer)) if current_photographer.present? %></li>  -->                
-       <!-- </ul>
-       </li> -->
-       <!-- </div>
-          </form>
-          </ul> --> 
-<!-- </div>
-  </div>
-</nav> --> 
-
-
 
 <% if current_photographer.present? %>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -60,12 +26,19 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to('Profile',api_v1_photographer_path(current_photographer)) if current_photographer.present? %></li><br>
-            <li><%= link_to('Edit', edit_photographer_registration_path) if current_photographer.present? %> </li><br>
+            <li><%= link_to('Profile',api_v1_photographer_path(current_photographer)) if current_photographer.present? %>
+           </li>
+            <li><%= link_to('Edit',  edit_photographer_registration_path) if current_photographer.present? %>
+            </li>
+             <li><%= link_to("Cancel account", registration_path(current_photographer),  data: { confirm: "Are you sure?" }, method: :delete) if current_photographer.present? %> </li>
+             <%#binding.pry%>
+             <li> <%= link_to 'Change Password',     edit_api_v1_photographer_path(current_photographer)   %></li>
           </ul>
           <li><%= link_to('logout', destroy_photographer_session_path,:method => :delete) if current_photographer.present? %></li>
+<% end %>
+         
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<% end %>
+<%# end %>

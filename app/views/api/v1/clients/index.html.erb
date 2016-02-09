@@ -1,0 +1,59 @@
+
+
+<!-- 
+<div class="page-header">
+  <h3>Clients Name</h3>
+ <div class="table-responsive">
+   <table class="table ">
+	 <%# @client.each do |clt| %>
+	<tr>
+        <th scope="row">
+	        <%#= clt.first_name %>
+	        </th>
+	       	  <td> 
+	     	<%#= link_to('Show', api_v1_photographer_client_path(current_photographer,clt.id))%>
+	        <%#= link_to('Edit',  edit_api_v1_photographer_client_path(current_photographer,clt.id))%>
+            <%#= link_to('Events',photographer_client_events_path(current_photographer.id,clt.id))%>
+    <%#= link_to('Upload-Images',upload_images_photographer_client_path(current_photographer.id,clt.id))%>
+	<%#= link_to('Destroy',photographer_client_path(current_photographer,clt.id), :method => 'delete')%>
+	    </td>
+
+	</tr>
+    <%# end %>
+</table>
+<br>
+    <%#= link_to('New Client',new_api_v1_photographer_client_path(current_photographer) ,class: "btn btn-primary" )%>
+</div>
+</div> -->
+
+
+
+<!-- <div class="background-image"> -->
+
+
+
+<div><br></br>
+	<h1 class="center"><b>Clients Details</b></h1>
+
+	<table class="table">
+	
+			<tr>
+				<th class="center">Client Name</th>
+				<th class="center">Edit Client</th>
+			</tr>
+	
+			<% @client.each do |clt| %>
+			<tr class="txt">
+				<td> <ins><%= link_to(clt.first_name,api_v1_photographer_client_path(current_photographer,clt.id),class: "txt") %></ins></td>
+				<!-- <td><%#= link_to('Show', api_v1_photographer_client_path(current_photographer,clt.id))%></td> -->
+				<td><ins> <%= link_to('Edit',  edit_api_v1_photographer_client_path(current_photographer,clt.id), class: "txt")%> </ins></td>
+			</tr>
+			
+			<% end %>
+		
+	</table>
+	<div align="center">
+		<%= link_to('New Client',new_api_v1_photographer_client_path(current_photographer) ,class: "btn btn-link-1" )%>
+	</div>
+</div>
+</div>
