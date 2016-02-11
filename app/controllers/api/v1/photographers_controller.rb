@@ -1,12 +1,12 @@
 class Api::V1::PhotographersController < ApplicationController
  before_filter :authenticate_photographer!
 
-  # def index
-  # end
+  def index
+  end
 
-  # def profile
+  def profile
    
-  # end
+  end
 
   def show
  

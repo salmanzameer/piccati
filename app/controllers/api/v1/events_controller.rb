@@ -78,11 +78,11 @@ def upload_images
    end  
 
   def image
-    binding.pry
+     
     if current_photographer.present?
        @client = Client.find_by_id(params[:client_id])
        @event = Event.find_by_id(params[:event_id])
-       @image = Image.find_by_id(params[:id])  
+       @image = Image.find_by_id(params[:image_id])  
     else
       client_match_token
       if @client.present?
