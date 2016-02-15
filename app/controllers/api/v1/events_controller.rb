@@ -1,7 +1,6 @@
 class Api::V1::EventsController < ApplicationController
 
   def index
-    #binding.pry
     @client = Client.find(params[:client_id])
     @event  = @client.events
     render :json => {status: '200'  , events: @event.to_json( :only => [:id,:name,:location,:bridal]) , client: @client.to_json( :only => [:id,:first_name,:last_name,:user_name,:email]) } 
