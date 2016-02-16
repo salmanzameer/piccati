@@ -3,7 +3,8 @@ class Api::V1::EventsController < ApplicationController
   def index
     @client = Client.find(params[:client_id])
     @event  = @client.events
-    render :json => {status: '200'  , events: @event.to_json( :only => [:id,:name,:location,:bridal]) , client: @client.to_json( :only => [:id,:first_name,:last_name,:user_name,:email]) } 
+    render :json => {events: @event ,
+    client: { @client.first_name, username: @client.user_name, token: @client.authentication_token} } 
   end
 
   def show
@@ -84,6 +85,7 @@ def upload_images
        @image = Image.find_by_id(params[:image_id])  
     else
       client_match_token
+      @image = Image.find_by_id(params[:id]) 
       if @client.present?
         render :json => { image: @image   }
 
