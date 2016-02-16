@@ -4,7 +4,7 @@ class Api::V1::EventsController < ApplicationController
     @client = Client.find(params[:client_id])
     @event  = @client.events
     render :json => {events: @event,
-    client: {name:  @client.first_name, username: @client.user_name, token: @client.authentication_token } } 
+    client: { id: @client.id ,name:  @client.first_name, username: @client.user_name, token: @client.authentication_token } } 
   end
 
   def show
