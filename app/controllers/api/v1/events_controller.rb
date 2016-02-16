@@ -3,8 +3,8 @@ class Api::V1::EventsController < ApplicationController
   def index
     @client = Client.find(params[:client_id])
     @event  = @client.events
-    render :json => {events: @event ,
-    client: { @client.first_name, username: @client.user_name, token: @client.authentication_token} } 
+    render :json => {events: @event,
+    client: {name:  @client.first_name, username: @client.user_name, token: @client.authentication_token } } 
   end
 
   def show
