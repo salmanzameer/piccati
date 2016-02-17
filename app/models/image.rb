@@ -10,4 +10,7 @@ class Image < ActiveRecord::Base
 	validates_attachment_size :image, :less_than => 5.megabytes
 	validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
 	belongs_to :client
+	def image_url
+      image.url
+	end
 end

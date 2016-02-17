@@ -68,10 +68,13 @@ def upload_images
 
 
       if @client.present?  
-
-        render :json => { images:  @client.events.find_by_id(params[:event_id]).images.all  }  
+        @i = []
+      
+        @client.events.find_by_id(params[:event_id]).images.all.each do |img|
+        
+        @i << request.base_url + img.image_url end
+        render :json => { images:  @i  }  
       else
-
         render :json => { error: "error" }  
        end
      end
@@ -87,7 +90,8 @@ def upload_images
       client_match_token
       @image = Image.find_by_id(params[:id]) 
       if @client.present?
-        render :json => { image: @image   }
+       
+         render :json =>  { url: request.base_url + @image.image_url, image: @image.as_json(:only =>[:id, :name, :event_id] ) }
 
       else
         render :json => { status: 'error'}
