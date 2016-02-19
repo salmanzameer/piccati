@@ -68,12 +68,14 @@ def upload_images
 
 
       if @client.present?  
-        @i = []
         
-       @image = @client.events.find_by_id(params[:event_id]).images.all.each do |img|
+      
+        @image = @client.events.find_by_id(params[:event_id]).images.all.each do |img|
         
-        @i << request.base_url + img.image_url end
-        render :json => { url:  @i + @image.as_json(:only => [:id])  }  
+        @i =    request.base_url + img.image_url
+          img.update_attributes(url: @i) 
+      end
+        render :json => { images: @image.as_json(:only => [:id, :event_id, :url]) }  
       else
         render :json => { error: "error" }  
        end
@@ -91,7 +93,7 @@ def upload_images
       @image = Image.find_by_id(params[:id]) 
       if @client.present?
        
-         render :json =>  { url: request.base_url + @image.image_url, image: @image.as_json(:only =>[:id, :name, :event_id] ) }
+         render :json =>  {  image: @image.as_json(:only =>[:id, :name, :event_id, :url] )  }
 
       else
         render :json => { status: 'error'}
