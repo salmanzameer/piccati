@@ -1,7 +1,7 @@
 class Image < ActiveRecord::Base
 	
 	belongs_to :event
-	
+	# has_many :userlike, as: userlikeable
 	has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" },
 	:url  => "/system/events/images/000/000/00:id/:style/:basename.:extension",
 	:path => ":rails_root/public/system/events/images/000/000/00:id/:style/:basename.:extension"

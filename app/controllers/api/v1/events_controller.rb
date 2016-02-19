@@ -23,6 +23,7 @@ class Api::V1::EventsController < ApplicationController
       end
     end
   end
+
   def new
     @client =current_photographer.clients.find_by_id(params[:client_id]) 
     @event = current_photographer.clients.find_by_id(params[:client_id]).events.new
@@ -41,8 +42,7 @@ class Api::V1::EventsController < ApplicationController
 end
 
 def eventparams
- # binding.pry
-  params.require(:event).permit(:name,:location,:bridal,:groom)
+   params.require(:event).permit(:name,:location,:bridal,:groom)
 end
 
 def upload_images
@@ -61,19 +61,19 @@ def upload_images
       
       if current_photographer.present?
        @client = Client.find_by_id(params[:client_id])
-       @event = Event.find_by_id(params[:id])
-       @image = current_photographer.clients.find_by_id(params[:client_id]).events.find_by_id(params[:id]).images.all    
+       @event  = Event.find_by_id(params[:id])
+       @image  = current_photographer.clients.find_by_id(params[:client_id]).events.find_by_id(params[:id]).images.all    
      else
       client_match_token
 
 
       if @client.present?  
         @i = []
-      
-        @client.events.find_by_id(params[:event_id]).images.all.each do |img|
+        
+       @image = @client.events.find_by_id(params[:event_id]).images.all.each do |img|
         
         @i << request.base_url + img.image_url end
-        render :json => { images:  @i  }  
+        render :json => { url:  @i + @image.as_json(:only => [:id])  }  
       else
         render :json => { error: "error" }  
        end
@@ -83,9 +83,9 @@ def upload_images
   def image
      
     if current_photographer.present?
-       @client = Client.find_by_id(params[:client_id])
-       @event = Event.find_by_id(params[:event_id])
-       @image = Image.find_by_id(params[:image_id])  
+       @client =  Client.find_by_id(params[:client_id])
+       @event  =  Event.find_by_id(params[:event_id])
+       @image  =  Image.find_by_id(params[:image_id])  
     else
       client_match_token
       @image = Image.find_by_id(params[:id]) 
