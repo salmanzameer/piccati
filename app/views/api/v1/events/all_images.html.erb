@@ -1,6 +1,5 @@
 <div><br></br>
 	<h1 class="center" > <%= @event.name%> Gallery </h1>
-
 </br>
 <div class="col-md-2">
 </div>
@@ -8,7 +7,9 @@
 	<div class="row">
 		<% @image.each do |img|%>
 		<div class="col-md-4">
-			<%=link_to image_tag(img.image, :width => "250", :height => "250", style: 'padding-bottom: 20px',class: "img-rounded"), event_image_api_v1_photographer_client_event_path(current_photographer,@client,@event, image_id: img.id) %></div>
+			<%=link_to image_tag(img.image, :width => "250", :height => "250", style: 'padding-bottom: 20px',class: "img-rounded"), event_image_api_v1_photographer_client_event_path(current_photographer,@client,@event, image_id: img.id) %>
+			<%#= link_to 'Like', api_v1_client_event_liked_path(event_id: @event.id, image_liked: img.id), class: 'like'+img.id.to_s, remote: true %>
+		</div>
 			<% end %>
 		</div>
 

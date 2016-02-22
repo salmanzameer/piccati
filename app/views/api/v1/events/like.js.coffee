@@ -1,0 +1,1 @@
+$(".like#{params[:image_liked]}").text('Unlike')

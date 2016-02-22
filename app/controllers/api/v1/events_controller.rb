@@ -58,22 +58,17 @@ def upload_images
     end
 
     def all_images
-      
       if current_photographer.present?
        @client = Client.find_by_id(params[:client_id])
        @event  = Event.find_by_id(params[:id])
        @image  = current_photographer.clients.find_by_id(params[:client_id]).events.find_by_id(params[:id]).images.all    
      else
       client_match_token
-
-
       if @client.present?  
-        
-      
         @image = @client.events.find_by_id(params[:event_id]).images.all.each do |img|
         
-        @i =    request.base_url + img.image_url
-          img.update_attributes(url: @i) 
+        @i = request.base_url + img.image_url
+        img.update_attributes(url: @i) 
       end
         render :json => { images: @image.as_json(:only => [:id, :event_id, :url]) }  
       else
@@ -82,12 +77,17 @@ def upload_images
      end
    end  
 
+   # def like
+   #  Image.find_by_id(params[:image_liked]).update_attributes(is_liked: true)
+   # end
+
   def image
      
     if current_photographer.present?
        @client =  Client.find_by_id(params[:client_id])
        @event  =  Event.find_by_id(params[:event_id])
-       @image  =  Image.find_by_id(params[:image_id])  
+       @image  =  Image.find_by_id(params[:image_id])
+
     else
       client_match_token
       @image = Image.find_by_id(params[:id]) 

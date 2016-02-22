@@ -39,6 +39,7 @@ devise_for :photographers , controllers: {registrations: 'api/v1/registrations'}
       resources :events do
         get 'all_images'
         get 'image/:id' => 'events#image'
+        get 'liked' => 'events#like'
       end
     end
   end
