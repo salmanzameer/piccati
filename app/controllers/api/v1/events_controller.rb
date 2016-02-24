@@ -3,7 +3,7 @@ class Api::V1::EventsController < ApplicationController
   def index
     @client = Client.find(params[:client_id])
     @event  = @client.events
-    render :json => {events: @event,
+    render :json => { status: 'Ok' ,events: @event,
     client: { id: @client.id ,name:  @client.first_name, username: @client.user_name, token: @client.authentication_token } } 
   end
 
@@ -17,7 +17,7 @@ class Api::V1::EventsController < ApplicationController
       @event  = @client.events.find_by_id(params[:id])
       if @client.present?
 
-        render :json => { event: @client.events.find_by_id(params[:id]) }
+        render :json => { status: 'Ok' ,event: @client.events.find_by_id(params[:id]) }
       else
         render :json => { status: 'Error'}
       end
@@ -66,34 +66,43 @@ def upload_images
       client_match_token
       if @client.present?  
         @image = @client.events.find_by_id(params[:event_id]).images.all.each do |img|
-        
         @i = request.base_url + img.image_url
         img.update_attributes(url: @i) 
       end
-        render :json => { images: @image.as_json(:only => [:id, :event_id, :url]) }  
+        render :json => {status: "Ok" ,images: @image.as_json(:only => [:id, :event_id, :url]) }  
       else
-        render :json => { error: "error" }  
+        render :json => { status: "error" }  
        end
      end
    end  
 
-   # def like
-   #  Image.find_by_id(params[:image_liked]).update_attributes(is_liked: true)
-   # end
+   def like
+  
+    if current_photographer.present?
+     @image = Image.find_by_id(params[:image_id])
+   else
+    client_match_token
+    @like = Image.find_by_id(params[:id]).update_attributes(is_liked: params[:is_liked])
+     render :json => { status: "Ok" ,like: @like} 
+    end
+   end
 
   def image
-     
+#binding.pry     
     if current_photographer.present?
        @client =  Client.find_by_id(params[:client_id])
        @event  =  Event.find_by_id(params[:event_id])
        @image  =  Image.find_by_id(params[:image_id])
+        
 
     else
       client_match_token
-      @image = Image.find_by_id(params[:id]) 
+      
+        @image = Image.find_by_id(params[:id])
+    
       if @client.present?
-       
-         render :json =>  {  image: @image.as_json(:only =>[:id, :name, :event_id, :url] )  }
+
+       render :json =>  { status: "Ok", image: @image.as_json(:only =>[:id, :name, :event_id, :url] )  }
 
       else
         render :json => { status: 'error'}
@@ -101,7 +110,7 @@ def upload_images
     end
     
 
-    #render :json => { image:   @image }
+    
 
 end
 end

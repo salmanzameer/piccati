@@ -35,7 +35,7 @@ gem 'devise'
 gem 'therubyracer'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+# gem 'acts_as_votable'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
