@@ -8,7 +8,6 @@ class Api::V1::EventsController < ApplicationController
     end
 
     def show
-
       if current_photographer.present? 
         @client = Client.find_by_id(params[:client_id]) 
         @event  = Event.find_by_id(params[:id])
