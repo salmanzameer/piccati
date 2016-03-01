@@ -67,7 +67,7 @@ def all_images
       @i = request.base_url + img.image_url
       img.update_attributes(url: @i) 
     end
-    render :json => {status: "Ok" ,images: @image.as_json(:only => [:id, :event_id, :url, :like ]) }  
+    render :json => {status: "Ok" ,images: @image.as_json(:only => [:id, :event_id, :url, :is_liked ]) }  
   else
     render :json => { status: "error" }  
   end
