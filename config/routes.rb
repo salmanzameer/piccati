@@ -7,7 +7,7 @@ devise_for :photographers , controllers: {registrations: 'api/v1/registrations'}
 
 
   root to: "api/v1/photographers#sign_in"
-  get "api/v1/login" => "api/v1/pages#login"  
+  post "api/v1/login" => "api/v1/pages#login"  
   namespace :api  do
     namespace :v1 do
      #  resources :pages do
@@ -22,7 +22,7 @@ devise_for :photographers , controllers: {registrations: 'api/v1/registrations'}
         post 'update_password'
       end
       get 'eventsinfo'
-      resources :clients do
+        resources :clients do
         get 'show1'       
         resources :events do 
           member do

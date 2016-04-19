@@ -1,5 +1,8 @@
 
-  <br></br>
+<br></br>
+<br></br>
+<br></br>
+
    <h1 class="center"> Client Info</h1> 
 
 
@@ -50,17 +53,10 @@
      <td><%= eve.location %></td>
      <td><%= link_to 'Upload-Images', api_v1_photographer_client_event_path(current_photographer,@client.id,eve.id), class: "btn btn-link-1"%></td>
    </tr>
-
-
-
- <% end %>
+  <% end %>
 </table>
 </div>
-<%# end %>
- 
-                           
-                     
-                           
+
 <div align="center">
 <%= link_to('New Events', new_api_v1_photographer_client_event_path(current_photographer,@client.id), class: "btn btn-link-1")%>
  <%#= link_to('New Events', new_api_v1_photographer_client_event_path(current_photographer,@client.id), class: "btn")%>

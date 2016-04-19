@@ -2,6 +2,7 @@ class Api::V1::PhotographersController < ApplicationController
  before_filter :authenticate_photographer!
 
   def index
+    
   end
 
   def profile
@@ -14,6 +15,7 @@ class Api::V1::PhotographersController < ApplicationController
     #render :json => { photographer: @photographer }
   end
   def edit
+      
      @photographer = Photographer.find(current_photographer)
   end
 
@@ -27,12 +29,14 @@ class Api::V1::PhotographersController < ApplicationController
     redirect_to new_photographer_session_path
   end
   def eventsinfo
+    
     @event = current_photographer.events
   end
   def update_password
+    
     @photographer = Photographer.find(current_photographer)
     if @photographer.update_with_password(photographer_params)          
- 
+        
         redirect_to  api_v1_photographer_path(current_photographer)
      else
       render 'edit'

@@ -1,13 +1,16 @@
 class Api::V1::EventsController < ApplicationController
 
   def index
+    
     @client = Client.find(params[:client_id])
     @event  = @client.events
     render :json => { status: 'Ok' ,events: @event,
       client: { id: @client.id ,name:  @client.first_name, username: @client.user_name, token: @client.authentication_token } } 
+    
     end
 
     def show
+      
       if current_photographer.present? 
         @client = Client.find_by_id(params[:client_id]) 
         @event  = Event.find_by_id(params[:id])
@@ -62,10 +65,12 @@ def all_images
    @image  = current_photographer.clients.find_by_id(params[:client_id]).events.find_by_id(params[:id]).images.all    
  else
   client_match_token
-  if @client.present?  
+  if @client.present? 
+     
     @image = @client.events.find_by_id(params[:event_id]).images.all.each do |img|
       @i = request.base_url + img.image_url
       img.update_attributes(url: @i) 
+     
     end
     render :json => {status: "Ok" ,images: @image.as_json(:only => [:id, :event_id, :url, :is_liked ]) }  
   else
@@ -75,7 +80,7 @@ end
 end  
 
 def like
-#binding.pry
+
   if current_photographer.present?
    @image = Image.find_by_id(params[:image_id])
  else
@@ -117,13 +122,4 @@ end
 
 end
 end
- # render :json => {event: @event }
-          # @client ==  current_photographer.clients.find_by_id(params[:client_id])
-            # @event1= Event.new
-               #@event = @image.images.find_by_id(params[:id])
-                  #@image = upload_photographer_client_event_path(current_photographer.id,@client.id,@event.id).images.find_by_id(params[:id])
-  #                   @menu = {"menu" => @client.events , "data" => {"name" => @event.name, "location" => @event.location, "Bridal" => @event.bridal , "image_url" => @event.images }  }
-  #                      respond_to do |format|
-  #                        format.json {render :json => @menu.to_json}
-  #                          end
-
+ 

@@ -2,6 +2,7 @@ class Api::V1::ClientsController < ApplicationController
 
  def index
  
+  
   @client = current_photographer.clients.all
   
 
@@ -16,8 +17,9 @@ def show
      client_match_token
   if
    @client.present?
-  
+    @events
     render :json => @client.to_json( :only =>[:id,:first_name,:last_name,:user_name,:email]  ) 
+    
   else
     render json: {status: 'error'}
   end
@@ -38,10 +40,6 @@ def create
   render('new')
  end
 end
-
-# def show1
-#   @client =current_photographer.clients.find(params[:client_id])
-# end
 
 def edit
   @client = current_photographer.clients.find(params[:id])      
@@ -72,30 +70,6 @@ def clientsparams
 end
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # def upload_images
      #   # binding.pry

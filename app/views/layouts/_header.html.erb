@@ -1,8 +1,6 @@
-
-
 <% if current_photographer.present? %>
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -11,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><%= link_to image_tag("/images.png", :width => 80, :height => 54,  :crop => :thumb, :gravity => :face, :radius => :max , :align => 'left'),api_v1_photographer_path(current_photographer)%></a>
+      <a class="navbar-brand" href="#"><%= link_to image_tag("/assets/images.png", :width => 80, :height => 54,  :crop => :thumb, :gravity => :face, :radius => :max , :align => 'left'),api_v1_photographer_path(current_photographer)%></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,7 +29,7 @@
             <li><%= link_to('Edit',  edit_photographer_registration_path) if current_photographer.present? %>
             </li>
              <li><%= link_to("Cancel account", registration_path(current_photographer),  data: { confirm: "Are you sure?" }, method: :delete) if current_photographer.present? %> </li>
-             <%#binding.pry%>
+             
              <li> <%= link_to 'Change Password',     edit_api_v1_photographer_path(current_photographer)   %></li>
           </ul>
           <li><%= link_to('logout', destroy_photographer_session_path,:method => :delete) if current_photographer.present? %></li>
