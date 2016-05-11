@@ -16,7 +16,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'plupload-rails'
 gem 'paperclip', '~> 4.2'
 #gem 'rmagick', '> 2.12.0'
-#gem 'grape'
+gem 'grape'
+gem 'grape-rabl'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -26,10 +27,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem "twitter-bootstrap-rails"
-
+gem 'aws-sdk', '< 2.0'
 # devise for authentication
 gem 'devise'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'therubyracer'
@@ -42,7 +42,6 @@ gem 'therubyracer'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'pry-rails'
   gem 'rspec-rails','~> 3.0'
   gem 'factory_girl_rails'
   gem 'faker'
@@ -51,6 +50,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'pry-rails'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
