@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   
   devise_for :photographers , controllers: {registrations: 'registrations'}
   root to: "photographers#sign_in"
-  post "api/v1/login" => "api/v1/pages#login" 
       resources :photographers do
       member do
         get 'profile'
