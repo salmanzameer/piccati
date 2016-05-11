@@ -1,7 +1,7 @@
 object false
 
 child @images, object_root: false do
-  attributes :id, :is_liked, :event_id, :client_id
+  attributes :id, :is_liked, :event_id
   node(:url) { |img| img.image_url  }
 end
 
