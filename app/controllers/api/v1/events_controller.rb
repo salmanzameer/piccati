@@ -4,13 +4,12 @@ class Api::V1::EventsController < ApplicationController
     
     @client = Client.find(params[:client_id])
     @event  = @client.events
-    render :json => { status: 'Ok' ,events: @event,
+    render :json => { status: 'Ok' , message:"You've been successfully loged in.",
       client: { id: @client.id ,name:  @client.first_name, username: @client.user_name, token: @client.authentication_token } } 
     
     end
 
     def show
-      
       if current_photographer.present? 
         @client = Client.find_by_id(params[:client_id]) 
         @event  = Event.find_by_id(params[:id])
@@ -18,8 +17,14 @@ class Api::V1::EventsController < ApplicationController
         client_match_token
         @event  = @client.events.find_by_id(params[:id])
         if @client.present?
+          @image = @event.images.each do |img|
+            @i = request.base_url + img.image_url
+            img.update_attributes(url: @i)
+          end
 
-          render :json => { status: 'Ok' ,event: @client.events.find_by_id(params[:id]) }
+          render :json => { status: 'Ok' ,message: "Single event successfully shown.",
+            images: @image.as_json(:only => [:id, :event_id, :url, :is_liked ]) }
+
         else
           render :json => { status: 'Error'}
         end

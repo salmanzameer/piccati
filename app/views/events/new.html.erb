@@ -1,0 +1,81 @@
+
+<div class="background-image">
+  <div class="top-content">
+    <div class="inner-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text">
+            <h1><strong>Event</strong> Form</h1>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 form-box">
+            <div class="form-top">
+              <div class="form-top-left">
+                <h3>Please fill the event form</h3>
+                <p>Enter your event crentendials:</p>
+              </div>
+              <div class="form-top-right">
+                <i class="fa fa-lock"></i>
+              </div>
+            </div>
+            <div class="form-bottom">
+
+             <%= form_for @event, url: photographer_client_events_path, :html => {:multipart => true, :class => 'form-horizantal'} do |f| %>
+
+            
+            <div class="form-group">
+             <%= f.label :name, :class => 'sr-only', :for => 'form-name'%>
+             <%= f.text_field :name,autofocus: true, :placeholder =>"Event Name", :class => "form-name form-control", :id => "form-name" %>
+         <% if @event.errors.present? %>
+           <div class="txt">
+           <%=  @event.errors.messages[:name ].first%>
+            </div>
+         <% end %> 
+            
+           </div>
+           <div class="form-group">
+             <%= f.label :location, :class => 'sr-only', :for => 'form-location'%>
+             <%= f.text_field :location ,autofocus: true, :placeholder =>"Location Name", :class => "form-location form-control", :id => "form-location" %>
+         <% if @event.errors.present? %>
+           <div class="txt">
+           <%=  @event.errors.messages[:location].first%>
+           </div>
+         <% end %> 
+            
+           </div>
+           
+            <div class="form-group">
+             <%= f.label :bridal, :class => 'sr-only', :for => 'form-name'%>
+             <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "form-bridal form-control", :id => "form-bridal" %>
+         <% if @event.errors.present? %>  
+            <div class="txt">
+          <%=  @event.errors.messages[:bridal].first%>
+          </div>
+         <% end %> 
+            
+           </div>
+          
+            <div class="form-group">
+             <%= f.label :groom, :class => 'sr-only', :for => 'form-name'%>
+             <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "form-groom form-control", :id => "form-groom" %>
+         <% if @event.errors.present? %>
+         <div class="txt">  <%=  @event.errors.messages[:groom].first%></div>
+         <% end %> 
+            
+           </div>
+         <%= f.button 'Submit' , class: "btn" %></td>
+           <% end %>
+          
+         </div>
+         <div class="form-group">
+ <ins> <%= link_to "Back", photographer_client_path(current_photographer,params[:client_id],class: "form-control") %> </ins>
+</div>
+       </div>
+     </div>
+  
+  </div>
+</div>
+</div>
+</div>

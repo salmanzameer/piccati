@@ -1,0 +1,28 @@
+<br></br>
+<br></br>
+<br></br>
+
+<h1 align="center">Event</h1>
+<table class="table">
+	<tr>
+		<th scope="row">Client Event</th>
+	</tr>
+		<% @event.each do |eve| %>
+	<tr>
+    	<td>
+    	   <!-- <th>EventName</th> -->
+    	   <%= eve.bridal%>
+    	    <%= eve.location %>
+
+    	   <b> <%= eve.name %></b>
+
+	  <%= link_to('Show', all_images_photographer_client_event_path(current_photographer,eve.client.id,eve.id))%>
+	    <%#= link_to('Edit', edit_photographer_client_path(current_photographer,clt.id,eve.id))%>
+          <%#= link_to('Event',photographer_client_events_path(current_photographer.id,clt.id))%>
+	        <%#= link_to('Destroy',photographer_client_path(current_photographer,clt.id), :method => 'delete')%>
+       
+       	</td>
+  	</tr>
+   <% end %>
+</table>
+</div>

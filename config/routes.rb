@@ -1,24 +1,12 @@
 Rails.application.routes.draw do
-
-#  devise_for :photographers 
+  mount API => '/'
   
-
-devise_for :photographers , controllers: {registrations: 'api/v1/registrations'}
-
-
-  root to: "api/v1/photographers#sign_in"
-  post "api/v1/login" => "api/v1/pages#login"  
-  namespace :api  do
-    namespace :v1 do
-     #  resources :pages do
-     #    collection do
-     #     get 'login'
-     #   end
-     # end
-     resources :photographers do
+  devise_for :photographers , controllers: {registrations: 'registrations'}
+  root to: "photographers#sign_in"
+  post "api/v1/login" => "api/v1/pages#login" 
+      resources :photographers do
       member do
         get 'profile'
-        #get 'update_password'
         post 'update_password'
       end
       get 'eventsinfo'
@@ -26,7 +14,6 @@ devise_for :photographers , controllers: {registrations: 'api/v1/registrations'}
         get 'show1'       
         resources :events do 
           member do
-            #get 'showevents'
             get 'upload_images'
             post 'upload_images'
             get  'all_images'
@@ -42,10 +29,4 @@ devise_for :photographers , controllers: {registrations: 'api/v1/registrations'}
         get 'image/:id/like' => 'events#like'
       end
     end
-  end
-end
-  #get "/photographers/:photographer_id/clients/:client_id/events/:event_id/show_images/:id" => 'events#show_images', as: :event_image
-
-
-  #get "/photographers/:photographer_id/clients/:client_id/events/:event_id/all_images/:id" => 'events#all_images', as: :all_images
 end

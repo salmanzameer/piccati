@@ -2,3 +2,7 @@
 
 require ::File.expand_path('../config/environment', __FILE__)
 run Rails.application
+
+use Rack::Config do |env|
+  env['api.tilt.root'] = '/home/ammar/gallery-protonlabs/app/api/views'
+end

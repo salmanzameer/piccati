@@ -1,0 +1,21 @@
+<div><br></br>
+	<h1 class="center" > <%= @event.name%> Gallery </h1>
+</br>
+<div class="col-md-2">
+</div>
+<div class="col-md-8">
+	<div class="row">
+		<% @image.each do |img|%>
+		<div class="col-md-4">
+			<%=link_to image_tag(img.image, :width => "304", :height => "236", style: 'padding-bottom: 20px',class: "img-rounded"), event_image_photographer_client_event_path(current_photographer,@client,@event, image_id: img.id) %>
+		</div>
+			<% end %>
+		</div>
+
+		<div class="link">
+		<ins>	<%= link_to('Back', photographer_client_path(current_photographer,@client.id))%></ins>
+		</div>
+	</div>
+</div>
+<div class="col-md-2">
+</div>

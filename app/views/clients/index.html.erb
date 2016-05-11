@@ -1,0 +1,28 @@
+<div>
+	<br></br>
+	<br></br>
+	<br></br>
+
+	<h1 class="center"><b>Clients Details</b></h1>
+
+	<table class="table table-bordered">
+	
+			<tr>
+				<th class="center">Client Name</th>
+				<th class="center">Edit Client</th>
+			</tr>
+	
+			<% @client.each do |clt| %>
+			<tr class="text">
+				<td> <ins><%= link_to(clt.first_name, photographer_client_path(current_photographer,clt.id),class: "text") %></ins></td>
+				<td><ins> <%= link_to('Edit', edit_photographer_client_path(current_photographer,clt.id), class: "txt")%> </ins></td>
+			</tr>
+			
+			<% end %>
+		
+	</table>
+	<div align="center">
+		<%= link_to('New Client',new_photographer_client_path(current_photographer) ,class: "btn btn-link-1" )%>
+	</div>
+</div>
+</div>

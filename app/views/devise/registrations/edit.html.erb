@@ -31,7 +31,7 @@
                <%= resource.errors["firstname"].first%>
              </div>
          
- </div>
+            </div>
            <div class="form-group">
              <%= f.label :lastname, :class => 'sr-only', :for => 'form-lastname'%> 
              <%= f.text_field :lastname, autofocus: true , :placeholder => 'Lastname' ,class: "form-lastname form-control", :id =>'form-lastname' %>
@@ -92,7 +92,7 @@
         </div>
       </div>
     </div>
-    <ins><%= link_to("Back",  api_v1_photographer_path(current_photographer)) %></ins>
+    <ins><%= link_to("Back", photographer_path(current_photographer)) %></ins>
   </div>
 </div>
 </div>

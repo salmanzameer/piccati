@@ -1,0 +1,68 @@
+
+<br></br>
+<br></br>
+<br></br>
+
+   <h1 class="center"> Client Info</h1> 
+
+
+  <table class="table">
+        
+        <tbody>
+          <tr  class="txt">
+               
+            <td width ="50%" class="text-right">First name:</td>
+            <td  class="text-left"><%= @client.first_name%></td>
+          </tr>
+          <tr  class="txt">
+           
+            <td  class="text-right">Last name:</td>
+            <td  class="text-left"><%= @client.last_name%></td>
+          </tr>
+          <tr  class="txt">
+           
+            <td  class="text-right">Username:</td>
+            <td class="text-left"><%= @client.user_name%></td>
+          </tr>
+         
+        </tbody>
+      </table>
+        
+         <h3 class ="center">Client Events</h3>
+
+
+  <div class="table-responsive">
+   <table class="table">
+   
+      <tr>
+
+       <th class="center">Event Name</th>
+       <th class="center">Birde Name</th>
+       <th class="center">Groom Name</th>
+       <th class="center">Location</th>
+       <th class="center">Upload Images</th>
+     </tr>
+   
+   <%@events.each do |eve|%>
+  
+    <tr class="txt">
+     <td><ins>
+     <%= link_to (eve.name), all_images_photographer_client_event_path(current_photographer,@client,eve.id), class: "txt"%></ins></td>
+     <td><%=eve.bridal%></td>
+     <td><%= eve.groom%></td>
+     <td><%= eve.location %></td>
+     <td><%= link_to 'Upload-Images', photographer_client_event_path(current_photographer,@client.id,eve.id), class: "btn btn-link-1"%></td>
+   </tr>
+  <% end %>
+</table>
+</div>
+
+<div align="center">
+<%= link_to('New Events', new_photographer_client_event_path(current_photographer,@client.id), class: "btn btn-link-1")%>
+</div> 
+</div>
+</div>
+<ins><%= link_to('Back', photographer_clients_path(current_photographer) )%></ins>
+
+
+
