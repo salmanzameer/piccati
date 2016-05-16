@@ -18,6 +18,7 @@ gem 'paperclip', '~> 4.2'
 #gem 'rmagick', '> 2.12.0'
 gem 'grape'
 gem 'grape-rabl'
+gem 'omniauth-facebook'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

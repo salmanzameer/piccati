@@ -12,7 +12,7 @@ protected
     end 
     
     devise_parameter_sanitizer.for(:account_update) do |u|
-     u.permit(:title,:firstname,:lastname,:contnumber,:username,:email,:password,:password_confirmation,:current_password)
+     u.permit(:title,:firstname,:lastname,:contnumber,:username,:email,:password,:password_confirmation,:current_password,:avatar)
     end
   end
 

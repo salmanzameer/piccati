@@ -1,9 +1,8 @@
 class Client < ActiveRecord::Base
   before_create :generate_authentication_token
   belongs_to    :photographer
-  
-  has_many   :events
-  has_many   :images
+  has_many      :events
+  has_many      :images
   
   validates :first_name, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }, presence: true
   validates :last_name,  format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }, presence: true

@@ -1,9 +1,9 @@
 class Image < ActiveRecord::Base
+  after_create :after_upload
 
 	belongs_to :event
 	belongs_to :client
-
-	has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" },
+	has_attached_file :image, styles: { original: "500x500", medium: "300x300>"},
 	:url  => "/system/events/images/000/000/00:id/:style/:basename.:extension",
 	:path => ":rails_root/public/system/events/images/000/000/00:id/:style/:basename.:extension",
   :storage => :s3,
@@ -13,10 +13,18 @@ class Image < ActiveRecord::Base
     :secret_access_key => 'h5FFxBPHRo9G5b9unOlWOt7N+RQZu0sXKkHbr+WT' 
   }  
 	validates_attachment_presence :image
-	validates_attachment_size :image, :less_than => 5.megabytes
+	validates_attachment_size :image, :less_than => 15.megabytes
 	validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']
 
 	def image_url
-      image.url
+    image.url
 	end
+
+  def after_upload
+    photographer = self.event.client.photographer
+    old_memory = photographer.memory_consumed
+    new_memory = self.image_file_size + old_memory
+    photographer.update_attributes(memory_consumed: new_memory)
+  end
+
 end

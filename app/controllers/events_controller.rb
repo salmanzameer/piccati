@@ -46,7 +46,7 @@ class EventsController < ApplicationController
 
   def eventparams
     params.require(:event).permit(:name,:location,:bridal,:groom)
- end
+  end
 
   def upload_images
     param = { "image" => params[:file] }

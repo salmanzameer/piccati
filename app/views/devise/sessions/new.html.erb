@@ -37,9 +37,9 @@
              <%= resource.errors[:password].first  %>
              </div>
            </div>
-
            <button type="submit" class="btn">Sign in!</button>
            <% end %>
+           <%= link_to "Connect With Facebook", photographer_omniauth_authorize_path(:facebook) %><br>
            <%=link_to('Sign up', new_photographer_registration_path) %>
          </div>
        </div>

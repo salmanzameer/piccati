@@ -22,7 +22,7 @@
       <ul class="nav navbar-nav navbar-right">
        
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= image_tag(current_photographer.avatar, width: 30, height: 30) %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li>  <%= link_to('Profile', photographer_path(current_photographer)) if current_photographer.present? %>
            </li>

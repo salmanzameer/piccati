@@ -20,7 +20,7 @@
               </div>
             </div>
             <div class="form-bottom">
-             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :class => 'form-horizontal') do |f| %>
+             <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { multipart: true }, :class => 'form-horizontal') do |f| %>
              <div class="form-group">
               <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  } , class: "form-control")   %>
             </div>
@@ -59,6 +59,11 @@
              <div class="txt">
                <%= resource.errors["email"].first%>
              </div>
+           </div>
+
+           <div class="form-group">
+             Profile Pictue: 
+             <%= f.file_field :avatar %>
            </div>
            <!--   <div class="form-group">
               <%#= f.label :current_password, :class => 'sr-only', :for => 'form-current_password'%> 

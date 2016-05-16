@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount API => '/'
   
-  devise_for :photographers , controllers: {registrations: 'registrations'}
+  devise_for :photographers , controllers: {registrations: 'registrations', omniauth_callbacks: "photographers/omniauth_callbacks"}
   root to: "photographers#sign_in"
       resources :photographers do
       member do
