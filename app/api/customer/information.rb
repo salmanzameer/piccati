@@ -8,7 +8,6 @@ module Customer
     end
 
     get "/all_events", rabl: "customer/all_events" do
-
       @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
       unless @client
         throw :error, status: 404, message: "Client not found!"
