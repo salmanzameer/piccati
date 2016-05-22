@@ -30,20 +30,32 @@ class PhotographersController < ApplicationController
   end
 
   def update_password
-    @photographer = Photographer.find(current_photographer)
-    
+    @photographer = Photographer.find(current_photographer)  
     if @photographer.update_with_password(photographer_params)          
       redirect_to photographer_path(current_photographer)
-     else
+    else
       render 'edit'
     end
+  end
 
+  def new_achievement
+    4.times do
+      current_photographer.achievements.new
+    end
+  end
+
+  def add_achievements
+    @achievements = current_photographer.update(achievement_params)
+    redirect_to photographer_path(current_photographer)
   end
 
 private
 
- def photographer_params
-  params.require(:photographer).permit(:current_password,:password,:password_confirmation)
- end
+  def photographer_params
+    params.require(:photographer).permit(:current_password,:password,:password_confirmation)
+  end
 
+ def achievement_params
+    params.require(:photographer).permit(achievements: [:title, :description])
+  end
 end

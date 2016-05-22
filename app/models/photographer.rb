@@ -4,7 +4,8 @@ class Photographer < ActiveRecord::Base
   has_many :clients
   has_many :events, through: :clients   
   belongs_to  :package
-  
+  has_many :achievements
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
            
@@ -19,6 +20,8 @@ class Photographer < ActiveRecord::Base
   }  
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
+
+  accepts_nested_attributes_for :achievements
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |photographer|

@@ -72,5 +72,13 @@ module Customer
       @images = Image.where(is_liked: true)
     end
 
+    get "/photographer_profile", rabl: "photographer_profile" do
+
+      @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
+      unless @client
+        throw :error, status: 404, message: "Client not found!"
+      end
+      @photographer = @client.photographer
+    end
   end
 end

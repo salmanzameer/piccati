@@ -1,0 +1,47 @@
+<div class="background-image">
+  <div class="top-content">
+    <div class="inner-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text">
+            <h1>Add Achievements Form</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 form-box">
+            <div class="form-top">
+              <div class="form-top-left">
+                <h3>Please fill the achievements form</h3>
+              </div>
+              <div class="form-top-right">
+                <i class="fa fa-lock"></i>
+              </div>
+            </div>
+            <div class="form-bottom">
+              <%= form_for(current_photographer, url: add_achievements_photographer_path, method: :post, html: { class: 'form-horizantal'}) do |f| %>
+                <%= f.fields_for :achievements do |ff| %>
+                <div class="form-group">
+                  <%= ff.label :title, :class => 'sr-only', :for => 'form-name'%>
+                  <%= ff.text_field :title, autofocus: true, :placeholder =>"Title", :class => "form-title form-control", :id => "form-name" %> 
+                </div>
+                <div class="form-group">
+                  <%= ff.label :description, :class => 'sr-only', :for => 'form-name'%>
+                  <%= ff.text_field :description, autofocus: true, :placeholder =>"Description", :class => "form-description form-control", :id => "form-name" %>
+                
+                </div>
+                <%end%> 
+              <%= f.button 'Submit' , class: "btn" %>
+              <% end %>
+            </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="form-group">
+  <ins> 
+    <%= link_to "Back", photographer_path %> 
+  </ins>
+</div>
+
