@@ -61,6 +61,7 @@ module Customer
     params do
       requires :authentication_token, type: String
       requires :client_id,            type: String
+      requires :event_id,             type: String      
     end
 
     get "/liked_images", rabl: "customer/liked_images" do
@@ -69,7 +70,11 @@ module Customer
       unless @client
         throw :error, status: 404, message: "Client not found!"
       end
-      @images = Image.where(is_liked: true)
+      @event = Event.find_by_id(params[:event_id])
+      unless @event
+        throw :error, status: 404, message: "Event not found!"
+      end
+      @images = @event.images.where(is_liked: true)
     end
 
     get "/photographer_profile", rabl: "photographer_profile" do
