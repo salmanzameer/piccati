@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
 
   def index
-    @client = current_photographer.clients.all
+    @clients = current_photographer.clients
   end
 
   def show

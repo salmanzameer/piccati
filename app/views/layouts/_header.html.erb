@@ -1,7 +1,6 @@
 <% if current_photographer.present? %>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -17,7 +16,7 @@
       <ul class="nav navbar-nav">
        
         <li>  <%= link_to('Clients', photographer_clients_path(current_photographer)) if current_photographer.present?%></li>
-        <li>  <%= link_to('Events', photographer_eventsinfo_path(current_photographer)) if current_photographer.present? %></li>
+        <li>  <%= link_to('Events', photographer_events_info_path(current_photographer)) if current_photographer.present? %></li>
         <li>  <%= link_to('Add Achievement', new_achievement_photographer_path(current_photographer)) if current_photographer.present? %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

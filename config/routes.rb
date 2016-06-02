@@ -5,14 +5,12 @@ Rails.application.routes.draw do
   
   resources :photographers do
     member do
-      get 'profile'
       post 'update_password'
       get 'new_achievement', as: :new_achievement
       post 'add_achievements', as: :add_achievements
     end
-    get 'eventsinfo'
+    get 'events_info'
     resources :clients do
-      get 'show1'       
       resources :events do 
         member do
           get 'upload_images'

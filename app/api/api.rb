@@ -5,10 +5,7 @@ Rabl.configure do |config|
 end
 
 class API < Grape::API
-  prefix 'api'
-  version 'v1', using: :path
   format :json
   formatter :json, Grape::Formatter::Rabl
-  mount Customer::Authenticate
-  mount Customer::Information
+  mount Base
 end

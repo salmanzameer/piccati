@@ -9,7 +9,6 @@ let!(:photographer) { FactoryGirl.create(:photographer) }
     end
     context "GET /photographers" do
        it "Gives is the expected status code when authenticated." do
-        #binding.pry
             get  "/api/v1/photographers/#{photographer.id}"
 
             # Ensure we get the expected response code.

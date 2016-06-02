@@ -7,7 +7,7 @@ class Photographer < ActiveRecord::Base
   has_many :achievements
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
            
   has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
   :url  => "/system/avatar/images/000/000/00:id/:style/:basename.:extension",
@@ -21,7 +21,7 @@ class Photographer < ActiveRecord::Base
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
 
-  accepts_nested_attributes_for :achievements
+  accepts_nested_attributes_for :achievements, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |photographer|

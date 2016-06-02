@@ -7,11 +7,9 @@ module Customer
       requires :client_id,            type: String
     end
 
-    get "/all_events", rabl: "customer/all_events" do
+    get "/all_events", rabl: "v1/customer/all_events" do
       @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
-      unless @client
-        throw :error, status: 404, message: "Client not found!"
-      end
+      error_proc.call(404, "Client not found") if @client.blank?
       @events = @client.events
     end
 
@@ -19,17 +17,17 @@ module Customer
     params do
       requires :authentication_token, type: String
       requires :client_id,            type: String
-      requires :event_id,            type: String
+      requires :event_id,             type: String
     end
 
-    get "/all_images", rabl: "customer/all_images" do
+    get "/all_images", rabl: "v1/customer/all_images" do
 
       @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
       unless @client
         throw :error, status: 404, message: "Client not found!"
       end
       
-      @event= Event.find_by_id(params[:event_id])
+      @event = Event.find_by_id(params[:event_id])
       unless @event
         throw :error, status: 404, message: "Event not found!"
       end
@@ -44,7 +42,7 @@ module Customer
       requires :is_liked,             type: Boolean
     end
 
-    post "/like", rabl: "customer/like" do
+    post "/like", rabl: "v1/customer/like" do
       @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
       unless @client
         throw :error, status: 404, message: "Client not found!"
@@ -64,7 +62,7 @@ module Customer
       requires :event_id,             type: String      
     end
 
-    get "/liked_images", rabl: "customer/liked_images" do
+    get "/liked_images", rabl: "v1/customer/liked_images" do
 
       @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
       unless @client
@@ -77,7 +75,13 @@ module Customer
       @images = @event.images.where(is_liked: true)
     end
 
-    get "/photographer_profile", rabl: "photographer_profile" do
+    desc "Get photographer profile"
+    params do
+      requires :authentication_token, type: String
+      requires :client_id,            type: String
+    end
+
+    get "/photographer_profile", rabl: "v1/photographer_profile" do
 
       @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
       unless @client

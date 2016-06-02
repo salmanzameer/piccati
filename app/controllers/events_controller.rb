@@ -1,51 +1,29 @@
 class EventsController < ApplicationController
-
+  before_filter :authenticate_photographer!
+  
   def index
     @client = Client.find(params[:client_id])
     @event  = @client.events
-    render :json => { status: 'Ok' , message:"You've been successfully loged in.",
-      client: { id: @client.id ,name:  @client.first_name, username: @client.user_name, token: @client.authentication_token } } 
   end
 
   def show
-    if current_photographer.present? 
-      @client = Client.find_by_id(params[:client_id]) 
-      @event  = Event.find_by_id(params[:id])
-    else
-      client_match_token
-      @event  = @client.events.find_by_id(params[:id])
-      if @client.present?
-        @image = @event.images.each do |img|
-          @i = request.base_url + img.image_url
-          img.update_attributes(url: @i)
-        end
-        render :json => { status: 'Ok' ,message: "Single event successfully shown.",
-          images: @image.as_json(:only => [:id, :event_id, :url, :is_liked ]) }
-      else
-        render :json => { status: 'Error'}
-      end
-    end
+    @client = Client.find_by_id(params[:client_id]) 
+    @event  = Event.find_by_id(params[:id])
   end
 
   def new
-    @client =current_photographer.clients.find_by_id(params[:client_id]) 
     @event = current_photographer.clients.find_by_id(params[:client_id]).events.new
   end
 
   def create
-    @event = current_photographer.clients.find_by_id(params[:client_id]).events.new(eventparams)
+    @event = current_photographer.clients.find_by_id(params[:client_id]).events.new(event_params)
     if
       @event.save
-      @event.images.create(params.require(:event).permit(:image)) 
       redirect_to photographer_client_path(current_photographer,params[:client_id])  
     else
       flash[:notice] ='Error'
       render('new')
     end
-  end
-
-  def eventparams
-    params.require(:event).permit(:name,:location,:bridal,:groom)
   end
 
   def upload_images
@@ -106,6 +84,11 @@ class EventsController < ApplicationController
       end
     end
   end
+  
+  protected 
 
+  def event_params
+    params.require(:event).permit(:name,:location,:bridal,:groom)
+  end
 end
  

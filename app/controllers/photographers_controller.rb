@@ -1,12 +1,6 @@
 class PhotographersController < ApplicationController
  before_filter :authenticate_photographer!
 
-  def index  
-  end
-
-  def profile
-  end
-
   def show
     @photographer = current_photographer 
   end
@@ -15,18 +9,12 @@ class PhotographersController < ApplicationController
     @photographer = Photographer.find(current_photographer)
   end
 
-  def new  
-  end
-    
-  def delete
-  end
-
   def sign_in
     redirect_to new_photographer_session_path
   end
 
-  def eventsinfo
-    @event = current_photographer.events
+  def events_info
+    @events = current_photographer.events
   end
 
   def update_password
@@ -39,23 +27,19 @@ class PhotographersController < ApplicationController
   end
 
   def new_achievement
-    4.times do
+    2.times do
       current_photographer.achievements.new
     end
   end
 
   def add_achievements
-    @achievements = current_photographer.update(achievement_params)
+    @achievements = current_photographer.achievements.create(photographer_params)
     redirect_to photographer_path(current_photographer)
   end
 
 private
 
   def photographer_params
-    params.require(:photographer).permit(:current_password,:password,:password_confirmation)
-  end
-
- def achievement_params
-    params.require(:photographer).permit(achievements: [:title, :description])
+    params.require(:photographer).permit( :current_password, :password, :password_confirmation, achievement_attributes: [:title, :description])
   end
 end

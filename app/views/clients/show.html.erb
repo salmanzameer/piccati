@@ -43,15 +43,15 @@
        <th class="center">Upload Images</th>
      </tr>
    
-   <%@events.each do |eve|%>
+   <%@events.each do |event|%>
   
     <tr class="txt">
      <td><ins>
-     <%= link_to (eve.name), all_images_photographer_client_event_path(current_photographer,@client,eve.id), class: "txt"%></ins></td>
-     <td><%=eve.bridal%></td>
-     <td><%= eve.groom%></td>
-     <td><%= eve.location %></td>
-     <td><%= link_to 'Upload-Images', photographer_client_event_path(current_photographer,@client.id,eve.id), class: "btn btn-link-1"%></td>
+     <%= link_to (event.name), all_images_photographer_client_event_path(current_photographer,@client,event.id), class: "txt"%></ins></td>
+     <td><%=event.bridal%></td>
+     <td><%= event.groom%></td>
+     <td><%= event.location %></td>
+     <td><%= link_to 'Upload-Images', photographer_client_event_path(current_photographer,@client.id,event.id), class: "btn btn-link-1"%></td>
    </tr>
   <% end %>
 </table>
