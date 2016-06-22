@@ -3,13 +3,13 @@ module Snapper
     
     desc "Returns authentication_token on valid login"
     params do
-      requires :username, type: String
+      requires :email, type: String
       requires :password, type: String
     end
     
-    get :login_photographer, rabl: "v1/snapper/login_photographer" do
+    post :login_photographer, rabl: "v1/snapper/login_photographer" do
 
-      @photographer = Photographer.find_by_username(params[:username]) 
+      @photographer = Photographer.find_by_email(params[:email]) 
       
       unless @photographer && @photographer.valid_password?(params[:password])
         throw :error, status: 404, message: "Invalid username/password"
