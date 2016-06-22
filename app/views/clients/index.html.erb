@@ -14,7 +14,7 @@
 	
 			<% @clients.each do |client| %>
 			<tr class="text">
-				<td> <ins><%= link_to(client.first_name, photographer_client_path(current_photographer,client.id),class: "text") %></ins></td>
+				<td> <ins><%= link_to(client.firstname, photographer_client_path(current_photographer,client.id),class: "text") %></ins></td>
 				<td><ins> <%= link_to('Edit', edit_photographer_client_path(current_photographer,client.id), class: "txt")%> </ins></td>
 			</tr>
 			

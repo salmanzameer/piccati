@@ -1,7 +1,7 @@
 object false
 
 child @client, object_root: false do
-  attributes :id, :first_name, :authentication_token, :user_name
+  attributes :id, :firstname, :authentication_token, :username
 end
 
 node(:status) { "1" }

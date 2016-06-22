@@ -25,29 +25,29 @@
                          
             <div class="form-group">
              <%= f.label :firstname, :class => 'sr-only', :for => 'form-name'%>
-             <%= f.text_field :first_name,autofocus: true, :placeholder =>"First Name", :class => "form-firstname form-control", :id => "form-firstname" %>
+             <%= f.text_field :firstname,autofocus: true, :placeholder =>"First Name", :class => "form-firstname form-control", :id => "form-firstname" %>
          <% if @client.errors.present? %> 
             <div class="txt"> 
-          <%=  @client.errors.messages[:first_name].first%>
+          <%=  @client.errors.messages[:firstname].first%>
           </div>
          <% end %> 
           
            </div>
            <div class="form-group">
              <%= f.label :lastname, :class => 'sr-only', :for => 'form-lastname'%>
-             <%= f.text_field :last_name ,autofocus: true, :placeholder =>"Last Name", :class => "form-lastname form-control", :id => "form-lastname" %>
+             <%= f.text_field :lastname ,autofocus: true, :placeholder =>"Last Name", :class => "form-lastname form-control", :id => "form-lastname" %>
          <% if @client.errors.present? %>
-                   <div class="txt"> <%=  @client.errors.messages[:last_name].first%></div>
+                   <div class="txt"> <%=  @client.errors.messages[:lastname].first%></div>
          <% end %> 
             
            </div>
            
             <div class="form-group">
              <%= f.label :username, :class => 'sr-only', :for => 'form-username'%>
-             <%= f.text_field :user_name, autofocus: true, :placeholder =>"User Name", :class => "form-username form-control", :id => "form-username" %>
+             <%= f.text_field :username, autofocus: true, :placeholder =>"User Name", :class => "form-username form-control", :id => "form-username" %>
          <% if @client.errors.present? %>
              <div class="txt">
-           <%=  @client.errors.messages[:user_name].first%></div>
+           <%=  @client.errors.messages[:username].first%></div>
          <% end %> 
             
            </div>

@@ -12,7 +12,7 @@
      </tr>
      <% @events.each do |event| %>
      <tr class="center">
-       <td> <ins> <%= link_to(event.client.first_name, photographer_client_path(current_photographer,event.client.id), class: "txt") %> </ins></td>
+       <td> <ins> <%= link_to(event.client.firstname, photographer_client_path(current_photographer,event.client.id), class: "txt") %> </ins></td>
        <td><ins><%= link_to(event.name ,all_images_photographer_client_event_path(current_photographer,event.client.id,event.id), class: "txt") %></ins></td>
        <td class="txt"><%= event.bridal%></td>
        <td class="txt"><%= event.groom%></td>

@@ -12,7 +12,6 @@ describe Api::V1::ClientsController do
 			sign_in(photographer)
 			
          get "/api/v1/photographers/#{photographer.id}/clients.json" 
-        binding.pry  
 
 	end 
 end

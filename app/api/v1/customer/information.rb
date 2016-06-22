@@ -74,20 +74,5 @@ module Customer
       end
       @images = @event.images.where(is_liked: true)
     end
-
-    desc "Get photographer profile"
-    params do
-      requires :authentication_token, type: String
-      requires :client_id,            type: String
-    end
-
-    get "/photographer_profile", rabl: "v1/photographer_profile" do
-
-      @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
-      unless @client
-        throw :error, status: 404, message: "Client not found!"
-      end
-      @photographer = @client.photographer
-    end
   end
 end

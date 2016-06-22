@@ -6,4 +6,4 @@ child @photographer, object_root: false do
 end
 
 node(:status) { 1 }
-node(:message) { "Photographer profile found successfully!" }
+node(:message) { "Photographer profiles are found successfully!" }

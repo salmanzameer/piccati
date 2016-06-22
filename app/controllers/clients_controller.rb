@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-
+  
   def index
     @clients = current_photographer.clients
   end
@@ -14,7 +14,7 @@ class ClientsController < ApplicationController
       if
         @client.present?
         @events
-        render :json => @client.to_json( :only =>[:id,:first_name,:last_name,:user_name,:email] )  
+        render :json => @client.to_json( :only =>[:id,:firstname,:lastname,:username,:email] )  
       else
         render json: {status: 'error'}
       end
@@ -26,7 +26,11 @@ class ClientsController < ApplicationController
   end
 
   def create
+    if @client = Client.where(email: params[:client][:email]).first
+      @client.update(photographer_id: current_photographer.id)
+    else
     @client = current_photographer.clients.new(clientsparams)
+    end
     if @client.save
       redirect_to photographer_client_path(current_photographer,@client.id)
     else
@@ -54,11 +58,11 @@ class ClientsController < ApplicationController
   end
 
   def editparams
-    params.require(:client).permit(:first_name,:last_name,:user_name,:email)
+    params.require(:client).permit(:firstname,:lastname,:username,:email)
   end
 
   def clientsparams
-    params.require(:client).permit(:first_name,:last_name,:user_name,:email,:password)  
+    params.require(:client).permit(:firstname,:lastname,:username,:email,:password)  
   end
 
 end

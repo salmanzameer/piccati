@@ -1,6 +1,8 @@
 class Photographer < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  before_save :ensure_authentication_token
+
   has_many :clients
   has_many :events, through: :clients   
   belongs_to  :package
@@ -39,4 +41,17 @@ class Photographer < ActiveRecord::Base
       end
   end
 
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token ||= generate_authentication_token
+    end
+  end   
+
+  private
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless Photographer.where(authentication_token: token).first
+    end
+  end
 end
