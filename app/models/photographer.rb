@@ -7,7 +7,7 @@ class Photographer < ActiveRecord::Base
   has_many :events, through: :clients   
   belongs_to  :package
   has_many :achievements
-
+  has_many :albums
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
            
