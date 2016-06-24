@@ -25,9 +25,10 @@ module Snapper
     	unless @photographer
         throw :error, status: 404, message: "Photographer not found!"
       end
-      @events = @photographer.events.where(public: true)
-    	unless @events
-        throw :error, status: 404, message: "Events not found!"
+      @album = @photographer.albums.first 
+      @image = @album.images.sample
+      unless @image
+        throw :error, status: 404, message: "Album/Image not found!"
       end
     end
   
