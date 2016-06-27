@@ -3,10 +3,7 @@ object false
 child @photographer, object_root: false do
   attributes :id, :title, :firstname, :lastname, :contnumber, :email, :website
   node(:url) { |img| img.avatar.url }
-	child :albums, object_root: false do
-		attributes :id, :name, :description
-	node(:url) {|img| img.images.sample.image_url }
-	end
+	node(:album_url) { |photographer| photographer.albums.first.images.sample.image_url if photographer.albums.present? }	
 end
 
 node(:status) { 1 }
