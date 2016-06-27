@@ -3,7 +3,6 @@ module Snapper
   	desc "Get all photographers list"
 	  get :photographers, rabl: "v1/snapper/photographers_index" do
 	    @photographer = Photographer.all 
-	    
 	    unless @photographer
 	      throw :error, status: 404, message: "Photographer not found!"
 	    end
@@ -26,7 +25,7 @@ module Snapper
         throw :error, status: 404, message: "Photographer not found!"
       end
       @album = @photographer.albums.first 
-      @image = @album.images.sample
+      @image = @album.images
       unless @image
         throw :error, status: 404, message: "Album/Image not found!"
       end
