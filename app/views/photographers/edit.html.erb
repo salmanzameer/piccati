@@ -1,19 +1,19 @@
+  <%= image_tag("logo.png", style: "height: 70%;width: 130px;margin-top: 90px;") %>
   <div class="background-image">
     <div class="top-content">
-      <div class="inner-bg">
+      <div >
         <div class="container">
           <div class="row">
             <div class="col-sm-8 col-sm-offset-2 text">
-              <h1><strong>Password</strong> Edit Form</h1>
 
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-6 col-sm-offset-3 form-box">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4 form-box">
               <div class="form-top">
                 <div class="form-top-left">
-                  <h3>Edit password to our site</h3>
-                  <p>Edit your password:</p>
                 </div>
                 <div class="form-top-right">
                   <i class="fa fa-lock"></i>
@@ -53,12 +53,14 @@
                  <% end %>
                </div>
                <div class="actions">
-                <%= f.button 'Update password',class: "btn" %>
+                <%= f.button 'Update password',class: "btn" ,style:"background: #7b868a;"%>
               </div>
               <% end %>
                
             </div>
           </div>
+            <div class="col-md-4">
+            </div>
         </div>
           <ins><%= link_to("Back", photographer_path(current_photographer)) %></ins>
       </div>

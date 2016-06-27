@@ -1,36 +1,24 @@
 
-<br></br>
-<br></br>
-<br></br>
+  
+<div class="row">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4" style="color:#fff;margin-top:90px;">
+      <h1 style="font-size: 38px;color: #fff;"> Client Information</h1>
+      <%= @client.firstname%>   <%= @client.lastname%></br>
+      Username: <%= @client.username%>
+  </div>
+  <div class="col-md-4">
+  </div>
+</div> 
 
-   <h1 class="center"> Client Info</h1> 
-
-
-  <table class="table">
         
-        <tbody>
-          <tr  class="txt">
-               
-            <td width ="50%" class="text-right">First name:</td>
-            <td  class="text-left"><%= @client.firstname%></td>
-          </tr>
-          <tr  class="txt">
-           
-            <td  class="text-right">Last name:</td>
-            <td  class="text-left"><%= @client.lastname%></td>
-          </tr>
-          <tr  class="txt">
-           
-            <td  class="text-right">Username:</td>
-            <td class="text-left"><%= @client.username%></td>
-          </tr>
-         
-        </tbody>
-      </table>
-        
-         <h3 class ="center">Client Events</h3>
+         <h1 class ="center" style="margin-top:80px;">Client Events</h1>
 
-
+<div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
   <div class="table-responsive">
    <table class="table">
    
@@ -46,7 +34,7 @@
    <%@events.each do |event|%>
   
     <tr class="txt">
-     <td><ins>
+     <td><ins class="text-decor">
      <%= link_to (event.name), all_images_photographer_client_event_path(current_photographer,@client,event.id), class: "txt"%></ins></td>
      <td><%=event.bridal%></td>
      <td><%= event.groom%></td>
@@ -55,6 +43,10 @@
    </tr>
   <% end %>
 </table>
+</div>
+            </div>
+            <div class="col-md-3">
+            </div>
 </div>
 
 <div align="center">

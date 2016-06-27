@@ -1,19 +1,18 @@
 <div class="background-image">
   <div class="top-content">
-    <div class="inner-bg">
+    <div>
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2 text">
-            <h1><strong>Photographer</strong> Sign up Form</h1>
             
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-6 col-sm-offset-3 form-box">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4 form-box">
             <div class="form-top">
               <div class="form-top-left">
-                <h3>Sign up to our site</h3>
-                <p>Enter your crentendials for sign up:</p>
               </div>
               <div class="form-top-right">
                 <i class="fa fa-lock"></i>
@@ -23,7 +22,7 @@
 
              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :class => 'form-horizontal') do |f| %>
              <div class="form-group">
-              <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  }, class: "form-title form-control", :id => "form-title" )   %>
+              <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  }, class: "form-title form-control", :id => "form-title" , style: "height: 50px;")   %>
               <div class="txt">
               <%= resource.errors["title"].first%>
               </div>
@@ -81,11 +80,14 @@
              <%= resource.errors["password_confirmation"].first%>
            </div>
            </div>
-           <button type="submit" class="btn">Sign in!</button>
+           <button type="submit" class="btn" style="background: #155845;">Sign up!</button>
            <% end %>
-           <%=link_to('Login',  new_photographer_session_path) %>
-         </div>
-       </div>
+           <%= link_to "Log In", new_photographer_session_path, class:"btn login-btn"%>
+           
+          </div>
+          </div>
+          <div class="col-sm-4">
+          </div>
      </div>
      
   </div>

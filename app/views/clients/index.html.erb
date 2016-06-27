@@ -1,28 +1,33 @@
-<div>
-	<br></br>
-	<br></br>
-	<br></br>
 
+ <div class="container">
+ 		<div class="col-md-3">
+        </div>
+ 		<div class="col-md-6" style="margin-top:90px;">
 	<h1 class="center"><b>Clients Details</b></h1>
-
-	<table class="table table-bordered">
-	
-			<tr>
-				<th class="center">Client Name</th>
-				<th class="center">Edit Client</th>
-			</tr>
-	
-			<% @clients.each do |client| %>
-			<tr class="text">
-				<td> <ins><%= link_to(client.firstname, photographer_client_path(current_photographer,client.id),class: "text") %></ins></td>
-				<td><ins> <%= link_to('Edit', edit_photographer_client_path(current_photographer,client.id), class: "txt")%> </ins></td>
-			</tr>
-			
-			<% end %>
-		
-	</table>
+	<div>	
+		  <table class="table">
+		     <tr>
+		       <th class="center">Client Name</th>
+		       <th class="center">Event Name</th>
+		     </tr>
+		     <% @clients.each do |client| %>
+		     <tr class="center">
+		       <td> <ins class="text-decor"><%= link_to(client.firstname, photographer_client_path(current_photographer,client.id),class: "text") %></ins></td>
+		       <td><ins class="text-decor"> <%= link_to('Edit', edit_photographer_client_path(current_photographer,client.id), class: "txt")%> </ins></td>
+		       <% end %> 
+		     </tr>
+		 </table>
+	</div>
 	<div align="center">
 		<%= link_to('New Client',new_photographer_client_path(current_photographer) ,class: "btn btn-link-1" )%>
 	</div>
 </div>
+        </div>
+ 		<div class="col-md-3">
+        </div>
+ </div>
+
+
+
+
 </div>
