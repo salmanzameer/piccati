@@ -24,11 +24,6 @@ module Snapper
     	unless @photographer
         throw :error, status: 404, message: "Photographer not found!"
       end
-      @album = @photographer.albums.first 
-      @image = @album.images
-      unless @image
-        throw :error, status: 404, message: "Album/Image not found!"
-      end
     end
   
   end
