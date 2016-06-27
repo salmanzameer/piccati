@@ -1,4 +1,4 @@
-module Registration
+module Authentication
   class Register < Grape::API
 
     desc "Register user and create access token"
@@ -14,7 +14,7 @@ module Registration
         optional :avatar, type: Rack::Multipart::UploadedFile
         requires :role_type, type: String   
       end
-    post :register, rabl: "v1/registration/register"  do
+    post :register, rabl: "v1/authentication/register"  do
       signup = params[:role_type].titleize.constantize 
       @user = signup.new(
         title:     params[:title],

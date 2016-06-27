@@ -36,22 +36,9 @@ class EventsController < ApplicationController
   end
 
   def all_images
-    if current_photographer.present?
-      @client = Client.find_by_id(params[:client_id])
-      @event  = Event.find_by_id(params[:id])
-      @image  = current_photographer.clients.find_by_id(params[:client_id]).events.find_by_id(params[:id]).images.all    
-    else
-      client_match_token
-      if @client.present?  
-        @image = @client.events.find_by_id(params[:event_id]).images.all.each do |img|
-          @i = request.base_url + img.image_url
-          img.update_attributes(url: @i) 
-        end
-        render :json => {status: "Ok" ,images: @image.as_json(:only => [:id, :event_id, :url, :is_liked ]) }  
-      else
-        render :json => { status: "error" }  
-      end
-    end
+    @client = Client.find_by_id(params[:client_id])
+    @event  = Event.find_by_id(params[:id])
+    @image  = Image.where(imageable_id: params[:id])    
   end  
 
   def like

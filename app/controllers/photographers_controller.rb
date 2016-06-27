@@ -36,8 +36,8 @@ class PhotographersController < ApplicationController
     @achievements = current_photographer.achievements.create(photographer_params)
     redirect_to photographer_path(current_photographer)
   end
-
-private
+  
+  private
 
   def photographer_params
     params.require(:photographer).permit( :current_password, :password, :password_confirmation, achievement_attributes: [:title, :description])

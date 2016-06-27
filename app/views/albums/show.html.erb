@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+<br><br><br><br><br>
+Name: <%= @album.name%><br>
+Description: <%= @album.description%><br>
+<%@album.images.each do |img|%>
+	<%= image_tag(img.image(:medium), :width => "300", :height => "220", style: 'padding-bottom: 20px',class: "img-rounded")%>
+<%end%><br>
+<%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album.id)%> |
+<%= link_to 'Edit', edit_photographer_album_path(id: @album.id) %> |
+<%= link_to 'Back', photographer_albums_path %>

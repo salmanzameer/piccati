@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   devise_for :photographers , controllers: {registrations: 'registrations', omniauth_callbacks: "photographers/omniauth_callbacks"}
   
   resources :photographers do
+    resources :albums do
+      get 'public_image'
+      post 'public_image'
+    end
     member do
       post 'update_password'
       get 'new_achievement', as: :new_achievement

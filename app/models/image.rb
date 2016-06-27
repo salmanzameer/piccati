@@ -1,9 +1,10 @@
 class Image < ActiveRecord::Base
   after_create :after_upload
-
-	belongs_to :event
-	belongs_to :client
-	has_attached_file :image, styles: { original: "500x500", medium: "300x300>"},
+  
+  belongs_to :client
+	belongs_to :imageable, polymorphic: true
+  
+  has_attached_file :image, styles: { original: "500x500", medium: "300x300>"},
 	:url  => "/system/events/images/000/000/00:id/:style/:basename.:extension",
 	:path => ":rails_root/public/system/events/images/000/000/00:id/:style/:basename.:extension",
   :storage => :s3,
@@ -21,7 +22,11 @@ class Image < ActiveRecord::Base
 	end
 
   def after_upload
-    photographer = self.event.client.photographer
+    if self.imageable_type == "Event"
+      photographer = self.imageable.client.photographer
+    elsif self.imageable_type == "Album"
+      photographer = self.imageable.photographer
+    end  
     old_memory = photographer.memory_consumed
     new_memory = self.image_file_size + old_memory
     photographer.update_attributes(memory_consumed: new_memory)

@@ -1,8 +1,8 @@
 class Event < ActiveRecord::Base
-	has_many :images
 	belongs_to :client	 
   belongs_to :photographer
-	 
+	has_many :images, as: :imageable	 
+	
 	validates :name,     presence: true 
 	validates :location, presence: true
 	validates :bridal ,  presence: true
