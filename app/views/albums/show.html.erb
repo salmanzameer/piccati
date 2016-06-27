@@ -7,4 +7,3 @@ Description: <%= @album.description%><br>
 <%end%><br>
 <%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album.id)%> |
 <%= link_to 'Edit', edit_photographer_album_path(id: @album.id) %> |
-<%= link_to 'Back', photographer_albums_path %>
