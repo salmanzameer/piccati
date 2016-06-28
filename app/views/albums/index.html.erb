@@ -1,27 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Albums</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @albums.each do |album| %>
-      <tr>
-        <td><%= album.name %></td>
-        <td><%= album.description %></td>
-        <td><%= link_to 'Show', photographer_album_path(id: album.id) %></td>
-        <td><%= link_to 'Edit', edit_photographer_album_path(id: album.id) %></td>
-        <td><%= link_to 'Destroy', photographer_album_path(id: album.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% end %>
-  </tbody>
-</table>
-
-<br>
-
+<% @albums.each do |album| %>
+  <%#= link_to 'Edit', edit_photographer_album_path(id: album.id) %>
+  <%#= link_to 'Destroy', photographer_album_path(id: album.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%=link_to image_tag("folder-icon.png",class: "img-rounded", style: "margin-right: 1000px; margin-top: 100px;"), photographer_album_path(id: album.id)%>
+<% end %>
 <%= link_to 'New Album', new_photographer_album_path %>
