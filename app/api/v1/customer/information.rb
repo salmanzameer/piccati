@@ -9,7 +9,9 @@ module Customer
 
     get "/all_events", rabl: "v1/customer/all_events" do
       @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
-      error_proc.call(404, "Client not found") if @client.blank?
+      unless @client
+        throw :error, status: 404, message: "Client not found!"
+      end
       @events = @client.events
     end
 
