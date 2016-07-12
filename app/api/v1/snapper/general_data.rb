@@ -21,6 +21,23 @@ module Snapper
         throw :error, status: 404, message: "User not found!"
       end
     end
-  
+    
+    desc "Get public album"
+    params do
+      requires :id,                   type: Integer
+      requires :photographer_id,      type: Integer
+    end
+
+    get "/photographer/:photographer_id/album/:id", rabl: "v1/snapper/album_show" do
+      @photographer = Photographer.find(params[:photographer_id])
+      unless @photographer
+        throw :error, status: 404, message: "Photographer not found!"
+      end
+      @album =  @photographer.albums.find(params[:id])
+      unless @album
+        throw :error, status: 404, message: "Album not found!"
+      end
+    end
+
   end
 end
