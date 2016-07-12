@@ -24,7 +24,7 @@ class Image < ActiveRecord::Base
 
 
   def watermark_url
-    Photographer.current_photographer.watermark_logo.url
+    Photographer.current_photographer.watermark_logo.url if Photographer.current_photographer.present?
   end
 
 	def image_url
