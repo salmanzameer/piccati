@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_filter :authenticate_photographer!
-  
+
   def index
     @client = Client.find(params[:client_id])
     @event  = @client.events
@@ -28,7 +28,8 @@ class EventsController < ApplicationController
 
   def upload_images
     param = { "image" => params[:file] }
-    @image = current_photographer.clients.find_by_id(params[:client_id]).events.find_by_id(params[:id]).images.create(param)
+    @image = current_photographer.clients.find_by_id(params[:client_id]).events.find_by_id(params[:id]).images.new(param)
+    @image.save
   end
 
   def showevents

@@ -10,7 +10,7 @@ class Photographer < ActiveRecord::Base
   has_many :albums
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
-           
+  
   has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
   :url  => "/system/avatar/images/000/000/00:id/:style/:basename.:extension",
   :path => ":rails_root/public/system/avatar/images/000/000/00:id/:style/:basename.:extension",
@@ -19,11 +19,34 @@ class Photographer < ActiveRecord::Base
     :bucket => 'gls-testing', 
     :access_key_id => 'AKIAJ2CZ275DJXIPIAEQ',
     :secret_access_key => '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' 
-  }  
+  }
   validates_attachment_size :avatar, :less_than => 5.megabytes
-  validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
+  validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
+  has_attached_file :watermark_logo, styles: { original: "500x500"},
+  :url  => "/system/watermark_logo/images/:id/:style/:basename.:extension",
+  :path => ":rails_root/public/system/watermark_logo/images/:id/:style/:basename.:extension",
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => 'gls-testing', 
+    :access_key_id => 'AKIAJ2CZ275DJXIPIAEQ',
+    :secret_access_key => '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' 
+  }  
+  validates_attachment_size :watermark_logo, :less_than => 5.megabytes
+  validates_attachment_content_type :watermark_logo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
 
   accepts_nested_attributes_for :achievements, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
+
+  class << self
+    def current_photographer=(photographer)
+      Thread.current[:current_photographer] = photographer
+    end
+
+    def current_photographer
+      Thread.current[:current_photographer]
+    end
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |photographer|

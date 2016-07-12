@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :set_current_photographer
+
+  def set_current_photographer
+    Photographer.current_photographer = current_photographer
+  end
 
 protected
 
@@ -12,7 +17,7 @@ protected
     end 
     
     devise_parameter_sanitizer.for(:account_update) do |u|
-     u.permit(:title,:firstname,:lastname,:contnumber,:username,:email,:password,:password_confirmation,:current_password,:avatar)
+     u.permit(:title,:firstname,:lastname,:contnumber,:username,:email,:password,:password_confirmation,:current_password, :avatar, :watermark_logo)
     end
   end
 

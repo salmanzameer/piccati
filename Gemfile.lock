@@ -165,6 +165,8 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    paperclip-watermark (1.0.0)
+      paperclip (>= 2.3.8)
     pg (0.18.4)
     plupload-rails (1.2.1)
       rails (>= 3.1)
@@ -297,6 +299,7 @@ DEPENDENCIES
   jquery-rails
   omniauth-facebook
   paperclip (~> 4.2)
+  paperclip-watermark
   pg
   plupload-rails
   pry-rails

@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'plupload-rails'
 gem 'paperclip', '~> 4.2'
+gem 'paperclip-watermark'
 #gem 'rmagick', '> 2.12.0'
 gem 'grape'
 gem 'grape-rabl'
