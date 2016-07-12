@@ -10,6 +10,8 @@ child @user, object_root: false do
 				node(:url) { |img| img.image.url }
 			end
 		end
+	elsif @user.class.name == "Client"
+		@user.photographer_id.present? ? node(:enabled) { true } : node(:enabled) { false }
 	end
 end
 
