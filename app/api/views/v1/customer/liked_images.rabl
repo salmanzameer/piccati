@@ -4,6 +4,6 @@ child @images, object_root: false do
   attributes :id, :is_liked, :event_id
   node(:url) { |img| img.image_url  }
 end
-
+node(:images_count) {@total_images}
 node(:status) { 1 }
 node(:message) { "All images that are liked found successfully!" }

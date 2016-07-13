@@ -5,6 +5,7 @@ module Customer
     params do
       requires :authentication_token, type: String
       requires :client_id,            type: String
+      optional :page,                 type: Integer
     end
 
     get "/all_events", rabl: "v1/customer/all_events" do
@@ -12,7 +13,8 @@ module Customer
       unless @client
         throw :error, status: 404, message: "Client not found!"
       end
-      @events = @client.events
+      @events = @client.events.paginate( page: params[:page], per_page: 6 ).order("created_at DESC")
+      @total_events = @events.count
     end
 
     desc "Get single event images"
@@ -20,6 +22,7 @@ module Customer
       requires :authentication_token, type: String
       requires :client_id,            type: String
       requires :event_id,             type: String
+      optional :page,                 type: Integer
     end
 
     get "/all_images", rabl: "v1/customer/all_images" do
@@ -33,7 +36,8 @@ module Customer
       unless @event
         throw :error, status: 404, message: "Event not found!"
       end
-      @images = @event.images
+      @images = @event.images.paginate( page: params[:page], per_page: 6 )
+      @total_images = @images.count
     end
 
     desc "Like image"
@@ -61,7 +65,9 @@ module Customer
     params do
       requires :authentication_token, type: String
       requires :client_id,            type: String
-      requires :event_id,             type: String      
+      requires :event_id,             type: String 
+      optional :page,                 type: Integer
+         
     end
 
     get "/liked_images", rabl: "v1/customer/liked_images" do
@@ -74,7 +80,8 @@ module Customer
       unless @event
         throw :error, status: 404, message: "Event not found!"
       end
-      @images = @event.images.where(is_liked: true)
+      @images = @event.images.where(is_liked: true).paginate( page: params[:page], per_page: 6 )
+      @total_images = @images.count    
     end
   end
 end

@@ -1,11 +1,16 @@
 module Snapper
   class GeneralData < Grape::API
   	desc "Get all photographers list"
-	  get :photographers, rabl: "v1/snapper/photographers_index" do
-	    @photographer = Photographer.all 
+	  params do
+      optional :page,                   type: Integer
+    end
+
+    get :photographers, rabl: "v1/snapper/photographers_index" do
+	    @photographer = Photographer.all.paginate( page: params[:page], per_page: 6 ) 
 	    unless @photographer
 	      throw :error, status: 404, message: "Photographer not found!"
 	    end
+      @total_photographers = @photographer.count
 	  end
 
 	  desc "Get photographer profile"
@@ -26,6 +31,7 @@ module Snapper
     params do
       requires :id,                   type: Integer
       requires :photographer_id,      type: Integer
+      optional :page,                 type: Integer
     end
 
     get "/photographer/:photographer_id/album/:id", rabl: "v1/snapper/album_show" do
@@ -37,7 +43,8 @@ module Snapper
       unless @album
         throw :error, status: 404, message: "Album not found!"
       end
+      @images = @album.images.paginate( page: params[:page], per_page: 6 )
+      @total_images = @images.count 
     end
-
   end
 end

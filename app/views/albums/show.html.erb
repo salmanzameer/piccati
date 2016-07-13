@@ -2,8 +2,19 @@
 <br><br><br><br><br>
 Name: <%= @album.name%><br>
 Description: <%= @album.description%><br>
-<%@album.images.each do |img|%>
-	<%= image_tag(img.image(:medium), :width => "300", :height => "220", style: 'padding-bottom: 20px',class: "img-rounded")%>
-<%end%><br>
+
+<ul style="list-style:none;" id="ul-li">
+	<% @album.images.each do |img| %>
+	  <li style="display: inline;" data-src="<%= img.image.url%>">
+	    <img class= "img-rounded" style=" width: 300px; height: 200px; " src="<%= img.image.url(:medium) %>" />
+	  </li>
+	<% end %>
+</ul>
 <%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album.id)%> |
 <%= link_to 'Edit', edit_photographer_album_path(id: @album.id) %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  	$('#ul-li').lightGallery();
+  });
+</script>

@@ -1,7 +1,15 @@
-<h1>Listing Albums</h1>
-<% @albums.each do |album| %>
-  <%#= link_to 'Edit', edit_photographer_album_path(id: album.id) %>
-  <%#= link_to 'Destroy', photographer_album_path(id: album.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-  <%=link_to image_tag("folder-icon.png",class: "img-rounded", style: "margin-right: 1000px; margin-top: 100px;"), photographer_album_path(id: album.id)%>
-<% end %>
-<%= link_to 'New Album', new_photographer_album_path %>
+<h1>Listing Albums</h1>	
+	<% @albums.each do |album| %>
+<div class="row">
+		<div class="col-md-1">
+		</div>
+	  <div class="col-md-1" style="padding-left: 0px;margin-top: 20px;">
+		  <%#= link_to 'Edit', edit_photographer_album_path(id: album.id) %>
+		  <%#= link_to 'Destroy', photographer_album_path(id: album.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+		  <%=link_to image_tag("folder-icon.png",class: "img-rounded"), photographer_album_path(id: album.id)%>
+	  </div>
+	  <div class="col-md-1">
+	  </div>
+</div>
+	<% end %>
+<%= link_to 'New Album', new_photographer_album_path, class: "btn btn-link-1" %>

@@ -7,5 +7,6 @@ child @events, object_root: false do
 end
 
 @client.photographer_id.present? ? node(:enabled) { true } : node(:enabled) { false }
+node(:events_count) {@total_events}
 node(:status) { 1 }
 node(:message) { "All events are found successfully!" }

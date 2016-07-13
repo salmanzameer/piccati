@@ -5,6 +5,6 @@ child @photographer, object_root: false do
   node(:url) { |img| img.avatar.url }
 	node(:album_url) { |photographer| photographer.albums.first.images.sample.image_url if photographer.albums.present? }	
 end
-
+node(:photographers_count) {@total_photographers}
 node(:status) { 1 }
 node(:message) { "Photographer profiles are found successfully!" }

@@ -15,4 +15,5 @@
 //= require moxie
 //= require plupload.dev
 //= require jquery.plupload.queue
+//= require light-gallery
 //= require_tree .
