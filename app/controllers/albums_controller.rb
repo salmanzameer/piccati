@@ -21,15 +21,8 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @album.update(album_params)
-        format.html { redirect_to @album, notice: 'Album was successfully updated.' }
-        format.json { render :show, status: :ok, location: @album }
-      else
-        format.html { render :edit }
-        format.json { render json: @album.errors, status: :unprocessable_entity }
-      end
-    end
+    @album.update(album_params)
+    redirect_to photographer_album_path
   end
 
   def destroy
