@@ -12,6 +12,7 @@ class Photographer < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
   
   has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
+  :default_url => "user-avatar.png",
   :url  => "/system/avatar/images/000/000/00:id/:style/:basename.:extension",
   :path => ":rails_root/public/system/avatar/images/000/000/00:id/:style/:basename.:extension",
   :storage => :s3,
