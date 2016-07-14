@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
   def index
-    @albums = Album.all
+    @albums = current_photographer.albums
   end
 
   def show
