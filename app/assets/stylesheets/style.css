@@ -7,7 +7,8 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
-    background-image: url('bg.png');
+    background-image: url(http://static1.squarespace.com/static/54174487e4b03dbd0c081bda/561ff4fde4b0b02e3cd33bb8/561ff502e4b0eb2227835570/1444934915222/Nigerian-Wedding-Photographer-0403.jpg);
+    background-repeat: no-repeat;
 }
 
 strong { font-weight: 500; 
@@ -258,4 +259,386 @@ a {
 .btn-sign-up
 {
 	background: #155845; margin-top: 15px;height: 50px;width:100%; height: 50px;margin: 0;padding: 0 20px;vertical-align: middle;border: 0;font-family: 'Roboto', sans-serif;font-size: 16px;font-weight: 300;line-height: 50px;color: #fff;margin-top: 15px;
+}
+.powered-logo
+{
+	width: 75%;margin-top: 10px;margin-bottom: 10px;
+}
+
+.footer-bottom-div
+{
+	background-color:#003366;padding: 1rem;
+}
+
+
+/* ********************  New Desgin ****************** */
+  body
+  {
+    background-image: url('piccati-webapp-bg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	height: 100%;
+	font-size: 16px;
+  }
+  .navbar-brand 
+  {
+    padding: 7px 15px;
+  }
+  .navbar-inverse 
+  {
+    background-color: #003366;
+    border-color: #003366;
+  }
+  .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand 
+  {
+    margin-left: 25px;
+  }
+  .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover 
+  {
+    color: #fff;
+    background-color: #003366;
+  }
+  .navbar-inverse .navbar-nav>li>a 
+  {
+    color: #FFF;
+  }
+  .dropdown-menu 
+  {
+    width: 100%;
+  }
+  footer
+	{
+	    position: fixed;
+	    bottom: 0;
+	    width: 100%;
+	    padding-top: 10px;
+	    text-align: center;
+	} 
+  .form-box 
+  {
+    margin-top: 0px;
+  }
+  input[type="email"], input[type="password"], input[type="text"], textarea, textarea.form-control 
+  {
+	border-radius: 0px;
+	border: 0px; 
+  }
+  .input-field-setting
+  {
+    margin-bottom: 1px;
+  }
+  .form-top-left 
+  {
+    padding-top: 0px;
+  }
+
+  .form-field-password
+  {
+  	width: 120%;height: 50px;border-right-width: 0px;border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;padding-bottom: 0px;padding-left: 10px;
+  }
+  .submit-main-btn
+   {
+    width: 95%!important;
+    margin-top: 3px !important;
+    height: 45px !important;
+    background-color: transparent !important;
+    color: grey !important;
+    border-left-width: 0px !important;
+    padding-right: 0px!important;
+    border-right-width: 0px!important;
+    padding-top: 0px!important;
+    padding-bottom: 0px!important;
+    border-top-width: 0px!important;
+    border-bottom-width: 0px!important;
+    padding-top: 0px !important;
+    padding-bottom: 5px!important;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+   }
+  .sign-up-btn 
+  	{
+    font-size: 30px;
+	}
+   .submit-main-btn:hover
+   {
+   	color: #003366 !important
+   }
+   .button-signup
+   {
+   	background-color: Transparent !important;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline:none;
+   }
+   .button-signup:hover
+   {
+   	text-decoration: underline;
+   }
+   }
+   input[type="email"], input[type="password"], input[type="text"], textarea, textarea.form-control 
+   {
+   	    border: 1px solid #ccc!important;
+   }
+      #abc1 {
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      display:none;
+      position:fixed;
+      background-color: rgba(49, 49, 49, 0.76);
+      overflow:auto
+      }
+      img#close {
+      position:absolute;
+      right: -35px;
+        top: 0px;
+      cursor:pointer
+      }
+      div#popupContact {
+      position:absolute;
+      left:50%;
+      top:17%;
+      margin-left:-202px;
+      font-family:'Raleway',sans-serif
+      }
+      .form-action {
+        width: 500px;
+        min-width: 250px;
+        padding: 50px 50px;
+        /* border: 2px solid gray; */
+        /* border-radius: 10px; */
+        font-family: raleway;
+        background-color: #fff;
+      }
+      textarea {
+      background-image:url(https://www.aorank.com/tutorial/createpopupform_livedemo/images/msg.png);
+      background-repeat:no-repeat;
+      background-position:5px 7px;
+      width:82%;
+      height:95px;
+      padding:10px;
+      resize:none;
+      margin-top:30px;
+      border:1px solid #ccc;
+      padding-left:40px;
+      font-size:16px;
+      font-family:raleway;
+      margin-bottom:30px
+      }
+      #submit {
+      margin-top: 1px;
+      text-decoration:none;
+      width:100%;
+      text-align:center;
+      display:block;
+        background-color: #ddd;
+        color: #003366;
+      padding:10px 0;
+      font-size:20px;
+      cursor:pointer;
+      /*border-radius:5px*/
+      }
+      #submit:hover {
+      margin-top: 1px;
+      text-decoration:none;
+      width:100%;
+      text-align:center;
+      display:block;
+        background-color: #003366;
+        color: #fff !important;
+        border: 1px solid #003366;
+      padding:10px 0;
+      font-size:20px;
+      cursor:pointer;
+      /*border-radius:5px*/
+      }
+
+	.menu-first-page
+	{
+	    margin-top: 15px;
+	    color: white;
+	    font-size: 17px;
+	}
+	.boxhead:hover
+	{
+		text-decoration: none;
+	} 
+	.menu-first-page:hover
+	{
+		text-decoration: none;
+	}
+	.pictureContainer 
+	{
+	    height: 160px;
+	    width: 150px;
+	    overflow: hidden;
+	}
+	.pictureContainer img {
+    transform: translate3d(0px, 0px, 0px);
+}
+.pictureContainer img:hover {
+    transform: translate3d(0px, -150px, 0px);
+}
+.pictureContainer img {
+    transform: translate3d(0px, 0px, 0px);
+    transition: transform .2s ease-in-out;
+}
+.pictureContainer img:hover {
+    transform: translate3d(0px, -150px, 0px);
+}
+
+	.menu-first-page
+	{
+	    margin-top: 15px;
+	    color: white;
+	    font-size: 17px;
+	    float: left;
+	}
+
+/* Client Mangament */
+
+	table {
+	    font-family: arial, sans-serif;
+	    border-collapse: collapse;
+	    width: 100%;
+	    color: #fff;
+	}
+
+	td, th {
+	    border: 1px solid #dddddd;
+	    text-align: left;
+	    padding: 8px;
+	}
+
+	tr:nth-child(even) {
+	    background-color: rgba(221,221,221,0.8);
+	    color: #003366;
+	}
+	tr:nth-child(odd) {
+		color: #003366;
+	    background-color: #fff;
+	}
+	.button 
+	{
+	    background-color: #003366;; /* Green */
+	    border: none;
+	    color: #fff;
+	    padding: 10px 32px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 16px;
+	    margin: 4px 0px;
+	    cursor: pointer;
+	}
+	.button4 {width: 100%;}
+	.button4:hover
+	{
+		background-color: #ddd;
+		color: #003366 !important;
+	}
+	#abc {
+			width:100%;
+			height:100%;
+			top:0;
+			left:0;
+			display:none;
+			position:fixed;
+			background-color: rgba(49, 49, 49, 0.76);
+			overflow:auto
+			}
+
+	input[type="text"]:focus, input[type="password"]:focus, textarea:focus, textarea.form-control  {
+    border: 3px solid #ddd;
+}
+
+input[type="email"], input[type="password"], input[type="text"], textarea, textarea.form-control 
+	{
+    border: 3px solid #ddd!important;
+    }
+/* ***************** PL Upload ************************ */
+.plupload_header {
+    background: #003366 url('../img/backgrounds.gif') repeat-x;
+}
+
+.plupload_header_title:after {
+  content: ' to Upload';
+}
+
+.plupload_header_text:before
+{
+	content: '*';
+}
+.plupload_add 
+{
+    background-color: #fff;
+    border: none;
+    color: #003366;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 0px;
+    cursor: pointer;
+}
+
+.plupload_filelist_footer {
+    border-top: 1px solid #dcdcdc;
+    background-color: #fff;
+    height: 45px;
+    padding-top: 0px;
+}
+
+.plupload_start 
+{
+    background-color: #fff;
+    border: none;
+    color: #003366;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 0px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.plupload_file_size, .plupload_file_status, .plupload_file_action {
+    text-align: right;
+    margin-top: 12px;
+}
+
+.plupload_button:hover {
+    color: #003366;
+    background-color: #fff;
+    text-decoration: none;
+}
+.plupload_button:hover {
+    color: #003366!important;
+    background-color: #fff !important;
+    text-decoration: none;
+}
+
+
+.plupload_file_name {
+    float: left;
+    overflow: hidden;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+.plupload_file_size, .plupload_file_status, .plupload_file_action {
+    font-size: 16px;
+}
+
+.plupload_file_size, .plupload_file_status, .plupload_file_action {
+    font-size: 16px;
+}
+.plupload_buttons {
+    margin-top: -12px;
 }
