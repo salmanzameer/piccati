@@ -508,18 +508,19 @@ a {
 	}
 
 	td, th {
-	    border: 1px solid #dddddd;
 	    text-align: left;
 	    padding: 8px;
 	}
 
 	tr:nth-child(even) {
-	    background-color: rgba(221,221,221,0.8);
 	    color: #003366;
+      background-color: #fff;
+      border-bottom: 1pt solid #dcdcdc;
 	}
 	tr:nth-child(odd) {
 		color: #003366;
 	    background-color: #fff;
+    border-bottom: 1pt solid #dcdcdc;
 	}
 	.button 
 	{
@@ -910,3 +911,25 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
       {
         color: #003366 !important;
       }
+  .button5 {width: 100%;}
+  .button5:hover
+  {
+    background-color: #ddd;
+    color: #003366 !important;
+  }
+
+.album-text-align
+{
+      text-align: left;
+      color: white;
+}
+
+.text-para
+{
+  margin-top: 0px;
+}
+
+.hr-album
+{
+  margin: 15px 0px;
+}
