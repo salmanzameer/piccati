@@ -6,21 +6,23 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
       </button>
-      <%=link_to image_tag("http://protonlabscom.ipage.com/piccati/images/logo.png",class: "navbar-brand"), photographer_path(current_photographer)%></a>
+      <%=link_to image_tag("logo.png",class: "navbar-brand"), default_url %></a>
     </div>
     <div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav pull-right">
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 6px;padding-bottom: 6px;"><img src="http://image.gala.de/v1/cms/ZR/harry-styles_9814055-original-portrait_6col.jpg?v=12752457" class="img-circle" style="width:40px;height:40px;"> Client Managment <span class="caret"></span></a>
-            <ul class="dropdown-menu" style="width: 190px;">
-              <li><a href="#section41">Client Managment-1</a></li>
-              <li><a href="#section42">Client Managment-2</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 6px;padding-bottom: 6px;margin-right: 40px;"><img src="http://www.hercampus.com/sites/default/files/2016/04/25/maxresdefault-2-7.jpg" class="img-circle" style="width:40px;height:40px;">Muhammad Farooq <span class="caret"></span></a>
+          <% if !params[:action] == "show" %>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 6px;padding-bottom: 6px;"><img src="http://image.gala.de/v1/cms/ZR/harry-styles_9814055-original-portrait_6col.jpg?v=12752457" class="img-circle" style="width:40px;height:40px;"> Client Managment <span class="caret"></span></a>
+              <ul class="dropdown-menu" style="width: 190px;">
+                <li><a href="#section41">Client Managment-1</a></li>
+                <li><a href="#section42">Client Managment-2</a></li>
+              </ul>
+            </li>
+          <% end %>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 6px;padding-bottom: 6px;margin-right: 40px;"><img src="http://www.hercampus.com/sites/default/files/2016/04/25/maxresdefault-2-7.jpg" class="img-circle" style="width:40px;height:40px;"><%= current_photographer.firstname.titleize+" "+current_photographer.lastname.titleize if photographer_signed_in?%> <span class="caret"></span></a>
             <ul class="dropdown-menu" style="width: 190px;margin-left: 15px;">
-              <li><a href="#section41">Section 4-1</a></li>
-              <li><a href="#section42">Section 4-2</a></li>
+              <li></li>
+              <li><%= link_to('Logout', destroy_photographer_session_path(current_photographer), :method => :delete) %></li>
             </ul>
           </li>
         </ul>

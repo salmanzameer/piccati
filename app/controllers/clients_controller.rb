@@ -2,6 +2,9 @@ class ClientsController < ApplicationController
   
   def index
     @clients = current_photographer.clients
+    @current_client = @clients.first
+    @client = Client.new
+    @event = @current_client.events.new if @current_client
   end
 
   def show
@@ -52,6 +55,13 @@ class ClientsController < ApplicationController
     else
       render ('edit')
     end 
+  end
+
+  def client_events
+    @client = Client.find(params[:id])
+    @events = @client.events
+    @event  = current_photographer.clients.find_by_id(params[:id]).events.new
+    return render partial: "events", locals: { events: @events, event: @event, client: @client }
   end
 
   def event 
