@@ -35,7 +35,7 @@ class ClientsController < ApplicationController
     @client = current_photographer.clients.new(clientsparams)
     end
     if @client.save
-      redirect_to photographer_client_path(current_photographer,@client.id)
+      redirect_to photographer_clients_path(current_photographer)
     else
       flash[:notice] ="Error"
       render('new')

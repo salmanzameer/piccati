@@ -25,6 +25,10 @@ protected
     photographer_path(resource)
   end
 
+  def after_sign_out_path_for(resource)
+    photographer_path(resource)
+  end
+
   def current_client
     @client = Client.where(email: params[:email], password: params[:password]).first 
   end

@@ -19,12 +19,14 @@
               </ul>
             </li>
           <% end %>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 6px;padding-bottom: 6px;margin-right: 40px;"><img src="http://www.hercampus.com/sites/default/files/2016/04/25/maxresdefault-2-7.jpg" class="img-circle" style="width:40px;height:40px;"><%= current_photographer.firstname.titleize+" "+current_photographer.lastname.titleize if photographer_signed_in?%> <span class="caret"></span></a>
+          <% if current_photographer %>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 6px;padding-bottom: 6px;margin-right: 40px;"><%= image_tag (current_photographer.avatar), class: "img-circle", style: "width:40px;height:40px;" %><%= current_photographer.firstname.titleize+" "+current_photographer.lastname.titleize if photographer_signed_in?%> <span class="caret"></span></a>
             <ul class="dropdown-menu" style="width: 190px;margin-left: 15px;">
               <li></li>
-              <li><%= link_to('Logout', destroy_photographer_session_path(current_photographer), :method => :delete) %></li>
+              <li><%= link_to('Logout', destroy_photographer_session_path, :method => :delete) %></li>
             </ul>
           </li>
+          <% end %>
         </ul>
       </div>
     </div>
