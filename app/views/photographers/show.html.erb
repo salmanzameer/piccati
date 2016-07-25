@@ -1,14 +1,41 @@
-<div class="container">
-        <div class="row">
-          <div class="col-md-4" >
+
+<div style="margin-top:80px;"></div>
+<div class="row">
+  <div class="container">
+    <div class="col-md-12" style="margin-top:150px;margin-left: 60px;">
+      <div class="col-md-3">
+        <a href="http://google.com" class="link-menu">
+          <div class="boxhead pictureContainer">
+            <center><%= image_tag 'client-ani.png'%></center>
           </div>
-          <div class="col-md-4" style="margin-top:30px;color: #fff;">
-              <%= image_tag current_photographer.avatar(:medium) , class: "img-circle", style: "height: 200px;width: 200px; margin-top:100px;" %>
-              <h1 style="font-size: 38px;color: #fff;"><%= @photographer.title%> <%= @photographer.firstname%>   <%= @photographer.lastname%></h1>
-              <%= @photographer.email%></br>
-              Username: <%= @photographer.username%></br>
+          <p class="menu-first-page">Client Management</p>
+        </a>  
+      </div>
+      <div class="col-md-3">
+        <a href="http://google.com" class="link-menu">
+          <div class="boxhead pictureContainer">
+            <center><%= image_tag 'calender-ani.png'%></center>
           </div>
-          <div class="col-md-4">
+          <p class="menu-first-page" style="text-indent: 1em;">Events Planner</p>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="http://google.com" class="link-menu">
+          <div class="boxhead pictureContainer">  
+            <center><%= image_tag 'album-ani.png'%></center>
           </div>
-        </div>
+          <p class="menu-first-page" style="text-indent: 1em;">Public Albums</p>
+        </a>
+      </div>
+      <div class="col-md-3">
+        <a href="http://google.com" class="link-menu">
+          <div class="boxhead pictureContainer">
+            <center><%= image_tag 'setting-ani.png'%></center>
+          </div>
+          <p class="menu-first-page" style="text-indent: 2.5em;">      Settings</p>
+        </a>
+      </div>
+
+    </div>
+  </div>
 </div>
