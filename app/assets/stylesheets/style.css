@@ -933,3 +933,141 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
 {
   margin: 15px 0px;
 }
+
+.tbheaderback
+{
+  background-color: #003366;
+  color: #fff;
+}
+
+.font-awesome-size
+{
+  font-size:16px;
+}
+
+.editprofileheading
+{
+  height:46px;
+  background-color:#003366;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.edit-prfile-para
+{
+  color:white;margin-bottom:0px; font-weight: bold;margin-top: 0px;
+}
+
+.background-main-edit-profile
+{
+  background-color:#dcdcdc;
+}
+
+.dropdown-edit
+{
+    width: 100%;
+    padding: 0px;
+}
+
+.name-field
+{
+  width: 100% !important;
+  height: 50px !important;
+  border-left-width: 0px !important;
+  border-right-width: 0px !important;
+  border-top-width: 0px !important;
+  margin-bottom: 1px !important;
+  border-bottom-width: 0px !important;    
+  padding-left: 10px !important;
+}
+
+.profile-pic-field
+{
+  width: 150% !important;
+  height: 70px !important;
+  border-right-width: 0px !important;
+  border-top-width: 0px !important;
+  border-left-width: 0px !important;
+  border-bottom-width: 0px !important;
+  padding-bottom: 0px !important;
+  padding-left: 10px !important;
+}
+
+.btn-profile
+{
+  width: 95% !important;
+  margin-top: 15px !important;
+  height: 45px !important;
+  background-color: white !important;
+  color: grey !important;
+  border-left-width: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  border-right-width: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  border-top-width: 0px !important;
+  border-bottom-width: 0px !important;
+}
+
+.btn-profile:hover
+{
+  width: 95% !important;
+  margin-top: 15px !important;
+  height: 45px !important;
+  background-color: white !important;
+  color: #003366 !important;
+  border-left-width: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  border-right-width: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  border-top-width: 0px !important;
+  border-bottom-width: 0px !important;
+}
+.watermark-field
+{
+  width: 133.5% !important;
+  height: 70px !important;
+  border-right-width: 0px !important;
+  border-top-width: 0px !important;
+  border-left-width: 0px !important;
+  border-bottom-width: 0px !important;
+  padding-bottom: 0px !important;
+  padding-left: 10px !important;
+}
+
+.btn-watermark-field
+{
+  width: 90%;
+  margin-top: 15px;
+  height: 45px;
+  background-color: white;
+  color: grey;
+  border-left-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-right-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+}
+.btn-watermark-field:hover
+{
+  width: 90%;
+  margin-top: 15px;
+  height: 45px;
+  background-color: white;
+  color: #003366;
+  border-left-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-right-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+}
