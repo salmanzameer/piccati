@@ -8,11 +8,27 @@ module Authentication
     end
     
     post :login, rabl: "v1/authentication/login" do
-      login = params[:role_type].titleize.constantize
-      @user = login.find_by_email(params[:email])
+      role = params[:role_type].titleize.constantize
+      @user = role.find_by_email(params[:email])
       unless @user && @user.valid_password?(params[:password])
         throw :error, status: 404, message: "Invalid username/password"
       end
+    end
+
+    desc "Update User profile picture"
+    params do
+      requires :id,     type: Integer
+      requires :avatar, type: Rack::Multipart::UploadedFile
+      requires :role_type, type: String
+    end
+    
+    put :update_user, rabl: "v1/authentication/update_user" do
+      role = params[:role_type].titleize.constantize
+      @user = role.find_by_id(params[:id])
+      unless @user
+        throw :error, status: 404, message: "User not found"
+      end
+      @user.update(avatar: params[:avatar].tempfile)
     end  
   end
 end
