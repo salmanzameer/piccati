@@ -1,7 +1,8 @@
 <div style="margin-top:80px;"></div>
 <div class="container">
 	<div class="col-md-3">
-		<table>
+	<div class="wrap">
+	    <table class="head">
 		  <tbody><tr>
 		  <div>
 		    <th style="background-color: #003366;color: #fff;">
@@ -18,8 +19,13 @@
 		    </th>
 		  </div>
 		  </tr>
+		  </tbody>
+		 </table>
+		<div class="inner_table">
+    <table>
+    <tbody>
 		  <% @clients.each do |client| %>
-		  <tr>
+		  <tr class="clients-tr">
 		    <td><div class="col-md-8"><%= link_to client.username, "#", class: "show-client-events", data: { id: client.id } %></div>
 		    <div class="col-md-4">
 		    <button type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;"><i class="fa  fa-edit btn-edit" style="font-size: 16px;color: #ddd;"></i></button>
@@ -29,6 +35,7 @@
 		  </tr>
 		  <% end %>
 		</tbody></table>
+		</div></div>
 		<button class="button button4 popup" id="popup" data-id= "abc2" ><i class="fa fa-plus-circle"></i> Add Client</button>
 		<div id="abc2">
 		<!-- Popup Div Starts Here -->

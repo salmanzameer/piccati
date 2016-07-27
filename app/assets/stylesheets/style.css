@@ -949,3 +949,29 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
 input[type=text] {
   width: 100% !important;
 }
+
+
+.wrap table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+table tr td {
+    padding: 5px;
+    border: 1px solid #eee;
+    width: 100px;
+    word-wrap: break-word;
+}
+
+table.head tr td {
+    background: #eee;
+}
+
+.inner_table {
+    height: 300px;
+    overflow-y: auto;
+}
+.inner_table1 {
+    height: 100px;
+    overflow-y: auto;
+}

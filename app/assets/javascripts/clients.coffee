@@ -17,6 +17,10 @@ $ ->
 
 	$(document).on 'click', '.show-client-events', (e) ->
 		e.preventDefault()
+		$('.clients-tr').removeClass('tr-selected')
+		$(".show-client-events").css('color','#23527c')
+		$(this).closest("tr").addClass('tr-selected')
+		$(this).css('color','white')
 		id = $(this).data("id")
 		$.ajax
 			type: "GET"
@@ -32,3 +36,4 @@ $ ->
 		$(".clients-table").show()
 		$("##{$(this).data("id")}").hide()
 			
+	$('.show-client-events').first().click().closest("tr").addClass("tr-selected")

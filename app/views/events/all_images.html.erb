@@ -4,7 +4,7 @@
 		<ul style="list-style:none;" id="ul-li">
 			<% @image.each do |img| %>
 			  <li style="display: inline;" data-src="<%= img.image.url%>">
-			     <img class= "img-rounded" style=" width: 300px; height: 200px; " src="<%= img.image.url(:medium) %>" />
+			     <img class= "img-rounded"  src="<%= img.image.url(:medium) %>" />
 			  </li>
 			<% end %>
 		</ul>
