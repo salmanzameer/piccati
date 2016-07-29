@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     arel (6.0.3)
     aws-sdk (1.66.0)
       aws-sdk-v1 (= 1.66.0)
@@ -49,6 +50,8 @@ GEM
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap3-datetimepicker-rails (4.14.30)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.2)
     byebug (8.2.2)
     climate_control (0.0.3)
@@ -109,6 +112,9 @@ GEM
       rabl
       tilt
     hashie (3.4.3)
+    html_routes (1.0)
+      launchy (~> 2.0)
+      syntax (~> 1.0)
     i18n (0.7.0)
     ice_nine (0.11.2)
     jbuilder (2.4.1)
@@ -120,6 +126,8 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     jwt (1.5.1)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.7.1)
@@ -138,6 +146,8 @@ GEM
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    momentjs-rails (2.11.1)
+      railties (>= 3.1)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -246,6 +256,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simple_calendar (2.1.5)
+      rails (>= 3.0)
     slop (3.6.0)
     spring (1.6.4)
     sprockets (3.5.2)
@@ -255,6 +267,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    syntax (1.2.1)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -290,6 +303,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk (< 2.0)
+  bootstrap3-datetimepicker-rails (~> 4.14.30)
   byebug
   coffee-rails (~> 4.1.0)
   devise
@@ -297,9 +311,11 @@ DEPENDENCIES
   faker
   grape
   grape-rabl
+  html_routes (~> 1.0)
   jbuilder (~> 2.0)
   jquery-rails
   light_gallery_rails
+  momentjs-rails (>= 2.9.0)
   omniauth-facebook
   paperclip (~> 4.2)
   paperclip-watermark
@@ -311,6 +327,7 @@ DEPENDENCIES
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  simple_calendar (~> 2.0)
   spring
   therubyracer
   twitter-bootstrap-rails

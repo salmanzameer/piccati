@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require moment
+//= require bootstrap-datetimepicker
 //= require moxie
 //= require plupload.dev
 //= require jquery.plupload.queue

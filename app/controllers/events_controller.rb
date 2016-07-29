@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    params[:event][:start_time] = DateTime.strptime(params[:event][:start_time], "%m/%d/%Y") 
     event = current_photographer.clients.find_by_id(params[:client_id]).events.create(event_params)
     @client = current_photographer.clients.find_by_id(params[:client_id])
     @events = @client.events
@@ -73,7 +74,7 @@ class EventsController < ApplicationController
   protected 
 
   def event_params
-    params.require(:event).permit(:name,:location,:bridal,:groom)
+    params.require(:event).permit(:name, :location, :bridal, :groom, :start_time)
   end
 end
  

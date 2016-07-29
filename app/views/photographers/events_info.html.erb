@@ -26,8 +26,17 @@
      </tr>
  </table>
 </div>
-            </div>
-
-            <div class="col-md-3" >
-            </div>
 </div>
+
+<div class="col-md-3" >
+</div>
+</div>
+<%= month_calendar events: @events do |date, events| %>
+  <%= date %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= event.name %>
+    </div>
+  <% end %>
+<% end %>

@@ -7,4 +7,5 @@ class Event < ActiveRecord::Base
 	validates :location, presence: true
 	validates :bridal ,  presence: true
 	validates :groom,    presence: true
+	
 end
