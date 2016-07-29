@@ -16,7 +16,6 @@ strong { font-weight: 500;
 }
 
 a, a:hover, a:focus {
-	color: #de615e;
 	text-decoration: none;
 
     -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
@@ -274,7 +273,7 @@ a {
 /* ********************  New Desgin ****************** */
   body
   {
-    background-image: url('piccati-webapp-bg.png');
+    background-image: url('bg-new.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 	height: 100%;
@@ -376,7 +375,7 @@ a {
    {
    	text-decoration: underline;
    }
-   }
+  
    input[type="email"], input[type="password"], input[type="text"], textarea, textarea.form-control 
    {
    	    border: 1px solid #ccc!important;
@@ -797,7 +796,6 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
         /* border: 2px solid gray; */
         /* border-radius: 10px; */
         font-family: raleway;
-        background-color: #fff;
       }
       p {
       margin-top:30px
@@ -911,7 +909,20 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
       {
         color: #003366 !important;
       }
-  .button5 {width: 100%;}
+
+.client_fields{
+  width: 100% !important;
+  height: 50px;
+  margin-bottom: 1px;
+  padding-left: 10px;
+}
+
+  tr:focus{
+      color: #fff;
+      background-color: #003366;
+      border-bottom: 1pt solid #dcdcdc;
+  }
+ .button5 {width: 100%;}
   .button5:hover
   {
     background-color: #ddd;
@@ -1070,4 +1081,34 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
   padding-bottom: 0px;
   border-top-width: 0px;
   border-bottom-width: 0px;
+
+
+input[type=text] {
+  width: 100% !important;
+}
+
+
+.wrap table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+table tr td {
+    padding: 5px;
+    border: 1px solid #eee;
+    width: 100px;
+    word-wrap: break-word;
+}
+
+table.head tr td {
+    background: #eee;
+}
+
+.inner_table {
+    height: 300px;
+    overflow-y: auto;
+}
+.inner_table1 {
+    height: 100px;
+    overflow-y: auto;
 }

@@ -4,12 +4,10 @@
   <div class="container">
     <div class="col-md-12" style="margin-top:150px;margin-left: 60px;">
       <div class="col-md-3">
-        <a href="http://google.com" class="link-menu">
-          <div class="boxhead pictureContainer">
-            <center><%= image_tag 'client-ani.png'%></center>
-          </div>
-          <p class="menu-first-page">Client Management</p>
-        </a>  
+        <div class="boxhead pictureContainer">
+          <center><%=link_to image_tag("client-ani.png"), photographer_clients_path(current_photographer)%></center>
+        </div>
+        <p class="menu-first-page">Client Management</p>
       </div>
       <div class="col-md-3">
         <a href="http://google.com" class="link-menu">
@@ -20,20 +18,17 @@
         </a>
       </div>
       <div class="col-md-3">
-        <a href="http://google.com" class="link-menu">
-          <div class="boxhead pictureContainer">  
-            <center><%= image_tag 'album-ani.png'%></center>
+        <div class="boxhead pictureContainer">  
+            <center><%=link_to image_tag("album-ani.png"), photographer_albums_path(current_photographer)%>
+            </center>
           </div>
           <p class="menu-first-page" style="text-indent: 1em;">Public Albums</p>
-        </a>
       </div>
       <div class="col-md-3">
-        <a href="http://google.com" class="link-menu">
-          <div class="boxhead pictureContainer">
-            <center><%= image_tag 'setting-ani.png'%></center>
-          </div>
-          <p class="menu-first-page" style="text-indent: 2.5em;">      Settings</p>
-        </a>
+        <div class="boxhead pictureContainer">
+          <center><%=link_to image_tag("setting-ani.png"), edit_photographer_registration_path(current_photographer)%></center>
+        </div>
+        <p class="menu-first-page" style="text-indent: 2.5em;">      Settings</p>
       </div>
 
     </div>

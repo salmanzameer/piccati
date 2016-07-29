@@ -6,30 +6,39 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img src="http://protonlabscom.ipage.com/piccati/images/logo.png"></a>
+      <%=link_to image_tag("logo.png",class: "navbar-brand"), default_url %></a>
     </div>
     <div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav pull-right">
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 6px;padding-bottom: 6px;"><img src="http://image.gala.de/v1/cms/ZR/harry-styles_9814055-original-portrait_6col.jpg?v=12752457" class="img-circle" style="width:40px;height:40px;"> Client Managment <span class="caret"></span></a>
-            <ul class="dropdown-menu" style="width: 190px;">
-              <li><a href="#section41">Client Managment-1</a></li>
-              <li><a href="#section42">Client Managment-2</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 6px;padding-bottom: 6px;margin-right: 40px;"><img src="http://www.hercampus.com/sites/default/files/2016/04/25/maxresdefault-2-7.jpg" class="img-circle" style="width:40px;height:40px;">Muhammad Farooq <span class="caret"></span></a>
+          <% if !params[:action] == "show" %>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 6px;padding-bottom: 6px;"><img src="http://image.gala.de/v1/cms/ZR/harry-styles_9814055-original-portrait_6col.jpg?v=12752457" class="img-circle" style="width:40px;height:40px;"> Client Managment <span class="caret"></span></a>
+              <ul class="dropdown-menu" style="width: 190px;">
+                <li><a href="#section41">Client Managment-1</a></li>
+                <li><a href="#section42">Client Managment-2</a></li>
+              </ul>
+            </li>
+          <% end %>
+          <% if current_photographer %>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 6px;padding-bottom: 6px;margin-right: 40px;"><%= image_tag (current_photographer.avatar), class: "img-circle", style: "width:40px;height:40px;" %><%= current_photographer.firstname.titleize+" "+current_photographer.lastname.titleize if photographer_signed_in?%> <span class="caret"></span></a>
             <ul class="dropdown-menu" style="width: 190px;margin-left: 15px;">
-              <li><a href="#section41">Section 4-1</a></li>
-              <li><a href="#section42">Section 4-2</a></li>
+              <li></li>
+              <li><%= link_to('Logout', destroy_photographer_session_path, :method => :delete) %></li>
             </ul>
           </li>
+          <% end %>
         </ul>
       </div>
     </div>
   </div>
 </nav>
-<% if current_photographer.present? %>
-<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #fff;">
+
+
+
+
+
+<%# if current_photographer.present? %>
+<!-- <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #fff;">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -38,34 +47,33 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><%= link_to image_tag("logo1.png",  :crop => :thumb, :gravity => :face, :radius => :max , :align => 'left',style:"width: 28%;padding: 8px;"), photographer_path(current_photographer)%></a>
+      <a class="navbar-brand" href="#"><%#= link_to image_tag("logo1.png",  :crop => :thumb, :gravity => :face, :radius => :max , :align => 'left',style:"width: 28%;padding: 8px;"), photographer_path(current_photographer)%></a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav" style="padding-top: 8px; margin-left: 250px;">
        
-        <li>  <%= link_to('Clients', photographer_clients_path(current_photographer)) if current_photographer.present?%></li>
-        <li>  <%= link_to('Events', photographer_events_info_path(current_photographer)) if current_photographer.present? %></li>
-        <li>  <%= link_to('Albums', photographer_albums_path(current_photographer)) if current_photographer.present?%></li>
+        <li>  <%#= link_to('Clients', photographer_clients_path(current_photographer)) if current_photographer.present?%></li>
+        <li>  <%#= link_to('Events', photographer_events_info_path(current_photographer)) if current_photographer.present? %></li>
+        <li>  <%#= link_to('Albums', photographer_albums_path(current_photographer)) if current_photographer.present?%></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" style="width:15%;">
        
         <li class="dropdown" style="width:50%;">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding:0px;"><%= image_tag(current_photographer.avatar, style:"width: 55px;height: 55px; padding-top: 12px;") %> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="padding:0px;"><%#= image_tag(current_photographer.avatar, style:"width: 55px;height: 55px; padding-top: 12px;") %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li>  <%= link_to('Profile', photographer_path(current_photographer)) if current_photographer.present? %>
+            <li>  <%#= link_to('Profile', photographer_path(current_photographer)) if current_photographer.present? %>
            </li>
-            <li>  <%= link_to('Edit', edit_photographer_registration_path) if current_photographer.present? %>
+            <li>  <%#= link_to('Edit', edit_photographer_registration_path) if current_photographer.present? %>
             </li>
-             <li> <%= link_to("Cancel account", registration_path(current_photographer),  data: { confirm: "Are you sure?" }, method: :delete) if current_photographer.present? %> </li>
+             <li> <%#= link_to("Cancel account", registration_path(current_photographer),  data: { confirm: "Are you sure?" }, method: :delete) if current_photographer.present? %> </li>
              
-             <li> <%= link_to 'Change Password', edit_photographer_path(current_photographer)   %></li>
+             <li> <%#= link_to 'Change Password', edit_photographer_path(current_photographer)   %></li>
           </ul>
-          <li style="padding-top: 8px;width:50%;"> <%= link_to('Logout', destroy_photographer_session_path,:method => :delete) if current_photographer.present? %>
-               <% end %>
+          <li style="padding-top: 8px;width:50%;"> <%#= link_to('Logout', destroy_photographer_session_path,:method => :delete) if current_photographer.present? %>
+               <%# end %>
           </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+    </div>
+  </div>
+</nav> -->

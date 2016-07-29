@@ -7,7 +7,7 @@ class Image < ActiveRecord::Base
   processors: [:watermark],
   styles: lambda { |attachment| { 
       original: { geometry: "500x500", watermark_path: attachment.instance.watermark_url, position: "Center" },
-      medium: "300x300>"
+      medium: "300x300#"
     }
   },
   :url  => "/system/events/images/000/000/00:id/:style/:basename.:extension",

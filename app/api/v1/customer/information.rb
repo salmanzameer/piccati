@@ -13,7 +13,7 @@ module Customer
       unless @client
         throw :error, status: 404, message: "Client not found!"
       end
-      @events = @client.events.paginate( page: params[:page], per_page: 6 ).order("created_at DESC")
+      @events = @client.events.paginate( page: params[:page], per_page: 6 ).order("created_at ASC")
       @total_events = @events.count
     end
 

@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   end
 
   resources :clients do
+    member do 
+      get "client_events"
+    end
     resources :events do
       get 'all_images'
       get 'image/:id' => 'events#image'
