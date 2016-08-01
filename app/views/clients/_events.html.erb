@@ -1,18 +1,98 @@
-<div class="col-md-9">
-		<div class="clients-table">
-		<div class="wrap">
-	    <table class="head">
-		  <tbody><tr>
-		    <th style="background-color: #003366;color: #fff;">Event Name</th>
-		    <th style="background-color: #003366;color: #fff;">Groom &amp; Bride</th>
-		    <th style="background-color: #003366;color: #fff;">Date</th>
-		    <th style="background-color: #003366;color: #fff;">Photos</th>
+<div class="col-md-4">
+	<h1 class="heading-client-mangement heading-client-mangement-bot-margin">Events List of selected Client</h1>
+	<div class="col-md-12 selected-pkg">
+			<div class="selected-pkg-adjust selected-pkg-adjust-bot">
+			<div class="col-md-4 selected-pkg-adjust-bot">Pakage</div>
+			<div class="col-md-8 selected-pkg-adjust-bot">3x2</div>
+			<div class="col-md-4 selected-pkg-adjust-bot">Adavance</div>
+			<div class="col-md-8 selected-pkg-adjust-bot">1,50,000</div>
+			<div class="col-md-4 selected-pkg-adjust-bot">Total</div>
+			<div class="col-md-8 selected-pkg-adjust-bot">3,00,000</div>
+			<div class="col-md-4 selected-pkg-adjust-bot">Balace</div>
+			<div class="col-md-8 selected-pkg-adjust-bot">1,50,000</div>
+			</div>
+	</div>
+	<div style="margin-top:15px;">
+		    <table class="table table-striped header-fixed">
+			  <thead>
+				<tr>
+			  <div>
+			    <th style="background-color: #003366;color: #fff;">
+			    	Event Type
+			    </th>
+			    <th style="background-color: #003366;color: #fff;">
+			    	No. of Photos 
+			    </th>
+			  </div>
+			  </tr>
+			 </thead>
+		        <tbody>
+			  <tr>
+			    <td>Mehndi
+			    </td>
+			    <td>  <i class="fa fa-plus-circle"></i> Add Photos
+			    </td>
+			  </tr>
+			  <tr>
+			    <td>Mehndi
+			    </td>
+			    <td>  <i class="fa fa-plus-circle"></i> Add Photos
+			    </td>
+			  </tr>
+			  <tr>
+			    <td>Mehndi
+			    </td>
+			    <td>  <i class="fa fa-plus-circle"></i> Add Photos
+			    </td>
+			  </tr>
+			  <tr>
+			    <td>Mehndi
+			    </td>
+			    <td>  <i class="fa fa-plus-circle"></i> Add Photos
+			    </td>
+			  </tr>
+			</tbody>
+			</table>
+		<button class="button button4 popup event-btn" id="popup" data-id="abc"><i class="fa fa-plus-circle"></i> Add Event</button>
+		</div>
+		<div id="abc">
+		<!-- Popup Div Starts Here -->
+			<div id="popupContact">
+	<!-- Contact Us Form -->
+				<%= form_for event, url: photographer_client_events_path(current_photographer.id, client.id), html: { class: "form-action" } do |f| %>
+					<%= image_tag ("close1.png"), class: "close", data: { id: "abc" }%>
+					<center><h2>Add a Event</h2></center>
+					<fieldset>
+					  <%= f.text_field :name, autofocus: true, :placeholder =>"Name", :class => "first-field client_fields" %>
+					  <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields" %>
+					  <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "first-field client_fields" %>
+					  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "first-field client_fields" %>
+					 </fieldset>
+					<!-- <textarea id="msg" name="message" placeholder="Message"></textarea> -->
+					
+					<center><%= f.button 'Add Event' , id: "submit", class: "button4 submit-event" %></center>
+				<% end %>
+			</div>
+	<!-- Popup Div Ends Here -->
+		</div>
+
+</div>
+<div class="col-md-5">
+	<div class="clients-table">
+	    <table class="table table-striped header-fixed">
+		  <thead>
+			<tr>
+		  <div>
+		    <th style="background-color: #003366;color: #fff;">
+		    	Barat
+		    </th>
+		    <th style="background-color: #003366;color: #fff;">
+		    	Bride & Groom 
+		    </th>
+		  </div>
 		  </tr>
-		  </tbody>
-		 </table>
-		<div class="inner_table1">
-    <table>
-    <tbody>
+		 </thead>
+	     <tbody>
 		  <% events.each do |my_event| %>
 			  <tr>
 			    <td><%= link_to my_event.name, all_images_photographer_client_event_path(current_photographer, my_event.client.id,my_event.id) %></td>
@@ -21,7 +101,7 @@
 			    <td><%= link_to 'Upload-Images', photographer_client_event_path(current_photographer,my_event.client.id,my_event.id), class: "btn"%></td>
 			  </tr>
 		  <% end %>
-		</tbody></table></div></div>
+		</tbody></table>
 		<button class="button button4 popup" id="popup" data-id="abc"><i class="fa fa-plus-circle"></i> Add Event</button>
 		</div>
 		<div id="abc">
@@ -55,4 +135,4 @@
 			</div>
 	<!-- Popup Div Ends Here -->
 		</div>
-	</div>
+</div>
