@@ -12,6 +12,8 @@
 			<div class="col-md-8 selected-pkg-adjust-bot">1,50,000</div>
 			</div>
 	</div>
+
+
 	<div style="margin-top:15px;">
 		    <table class="table table-striped header-fixed">
 			  <thead>
@@ -25,32 +27,16 @@
 			    </th>
 			  </div>
 			  </tr>
-			 </thead>
-		        <tbody>
+			</thead>
+		  <tbody>
+		  <% @events.each do |event| %>
 			  <tr>
-			    <td>Mehndi
+			    <td><%= event.name %>
 			    </td>
 			    <td>  <i class="fa fa-plus-circle"></i> Add Photos
 			    </td>
 			  </tr>
-			  <tr>
-			    <td>Mehndi
-			    </td>
-			    <td>  <i class="fa fa-plus-circle"></i> Add Photos
-			    </td>
-			  </tr>
-			  <tr>
-			    <td>Mehndi
-			    </td>
-			    <td>  <i class="fa fa-plus-circle"></i> Add Photos
-			    </td>
-			  </tr>
-			  <tr>
-			    <td>Mehndi
-			    </td>
-			    <td>  <i class="fa fa-plus-circle"></i> Add Photos
-			    </td>
-			  </tr>
+			 <% end %>
 			</tbody>
 			</table>
 		<button class="button button4 popup event-btn" id="popup" data-id="abc"><i class="fa fa-plus-circle"></i> Add Event</button>
