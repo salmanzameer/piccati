@@ -65,6 +65,8 @@ class ClientsController < ApplicationController
   end
 
   def event 
+    @event = Event.find_by_id(params[:id])
+    return render partial: "event", locals: { event: @event }
   end
 
   def editparams

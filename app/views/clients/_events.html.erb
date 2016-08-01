@@ -31,7 +31,7 @@
 		  <tbody>
 		  <% @events.each do |event| %>
 			  <tr>
-			    <td><%= event.name %>
+			    <td><%= link_to event.name, "#", class: "show-event", data: { id: event.id } %></div>
 			    </td>
 			    <td><i class="fa fa-plus-circle"></i>
 			    <%= link_to 'Add Photos', photographer_client_event_path(current_photographer,event.client.id,event) %>
@@ -67,29 +67,7 @@
 </div>
 <div class="col-md-5">
 	<div class="clients-table">
-	    <table class="table table-striped header-fixed">
-		  <thead>
-			<tr>
-		  <div>
-		    <th style="background-color: #003366;color: #fff;">
-		    	Barat
-		    </th>
-		    <th style="background-color: #003366;color: #fff;">
-		    	Bride & Groom 
-		    </th>
-		  </div>
-		  </tr>
-		 </thead>
-	     <tbody>
-		  <% events.each do |my_event| %>
-			  <tr>
-			    <td><%= link_to my_event.name, all_images_photographer_client_event_path(current_photographer, my_event.client.id,my_event.id) %></td>
-			    <td><%= my_event.groom %> &amp; <%= my_event.bridal %></td>
-			    <td><%= my_event.created_at.strftime("%b %d, %Y") %></td>
-			    <td><%= link_to 'Upload-Images', photographer_client_event_path(current_photographer,my_event.client.id,my_event.id), class: "btn"%></td>
-			  </tr>
-		  <% end %>
-		</tbody></table>
+	    
 		<button class="button button4 popup" id="popup" data-id="abc"><i class="fa fa-plus-circle"></i> Add Event</button>
 		</div>
 		<div id="abc">

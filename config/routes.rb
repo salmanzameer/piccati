@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :clients do
     member do 
       get "client_events"
+      get "event"
     end
     resources :events do
       get 'all_images'
