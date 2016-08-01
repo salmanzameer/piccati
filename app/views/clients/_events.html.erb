@@ -1,7 +1,7 @@
 <div class="col-md-4">
 	<h1 class="heading-client-mangement heading-client-mangement-bot-margin">Events List of selected Client</h1>
 	<div class="col-md-12 selected-pkg">
-			<div class="selected-pkg-adjust selected-pkg-adjust-bot">
+		<div class="selected-pkg-adjust selected-pkg-adjust-bot">
 			<div class="col-md-4 selected-pkg-adjust-bot">Pakage</div>
 			<div class="col-md-8 selected-pkg-adjust-bot">3x2</div>
 			<div class="col-md-4 selected-pkg-adjust-bot">Adavance</div>
@@ -10,38 +10,37 @@
 			<div class="col-md-8 selected-pkg-adjust-bot">3,00,000</div>
 			<div class="col-md-4 selected-pkg-adjust-bot">Balace</div>
 			<div class="col-md-8 selected-pkg-adjust-bot">1,50,000</div>
-			</div>
+		</div>
 	</div>
-
-
 	<div style="margin-top:15px;">
-		    <table class="table table-striped header-fixed">
-			  <thead>
+		<table class="table table-striped header-fixed">
+			<thead>
 				<tr>
-			  <div>
-			    <th style="background-color: #003366;color: #fff;">
-			    	Event Type
-			    </th>
-			    <th style="background-color: #003366;color: #fff;">
-			    	No. of Photos 
-			    </th>
-			  </div>
+				  <div>
+				    <th style="background-color: #003366;color: #fff;">
+				    	Event Type
+				    </th>
+				    <th style="background-color: #003366;color: #fff;">
+				    	No. of Photos 
+				    </th>
+				  </div>
 			  </tr>
 			</thead>
 		  <tbody>
-		  <% @events.each do |event| %>
-			  <tr>
-			    <td><%= link_to event.name, "#", class: "show-event", data: { id: event.id } %></div>
-			    </td>
-			    <td><i class="fa fa-plus-circle"></i>
-			    <%= link_to 'Add Photos', photographer_client_event_path(current_photographer,event.client.id,event) %>
-			     
-			    </td>
-			  </tr>
-			 <% end %>
+			  <% @events.each do |event| %>
+				  <tr>
+				    <td><%= link_to event.name, "#", class: "show-event", data: { id: event.id } %></div>
+				    </td>
+				    <td>
+				    	<i class="fa fa-plus-circle"></i>
+				    	<%= link_to 'Add Photos', photographer_client_event_path(current_photographer,event.client.id,event) %>
+				     
+				    </td>
+				  </tr>
+				 <% end %>
 			</tbody>
-			</table>
-		<!-- <button class="button button4 popup event-btn" id="popup" data-id="abc"><i class="fa fa-plus-circle"></i> Add Event</button> -->
+		</table>
+		<button class="button button4 popup event-btn" id="popup" data-id="abc"><i class="fa fa-plus-circle"></i> Add Event</button>
 		</div>
 		<div id="abc">
 		<!-- Popup Div Starts Here -->
@@ -55,6 +54,11 @@
 					  <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields" %>
 					  <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "first-field client_fields" %>
 					  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "first-field client_fields" %>
+					  <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker1').datetimepicker();
+                });
+            </script>
 					 </fieldset>
 					<!-- <textarea id="msg" name="message" placeholder="Message"></textarea> -->
 					
@@ -68,7 +72,7 @@
 <div class="col-md-5">
 	<div class="clients-table">
 	    
-		<button class="button button4 popup" id="popup" data-id="abc"><i class="fa fa-plus-circle"></i> Add Event</button>
+		<!-- <button class="button button4 popup" id="popup" data-id="abc"><i class="fa fa-plus-circle"></i> Add Event</button> -->
 		</div>
 		<div id="abc">
 		<!-- Popup Div Starts Here -->

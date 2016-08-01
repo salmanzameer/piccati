@@ -27,6 +27,7 @@ $ ->
 			url: "/clients/#{id}/client_events"
 			success: (data) ->
 				$(".events-section").html(data)
+				$('.show-event').first().click()
 
 	$(document).on 'click', '.popup', (e) ->
 		$("##{$(this).data("id")}").show()
@@ -38,7 +39,6 @@ $ ->
 			
 	$('.show-client-events').first().click().closest("tr").addClass("tr-selected")
 
-	
 	submitIcon = $('.searchbox-icon')
 	inputBox = $('.searchbox-input')
 	searchBox = $('.searchbox')
