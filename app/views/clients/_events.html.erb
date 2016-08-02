@@ -27,6 +27,7 @@
 			  </tr>
 			</thead>
 		  <tbody>
+		  <tr><td><%= 'No Events' if @events.blank? %></td></tr>
 			  <% @events.each do |event| %>
 				  <tr>
 				    <td><%= link_to event.name, "#", class: "show-event", data: { id: event.id } %></div>
@@ -54,11 +55,17 @@
 					  <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields" %>
 					  <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "first-field client_fields" %>
 					  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "first-field client_fields" %>
-					  <script type="text/javascript">
-                $(function () {
-                    $('#datetimepicker1').datetimepicker();
-                });
-            </script>
+					  <div class='input-group date' id='datetimepicker1'>
+                    <input type='datetime' class="first-field client_fields" name="event[start_time]" placeholder="Select Date" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            <script type="text/javascript">
+		            $(function () {
+		                $('#datetimepicker1').datetimepicker();
+		            });
+		        </script>
 					 </fieldset>
 					<!-- <textarea id="msg" name="message" placeholder="Message"></textarea> -->
 					
@@ -72,7 +79,7 @@
 <div class="col-md-5">
 	<div class="clients-table">
 	    
-		<!-- <button class="button button4 popup" id="popup" data-id="abc"><i class="fa fa-plus-circle"></i> Add Event</button> -->
+		<button class="button button4 popup" id="popup" data-id="abc"><i class="fa fa-plus-circle"></i> Add Event</button>
 		</div>
 		<div id="abc">
 		<!-- Popup Div Starts Here -->
