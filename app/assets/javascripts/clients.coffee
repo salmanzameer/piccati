@@ -27,7 +27,7 @@ $ ->
 			url: "/clients/#{id}/client_events"
 			success: (data) ->
 				$(".events-section").html(data)
-				$('.show-event').first().click()
+				#$('.show-event').first().click().closest("tr").addClass("tr-selected")
 
 	$(document).on 'click', '.popup', (e) ->
 		$("##{$(this).data("id")}").show()
