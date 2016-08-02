@@ -1,0 +1,35 @@
+<div class="show">
+<h1>Gallery for:</h1>
+  <div class="form-group">
+    <h1 class="center"> <%= @event.name%></h1>
+    
+  </div>
+
+<div id = 'uploader' style="margin-left: 344px;">
+</div>
+<script>
+  <% session_key_name = Rails.application.config.session_options[:key] %>
+  $(function() {
+    $("#uploader").pluploadQueue({
+      runtimes: 'html5,flash,silverlight',
+      url: "<%= upload_images_photographer_client_event_path(current_photographer.id,@client.id,@event.id) %>",
+      max_file_size: '20mb',
+      multiple_queues: true,
+      flash_swf_url: "/assets/jquery_plupload/plupload.flash.swf",
+      silverlight_xap_url: "/assets/jquery_plupload/plupload.silverlight.xap",
+      multipart: true,
+      multipart_params: {
+        '_http_accept': 'application/javascript',
+        'authenticity_token' : "<%= form_authenticity_token %>",
+        "<%= session_key_name %>" : encodeURIComponent("<%= u cookies[session_key_name] %>")
+      },
+      init : {
+         UploadComplete: function(up, files)
+          {
+           window.location.href = "<%= xyz %>";
+        }
+      }
+    });
+  });
+ uploader.init();
+ </script>

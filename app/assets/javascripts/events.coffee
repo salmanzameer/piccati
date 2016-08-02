@@ -3,12 +3,15 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+  
+  $('.tr-selected').click()
+
   $(document).on 'click', '.show-event', (e) ->
     e.preventDefault()
-    # $(this).closest('.tr-selected').removeClass('tr-selected')
-    # $(".show-event").css('color','#23527c')
-    # $(this).closest("tr").addClass('tr-selected')
-    # $(this).css('color','white')
+    $(this).closest('.tr-selected').removeClass('tr-selected')
+    $(".show-event").css('color','#23527c')
+    $(this).closest("tr").addClass('tr-selected')
+    $(this).css('color','white')
     id = $(this).data("id")
     $.ajax
       type: "GET"

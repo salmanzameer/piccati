@@ -27,7 +27,10 @@ $ ->
 			url: "/clients/#{id}/client_events"
 			success: (data) ->
 				$(".events-section").html(data)
-				#$('.show-event').first().click().closest("tr").addClass("tr-selected")
+				if !$('.show-event').hasClass('tr-selected')
+					$('.show-event').first().addClass("tr-selected").click()
+				else
+					$('.tr-selected.show-event').click()
 
 	$(document).on 'click', '.popup', (e) ->
 		$("##{$(this).data("id")}").show()
@@ -37,8 +40,6 @@ $ ->
 		$(".clients-table").show()
 		$("##{$(this).data("id")}").hide()
 			
-	$('.show-client-events').first().click().closest("tr").addClass("tr-selected")
-
 	submitIcon = $('.searchbox-icon')
 	inputBox = $('.searchbox-input')
 	searchBox = $('.searchbox')

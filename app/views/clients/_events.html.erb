@@ -1,3 +1,4 @@
+<%#= find_event(request.fullpath) %>
 <div class="col-md-4">
 	<h1 class="heading-client-mangement heading-client-mangement-bot-margin">Events List of selected Client</h1>
 	<div class="col-md-12 selected-pkg">
@@ -29,13 +30,13 @@
 		  <tbody>
 		  <tr><td><%= 'No Events' if @events.blank? %></td></tr>
 			  <% @events.each do |event| %>
+			  	<% cls = @path["id"] == event.id.to_s ? 'tr-selected' : "" %>
 				  <tr>
-				    <td><%= link_to event.name, "#", class: "show-event", data: { id: event.id } %></div>
+				    <td><%= link_to event.name, "#", class: "#{cls} show-event", data: { id: event.id } %></div>
 				    </td>
 				    <td>
 				    	<i class="fa fa-plus-circle"></i>
-				    	<%= link_to 'Add Photos', photographer_client_event_path(current_photographer,event.client.id,event) %>
-				     
+				    	<%= link_to 'Add Photos', upload_image_photographer_client_event_path(current_photographer,event.client.id,event) %>
 				    </td>
 				  </tr>
 				 <% end %>

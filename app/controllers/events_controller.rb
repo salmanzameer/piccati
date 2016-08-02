@@ -1,5 +1,11 @@
 class EventsController < ApplicationController
   before_filter :authenticate_photographer!
+  before_filter :xyz, only: [:upload_image]
+  helper_method :xyz
+
+  def xyz
+    go_to = request.headers["HTTP_REFERER"]
+  end
 
   def index
     @client = Client.find(params[:client_id])
@@ -7,8 +13,13 @@ class EventsController < ApplicationController
   end
 
   def show
-    @client = Client.find_by_id(params[:client_id]) 
-    @event  = Event.find_by_id(params[:id])
+    # @client = Client.find_by_id(params[:client_id]) 
+    # @event  = Event.find_by_id(params[:id])
+    
+    @clients = current_photographer.clients
+    @current_client = @clients.first
+    @client = Client.new
+    @event = @current_client.events.new if @current_client
   end
 
   def new
@@ -28,6 +39,11 @@ class EventsController < ApplicationController
     param = { "image" => params[:file] }
     @image = current_photographer.clients.find_by_id(params[:client_id]).events.find_by_id(params[:id]).images.new(param)
     @image.save
+  end
+
+   def upload_image
+    @client = Client.find_by_id(params[:client_id]) 
+    @event  = Event.find_by_id(params[:id])
   end
 
   def showevents
