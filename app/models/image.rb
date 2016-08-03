@@ -1,5 +1,6 @@
 class Image < ActiveRecord::Base
   after_create :after_upload
+  has_many :likes
   belongs_to :client
 	belongs_to :imageable, polymorphic: true
   

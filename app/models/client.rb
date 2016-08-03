@@ -8,6 +8,7 @@ class Client < ActiveRecord::Base
   belongs_to    :photographer
   has_many      :events
   has_many      :images
+  has_many      :likes
 
   has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
   :url  => "/system/avatar/images/000/000/00:id/:style/:basename.:extension",
