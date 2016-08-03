@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :events do 
         member do
           get 'upload_images'
+          get 'upload_image'
           post 'upload_images'
           get  'all_images'
           get "image", as: :event_image
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
   resources :clients do
     member do 
       get "client_events"
+      get "event"
     end
     resources :events do
       get 'all_images'

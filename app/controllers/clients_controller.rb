@@ -58,6 +58,7 @@ class ClientsController < ApplicationController
   end
 
   def client_events
+    @path = session[:save_client]
     @client = Client.find(params[:id])
     @events = @client.events
     @event  = current_photographer.clients.find_by_id(params[:id]).events.new
@@ -65,6 +66,8 @@ class ClientsController < ApplicationController
   end
 
   def event 
+    @event = Event.find_by_id(params[:id])
+    return render partial: "event", locals: { event: @event }
   end
 
   def editparams

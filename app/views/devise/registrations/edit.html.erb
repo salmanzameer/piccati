@@ -3,6 +3,69 @@
   <div class="top-content">
     <div>
       <div class="container">
+  <div class="col-md-3">
+    <table>
+      <tbody><tr>
+      <div>
+        <th class="tbheaderback">
+        <div class="col-md-10"> 
+          Profile
+        </div>   
+      <div class="col-md-2"><i class="fa fa-angle-right font-awesome-size"></i></div>
+        </th>
+      </div>
+      </tr>
+      <tr>
+        <td> Password & Security
+        </td>
+      </tr>
+    </tbody></table>
+  </div>
+  <div class="col-md-9"> 
+    <div class="col-md-12 editprofileheading">
+      <p class="edit-prfile-para"> Update or Edit your Profile</p>
+    </div>
+    <div class="col-md-12 background-main-edit-profile">
+        <fieldset>
+         <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { multipart: true, class: "dropdown-edit" }) do |f| %>
+        <div class="col-md-6" style="margin-top:15px;margin-bottom:15px;">
+           <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  } , class: "form-control ", style:"height: 50px;")   %>
+        <% end %>
+          
+          <input type="text" name="firstname" class="first-field name-field" placeholder="First Name" >
+
+          <input type="text" name="lastname" class="first-field name-field" placeholder="Last Name">
+          <div class="col-md-8" style="padding-left: 0px;padding-right: 0px;">
+            <input type="text" name="profile" placeholder="Profile Picture" class="first-field profile-pic-field">
+          </div>
+          <div class="col-md-4" style="padding-left: 0px;padding-right: 0px;">
+            <button class="button btn-profile" > Change picture</button>
+          </div>
+        </div>
+        <div class="col-md-6" style="margin-top:15px;margin-bottom:15px;">
+          <input type="text" name="displayname" class="first-field name-field" placeholder="Display Name">
+          
+          <input type="text" name="contactnumber" class="first-field name-field" placeholder="Contact Number">
+          <input type="text" name="email" class="first-field name-field" placeholder="Email">
+          <div class="col-md-9" style="padding-left: 0px;padding-right: 0px;">
+            <input type="text" name="lastname" placeholder="Watermark Logo" class="first-field watermark-field" style="">
+          </div>
+          <div class="col-md-3" style="padding-left: 0px;padding-right: 0px;">
+            <button class="button btn-watermark-field"> Choose file</button>
+          </div>
+        </div>
+        </fieldset>
+    </div>
+    <button class="button button4" id="popup" onclick="div_show()">Update and Save Profile</button>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+<div class="background-image">
+  <div class="top-content">
+    <div>
+      <div class="container">
         <div class="row">
           <div class="col-sm-8 col-sm-offset-2 text">
           </div>

@@ -17,6 +17,28 @@ module Customer
       @total_events = @events.count
     end
 
+    desc "Like/Unlike public image"
+    params do
+      requires :authentication_token, type: String
+      requires :client_id,            type: String
+      requires :image_id,             type: String
+      requires :like,                type: Boolean
+    end
+
+    post "/like_public_image", rabl: "v1/customer/like_public_image" do
+      @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
+      unless @client
+        throw :error, status: 404, message: "Client not found!"
+      end
+      
+      @image = Image.find_by_id(params[:image_id])
+      unless @image
+        throw :error, status: 404, message: "Image not found!"
+      end
+      @like = @image.likes.where({client_id: @client.id}).first_or_initialize(client_id: @client.id)
+      @like.update(like: params[:like], unlike: !params[:like])
+    end
+
     desc "Get single event images"
     params do
       requires :authentication_token, type: String

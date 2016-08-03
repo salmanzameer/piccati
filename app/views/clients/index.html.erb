@@ -1,65 +1,43 @@
-<div style="margin-top:80px;"></div>
-<div class="container">
-	<div class="col-md-3">
-	<div class="wrap">
-	    <table class="head">
-		  <tbody><tr>
-		  <div>
-		    <th style="background-color: #003366;color: #fff;">
-		    	<div id="container">
-				  <div id="navi">Client Name</div>
-				  <div id="infoi">
-				    <form class="searchbox">
-				        <input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
-				        <input type="submit" class="searchbox-submit" value="GO">
-				        <span class="searchbox-icon"><i class="fa  fa-search" style="font-size: 21px;color: #fff;"></i></span> 
-			    	</form>
-				  </div>
-				</div>
-		    </th>
-		  </div>
-		  </tr>
-		  </tbody>
-		 </table>
-		<div class="inner_table">
-    <table>
-    <tbody>
-		  <% @clients.each do |client| %>
-		  <tr class="clients-tr">
-		    <td><div class="col-md-8"><%= link_to client.username, "#", class: "show-client-events", data: { id: client.id } %></div>
-		    <div class="col-md-4">
-		    <button type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;"><i class="fa  fa-edit btn-edit" style="font-size: 16px;color: #ddd;"></i></button>
-		    <button type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;"><i class="fa  fa-times btn-del" style="font-size: 16px;color: #ddd;"></i></button>
-		    </div>
-		    </td>
-		  </tr>
-		  <% end %>
-		</tbody></table>
-		</div></div>
-		<button class="button button4 popup" id="popup" data-id= "abc2" ><i class="fa fa-plus-circle"></i> Add Client</button>
-		<div id="abc2">
-		<!-- Popup Div Starts Here -->
-			<div id="popupContact">
-	<!-- Contact Us Form -->
-				<%= form_for @client, url: photographer_clients_path, id: "form", html: { class: "form-action" } do |f| %>
-					<%= image_tag ("close1.png"), class: "close", data: { id: "abc2" } %>
-					<center><h2>Add a Client</h2></center>
-					<fieldset>
-							<%= f.text_field :username, autofocus: true, :placeholder =>"User Name", :class => "first-field client_fields" %>
-
-							<%= f.text_field :email, autofocus: true, :placeholder =>"Email", :class => "first-field client_fields" %>
-							<%= f.password_field :password, autocomplete: "off", :placeholder => 'New Password', class: "first-field client_fields" %>
-
-					 </fieldset>
-					<!-- <textarea id="msg" name="message" placeholder="Message"></textarea> -->
-					<center><button type="submit" id="submit" class="button4">Add Client </button></center>
-				<% end %>
-			</div>
-	<!-- Popup Div Ends Here -->
-		</div>
-	</div>
-	<div class="events-section">
-		<%#= render "events", client: @current_client, events: @current_client.events, event: @event  if @clients.present? %>
-	</div>
-	
-</div>
+<script type="text/javascript">
+//    $(document).ready(function(){
+//             var submitIcon = $('.searchbox-icon');
+//             var inputBox = $('.searchbox-input');
+//             var searchBox = $('.searchbox');
+//             var isOpen = false;
+//             submitIcon.click(function(){
+//                 if(isOpen == false){
+//                     searchBox.addClass('searchbox-open');
+//                     inputBox.focus();
+//                     isOpen = true;
+//                 } else {
+//                     searchBox.removeClass('searchbox-open');
+//                     inputBox.focusout();
+//                     isOpen = false;
+//                 }
+//             });  
+//              submitIcon.mouseup(function(){
+//                     return false;
+//                 });
+//             searchBox.mouseup(function(){
+//                     return false;
+//                 });
+//             $(document).mouseup(function(){
+//                     if(isOpen == true){
+//                         $('.searchbox-icon').css('display','block');
+//                         submitIcon.click();
+//                     }
+//                 });
+//         });
+//             function buttonUp(){
+//                 var inputVal = $('.searchbox-input').val();
+//                 inputVal = $.trim(inputVal).length;
+//                 if( inputVal !== 0){
+//                     $('.searchbox-icon').css('display','none');
+//                 } else {
+//                     $('.searchbox-input').val('');
+//                     $('.searchbox-icon').css('display','block');
+//                 }
+//             }
+</script>
+<%= find_event(request.fullpath) %>
+<%= render partial: 'layouts/clients' %>
