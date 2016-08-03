@@ -15,7 +15,9 @@ module Authentication
         requires :role_type, type: String   
       end
     post :register, rabl: "v1/authentication/register"  do
-      signup = params[:role_type].titleize.constantize 
+      role = params[:role_type].titleize
+      role = ["Photographer","Freelauncer","Studio"].include?(role) ? "Photographer" : "Client"
+      signup = role.constantize 
       @user = signup.new(
         title:     params[:title],
         firstname:      params[:firstname],
