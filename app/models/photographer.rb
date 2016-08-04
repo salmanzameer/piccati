@@ -2,7 +2,8 @@ class Photographer < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_save :ensure_authentication_token
-
+  acts_as_followable
+  
   has_many :clients
   has_many :events, through: :clients   
   belongs_to  :package

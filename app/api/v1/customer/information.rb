@@ -105,5 +105,22 @@ module Customer
       @images = @event.images.where(is_liked: true).paginate( page: params[:page], per_page: 6 )
       @total_images = @images.count    
     end
+
+    desc "follow photographer"
+    params do
+      requires :authentication_token, type: String
+      requires :client_id,            type: String
+      requires :photographer_id,      type: String
+      requires :follow_type,          type: String
+    end
+
+    post "/follow", rabl: "v1/customer/follow" do
+      @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
+      unless @client
+        throw :error, status: 404, message: "Client not found!"
+      end
+      photographer = Photographer.find(params[:photographer_id])
+      @client.send("#{params[:follow_type]}", photographer)
+    end
   end
 end
