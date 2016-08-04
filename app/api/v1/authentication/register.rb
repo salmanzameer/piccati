@@ -6,7 +6,7 @@ module Authentication
         requires :title, type: String
         requires :firstname, type: String
         requires :lastname, type: String
-        requires :username, type: String
+        #requires :username, type: String
         requires :contnumber, type: String
         requires :email, type: String
         requires :city, type: String
@@ -23,7 +23,7 @@ module Authentication
         title:     params[:title],
         firstname:      params[:firstname],
         lastname:         params[:lastname],
-        username:      params[:username],
+        #username:      params[:username],
         contnumber:  params[:contnumber],
         email:       params[:email],
         city:       params[:city],
