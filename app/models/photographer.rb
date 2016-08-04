@@ -66,6 +66,16 @@ class Photographer < ActiveRecord::Base
       end
   end
 
+  def images_likes_count
+    count = 0
+    self.albums.each do |album|
+      album.images.each do |image|
+        count += image.likes_count
+      end
+    end
+    count
+  end
+
   def ensure_authentication_token
     if authentication_token.blank?
       self.authentication_token ||= generate_authentication_token
