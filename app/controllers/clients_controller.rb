@@ -32,8 +32,9 @@ class ClientsController < ApplicationController
     if @client = Client.where(email: params[:client][:email]).first
       @client.update(photographer_id: current_photographer.id)
     else
-    @client = current_photographer.clients.new(clientsparams)
+      @client = current_photographer.clients.new(clientsparams)
     end
+    
     if @client.save
       redirect_to photographer_clients_path(current_photographer)
     else

@@ -8,7 +8,10 @@ module Authentication
     end
     
     post :login, rabl: "v1/authentication/login" do
-      role = params[:role_type].titleize.constantize
+      rolee = params[:role_type].titleize
+      role = ["Freelauncer","Studio"].include?(rolee) ? "Photographer" : "Client"
+      role = role.constantize 
+
       @user = role.find_by_email(params[:email])
       unless @user && @user.valid_password?(params[:password])
         throw :error, status: 404, message: "Invalid username/password"
@@ -23,7 +26,10 @@ module Authentication
     end
     
     put :update_user, rabl: "v1/authentication/update_user" do
-      role = params[:role_type].titleize.constantize
+      rolee = params[:role_type].titleize
+      role = ["Freelauncer","Studio"].include?(rolee) ? "Photographer" : "Client"
+      role = role.constantize 
+
       @user = role.find_by_id(params[:id])
       unless @user
         throw :error, status: 404, message: "User not found"

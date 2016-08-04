@@ -24,7 +24,7 @@
       <tbody>
       
       <% @clients.each do |client| %>
-      <% cls = @path[:client_id] == client.id.to_s ? 'tr-selected' : "" %>
+      <%cls = @path.present? && @path[:client_id] == client.id.to_s ? 'tr-selected' : "" %>
       <tr class="">
         <td class="table-row-width"><div class="col-md-7"><%= link_to client.username, "#", class: "#{cls} show-client-events", data: { id: client.id } %></div>
         <div class="col-md-5">

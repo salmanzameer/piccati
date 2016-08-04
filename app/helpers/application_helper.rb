@@ -4,8 +4,8 @@ module ApplicationHelper
     @path = Rails.application.routes.recognize_path(path)
     if !@path[:client_id].present?
       #@photographer = Photographer.find_by_id @path[:photographer_id]
-      @client = current_photographer.clients.first
-      @event = @client.events.first
+      @client = current_photographer.clients.first || Client.first
+      @event = @client.events.first || Event.first
       @path = @path.merge({:client_id=>@client.id.to_s, :id=>@event.id.to_s})
     end
     session[:save_client] = @path

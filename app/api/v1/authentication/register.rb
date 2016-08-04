@@ -16,8 +16,8 @@ module Authentication
         requires :role_type, type: String   
       end
     post :register, rabl: "v1/authentication/register"  do
-      role = params[:role_type].titleize
-      role = ["Photographer","Freelauncer","Studio"].include?(role) ? "Photographer" : "Client"
+      rolee = params[:role_type].titleize
+      role = ["Freelauncer","Studio"].include?(rolee) ? "Photographer" : "Client"
       signup = role.constantize 
       @user = signup.new(
         title:     params[:title],
@@ -28,10 +28,11 @@ module Authentication
         email:       params[:email],
         city:       params[:city],
         password:       params[:password],
-        website:       params[:website],
-        role_type:       params[:role_type]
+        website:       params[:website]
         )
-    
+      if signup.name == "Photographer"
+        @user.role_type = rolee
+      end
       if params[:avatar].present?
         new_file = ActionDispatch::Http::UploadedFile.new(params[:avatar])
         @user.avatar = new_file
