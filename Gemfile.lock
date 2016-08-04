@@ -136,6 +136,8 @@ GEM
       less (~> 2.6.0)
       sprockets (> 2, < 4)
       tilt
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     libv8 (3.16.14.13)
     light_gallery_rails (1.2.14.1)
     loofah (2.0.3)
@@ -316,6 +318,7 @@ DEPENDENCIES
   html_routes (~> 1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  letter_opener
   light_gallery_rails
   momentjs-rails (>= 2.9.0)
   omniauth-facebook
