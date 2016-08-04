@@ -39,6 +39,37 @@ module Customer
       @like.update(like: params[:like], unlike: !params[:like])
     end
 
+    desc "Get selected images of client"
+    params do
+      requires :authentication_token, type: String
+      requires :client_id,            type: String
+    end
+
+    get "/selected_images", rabl: "v1/customer/selected_images" do
+
+      @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
+      unless @client
+        throw :error, status: 404, message: "Client not found!"
+      end
+      @images = @client.images.where("is_liked = ?", true)
+    end
+
+    desc "Get liked images of client"
+    # params do
+    #   requires :authentication_token, type: String
+    #   requires :client_id,            type: String
+    # end
+
+    get "/clients_liked_images", rabl: "v1/customer/clients_liked_images" do
+
+      @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
+      unless @client
+        throw :error, status: 404, message: "Client not found!"
+      end
+      ids = @client.likes.where(like: true).pluck(:image_id)
+      @images = Image.where("id in (?)", ids)
+    end
+
     desc "Get single event images"
     params do
       requires :authentication_token, type: String
