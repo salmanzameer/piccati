@@ -9,7 +9,7 @@ class Photographer < ActiveRecord::Base
   belongs_to  :package
   has_many :achievements
   has_many :albums
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
   
   has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
