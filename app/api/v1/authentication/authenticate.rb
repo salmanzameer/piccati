@@ -9,7 +9,7 @@ module Authentication
     
     post :login, rabl: "v1/authentication/login" do
       rolee = params[:role_type].titleize
-      role = ["Freelauncer","Studio"].include?(rolee) ? "Photographer" : "Client"
+      role = ["Freelancer","Studio"].include?(rolee) ? "Photographer" : "Client"
       role = role.constantize 
 
       @user = role.find_by_email(params[:email])
@@ -27,7 +27,7 @@ module Authentication
     
     put :update_user, rabl: "v1/authentication/update_user" do
       rolee = params[:role_type].titleize
-      role = ["Freelauncer","Studio"].include?(rolee) ? "Photographer" : "Client"
+      role = ["Freelancer","Studio"].include?(rolee) ? "Photographer" : "Client"
       role = role.constantize 
 
       @user = role.find_by_id(params[:id])

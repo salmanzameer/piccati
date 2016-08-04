@@ -17,7 +17,7 @@ module Authentication
       end
     post :register, rabl: "v1/authentication/register"  do
       rolee = params[:role_type].titleize
-      role = ["Freelauncer","Studio"].include?(rolee) ? "Photographer" : "Client"
+      role = ["Freelancer","Studio"].include?(rolee) ? "Photographer" : "Client"
       signup = role.constantize 
       @user = signup.new(
         title:     params[:title],
