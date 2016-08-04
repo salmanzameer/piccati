@@ -19,7 +19,11 @@ module Snapper
     end
 
     get "/photographer/:id", rabl: "v1/snapper/photographer_profile" do
-      profile = params[:role_type].titleize.constantize
+      rolee = params[:role_type].titleize
+      role = ["Freelancer","Studio"].include?(rolee) ? "Photographer" : "Client"
+      profile = role.constantize 
+
+      #profile = params[:role_type].titleize.constantize
       @user = profile.find_by_id(params[:id])
       unless @user
         throw :error, status: 404, message: "User not found!"
