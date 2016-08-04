@@ -3,9 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  
-  $('.tr-selected').click()
 
+  $('.tr-selected').click()
   $(document).on 'click', '.show-event', (e) ->
     e.preventDefault()
     $(this).closest('.tr-selected').removeClass('tr-selected')

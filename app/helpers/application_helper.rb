@@ -3,13 +3,23 @@ module ApplicationHelper
   def find_event(path)
     @path = Rails.application.routes.recognize_path(path)
     if !@path[:client_id].present?
-      @p = Photographer.find_by_id @path[:photographer_id]
-      @c = @p.clients.first
-      @e = @c.events.first
-      @path = @path.merge({:client_id=>@c.id.to_s, :id=>@e.id.to_s})
+      #@photographer = Photographer.find_by_id @path[:photographer_id]
+      @client = current_photographer.clients.first
+      @event = @client.events.first
+      @path = @path.merge({:client_id=>@client.id.to_s, :id=>@event.id.to_s})
     end
     session[:save_client] = @path
   end
+
+  # def check_valid_url(path)
+  #   @photographer = Photographer.find_by_id path[:photographer_id]
+  #   @client = @photographer.clients.find_by_id path[:client_id]
+  #   @event = @client.events.find_by_id path[:id]
+  #   if !(@photographer.present? && @client.present? && @event.present?)
+  #     message =  "no record"
+  #   end
+  #   return message
+  # end
 
 	def default_url
 		if photographer_signed_in?
