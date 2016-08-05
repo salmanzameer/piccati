@@ -34,6 +34,19 @@ class Client < ActiveRecord::Base
     end
   end   
 
+  def get_followings
+    follows = []
+    follows_type = self.follows.pluck(:followable_type).uniq
+    follows_type.each do |f|
+      ids = self.follows.where("followable_type = ?", f).pluck(:followable_id).uniq
+      follows += f.constantize.where("id in (?)", ids)
+    end
+    follows
+    # followed_photographers = self.follows.where("followable_type = ?", "Photographer").pluck(:followable_id)
+    # album_ids = Album.where("photographer_id in (?)", followed_photographers).pluck(:id)
+    # Image.where("imageable_id in (?) and imageable_type = ?", album_ids, "Album").order("created_at DESC")
+  end
+
   private
   def generate_authentication_token
     loop do

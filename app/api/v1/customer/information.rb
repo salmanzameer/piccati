@@ -55,10 +55,10 @@ module Customer
     end
 
     desc "Get liked images of client"
-    # params do
-    #   requires :authentication_token, type: String
-    #   requires :client_id,            type: String
-    # end
+    params do
+      requires :authentication_token, type: String
+      requires :client_id,            type: String
+    end
 
     get "/clients_liked_images", rabl: "v1/customer/clients_liked_images" do
 
@@ -69,7 +69,24 @@ module Customer
       ids = @client.likes.where(like: true).pluck(:image_id)
       @images = Image.where("id in (?)", ids)
     end
+##########################################
+    desc "Get images of photographers liked followed by client (feed)"
+    params do
+      requires :authentication_token, type: String
+      requires :client_id,            type: String
+    end
 
+    get "/get_client_feed", rabl: "v1/customer/get_client_feed" do
+
+      @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
+      unless @client
+        throw :error, status: 404, message: "Client not found!"
+      end
+      @user = @client.get_followings
+      # binding.pry
+      # @images = @client.feed
+    end
+######################################
     desc "Get single event images"
     params do
       requires :authentication_token, type: String
