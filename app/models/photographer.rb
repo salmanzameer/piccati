@@ -4,8 +4,9 @@ class Photographer < ActiveRecord::Base
   before_save :ensure_authentication_token
   acts_as_followable
   
-  has_many    :clients
-  has_many    :events, through: :clients   
+  has_many    :photographer_clients  
+  has_many    :clients, through: :photographer_clients
+  has_many    :events,  through: :clients   
   belongs_to  :package
   has_many    :achievements
   has_many    :albums

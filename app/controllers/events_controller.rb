@@ -28,11 +28,10 @@ class EventsController < ApplicationController
 
   def create
     params[:event][:start_time] = DateTime.strptime(params[:event][:start_time], "%m/%d/%Y") 
-    event = current_photographer.clients.find_by_id(params[:client_id]).events.create(event_params)
-    @client = current_photographer.clients.find_by_id(params[:client_id])
+    @client = Client.find(params[:client_id])
+    event   = @client.events.create(event_params.merge!(photographer_id: current_photographer.id))
     @events = @client.events
-    @event  = event.client.events.new
-    return render partial: "clients/events", locals: { events: @events, event: @event, client: @client }
+    return render partial: "clients/events", locals: { events: @events, client: @client }
   end
 
   def upload_images

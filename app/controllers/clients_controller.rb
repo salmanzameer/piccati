@@ -29,18 +29,12 @@ class ClientsController < ApplicationController
   end
 
   def create
-    if @client = Client.where(email: params[:client][:email]).first
-      @client.update(photographer_id: current_photographer.id)
-    else
-      @client = current_photographer.clients.new(clientsparams)
+    @client = Client.where(email: params[:client][:email]).first
+    unless @client
+      @client = Client.create(clientsparams)
     end
-    
-    if @client.save
-      redirect_to photographer_clients_path(current_photographer)
-    else
-      flash[:notice] ="Error"
-      render('new')
-    end
+    @client.photographer_clients.create(photographer_id: current_photographer.id)
+    redirect_to photographer_clients_path(current_photographer)
   end
 
   def edit

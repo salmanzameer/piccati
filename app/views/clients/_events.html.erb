@@ -35,7 +35,7 @@
 				    </td>
 				    <td>
 				    	<i class="fa fa-plus-circle"></i>
-				    	<%= link_to 'Add Photos', upload_image_photographer_client_event_path(current_photographer,event.client.id,event) %>
+				    	<%= link_to 'Add Photos', upload_image_photographer_client_event_path(current_photographer, event.client.id, event) %>
 				    </td>
 				  </tr>
 				 <% end %>
@@ -47,7 +47,7 @@
 		<!-- Popup Div Starts Here -->
 			<div id="popupContact">
 	<!-- Contact Us Form -->
-				<%= form_for event, url: photographer_client_events_path(current_photographer.id, client.id), html: { class: "form-action" } do |f| %>
+				<%= form_for Event.new, url: photographer_client_events_path(current_photographer.id, client.id), html: { class: "form-action" } do |f| %>
 					<%= image_tag ("close1.png"), class: "close", data: { id: "abc" }%>
 					<center><h2>Add a Event</h2></center>
 					<fieldset>
@@ -85,7 +85,7 @@
 		<!-- Popup Div Starts Here -->
 			<div id="popupContact">
 	<!-- Contact Us Form -->
-				<%= form_for event, url: photographer_client_events_path(current_photographer.id, client.id), html: { class: "form-action" } do |f| %>
+				<%= form_for Event.new, url: photographer_client_events_path(current_photographer.id, client.id), html: { class: "form-action" } do |f| %>
 					<%= image_tag ("close1.png"), class: "close", data: { id: "abc" }%>
 					<center><h2>Add a Event</h2></center>
 					<fieldset>

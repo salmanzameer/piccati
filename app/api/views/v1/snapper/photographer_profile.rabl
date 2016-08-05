@@ -15,7 +15,7 @@ child @user, object_root: false do
     node(:number_of_follows) { |photographer| photographer.followers_count }
     node(:number_of_likes) {  |photographer| photographer.images_likes_count }
 	elsif @user.class.name == "Client"
-		@user.photographer_id.present? ? node(:enabled) { true } : node(:enabled) { false }
+		node(:enabled) { false }
 	end
 end
 
