@@ -4,9 +4,10 @@ class Client < ActiveRecord::Base
   before_save :ensure_authentication_token
   acts_as_follower
   
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  belongs_to    :photographer
+  has_many      :photographer_clients  
+  has_many      :photographers, through: :photographer_clients
   has_many      :events
   has_many      :images
   has_many      :likes

@@ -4,7 +4,7 @@
 	  <%= date %>
 	  <% events.each do |event| %>
 	    <div>
-	      <%= link_to  event.name, all_images_photographer_client_event_path(id: event.id, client_id: event.client_id, photographer_id: event.client.photographer.id) %>
+	      <%= link_to  event.name, all_images_photographer_client_event_path(id: event.id, client_id: event.client_id, photographer_id: event.photographer_id) %>
 	    </div>
 	  <% end %>
 	<% end %>

@@ -33,14 +33,14 @@ class Image < ActiveRecord::Base
 	end
 
   def after_upload
-    if self.imageable_type == "Event"
-      photographer = self.imageable.client.photographer
-    elsif self.imageable_type == "Album"
-      photographer = self.imageable.photographer
-    end  
-    old_memory = photographer.memory_consumed
-    new_memory = self.image_file_size + old_memory
-    photographer.update_attributes(memory_consumed: new_memory)
+    # if self.imageable_type == "Event"
+    #   photographer = self.imageable.client.photographer
+    # elsif self.imageable_type == "Album"
+    #   photographer = self.imageable.photographer
+    # end  
+    # old_memory = photographer.memory_consumed
+    # new_memory = self.image_file_size + old_memory
+    # photographer.update_attributes(memory_consumed: new_memory)
   end
 
 end
