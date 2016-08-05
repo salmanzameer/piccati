@@ -1,7 +1,7 @@
 object false
 
 child @user, object_root: false do
-  attributes :id, :title, :firstname, :lastname, :contnumber, :email, :website, :description
+  attributes :id, :title, :firstname, :lastname, :contnumber, :email, :website, :description, :rating, :badge
   node(:url) { |img| img.avatar.url }
   if @user.class.name == "Photographer"
 	  child :albums, object_root: false do
