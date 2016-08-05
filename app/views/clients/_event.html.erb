@@ -16,7 +16,7 @@
       <td><%= link_to @event.name, all_images_photographer_client_event_path(current_photographer, @event.client,@event) %></td>
       <td><%= @event.groom %> &amp; <%= @event.bridal %></td>
       <td><%= @event.created_at.strftime("%b %d, %Y") %></td>
-      <td><%= link_to 'Upload-Images', photographer_client_event_path(current_photographer,@event.client,@event), class: "btn"%></td>
+      <td><%= link_to 'Upload-Images', photographer_client_event_path(current_photographer,@event.client,@event), class: "btn btn-uploadimage"%></td>
     </tr>
   </tbody>
 </table>

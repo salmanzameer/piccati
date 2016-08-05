@@ -1278,3 +1278,88 @@ input::-webkit-input-placeholder {
     font-size: 24px;
     font-family: 'SegoeUI';
 }
+
+
+
+.client-table-setting
+{
+    min-height: 350px;
+    background-color: white;
+}
+
+.basic-pkg
+{
+  width: 100%;
+}
+
+.heading-clientlist
+{
+  float: left;
+  font-family: 'SegoeUI';
+  color: white;
+  font-weight: normal;
+  font-size: 26px;
+}
+
+.center-align-tag
+{
+  display: flex;
+  margin-top: 5px;
+}
+
+
+.btn.focus, .btn:focus, .btn:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.btn-uploadimage
+{
+  color: #003366;
+}
+
+.btn-uploadimage:focus , .btn-uploadimage:hover 
+{
+  background-color: #003366 !important;
+  color: #fff !important;
+}
+
+.add-photos-event
+{
+  color: #fff;
+}
+
+.add-photos-event:focus , .add-photos-event:hover 
+{
+  color: #003366;
+  background-color: 
+}
+
+.btn-uploadimage1
+{
+  color: #003366 !important;
+}
+
+.btn-uploadimage1:focus , .btn-uploadimage1:hover 
+{
+  background-color: #003366 !important;
+  color: #fff !important;
+}
+
+.height-event-box
+{
+  min-height: 52px;
+  display: flex !important;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.show-event:focus , .show-event:hover 
+{
+  background-color: #003366 !important;
+  color: #fff !important;
+}
+.show-event
+{
+  color: #003366 !important;
+}
