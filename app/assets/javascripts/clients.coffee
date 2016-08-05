@@ -74,3 +74,13 @@ $ ->
 		    $('.searchbox-icon').css 'display', 'block'
 		    submitIcon.click()
 		  return
+
+	$(".search_client_email").keyup (e) ->
+		if ($(this).val().length == 3)
+			$.ajax
+				type: "GET"
+				url: "/search_clients"
+				data: { email:  $(this).val() }
+				success: (data) ->
+					$(".searched_email").html(data)
+					

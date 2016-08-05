@@ -45,10 +45,13 @@
           <%= image_tag ("close1.png"), class: "close", data: { id: "abc2" } %>
           <center><h2>Add a Client</h2></center>
           <fieldset>
-              <%= f.text_field :username, autofocus: true, :placeholder =>"User Name", :class => "first-field client_fields" %>
+              <%#= f.text_field :username, autofocus: true, :placeholder =>"User Name", :class => "first-field client_fields" %>
 
-              <%= f.text_field :email, autofocus: true, :placeholder =>"Email", :class => "first-field client_fields" %>
-              <%= f.password_field :password, autocomplete: "off", :placeholder => 'New Password', class: "first-field client_fields" %>
+              <%= f.text_field :email, value: "", autocomplete: :off, autofocus: true, :placeholder =>"Email", :class => "first-field client_fields search_client_email" %>
+              <div class="searched_email">
+                  
+              </div>
+              <%#= f.password_field :password, autocomplete: "off", :placeholder => 'New Password', class: "first-field client_fields" %>
 
            </fieldset>
           <!-- <textarea id="msg" name="message" placeholder="Message"></textarea> -->

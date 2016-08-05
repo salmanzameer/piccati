@@ -60,6 +60,11 @@ class ClientsController < ApplicationController
     return render partial: "events", locals: { events: @events, event: @event, client: @client }
   end
 
+  def search_clients
+    clients = Client.where("email LIKE ?", "%#{params[:email]}%")
+    return render partial: "search_clients", locals: { clients: clients }
+  end
+
   def event 
     @event = Event.find_by_id(params[:id])
     return render partial: "event", locals: { event: @event }
