@@ -40,6 +40,16 @@ class Client < ActiveRecord::Base
     end
   end   
 
+  def get_followings
+    activities = []
+    follows_type = self.follows.pluck(:followable_type).uniq
+    follows_type.each do |f|
+      ids = self.follows.where("followable_type = ?", f).pluck(:followable_id).uniq
+      activities += PublicActivity::Activity.where("owner_type = ? and owner_id in (?)",f, ids)
+    end
+    activities.sort_by(&:created_at).reverse
+  end
+
   private
   def generate_authentication_token
     loop do

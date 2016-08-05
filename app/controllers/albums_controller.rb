@@ -17,16 +17,19 @@ class AlbumsController < ApplicationController
 
   def create
     @album = current_photographer.albums.create(album_params)
+    @album.create_activity(key: "create a album", owner: current_photographer)
     redirect_to photographer_albums_path
   end
 
   def update
     @album.update(album_params)
+    @album.create_activity(key: "update a album", owner: current_photographer)
     redirect_to photographer_album_path
   end
 
   def destroy
     @album.destroy
+    @album.create_activity(key: "delete a album", owner: current_photographer)
     respond_to do |format|
       format.html { redirect_to photographer_albums_path, notice: 'Album was successfully destroyed.' }
       format.json { head :no_content }

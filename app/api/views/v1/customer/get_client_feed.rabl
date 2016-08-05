@@ -1,0 +1,22 @@
+object false
+
+child @activities , object_root: false do
+  child :owner , object_root: false do
+    attributes :id, :title, :firstname, :lastname, :created_at
+    node(:profile_image) { |owner| owner.avatar.url  }
+  end
+  child :trackable, if: lambda { |abc| abc.trackable_type == "Image" }  do
+    node(:image_id) { |trackable| trackable.id }
+    node(:image_url) { |trackable| trackable.image.url }
+  end
+
+  child :trackable, if: lambda { |abc| abc.trackable_type == "Album" }  do
+    node(:album_id) { |trackable| trackable.id }
+    node(:album_name) { |trackable| trackable.name }
+    node(:images_count) { |trackable| trackable.images.count }
+  end
+  node(:activity) { |activity| activity.key }
+end
+
+node(:status) { 1 }
+node(:message) { "Followed Photographers found successfully!" }

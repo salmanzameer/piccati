@@ -1,4 +1,8 @@
 class Image < ActiveRecord::Base
+  include PublicActivity::Common
+  # include PublicActivity::Model
+  # tracked owner: ->(controller, model) { Photographer.first }#{ controller && controller.current_user }
+
   after_create :after_upload
   has_many :likes
   belongs_to :client

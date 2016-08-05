@@ -6,4 +6,4 @@ child @images , object_root: false do
 end
 node(:images_count) {@images.count}
 node(:status) { 1 }
-node(:message) { "Shared images found successfully!" }
+node(:message) { "Liked images found successfully!" }
