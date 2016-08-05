@@ -1,12 +1,13 @@
 <div style="margin-top:80px;"></div>
 <div class="container">
   <div class="col-md-3">
+    <h1 class="heading-clientlist">Client List</h1>
     <div>
       <table class="table table-striped header-fixed">
       <thead>
-        <tr >
+        <tr class="Profile-heading">
         <div>
-          <th class="table-row-width" style="background-color: #003366;color: #fff;">
+          <th class="table-row-width" style="background-color: #003366;color: #fff;border-bottom-width: 0px;">
             <div id="container">
             <div id="navi">Client Name</div>
             <div id="infoi">
@@ -21,12 +22,12 @@
         </div>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="client-table-setting">
       
       <% @clients.each do |client| %>
       <%cls = @path.present? && @path[:client_id] == client.id.to_s ? 'tr-selected' : "" %>
       <tr class="">
-        <td class="table-row-width"><div class="col-md-7"><%= link_to client.username, "#", class: "#{cls} show-client-events", data: { id: client.id } %></div>
+        <td class="table-row-width zero-border"><div class="col-md-7 center-align-tag"><%= link_to client.username, "#", class: "#{cls} show-client-events", data: { id: client.id } %></div>
         <div class="col-md-5">
         <button type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;"><i class="fa  fa-edit btn-edit" style="font-size: 16px;color: #ddd;"></i></button>
         <button type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;"><i class="fa  fa-times btn-del" style="font-size: 16px;color: #ddd;"></i></button>
