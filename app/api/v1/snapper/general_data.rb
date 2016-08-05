@@ -19,7 +19,7 @@ module Snapper
       requires :id,                   type: Integer
     end
 
-    get "/photographer/:id", rabl: "v1/snapper/photographer_profile" do
+    get "/profile/:id", rabl: "v1/snapper/profile" do
       rolee = params[:role_type].titleize
       role = ["Freelancer","Studio"].include?(rolee) ? "Photographer" : "Client"
       profile = role.constantize 
