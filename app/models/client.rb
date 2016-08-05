@@ -4,7 +4,7 @@ class Client < ActiveRecord::Base
   before_save :ensure_authentication_token
   acts_as_follower
   
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to    :photographer
   has_many      :events
@@ -22,6 +22,12 @@ class Client < ActiveRecord::Base
   }  
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
+
+  before_create :skip_confirmation if Rails.env.production?
+
+  def skip_confirmation
+    self.skip_confirmation!
+  end
 
 	def generate_authentication_token
 	  self.authentication_token = SecureRandom.hex
