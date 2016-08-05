@@ -522,9 +522,9 @@ a {
   }
   .button 
   {
-      background-color: #003366;; /* Green */
+      background-color: #ddd;
+      color: #003366;
       border: none;
-      color: #fff;
       padding: 10px 32px;
       text-align: center;
       text-decoration: none;
@@ -536,8 +536,8 @@ a {
   .button4 {width: 100%;}
   .button4:hover
   {
-    background-color: #ddd;
-    color: #003366 !important;
+    background-color: #003366;; /* Green */
+    color: #fff !important;
   }
   #abc {
       width:100%;
@@ -1073,3 +1073,75 @@ input::-moz-placeholder {
 input::-webkit-input-placeholder {
      color:blue;
   }
+
+
+.heading-description-calendar
+{
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+.detail-description-calendar
+{
+  font-size: 11px;line-height: 14px;padding-bottom: 10px;
+}
+
+.btn-edit-calendar
+{
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;cursor: pointer;
+  overflow: hidden;
+  outline:none;
+  width: 45%;
+  height: 18px;
+}
+
+.btn-cancel-calendar
+{
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;cursor: pointer;
+  overflow: hidden;
+  outline:none;
+  width: 45%;
+  height: 18px;
+}
+
+.btn-style
+{
+  font-size: 16px;color: #003366;
+}
+
+.calendar-heading:after {
+    position: relative;
+    left: -273px;
+}
+
+.calendar-heading a:first-child 
+{
+  float: left;
+  color: white;
+}
+
+.calendar-heading a:last-child 
+{
+  float: right;
+  color: white;
+}
+
+.btn-calandar-description-alignment
+{
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 0px;
+}
+
+.calendar-entry-table-height
+{
+    min-height: 364px;
+    background-color: #fff;
+}
