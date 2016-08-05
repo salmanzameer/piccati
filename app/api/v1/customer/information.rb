@@ -1,6 +1,6 @@
 module Customer
   class Information < Grape::API
-      
+
     desc "Get all events"
     params do
       requires :authentication_token, type: String
@@ -35,8 +35,13 @@ module Customer
       unless @image
         throw :error, status: 404, message: "Image not found!"
       end
+
       @like = @image.likes.where({client_id: @client.id}).first_or_initialize(client_id: @client.id)
       @like.update(like: params[:like], unlike: !params[:like])
+
+      message = @like.like ? "like" : "unlike"
+      @image.create_activity(key: "#{message} a image", owner: @client)
+
     end
 
     desc "Get selected images of client"
@@ -82,9 +87,7 @@ module Customer
       unless @client
         throw :error, status: 404, message: "Client not found!"
       end
-      @user = @client.get_followings
-      # binding.pry
-      # @images = @client.feed
+      @activities = @client.get_followings
     end
 ######################################
     desc "Get single event images"
@@ -129,6 +132,9 @@ module Customer
         throw :error, status: 404, message: "Image not found!"
       end
       @image.update_attributes(is_liked: params[:is_liked])
+
+      message = @image.is_liked ? "like" : "unlike"
+      @image.create_activity(key: "#{message} a image", owner: @client)
     end
 
     desc "Get all liked images"
@@ -169,6 +175,8 @@ module Customer
       end
       photographer = Photographer.find(params[:photographer_id])
       @client.send("#{params[:follow_type]}", photographer)
+
+      photographer.create_activity(key: "follow a person", owner: @client)
     end
   end
 end

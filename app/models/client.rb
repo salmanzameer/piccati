@@ -35,16 +35,13 @@ class Client < ActiveRecord::Base
   end   
 
   def get_followings
-    follows = []
+    activities = []
     follows_type = self.follows.pluck(:followable_type).uniq
     follows_type.each do |f|
       ids = self.follows.where("followable_type = ?", f).pluck(:followable_id).uniq
-      follows += f.constantize.where("id in (?)", ids)
+      activities += PublicActivity::Activity.where("owner_type = ? and owner_id in (?)",f, ids)
     end
-    follows
-    # followed_photographers = self.follows.where("followable_type = ?", "Photographer").pluck(:followable_id)
-    # album_ids = Album.where("photographer_id in (?)", followed_photographers).pluck(:id)
-    # Image.where("imageable_id in (?) and imageable_type = ?", album_ids, "Album").order("created_at DESC")
+    activities.sort_by(&:created_at).reverse
   end
 
   private
