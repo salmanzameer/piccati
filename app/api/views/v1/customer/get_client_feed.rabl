@@ -13,6 +13,7 @@ child @activities , object_root: false do
   child :trackable, if: lambda { |abc| abc.trackable_type == "Album" }  do
     node(:album_id) { |trackable| trackable.id }
     node(:album_name) { |trackable| trackable.name }
+    node(:featured_image_url) { |trackable| trackable.images.first.image.url if trackable.images.present? }
     node(:images_count) { |trackable| trackable.images.count }
   end
   node(:activity) { |activity| activity.key }
