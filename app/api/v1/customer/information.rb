@@ -153,5 +153,31 @@ module Customer
       photographer = Photographer.find(params[:photographer_id])
       @client.send("#{params[:follow_type]}", photographer)
     end
+
+    desc "Request photographer"
+    params do
+      requires :client_id,     type: Integer
+      requires :authentication_token, type: String
+      requires :photographer_id,     type: Integer    
+      requires :event_name,     type: String
+      requires :event_date,     type: Date
+      requires :guests,         type: Integer
+    end
+
+    post "/request", rabl: "v1/customer/request" do
+      
+      @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
+      unless @client
+        throw :error, status: 404, message: "Client not found!"
+      end
+      @enquiry = Enquiry.new(
+        client_id: params[:client_id],
+        photographer_id: params[:photographer_id],
+        event_name: params[:event_name],
+        event_date: params[:event_date],
+        guests:     params[:guests] 
+        )
+      @enquiry.save
+    end 
   end
 end

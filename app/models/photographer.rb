@@ -4,11 +4,12 @@ class Photographer < ActiveRecord::Base
   before_save :ensure_authentication_token
   acts_as_followable
   
-  has_many :clients
-  has_many :events, through: :clients   
+  has_many    :clients
+  has_many    :events, through: :clients   
   belongs_to  :package
-  has_many :achievements
-  has_many :albums
+  has_many    :achievements
+  has_many    :albums
+
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
   
