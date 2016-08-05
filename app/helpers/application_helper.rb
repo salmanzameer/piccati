@@ -1,5 +1,8 @@
 module ApplicationHelper
 
+  def remaining_days
+    ((current_photographer.created_at + 10.days).to_date - Date.today).round
+  end
   def find_event(path)
     @path = Rails.application.routes.recognize_path(path)
     if !@path[:client_id].present?

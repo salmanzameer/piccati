@@ -10,6 +10,9 @@
 	</head>
 	<body>
 		<%= render 'layouts/header' %>
+		<% if current_photographer && current_photographer.plan_type.blank? %>
+			<span style="color:red; margin-top: 100px;"> Your trial period will expire on <%= remaining_days %></span>  Days. Suscribe
+		<% end %>
 		<%= yield %>
 	</body>
 	<%= render 'layouts/footer' %>

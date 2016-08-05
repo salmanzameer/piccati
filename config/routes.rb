@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: "photographers#sign_in"
   devise_for :photographers , controllers: {registrations: 'registrations', omniauth_callbacks: "photographers/omniauth_callbacks"}
   
+  get 'expiries', to: "home#expires", as: :expires
+  get 'update_paln', to: "home#plan_update", as: :plan_update
+
   resources :photographers do
     resources :albums do
       get 'public_image'

@@ -1,0 +1,7 @@
+
+<center style="margin-top: 50px;"><%= link_to "Buy Now", plan_update_path(plan_type: "Basic"), class: "button4" %></center>
+<center style="margin-top: 50px;"><%= link_to "Buy Now", plan_update_path(plan_type: "Standard"), class: "button4" %></center>
+<center style="margin-top: 50px;"><%= link_to "Buy Now", plan_update_path(plan_type: "Pro"), class: "button4" %></center>
+<% flash.each do |key, value| %>
+  <div class="alert"><%= value %></div>
+<% end %>

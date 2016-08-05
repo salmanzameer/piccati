@@ -4,12 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :set_current_photographer
-
+  
   def set_current_photographer
     Photographer.current_photographer = current_photographer
   end
 
-protected
+  protected
 
   def configure_permitted_parameters
   	devise_parameter_sanitizer.for(:sign_up) do |u|
@@ -35,5 +35,15 @@ protected
 
   def client_match_token
     @client = Client.find_by_authentication_token(params[:authentication_token])
+  end
+
+  def remaining_days
+    ((current_photographer.created_at + 10.days).to_date - Date.today).round
+  end
+
+  def trial_expired?
+    if remaining_days <= 0 || current_photographer.expired_at <= Date.today
+      redirect_to expires_path
+    end
   end
 end 

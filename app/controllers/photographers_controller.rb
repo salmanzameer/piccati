@@ -1,5 +1,6 @@
 class PhotographersController < ApplicationController
  before_filter :authenticate_photographer!
+ before_filter :trial_expired?
 
   def show
     @photographer = current_photographer 
