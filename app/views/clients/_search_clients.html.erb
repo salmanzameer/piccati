@@ -1,5 +1,7 @@
-<div>
+<div class="rss-feed">
+<ul class="live-search-list">
 	<% clients.each do |client| %>
-		<%= client.email %>
+		<li><%= client.email %></li>
 	<% end %>
+</ul>
 </div>
