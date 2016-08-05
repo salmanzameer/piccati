@@ -1,151 +1,63 @@
-<%= image_tag("logo.png", style: "height: 70%;width: 130px;margin-top: 90px;") %>
 <div class="background-image">
   <div class="top-content">
     <div>
       <div class="container">
-  <div class="col-md-3">
-    <table>
-      <tbody>
-      <tr class="Profile-heading">
-      <div>
-        <th class="tbheaderback">
-        <div class="col-md-10"> 
-          Profile
-        </div>   
-      <div class="col-md-2"><i class="fa fa-angle-right font-awesome-size"></i></div>
-        </th>
-      </div>
-      </tr>
-      <tr>
-        <td class="profile-password-security"> Password & Security
-        </td>
-      </tr>
-    </tbody></table>
-  </div>
-  <div class="col-md-9"> 
-    <div class="col-md-12 editprofileheading">
-      <p class="edit-prfile-para"> Update or Edit your Profile</p>
-    </div>
-    <div class="col-md-12 background-main-edit-profile">
-        <fieldset>
-         <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { multipart: true, class: "dropdown-edit form-edit-profile-view" }) do |f| %>
-        <div class="col-md-6" style="margin-top:15px;margin-bottom:15px;">
-           <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  } , class: "form-control zero-border form-setting-forall", style:"height: 50px;")   %>
-        <% end %>
-          
-          <input type="text" name="firstname" class="first-field name-field zero-border" placeholder="First Name" >
-
-          <input type="text" name="lastname" class="first-field name-field zero-border" placeholder="Last Name">
-          <div class="col-md-8" style="padding-left: 0px;padding-right: 0px;">
-            <input type="text" name="profile" placeholder="Profile Picture" class="first-field profile-pic-field zero-border">
+        <div class="col-md-3">
+          <table>
+            <tbody>
+              <tr class="Profile-heading">
+                <div>
+                  <th class="tbheaderback">
+                    <div class="col-md-10"> 
+                      Profile
+                    </div>   
+                    <div class="col-md-2"><i class="fa fa-angle-right font-awesome-size"></i></div>
+                  </th>
+                </div>
+              </tr>
+              <tr>
+                <td class="profile-password-security"> Password & Security
+                </td>
+              </tr>
+            </tbody></table>
           </div>
-          <div class="col-md-4" style="padding-left: 0px;padding-right: 0px;">
-            <button class="button btn-profile" > Change picture</button>
-          </div>
-        </div>
-        <div class="col-md-6" style="margin-top:15px;margin-bottom:15px;">
-          <input type="text" name="displayname" class="first-field name-field" placeholder="Display Name">
-          
-          <input type="text" name="contactnumber" class="first-field name-field" placeholder="Contact Number">
-          <input type="text" name="email" class="first-field name-field" placeholder="Email">
-          <div class="col-md-9" style="padding-left: 0px;padding-right: 0px;">
-            <input type="text" name="lastname" placeholder="Watermark Logo" class="first-field watermark-field" style="">
-          </div>
-          <div class="col-md-3" style="padding-left: 0px;padding-right: 0px;">
-            <button class="button btn-watermark-field"> Choose file</button>
-          </div>
-        </div>
-        </fieldset>
-    </div>
-    <button class="button button4" id="popup" onclick="div_show()">Update and Save Profile</button>
-  </div>
-</div>
-  </div>
-</div>
-</div>
-<div class="background-image">
-  <div class="top-content">
-    <div>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-sm-offset-2 text">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-          </div>
-          <div class="col-md-4 form-box">
-            <div class="form-top">
-              <div class="form-top-left">
+          <div class="col-md-9"> 
+            <div class="col-md-12 editprofileheading">
+              <p class="edit-prfile-para"> Update or Edit your Profile</p>
+            </div>
+            <div class="col-md-12 background-main-edit-profile">
+              <fieldset>
+               <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { multipart: true, class: "dropdown-edit form-edit-profile-view" }) do |f| %>
+               <div class="col-md-6" style="margin-top:15px;margin-bottom:15px;">
+                 <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  } , class: "form-control zero-border form-setting-forall", style:"height: 50px;")   %>
+                 <%= f.text_field :firstname, autofocus: true, :placeholder => 'First Name', class: "first-field name-field zero-border", :id =>'form-firstname' %>
+                
+                <%= f.text_field :lastname, autofocus: true, :placeholder => 'First Name', class: "first-field name-field zero-border", :id =>'form-firstname' %>
+                                  
+                 <input type="text" name="lastname" class="first-field name-field zero-border" placeholder="Last Name">
+                 <div class="col-md-8" style="padding-left: 0px;padding-right: 0px;">
+                </div>
+                <div class="col-md-4" style="padding-left: 0px;padding-right: 0px;">
+                  <%= f.file_field :avatar, class: "first-field profile-pic-field zero-border"  %>
+                </div>
               </div>
-              <div class="form-top-right">
-                <i class="fa fa-lock"></i>
+              <div class="col-md-6" style="margin-top:15px;margin-bottom:15px;">
+                <%= f.text_field :username, autofocus: true , :placeholder => 'Display Name' ,class: "first-field name-field" %>
+                <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact Number' ,class: "first-field name-field", :id =>'form-contact' %>
+                <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "first-field name-field", :id =>'form-username' %>
+                <div class="col-md-9" style="padding-left: 0px;padding-right: 0px;">
+                  <input type="text" name="lastname" placeholder="Watermark Logo" class="first-field watermark-field" style="">
+                  <%= f.file_field :watermark_logo, class: "first-field watermark-field"  %>
+                </div>
+                <div class="col-md-3" style="padding-left: 0px;padding-right: 0px;">
+                </div>
               </div>
-            </div>
-            <div class="form-bottom">
-             <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { multipart: true }, :class => 'form-horizontal') do |f| %>
-             <div class="form-group">
-              <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  } , class: "form-control ", style:"height: 50px;")   %>
-            </div>
-            <div class="form-group">
-             <%= f.label :firstname, :class => 'sr-only', :for => 'form-firstname'%> 
-             <%= f.text_field :firstname, autofocus: true , :placeholder => 'Firstname' ,class: "form-firstname form-control", :id =>'form-firstname' %>
-             <div class="txt">
-               <%= resource.errors["firstname"].first%>
-             </div>
-         
-            </div>
-           <div class="form-group">
-             <%= f.label :lastname, :class => 'sr-only', :for => 'form-lastname'%> 
-             <%= f.text_field :lastname, autofocus: true , :placeholder => 'Lastname' ,class: "form-lastname form-control", :id =>'form-lastname' %>
-             <div class="txt">
-               <%= resource.errors["lastname"].first%>
-             </div>
-           </div>
-           <div class="form-group">
-             <%= f.label :username, :class => 'sr-only', :for => 'form-username'%> 
-             <%= f.text_field :username, autofocus: true , :placeholder => 'Username' ,class: "form-username form-control", :id =>'form-username' %>
-             <div class="txt">
-               <%= resource.errors["lastname"].first%>
-             </div>
-           </div>
-           <div class="form-group">
-             <%= f.label :contnumber, :class => 'sr-only', :for => 'form-contact'%> 
-             <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact' ,class: "form-contact form-control", :id =>'form-contact' %>
-             <div class="txt">
-               <%= resource.errors["contnumber"].first%>
-             </div>
-           </div>
-           <div class="form-group">
-             <%= f.label :email, :class => 'sr-only', :for => 'form-username'%> 
-             <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "form-username form-control", :id =>'form-username' %>
-             <div class="txt">
-               <%= resource.errors["email"].first%>
-             </div>
-           </div>
-
-           <div class="form-group form-browse-btn">
-             Profile Pictue: 
-             <%= f.file_field :avatar  %>
-           </div>
-           <div class="form-group form-browse-btn">
-             Watermark Logo: 
-             <%= f.file_field :watermark_logo  %>
-           </div>
-           <div class="actions">
-            <%= f.button class: "btn" ,style:"background: #7b868a;"%>
+            </fieldset>
           </div>
+            <%= f.submit "Update and Save Profile", class: "button button4" %>
           <% end %>
-            <div class="col-md-4">
-            </div>
         </div>
       </div>
-      </div>
-
     </div>
   </div>
 </div>
-</div>
-</div>
-
-
