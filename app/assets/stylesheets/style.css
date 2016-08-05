@@ -1,6 +1,6 @@
 body {
   
-    font-family: 'Roboto', sans-serif;
+    font-family: 'SegoeUI';
     font-size: 16px;
     font-weight: 300;
     color: #888;
@@ -499,13 +499,14 @@ a {
 /* Client Mangament */
 
   table {
-      font-family: arial, sans-serif;
+      font-family: 'SegoeUI';
       border-collapse: collapse;
       width: 100%;
       color: #fff;
   }
 
   td, th {
+      font-family: 'SegoeUI';
       text-align: left;
       padding: 8px;
   }
@@ -522,7 +523,7 @@ a {
   }
   .button 
   {
-      background-color: #ddd;
+      background-color: #fff;
       color: #003366;
       border: none;
       padding: 10px 32px;
@@ -556,7 +557,7 @@ a {
 
 input[type="email"], input[type="password"], input[type="text"], textarea, textarea.form-control 
   {
-    border: 3px solid #ddd!important;
+    border: 0px !important;
     }
 /* ***************** PL Upload ************************ */
 .plupload_header {
@@ -799,7 +800,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
         padding: 50px 50px;
         /* border: 2px solid gray; */
         /* border-radius: 10px; */
-        font-family: raleway;
+        font-family: 'SegoeUI';
       }
       p {
       margin-top:30px
@@ -819,6 +820,9 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
       input[type=text] {
       width:82%;
       padding:10px;
+      padding-left: 20px !important;
+      font-size: 24px !important;
+      font-family: 'SegoeUI' !important;
       margin-top:1px;
       border:1px solid #ccc;
       padding-left:40px;
@@ -951,7 +955,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
 
 
 input[type=text] {
-  width: 100% !important;
+  width: 100%;
 }
 
 
@@ -1144,4 +1148,133 @@ input::-webkit-input-placeholder {
 {
     min-height: 364px;
     background-color: #fff;
+}
+
+.editprofileheading
+{
+  height: 50px;
+  background-color: #003366;
+  text-align: left;
+  padding: 15px;
+  font-size: 16px;
+}
+
+
+.edit-prfile-para
+{
+  color:white;
+  margin-bottom:0px;
+  font-weight: bold;
+  margin: 0 auto;
+  font-family: 'SegoeUI';
+  font-size: 16px;
+}
+
+.background-main-edit-profile
+{
+  background-color:#dcdcdc;
+}
+
+@font-face 
+    {
+    font-family: 'SegoeUI';
+    src: url('segoeui.eot'); /* IE9 Compat Modes */
+    src: url('segoeui.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('segoeui.woff2') format('woff2'), /* Modern Browsers */
+    url('segoeui.woff') format('woff'), /* Modern Browsers */
+    url('segoeui.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('segoeui.svg') format('svg'); /* Legacy iOS */  font-weight: normal;
+    font-style: normal;
+  }
+
+.Profile-heading
+{
+    padding: 5px;
+    background-color: #003366 !important;
+    color: white !important; 
+}
+
+.profile-password-security
+{
+      padding: 13px;
+     border: 0px;
+    font-size: 16px;
+}
+
+.form-edit-profile-view
+{
+    width: 100%;
+    padding: 0px;
+}
+
+.profile-pic-field
+{
+    width: 150% !important;
+    height: 80px !important;
+    border-right-width: 0px !important;
+    border-top-width: 0px !important;
+    border-left-width: 0px !important;
+    border-bottom-width: 0px !important;
+    padding-bottom: 15px !important;
+    padding-left: 10px !important;
+}
+
+.btn-profile
+{
+  width: 95%;
+  margin-top: 20px;
+  height: 45px;
+  background-color: white;
+  color: grey;
+  border-left-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-right-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+}
+
+.watermark-field
+{
+  width: 133.5% !important;
+  height: 80px !important;
+  border-right-width: 0px !important;
+  border-top-width: 0px !important;
+  border-left-width: 0px !important;
+  border-bottom-width: 0px !important;
+  padding-bottom: 15px !important;
+  padding-left: 10px !important;
+}
+
+.btn-watermark-field
+{
+  width: 90%;
+  margin-top: 20px;
+  height: 45px;
+  background-color: white;
+  color: grey;
+  border-left-width: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-right-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+}
+
+
+.zero-border
+{
+  border: 0px !important;
+  border-radius: 0px;
+}
+
+.form-setting-forall
+{
+    padding-left: 20px;
+    font-size: 24px;
+    font-family: 'SegoeUI';
 }
