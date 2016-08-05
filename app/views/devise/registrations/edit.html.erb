@@ -5,7 +5,8 @@
       <div class="container">
   <div class="col-md-3">
     <table>
-      <tbody><tr>
+      <tbody>
+      <tr class="Profile-heading">
       <div>
         <th class="tbheaderback">
         <div class="col-md-10"> 
@@ -16,7 +17,7 @@
       </div>
       </tr>
       <tr>
-        <td> Password & Security
+        <td class="profile-password-security"> Password & Security
         </td>
       </tr>
     </tbody></table>
@@ -27,16 +28,16 @@
     </div>
     <div class="col-md-12 background-main-edit-profile">
         <fieldset>
-         <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { multipart: true, class: "dropdown-edit" }) do |f| %>
+         <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { multipart: true, class: "dropdown-edit form-edit-profile-view" }) do |f| %>
         <div class="col-md-6" style="margin-top:15px;margin-bottom:15px;">
-           <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  } , class: "form-control ", style:"height: 50px;")   %>
+           <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  } , class: "form-control zero-border form-setting-forall", style:"height: 50px;")   %>
         <% end %>
           
-          <input type="text" name="firstname" class="first-field name-field" placeholder="First Name" >
+          <input type="text" name="firstname" class="first-field name-field zero-border" placeholder="First Name" >
 
-          <input type="text" name="lastname" class="first-field name-field" placeholder="Last Name">
+          <input type="text" name="lastname" class="first-field name-field zero-border" placeholder="Last Name">
           <div class="col-md-8" style="padding-left: 0px;padding-right: 0px;">
-            <input type="text" name="profile" placeholder="Profile Picture" class="first-field profile-pic-field">
+            <input type="text" name="profile" placeholder="Profile Picture" class="first-field profile-pic-field zero-border">
           </div>
           <div class="col-md-4" style="padding-left: 0px;padding-right: 0px;">
             <button class="button btn-profile" > Change picture</button>
@@ -84,7 +85,7 @@
             <div class="form-bottom">
              <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { multipart: true }, :class => 'form-horizontal') do |f| %>
              <div class="form-group">
-              <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  } , class: "form-control", style:"height: 50px;")   %>
+              <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  } , class: "form-control ", style:"height: 50px;")   %>
             </div>
             <div class="form-group">
              <%= f.label :firstname, :class => 'sr-only', :for => 'form-firstname'%> 
