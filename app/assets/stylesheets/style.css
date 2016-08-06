@@ -1432,19 +1432,32 @@ input::-webkit-input-placeholder {
 .rss-feed ul {
 list-style: none;
 padding: 0;
-margin: 1em 0 0.5em;
+border: 1px solid #dcdcdc;
+margin-top: 1px;
 }
 
 .rss-feed a {
 text-decoration: none;
-color: #fff;
+color: grey;
+height: 34px;
+display: flex;
+justify-content: center;
+flex-direction: column;
+font-size: 16px;
+font-family: 'SegoeUI';
+padding-left: 15px;
+
+}
+
+.rss-feed a:hover {
+  background-color: #003366;
+  color: white;
 }
 
 .rss-feed {
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
 box-sizing: border-box;
-padding: 5px;
 background-color: #003366;
 color: white;
 -webkit-border-radius: 5px;
@@ -1510,4 +1523,32 @@ border-radius: 0px;
 .btn-prem-pkg:hover , .btn-stadard-pkg:hover ,.btn-basic-pkg:hover
 {
   background-color: #003366;
+}
+
+
+.list-search-client-des
+{
+    text-align: left;
+    background-color: #fff;
+}
+
+.email-add-client-field-view
+{
+  padding-left: 0px;
+}
+
+.borderclientfield
+{
+  border: 1px solid !important;
+}
+
+.zero-padding
+{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.bt-add-cli
+{
+  height: 50px;
 }
