@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 	
 	def expires
-		flash[:notice] = "Post successfully created"
+		flash[:notice] = "You need to upgrade your package plan to continue"
 	end
 
 	def plan_update
