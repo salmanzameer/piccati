@@ -280,7 +280,7 @@ a {
   }
   .navbar-brand 
   {
-    padding: 7px 15px;
+    padding: 10px 15px;
   }
   .navbar-inverse 
   {
@@ -1534,7 +1534,7 @@ border-radius: 0px;
 
 .email-add-client-field-view
 {
-  padding-left: 0px;
+  padding-left: 0px !important;
 }
 
 .borderclientfield
@@ -1551,4 +1551,56 @@ border-radius: 0px;
 .bt-add-cli
 {
   height: 50px;
+}
+
+.name-prof
+{
+  color: #333;
+  padding-left: 20px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.name-prof1
+{
+  color: #333;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.logout-btn-prof
+{
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    height: 100%;
+    display: flex !important;
+    justify-content: center;
+    flex-direction: column;
+}
+ul li:hover ,.dropdown-menu>li>a:hover
+{
+  background-color: #003366;
+  color: #fff;
+}
+
+.ul-padding
+{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+
+.navbar-nav>li>.dropdown-menu 
+{
+  margin-top: 0.5px;
+}
+
+
+.add-almum-tag
+{
+  color: white !important;
+  background-color: transparent !important;
 }
