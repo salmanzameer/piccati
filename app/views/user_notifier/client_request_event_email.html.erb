@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Dear <%= @photographer.title+" "+@photographer.firstname %>,</p>
+    <p><%= @client.firstname.titleize+" "+@client.lastname.titleize%> has requested you for meeting details are listed below: </p>
+    <p>Event Type: <%= @enquiry.event_name %><br>
+    Event Date: <%= @enquiry.event_date.to_formatted_s(:rfc822) %><br> 
+    Number of persons: <%= @enquiry.guests %><br>
+    <br>Thank you. </p>
+  </body>
+</html>
