@@ -42,7 +42,7 @@ class Photographer < ActiveRecord::Base
 
   accepts_nested_attributes_for :achievements, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
-  before_create :skip_confirmation if Rails.env.production?
+  #before_create :skip_confirmation if Rails.env.production?
 
   def skip_confirmation
     self.skip_confirmation!
