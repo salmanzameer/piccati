@@ -1451,3 +1451,56 @@ color: white;
 -moz-border-radius: 5px;
 border-radius: 0px;
 }
+
+
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: 60px;
+}
+
+.img-card
+{
+  width: 100%;
+}
+.btn-basic-pkg
+{
+  background-color: #82bad6;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+}
+.btn-stadard-pkg
+{
+  background-color: #67c26d;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+}
+.btn-prem-pkg
+{
+  background-color: #d2cb5f;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+}
