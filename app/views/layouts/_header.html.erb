@@ -13,16 +13,16 @@
         <ul class="nav navbar-nav pull-right">
           <% if !params[:action] == "show" %>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 6px;padding-bottom: 6px;"><img src="http://image.gala.de/v1/cms/ZR/harry-styles_9814055-original-portrait_6col.jpg?v=12752457" class="img-circle" style="width:40px;height:40px;"> Client Managment <span class="caret"></span></a>
-              <ul class="dropdown-menu" style="width: 190px;">
+              <ul class="dropdown-menu">
                 <li><a href="#section41">Client Managment-1</a></li>
                 <li><a href="#section42">Client Managment-2</a></li>
               </ul>
             </li>
           <% end %>
           <% if current_photographer %>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 6px;padding-bottom: 6px;margin-right: 40px;"><%= image_tag (current_photographer.avatar), class: "img-circle", style: "width:40px;height:40px;" %><%= current_photographer.firstname.titleize+" "+current_photographer.lastname.titleize if photographer_signed_in?%> <span class="caret"></span></a>
-            <ul class="dropdown-menu" style="width: 190px;margin-left: 15px;">
-              <li></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 6px;padding-bottom: 6px;margin-right: 100px;"><%= image_tag (current_photographer.avatar), class: "img-circle", style: "width:40px;height:40px;" %>
+          <%= current_photographer.firstname.titleize+" "+current_photographer.lastname.titleize if photographer_signed_in?%> <span class="caret"></span></a>
+            <ul class="dropdown-menu" style="margin-left: 15px;width: 100px;">
               <li><%= link_to('Logout', destroy_photographer_session_path, :method => :delete) %></li>
             </ul>
           </li>

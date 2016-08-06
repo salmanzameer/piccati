@@ -1363,3 +1363,192 @@ input::-webkit-input-placeholder {
 {
   color: #003366 !important;
 }
+
+.topspacing
+{
+  margin-top: 120px;
+}
+
+.email-edit-field
+{
+  width: 100%;
+  margin-top: 1px !important;
+}
+
+.profile-tab
+{
+    width: 1200% !important;
+    height: 80px !important;
+    border-right-width: 0px !important;
+    border-top-width: 0px !important;
+    border-left-width: 0px !important;
+    border-bottom-width: 0px !important;
+    padding-bottom: 15px !important;
+    padding-left: 10px !important;
+}
+
+.field-chooseprofile
+{
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    z-index: -1;
+    margin-top: 30px;
+}
+
+.field-chooseprofile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    display: inline-block;
+    margin-right: 200px;
+}
+
+
+
+
+.field-chooseprofile1
+{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  z-index: -1;
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.profile-tab1
+{
+    width: 200% !important;
+    height: 80px !important;
+    border-right-width: 0px !important;
+    border-top-width: 0px !important;
+    border-left-width: 0px !important;
+    border-bottom-width: 0px !important;
+    padding-bottom: 15px !important;
+    padding-left: 10px !important;
+}
+
+
+.rss-feed ul {
+list-style: none;
+padding: 0;
+border: 1px solid #dcdcdc;
+margin-top: 1px;
+}
+
+.rss-feed a {
+text-decoration: none;
+color: grey;
+height: 34px;
+display: flex;
+justify-content: center;
+flex-direction: column;
+font-size: 16px;
+font-family: 'SegoeUI';
+padding-left: 15px;
+
+}
+
+.rss-feed a:hover {
+  background-color: #003366;
+  color: white;
+}
+
+.rss-feed {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+background-color: #003366;
+color: white;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 0px;
+}
+
+
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: 60px;
+}
+
+.img-card
+{
+  width: 100%;
+}
+.btn-basic-pkg
+{
+  background-color: #82bad6;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+.btn-stadard-pkg
+{
+  background-color: #67c26d;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+.btn-prem-pkg
+{
+  background-color: #d2cb5f;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.bot-spacing
+{
+  margin-bottom: 70px;
+}
+
+.btn-prem-pkg:hover , .btn-stadard-pkg:hover ,.btn-basic-pkg:hover
+{
+  background-color: #003366;
+}
+
+
+.list-search-client-des
+{
+    text-align: left;
+    background-color: #fff;
+}
+
+.email-add-client-field-view
+{
+  padding-left: 0px;
+}
+
+.borderclientfield
+{
+  border: 1px solid !important;
+}
+
+.zero-padding
+{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.bt-add-cli
+{
+  height: 50px;
+}
