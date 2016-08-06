@@ -50,5 +50,21 @@ module Snapper
       @images = @album.images.paginate( page: params[:page], per_page: 6 )
       @total_images = @images.count 
     end
+
+    desc "Get monthly/yearly calendar events"
+    params do
+      requires :photographer_id,      type: Integer
+      requires :authentication_token, type: String
+      requires :calendar_type,        type: String
+    end
+
+    get "/photographer/:photographer_id/calendar_events", rabl: "v1/snapper/calendar_events" do
+      @photographer = Photographer.find_by_id_and_authentication_token(params[:photographer_id],params[:authentication_token])
+      unless @photographer
+        throw :error, status: 404, message: "Photographer not found!"
+      end
+      calendar = params[:calendar_type]
+      @events = @photographer.events.where(start_time: Date.today..Date.today + 1.send(calendar))
+    end
   end
 end

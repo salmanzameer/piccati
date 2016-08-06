@@ -222,6 +222,7 @@ module Customer
         guests:     params[:guests] 
         )
       @enquiry.save
+      UserNotifier.client_request_event_email(@enquiry).deliver_now
     end 
   end
 end
