@@ -1,13 +1,17 @@
 <br><br><br>
-<div class="col-md-8">
-	<%= month_calendar events: @events do |date, events| %>
-	  <%= date %>
-	  <% events.each do |event| %>
-	    <div>
-	      <%= link_to  event.name, all_images_photographer_client_event_path(id: event.id, client_id: event.client_id, photographer_id: event.client.photographer.id) %>
-	    </div>
-	  <% end %>
-	<% end %>
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><%= link_to "Monthly", photographer_events_info_path(calendar_type: "month"), remote: true %></li>
+    <li role="separator" class="divider"></li>
+    <li><%= link_to "Weekly", photographer_events_info_path(calendar_type: "week"), remote: true %></li>
+  </ul>
+</div>
+<div class="col-md-8 calendar-box">
+<%= render partial: 'month_calendar' %>
 </div>
 
 <div class="col-md-4 btn-calandar-description-alignment">
