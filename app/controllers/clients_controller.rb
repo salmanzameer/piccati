@@ -43,7 +43,7 @@ class ClientsController < ApplicationController
       client.photographer_clients.create(photographer_id: current_photographer.id)
       InvitationMailer.client_acknowledge(current_photographer, params[:email]).deliver
     else
-      current_photographer.invite_clients.create(email: params[:email])
+      current_photographer.invite_clients.where(email: params[:email]).first_or_create
       InvitationMailer.client_invitation(current_photographer, params[:email]).deliver
     end
     redirect_to photographer_clients_path(current_photographer)
