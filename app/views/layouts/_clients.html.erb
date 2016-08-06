@@ -28,7 +28,7 @@
       <% @clients.each do |client| %>
       <%cls = @path.present? && @path[:client_id] == client.id.to_s ? 'tr-selected' : "" %>
       <% abc = cls == "tr-selected" ? "abc" : ""%>
-      <% if @path[:action] == "index" %>
+      <% if @path.present? && @path[:action] == "index" %>
         <% abc = "" %>
       <% end %>
       <tr class="clients-list <%= cls %> <%= abc %>">
