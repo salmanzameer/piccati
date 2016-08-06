@@ -11,7 +11,11 @@
   </ul>
 </div>
 <div class="col-md-8 calendar-box">
-<%= render partial: 'month_calendar' %>
+	<% if params[:calendar_type] == "week" %>
+		<%= render partial: 'week_calendar' %>
+	<% else %>
+		<%= render partial: 'month_calendar' %>
+	<% end %>
 </div>
 
 <div class="col-md-4 btn-calandar-description-alignment">
