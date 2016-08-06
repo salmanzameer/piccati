@@ -2,7 +2,7 @@
 <div class="rss-feed">
 <ul class="live-search-list">
 	<% clients.each do |client| %>
-		<li class="list-search-client-des"><a href="index.html"><%= client.email %></a></li>
+		<li class="list-search-client-des"><%= link_to client.email, "#", class: "select-searched-email" %></li>
 	<% end %>
 </ul>
 </div>

@@ -10,7 +10,7 @@ class Photographer < ActiveRecord::Base
   belongs_to  :package
   has_many    :achievements
   has_many    :albums
-
+  has_many    :invite_clients
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
   
