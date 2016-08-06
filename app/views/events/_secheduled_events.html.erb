@@ -1,0 +1,39 @@
+<div class="col-md-4 btn-calandar-description-alignment">
+  <div class="wrap">
+      <table class="head">
+      <tbody><tr>
+      <div>
+        <th style="background-color: #003366;color: #fff;">
+          <span class="text">
+          <% @date = @date.blank? ? Date.today : @date %>
+            <center><%= @date %></center>
+          </span>
+        </th>
+      </div>
+      </tr>
+     </tbody>
+     </table>
+     <div class="inner_table calendar-entry-table-height">
+          <table>
+          <tbody>
+          <% if @events.count == 0 %>
+            <tr>No event scheduled for this date</tr>
+          <% end %>
+      <% @events.each do |event| %>
+      <tr>
+        <td><div class="col-md-10 heading-description-calendar"> Meeting</div>
+        <div class="col-md-2 btn-calandar-description-alignment">
+        <button type="button" class="btn-edit-calendar" ><i class="fa  fa-edit btn-edit btn-style"></i></button>
+        <button type="button" class="btn-cancel-calendar"><i class="fa  fa-times btn-del btn-style" ></i></button>
+        </div>
+        <div class="col-md-12 detail-description-calendar" style="">
+          <%= event.name %><br>
+          <%= event.bridal %> wedds <%= event.groom %><br>
+          <%= event.location %>
+        </div>
+        </td>
+      </tr>
+      <% end %>
+    </tbody></table></div></div>
+    <button class="button button4 popup event-btn" id="popup" data-id="abc"><i class="fa fa-plus-circle"></i> Calender Entry </button>
+</div>

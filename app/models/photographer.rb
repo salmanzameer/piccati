@@ -6,7 +6,7 @@ class Photographer < ActiveRecord::Base
   
   has_many    :photographer_clients  
   has_many    :clients, through: :photographer_clients
-  has_many    :events,  through: :clients   
+  has_many    :events   
   belongs_to  :package
   has_many    :achievements
   has_many    :albums

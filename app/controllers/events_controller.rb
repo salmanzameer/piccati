@@ -7,6 +7,14 @@ class EventsController < ApplicationController
     go_to = request.headers["HTTP_REFERER"]
   end
 
+
+  def scheduled_events
+    start_of_day = params[:date].to_datetime.beginning_of_day
+    end_of_day = params[:date].to_datetime.end_of_day
+    @events = Event.where("start_time >= ? and start_time <= ?", start_of_day, end_of_day)
+    render partial: "secheduled_events", locals: { :@events => @events, :@date => params[:date] }
+  end
+
   def index
     @client = Client.find(params[:client_id])
     @event  = @client.events

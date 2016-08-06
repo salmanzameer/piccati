@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "photographers#sign_in"
   devise_for :photographers , controllers: {registrations: 'registrations', omniauth_callbacks: "photographers/omniauth_callbacks"}
   
+  get "scheduled_events/:date", to: "events#scheduled_events"
   get 'expiries', to: "home#expires", as: :expires
   get 'update_paln', to: "home#plan_update", as: :plan_update
   get 'search_clients', to: "clients#search_clients", as: :search_clients

@@ -15,7 +15,10 @@ class PhotographersController < ApplicationController
   end
 
   def events_info
-    @events = current_photographer.events
+    start_of_day = Date.today.to_datetime.beginning_of_day
+    end_of_day = Date.today.to_datetime.end_of_day
+    
+    @events = current_photographer.events.where("start_time >= ? and start_time <= ?", start_of_day, end_of_day)
     respond_to do |format|
       format.js
       format.html
