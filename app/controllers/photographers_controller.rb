@@ -16,6 +16,10 @@ class PhotographersController < ApplicationController
 
   def events_info
     @events = current_photographer.events
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def update_password
