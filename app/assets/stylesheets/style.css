@@ -1520,12 +1520,18 @@ border-radius: 0px;
   margin-bottom: 70px;
 }
 
-.btn-prem-pkg:hover , .btn-stadard-pkg:hover ,.btn-basic-pkg:hover
+.btn-prem-pkg:hover 
+{
+  background-color: #716b08;
+}
+.btn-stadard-pkg:hover
+{
+  background-color: #105511;
+} 
+.btn-basic-pkg:hover
 {
   background-color: #003366;
 }
-
-
 .list-search-client-des
 {
     text-align: left;
