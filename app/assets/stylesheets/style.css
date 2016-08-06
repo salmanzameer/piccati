@@ -1609,3 +1609,15 @@ ul li:hover ,.dropdown-menu>li>a:hover
   color: white !important;
   background-color: transparent !important;
 }
+
+.alert {
+   font-weight: bold;
+   -moz-border-radius: 4px 4px 4px 4px;
+   -webkit-border-radius: 4px 4px 4px 4px;
+   border-radius: 4px 4px 4px 4px;
+   margin-bottom: 18px;
+   padding: 12px 25px 12px 24px;
+   -moz-box-shadow: 3px 3px 1px 1px #CCCCCC;
+   -webkit-box-shadow: 3px 3px 1px 1px #CCCCCC;
+   box-shadow: 3px 3px 1px 1px #CCCCCC;
+}

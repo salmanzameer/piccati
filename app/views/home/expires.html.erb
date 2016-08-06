@@ -1,24 +1,20 @@
-
-<center style="margin-top: 50px;"><%= link_to "Buy Now", plan_update_path(plan_type: "Basic"), class: "button4" %></center>
-<center style="margin-top: 50px;"><%= link_to "Buy Now", plan_update_path(plan_type: "Standard"), class: "button4" %></center>
-<center style="margin-top: 50px;"><%= link_to "Buy Now", plan_update_path(plan_type: "Pro"), class: "button4" %></center>
-<% flash.each do |key, value| %>
-  <div class="alert"><%= value %></div>
+<br><br>
+<% if flash[:notice] %>
+  <div class = "alert alert-success"><%= flash[:notice] %></div>
 <% end %>
-
 <div class="container topspacing bot-spacing">
   <div class="row">
     <div class="col-md-4">
       <%= image_tag("BasicPackage.png",class: "basic-pkg") %>
-      <a class="button btn-basic-pkg">Button</a>
+      <%= link_to "Buy Now", plan_update_path(plan_type: "Basic"), class: "button btn-basic-pkg" %>
     </div>
     <div class="col-md-4">
       <%= image_tag("StandardPackage.png",class: "basic-pkg") %>
-      <a class="button btn-stadard-pkg">Button</a>
+      <%= link_to "Buy Now", plan_update_path(plan_type: "Standard"), class: "button btn-stadard-pkg" %>
     </div>
     <div class="col-md-4">
       <%= image_tag("PremiumPackage.png",class: "basic-pkg") %>
-      <a class="button btn-prem-pkg">Button</a>
+      <%= link_to "Buy Now", plan_update_path(plan_type: "Pro"), class: "button btn-prem-pkg" %>
     </div>
   </div>
 </div>

@@ -26,8 +26,18 @@ class Client < ActiveRecord::Base
 
   before_create :skip_confirmation if Rails.env.production?
 
+  before_create :invited_client
+
+
   def skip_confirmation
     self.skip_confirmation!
+  end
+
+  def invited_client
+    invited_clients = InviteClient.where(email: self.email)  
+    if invited_clients
+      invited_clients.map { |invited_client| self.photographer_clients.create( photographer_id: invited_client.photographer_id) }
+    end
   end
 
 	def generate_authentication_token
