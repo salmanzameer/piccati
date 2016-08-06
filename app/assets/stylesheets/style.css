@@ -1472,7 +1472,6 @@ border-radius: 0px;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
   width: 100%;
 }
@@ -1486,7 +1485,6 @@ border-radius: 0px;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
   width: 100%;
 }
@@ -1500,7 +1498,16 @@ border-radius: 0px;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
   width: 100%;
+}
+
+.bot-spacing
+{
+  margin-bottom: 70px;
+}
+
+.btn-prem-pkg:hover , .btn-stadard-pkg:hover ,.btn-basic-pkg:hover
+{
+  background-color: #003366;
 }
