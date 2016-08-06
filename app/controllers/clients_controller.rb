@@ -37,6 +37,18 @@ class ClientsController < ApplicationController
     redirect_to photographer_clients_path(current_photographer)
   end
 
+  def connect_client
+    client = Client.find_by_email(params[:email])
+    if client
+      client.photographer_clients.create(photographer_id: current_photographer.id)
+      InvitationMailer.client_acknowledge(current_photographer, params[:email]).deliver
+    else
+      current_photographer.invite_clients.create(email: params[:email])
+      InvitationMailer.client_invitation(current_photographer, params[:email]).deliver
+    end
+    redirect_to photographer_clients_path(current_photographer)
+  end
+
   def edit
     @client = current_photographer.clients.find(params[:id])      
   end
