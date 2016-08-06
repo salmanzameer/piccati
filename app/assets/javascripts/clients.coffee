@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()
 		console.log("submit");
@@ -14,10 +15,9 @@ $ ->
 			success: (data) ->
 				$(".events-section").html(data)
 
-
 	$(document).on 'click', '.show-client-events', (e) ->
 		e.preventDefault()
-		$('.clients-tr').removeClass('tr-selected')
+		$('.tr-selected').removeClass('tr-selected')
 		$(".show-client-events").css('color','#23527c')
 		$(this).closest("tr").addClass('tr-selected')
 		$(this).css('color','white')
@@ -27,10 +27,8 @@ $ ->
 			url: "/clients/#{id}/client_events"
 			success: (data) ->
 				$(".events-section").html(data)
-				if !$('.show-event').hasClass('tr-selected')
-					$('.show-event').first().addClass("tr-selected").click()
-				else
-					$('.tr-selected.show-event').click()
+				$('.show-event').first().click()
+				$('.events-list.abc').find("a").click()
 
 	$(document).on 'click', '.popup', (e) ->
 		$("##{$(this).data("id")}").show()
@@ -89,3 +87,7 @@ $ ->
 		e.preventDefault()
 		$(".search_client_email").val($(this).text())	
 		$(".searched_email").hide()
+
+	$('.show-client-events').first().click()
+	$('.clients-list.abc').find("a").click()
+	
