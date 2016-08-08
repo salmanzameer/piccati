@@ -19,12 +19,12 @@
 <div class="scheduled-events">
   <%= render partial: "events/secheduled_events" %>
 </div>
-		<div id="abc">
+		<div id="abc2">
 		<!-- Popup Div Starts Here -->
 			<div id="popupContact">
 	<!-- Contact Us Form -->
 				<%= form_for Event.new, url: photographer_client_events_path(current_photographer.id, Client.first), html: { class: "form-action" } do |f| %>
-					<%= image_tag ("close1.png"), class: "close", data: { id: "abc" }%>
+					<%= image_tag ("close1.png"), class: "close", data: { id: "abc2" }%>
 					<center><h2>Add a Event</h2></center>
 					<fieldset>
 					  <%= f.text_field :name, autofocus: true, :placeholder =>"Name", :class => "first-field client_fields" %>

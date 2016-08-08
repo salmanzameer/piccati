@@ -13,7 +13,8 @@ $ ->
 			url:  _form.attr("action")
 			success: (data) ->
 				$(".events-section").html(data)
-				$(".close").data("id").hide()
+				$("#abc2").hide()
+				$('.show-event').last().click()
 
 	$(document).on 'click', '.edit-package', (e) ->
 		e.preventDefault()
