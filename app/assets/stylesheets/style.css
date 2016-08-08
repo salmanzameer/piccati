@@ -1336,7 +1336,7 @@ input::-webkit-input-placeholder {
 
 .btn-uploadimage1
 {
-  color: #003366 !important;
+  color: #003366;
 }
 
 .btn-uploadimage1:focus , .btn-uploadimage1:hover 
@@ -1360,7 +1360,7 @@ input::-webkit-input-placeholder {
 }
 .show-event
 {
-  color: #003366 !important;
+  color: #003366;
 }
 
 .topspacing
