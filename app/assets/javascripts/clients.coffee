@@ -14,6 +14,7 @@ $ ->
 			url:  _form.attr("action")
 			success: (data) ->
 				$(".events-section").html(data)
+				$("#abc").hide()
 
 	$(document).on 'click', '.show-client-events', (e) ->
 		e.preventDefault()

@@ -21,14 +21,13 @@
           <% end %>
       <% @events.each do |event| %>
       <tr>
-        <td><div class="col-md-10 heading-description-calendar"> Meeting</div>
+        <td><div class="col-md-10 heading-description-calendar"> <%= event.name.titleize%></div>
         <div class="col-md-2 btn-calandar-description-alignment">
         <button type="button" class="btn-edit-calendar" ><i class="fa  fa-edit btn-edit btn-style"></i></button>
         <button type="button" class="btn-cancel-calendar"><i class="fa  fa-times btn-del btn-style" ></i></button>
         </div>
         <div class="col-md-12 detail-description-calendar" style="">
-          <%= event.name %><br>
-          <%= event.bridal %> wedds <%= event.groom %><br>
+          <%= event.groom.titleize %> and <%= event.bridal.titleize %><br>
           <%= event.location %>
         </div>
         </td>
