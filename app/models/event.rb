@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  include PublicActivity::Common
 	belongs_to :client	 
   belongs_to :photographer
 	has_many :images, as: :imageable	 
