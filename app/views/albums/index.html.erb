@@ -36,7 +36,7 @@
 	</div>
   <div class="row">
     <div class="col-md-12" style="margin-bottom:50px;">
-      <ul style="list-style:none;" id="ul-li">
+      <ul style="list-style:none;" class="ul-li">
         <% album.images.each do |img| %>
           <li style="display: inline;" data-src="<%= img.image.url%>" class="col-md-2">
             <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
@@ -50,6 +50,6 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#ul-li').lightGallery();
+    $('.ul-li').lightGallery();
   });
 </script>

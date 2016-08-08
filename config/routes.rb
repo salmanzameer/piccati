@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
     get 'events_info'
     resources :clients do
+      get 'selected_images', to: "clients#selected_images", as: :selected_images
       resources :events do 
         member do
           get 'upload_images'
