@@ -32,15 +32,15 @@
                  <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  } , class: "form-control zero-border form-setting-forall", style:"height: 50px;")   %>
                  <%= f.text_field :firstname, autofocus: true, :placeholder => 'First Name', class: "first-field name-field zero-border", :id =>'form-firstname' %>      
                 <%= f.text_field :lastname, autofocus: true, :placeholder => 'First Name', class: "first-field name-field zero-border", :id =>'form-firstname' %>
-                <div class="col-md-4" class="label-div">
-                   <%=f.label 'Change Picture' ,class: "label-change-pic" %>
-                </div>
-                <div class="col-md-8" style="padding-left: 0px;padding-right: 0px;">
+                
                 <div class="custom-file-upload">
-                  <%= f.file_field :avatar, class: "first-field zero-border upload-file-btn width-chosen-field" , id: "file" ,name: "myfiles[]" , :placeholder => 'First Name'%>
+                  <input id="uploadFile" placeholder="Choose File" disabled="disabled" class= "first-field name-field zero-border"/>
+                  <div class="fileUpload btn btn-primary">
+                    <span>Upload</span>
+                    <%= f.file_field :avatar, class: "first-field zero-border upload-file-btn width-chosen-field", id: "uploadBtn",  class: "upload"%>
+                  </div>
                 </div>
-                </div>
-                </div>
+              </div>
               <div class="col-md-6" style="margin-top:15px;margin-bottom:15px;">
                 <%= f.text_field :username, autofocus: true , :placeholder => 'Display Name' ,class: "first-field name-field" %>
                 <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact Number' ,class: "first-field name-field ", :id =>'form-contact' %>
