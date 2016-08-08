@@ -41,7 +41,6 @@ $ ->
 	$(document).on 'click', '.show-client-events', (e) ->
 		e.preventDefault()
 		$('.tr-selected').removeClass('tr-selected')
-		$(".show-client-events").css('color','#23527c')
 		$(this).closest("tr").addClass('tr-selected')
 		$(this).css('color','white')
 		id = $(this).data("id")

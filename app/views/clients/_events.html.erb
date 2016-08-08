@@ -28,7 +28,6 @@
 				    <td class="events-list <%= cls %> <%= abc %> height-event-box"><%= link_to event.name, "#", class: "show-event", data: { id: event.id } %>
 				    </td>
 				    <td>
-				    	<i class="fa fa-plus-circle"></i>
 				    	<%= link_to 'Add Photos', upload_image_photographer_client_event_path(current_photographer, event.client.id, event), class: "btn btn-uploadimage1" %>
 				    </td>
 				  </tr>

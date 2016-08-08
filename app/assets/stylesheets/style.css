@@ -1787,15 +1787,5 @@ $file-upload-size: 200px;
   color: white !important;
 }
 
-a:hover,:visited
-{
-   background-color: #003366 !important;
-  color: white !important;
-}
 
-
-.tr-selection:hover > .show-client-events
-{
-  color: white !important;
-}
 
