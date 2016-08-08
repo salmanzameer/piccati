@@ -6,7 +6,6 @@ $ ->
 
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()
-		console.log("submit");
 		_form = $(this).closest("form")
 		$.ajax
 			type: "POST"
@@ -14,12 +13,34 @@ $ ->
 			url:  _form.attr("action")
 			success: (data) ->
 				$(".events-section").html(data)
-				$("#abc").hide()
+				$("#abc2").hide()
+				$('.show-event').last().click()
+
+	$(document).on 'click', '.edit-package', (e) ->
+		e.preventDefault()
+		console.log("submit");
+		_form = $(this).closest("form")
+		$.ajax
+			type: "POST"
+			data: _form.serialize()
+			url:  _form.attr("action")
+			success: (data) ->
+				$(".package-details").html(data)
+				$("#edit_client_popup").hide()
+
+	$(document).on 'click', '.client-id', (e) ->
+		e.preventDefault()
+		client_id = $(this).data("client")
+		$.ajax
+			type: "GET"
+			url: "/clients/#{client_id}/edit_package"
+			success: (data) ->
+				$(".edit-package-form").html(data)
+				$("#edit_client_popup").show()
 
 	$(document).on 'click', '.show-client-events', (e) ->
 		e.preventDefault()
 		$('.tr-selected').removeClass('tr-selected')
-		$(".show-client-events").css('color','#23527c')
 		$(this).closest("tr").addClass('tr-selected')
 		$(this).css('color','white')
 		id = $(this).data("id")
@@ -33,7 +54,6 @@ $ ->
 
 	$(document).on 'click', '.popup', (e) ->
 		$("##{$(this).data("id")}").show()
-		$(".clients-table").hide()
 
 	$(document).on 'click', '.close', (e) ->
 		$(".clients-table").show()
@@ -92,3 +112,11 @@ $ ->
 	$('.show-client-events').first().click()
 	$('.clients-list.abc').find("a").click()
 	
+	$(document).on 'click', '.update-event', (e) ->
+		e.preventDefault()
+		$.ajax
+			type: "GET"
+			url:  "/clients/"+$(this).data("client-id")+"/events/"+$(this).data("id")+"/edit"
+			success: (data) ->
+				$(".edit-event-section").html(data)
+				$("#update-event-popup").show()

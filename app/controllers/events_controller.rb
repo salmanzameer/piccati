@@ -20,10 +20,18 @@ class EventsController < ApplicationController
     @event  = @client.events
   end
 
+  def edit
+    @event = Event.find(params["id"])
+    render partial: "update_event_form", locals: { event: @event }
+  end
+
+  def update
+    @event = Event.find(params["id"])
+    @event.update(event_params)
+    render partial: "clients/event", locals: { event: @event }
+  end
+
   def show
-    # @client = Client.find_by_id(params[:client_id]) 
-    # @event  = Event.find_by_id(params[:id])
-    
     @clients = current_photographer.clients
     @current_client = @clients.first
     @client = Client.new
@@ -36,9 +44,10 @@ class EventsController < ApplicationController
 
   def create
     params[:event][:start_time] = DateTime.strptime(params[:event][:start_time], "%m/%d/%Y") 
-    @client = Client.find(params[:client_id])
-    event   = @client.events.create(event_params.merge!(photographer_id: current_photographer.id))
-    @events = @client.events
+    @client  = Client.find(params[:client_id])
+    event    = @client.events.create(event_params.merge!(photographer_id: current_photographer.id))
+    @events  = @client.events
+    @package = current_photographer.photographer_clients.where(client_id: @client.id, active: true).first
     return render partial: "clients/events", locals: { events: @events, client: @client }
   end
 
