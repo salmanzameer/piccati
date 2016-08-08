@@ -21,7 +21,7 @@ module Snapper
       requires :user_id,                   type: Integer
     end
 
-    get "/profile/:id", rabl: "v1/snapper/profile" do
+    get "/profile", rabl: "v1/snapper/profile" do
       rolee = params[:requester_type].titleize
       role = ["Freelancer","Studio"].include?(rolee) ? "Photographer" : "Client"
       @requester = role.constantize.find_by_id(params[:requester_id]) 
