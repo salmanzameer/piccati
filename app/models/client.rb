@@ -3,7 +3,8 @@ class Client < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_save :ensure_authentication_token
   acts_as_follower
-  
+  acts_as_followable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many      :photographer_clients  

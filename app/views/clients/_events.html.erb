@@ -27,15 +27,16 @@
 			  </tr>
 			</thead>
 		  <tbody>
-
-		  <tr><td><%= 'No Events' if @events.blank? %></td></tr>
+		  	<% if @events.blank? %>
+		  		<tr><td><%= 'No Events' %></td></tr>
+		  	<% end %>
 			  <% @events.each do |event| %>
 			  	<% cls = @path.present? && @path["id"] == event.id.to_s ? 'tr-selected' : "" %>
 			  	<% abc = cls == "tr-selected" ? "abc" : ""%>
-			  	 <% if @path[:action] == "index" %>
+			  	 <% if @path.present? && @path[:action] == "index" %>
 		        <% abc = "" %>
 		      <% end %>
-				  <tr class="events-list <%= cls %> <%= abc %>">
+		      <tr class="events-list <%= cls %> <%= abc %>">
 				    <td class="height-event-box"><%= link_to event.name, "#", class: "show-event", data: { id: event.id } %>
 				    </td>
 				    <td>

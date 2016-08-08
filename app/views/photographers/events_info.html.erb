@@ -1,13 +1,12 @@
 <br><br><br>
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+<div class="dropdown col-md-12 drop-down-btn-cal">
+  <button class="btn btn-default dropdown-toggle button_class drop-down-btn-cal-beauty" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     Dropdown
-    <span class="caret"></span>
+    <span class="caret drop-down-btn-cal-beauty"></span>
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><%= link_to "Monthly", photographer_events_info_path(calendar_type: "month"), remote: true %></li>
-    <li role="separator" class="divider"></li>
-    <li><%= link_to "Weekly", photographer_events_info_path(calendar_type: "week"), remote: true %></li>
+  <ul class="dropdown-menu dropdown-cal-ul" aria-labelledby="dropdownMenu1">
+    <li class="btn-drop-padding-li"><%= link_to "Monthly", photographer_events_info_path(calendar_type: "month"), class: 'month-sel link-padding-zero', remote: true %></li>
+    <li><%= link_to "Weekly", photographer_events_info_path(calendar_type: "week"), class: 'week-sel link-padding-zero', remote: true %></li>
   </ul>
 </div>
 <div class="col-md-8 calendar-box">

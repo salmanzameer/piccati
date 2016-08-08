@@ -10,3 +10,10 @@ $ ->
       url:  "/scheduled_events/"+$(this).text()
       success: (data) ->
         $(".scheduled-events").html(data)
+
+
+   $(document).on 'click', '.week-sel', (e) ->
+   	$('.button_class').text('Weekly')
+
+   $(document).on 'click', '.month-sel', (e) ->
+   	$('.button_class').text('Monthly')

@@ -3,7 +3,8 @@ class Photographer < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_save :ensure_authentication_token
   acts_as_followable
-  
+  acts_as_follower
+
   has_many    :photographer_clients  
   has_many    :clients, through: :photographer_clients
   has_many    :events   
