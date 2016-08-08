@@ -1,5 +1,5 @@
 <%if params[:calendar_type] == "month"%>
-	$('.calendar-box').html("<%= escape_javascript (render partial: 'month_calendar') %>");
+	$('.calendar-box').html("<%= escape_javascript (render partial: 'month_calendar', locals: {events: @calendar_event}) %>");
 <%elsif params[:calendar_type] == "week"%>
-	$('.calendar-box').html("<%= escape_javascript (render partial: 'week_calendar') %>");
+	$('.calendar-box').html("<%= escape_javascript (render partial: 'week_calendar', locals: {events: @calendar_event}) %>");
 <%end%>

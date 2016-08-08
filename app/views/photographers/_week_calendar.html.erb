@@ -1,4 +1,4 @@
-<%= week_calendar number_of_weeks: 1, events: @events, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, events| %>
+<%= week_calendar number_of_weeks: 1, events: @calendar_event, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, events| %>
 	  <%= date %>
 	  <% events.each do |event| %>
 	    <div>
