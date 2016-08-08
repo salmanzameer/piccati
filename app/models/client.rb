@@ -25,7 +25,7 @@ class Client < ActiveRecord::Base
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
  
-  before_create :invited_client
+  after_create :invited_client
 
   def invited_client
     invited_clients = InviteClient.where(email: self.email)  
