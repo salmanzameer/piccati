@@ -29,7 +29,7 @@
             <% if @path.present? && @path[:action] == "index" %>
               <% abc = "" %>
             <% end %>
-            <tr class="clients-list <%= cls %> <%= abc %>">
+            <tr class="clients-list <%= cls %> <%= abc %> tr-selection">
               <td class="table-row-width zero-border">
                 <div class="col-md-7 center-align-tag">
                   <%= link_to client.firstname, "#", class: "show-client-events", data: { id: client.id } %>

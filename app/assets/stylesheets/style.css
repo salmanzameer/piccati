@@ -1341,6 +1341,7 @@ input::-webkit-input-placeholder {
   display: flex !important;
   justify-content: center;
   flex-direction: column;
+  padding: 0px !important;
 }
 
 .show-event:focus , .show-event:hover 
@@ -1351,6 +1352,11 @@ input::-webkit-input-placeholder {
 .show-event
 {
   color: #003366;
+  height: 52px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 15px;
 }
 
 .topspacing
@@ -1767,3 +1773,29 @@ $file-upload-size: 200px;
     opacity: 0;
     filter: alpha(opacity=0);
 }
+
+
+.tr-selection:hover
+{
+  background-color: #003366 !important;
+  color: white !important;
+}
+
+.show-client-events:hover
+{
+   background-color: #003366 !important;
+  color: white !important;
+}
+
+a:hover,:visited
+{
+   background-color: #003366 !important;
+  color: white !important;
+}
+
+
+.tr-selection:hover > .show-client-events
+{
+  color: white !important;
+}
+
