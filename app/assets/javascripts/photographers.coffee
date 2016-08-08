@@ -17,3 +17,6 @@ $ ->
 
   $(document).on 'click', '.month-sel', (e) ->
     $('.button_class').text('Monthly')
+
+  $("#uploadBtn").change (e) ->
+    $("#uploadFile").val($(this).val())
