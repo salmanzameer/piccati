@@ -112,3 +112,11 @@ $ ->
 	$('.show-client-events').first().click()
 	$('.clients-list.abc').find("a").click()
 	
+	$(document).on 'click', '.update-event', (e) ->
+		e.preventDefault()
+		$.ajax
+			type: "GET"
+			url:  "/clients/"+$(this).data("client-id")+"/events/"+$(this).data("id")+"/edit"
+			success: (data) ->
+				$(".edit-event-section").html(data)
+				$("#update-event-popup").show()

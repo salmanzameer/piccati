@@ -2,21 +2,22 @@
   <thead>
     <tr>
       <div>
-        <th style="background-color: #003366;color: #fff;">
-          <%= @event.name %>
-        </th>
-        <th style="background-color: #003366;color: #fff;">
-          Bride & Groom 
+        <th style="background-color: #003366; color: #fff; width: 100%;">
+          <%= link_to @event.name, all_images_photographer_client_event_path(current_photographer, @event.client,@event), style: "color: #fff;" %>
         </th>
       </div>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><%= link_to @event.name, all_images_photographer_client_event_path(current_photographer, @event.client,@event) %></td>
+      <td>Bride & Groom</td>
       <td><%= @event.groom %> &amp; <%= @event.bridal %></td>
-      <td><%= @event.created_at.strftime("%b %d, %Y") %></td>
+      <td>Event Date</td>
+      <td><%= @event.start_time.present? ? @event.start_time.strftime("%b %d, %Y") : nil %></td>
+      <td>Upload</td>
       <td><%= link_to 'Upload-Images', photographer_client_event_path(current_photographer,@event.client,@event), class: "btn btn-uploadimage"%></td>
     </tr>
   </tbody>
 </table>
+
+<!-- <button class="button button4 popup update-event" data-client-id= "<%= @event.client.id %>" data-id= "<%= @event.id %>"><i class="fa fa-plus-circle"></i> Add Event</button> -->

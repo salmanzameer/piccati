@@ -23,6 +23,13 @@
           </tr>
         </thead>
         <tbody class="client-table-setting">
+          <% if @clients.blank? %>
+            <tr>
+              <td>
+                No Client Found
+              </td>
+            </tr>
+          <% end %>
           <% @clients.each do |client| %>
             <%cls = @path.present? && @path[:client_id] == client.id.to_s ? 'tr-selected' : "" %>
             <% abc = cls == "tr-selected" ? "abc" : ""%>
