@@ -12,8 +12,11 @@ $ ->
         $(".scheduled-events").html(data)
 
 
-   $(document).on 'click', '.week-sel', (e) ->
-   	$('.button_class').text('Weekly')
+  $(document).on 'click', '.week-sel', (e) ->
+    $('.button_class').text('Weekly')
 
-   $(document).on 'click', '.month-sel', (e) ->
-   	$('.button_class').text('Monthly')
+  $(document).on 'click', '.month-sel', (e) ->
+    $('.button_class').text('Monthly')
+
+  $("#uploadBtn").change (e) ->
+    $("#uploadFile").val($(this).val())
