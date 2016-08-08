@@ -423,7 +423,7 @@ a {
       border:1px solid #ccc;
       padding-left:40px;
       font-size:16px;
-      font-family:raleway;
+      font-family: raleway;
       margin-bottom:30px
       }
       #submit {
@@ -1597,14 +1597,17 @@ ul li:hover ,.dropdown-menu>li>a:hover
   padding-bottom: 0px;
 }
 
-
+.album-btn{
+  float: right;
+  width: 161px;
+}
 .navbar-nav>li>.dropdown-menu 
 {
   margin-top: 0.5px;
 }
 
 
-.add-almum-tag
+.add-album-tag
 {
   color: white !important;
   background-color: transparent !important;

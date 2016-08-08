@@ -1,49 +1,55 @@
 <div style="margin-top:80px;"></div>
 <div class="container">
-	<div class="col-md-12">
-	<div class="col-md-12">
-		<h1 class="album-text-align">Album Name</h1>
+  <button class="button button4 popup album-btn" id="popup" data-id= "abc2" ><i class="fa fa-plus-circle"></i> Add Album</button>
+  <div id="abc2" style="z-index: 9999">
+    <!-- Popup Div Starts Here -->
+      <div id="popupContact">
+        <!-- Contact Us Form -->
+        <%= form_tag(photographer_albums_path, method: :post, class: "form-action") do %>
+          <%= image_tag ("close1.png"), class: "close", data: { id: "abc2" } %>
+          <center><h2>Add an album</h2></center>
+          <fieldset>
+              <div class="row">
+                <div class="email-add-client-field-view">
+                  <%= text_field_tag "album[name]", "", autocomplete: :off, autofocus: true, placeholder: "Album name", class: "first-field client_fields search_client_email ", style: "border: 1px solid !important;" %>
+                </div>
+                <div class="email-add-client-field-view">
+                  <%= text_area_tag "album[description]", "", autocomplete: :off, placeholder: "Album description", class: "first-field client_fields search_client_email ", style: "border: 1px solid !important; font-size: 24px; font-family: 'SegoeUI'; height: 150px;"%>
+                </div>
+                <br>
+                  <center><button type="submit" id="submit" class="button4 bt-add-cli">Add Album </button></center>
+              </div>
+          </fieldset>
+        <% end %>
+      </div>
+    <!-- Popup Div Ends Here -->
+  </div> 
+	<% @albums.each do |album| %>
+  <div class="col-md-12">
+  <div class="col-md-12">
+    <h1 class="album-text-align"><%= album.name.titleize %></h1>
 	</div>
 	<div class="col-md-12 album-text-align"> 
-		<p class="text-para">by Photographer Name  <span class="pull-right"><a href="" class="add-almum-tag"> Add Pictures</a> |  <a href="" class="add-almum-tag">Add Albums</a> |  <a href="" class="add-almum-tag">Edit</a></span></p>
+		<p class="text-para">by <%= album.photographer.firstname.titleize+" "+album.photographer.lastname.titleize %><span class="pull-right"><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: album.id), class: "add-album-tag" %> <!-- | !--> <%#= link_to 'Edit', edit_photographer_album_path(id: album.id), class: "add-album-tag" %></span></p>
 		<hr class="hr-album">
 	</div>
 	</div>
   <div class="row">
     <div class="col-md-12" style="margin-bottom:50px;">
-       <div class="col-md-2">
-      	 <img src="https://thumbs.dreamstime.com/z/photographer-busy-work-19465158.jpg" alt="Logo-1" style="width:100%;">
-       </div>
-       <div class="col-md-2">
-      	 <img src="https://thumbs.dreamstime.com/z/photographer-busy-work-19465158.jpg" alt="Logo-1" style="width:100%;">
-       </div>
-       <div class="col-md-2">
-      	 <img src="https://thumbs.dreamstime.com/z/photographer-busy-work-19465158.jpg" alt="Logo-1" style="width:100%;">
-       </div>
-       <div class="col-md-2">
-      	 <img src="https://thumbs.dreamstime.com/z/photographer-busy-work-19465158.jpg" alt="Logo-1" style="width:100%;">
-       </div>
-       <div class="col-md-2">
-      	 <img src="https://thumbs.dreamstime.com/z/photographer-busy-work-19465158.jpg" alt="Logo-1" style="width:100%;">
-       </div>
-       <div class="col-md-2">
-      	 <img src="https://thumbs.dreamstime.com/z/photographer-busy-work-19465158.jpg" alt="Logo-1" style="width:100%;">
-       </div>
+      <ul style="list-style:none;" id="ul-li">
+        <% album.images.each do |img| %>
+          <li style="display: inline;" data-src="<%= img.image.url%>" class="col-md-2">
+            <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
+  <%end%>
 </div>
-<h1>Listing Albums</h1>	
-	<% @albums.each do |album| %>
-<div class="row">
-		<div class="col-md-1">
-		</div>
-	  <div class="col-md-1" style="padding-left: 0px;margin-top: 20px;">
-		  <%#= link_to 'Edit', edit_photographer_album_path(id: album.id) %>
-		  <%#= link_to 'Destroy', photographer_album_path(id: album.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-		  <%=link_to image_tag("folder-icon.png",class: "img-rounded"), photographer_album_path(id: album.id)%>
-	  </div>
-	  <div class="col-md-1">
-	  </div>
-</div>
-	<% end %>
-<%= link_to 'New Album', new_photographer_album_path, class: "btn btn-link-1" %>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#ul-li').lightGallery();
+  });
+</script>
