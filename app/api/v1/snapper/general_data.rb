@@ -14,18 +14,24 @@ module Snapper
 
 	  desc "Get photographer profile"
     params do
-      #requires :authentication_token, type: String
-      requires :role_type,            type: String
-      requires :id,                   type: Integer
+      requires :authentication_token, type: String
+      requires :requester_type, type: String
+      requires :requester_id, type: String
+      requires :user_type,            type: String
+      requires :user_id,                   type: Integer
     end
 
     get "/profile/:id", rabl: "v1/snapper/profile" do
-      rolee = params[:role_type].titleize
+      rolee = params[:requester_type].titleize
+      role = ["Freelancer","Studio"].include?(rolee) ? "Photographer" : "Client"
+      @requester = role.constantize.find_by_id(params[:requester_id]) 
+      
+      rolee = params[:user_type].titleize
       role = ["Freelancer","Studio"].include?(rolee) ? "Photographer" : "Client"
       profile = role.constantize 
 
       #profile = params[:role_type].titleize.constantize
-      @user = profile.find_by_id(params[:id])
+      @user = profile.find_by_id(params[:user_id])
       unless @user
         throw :error, status: 404, message: "User not found!"
       end
