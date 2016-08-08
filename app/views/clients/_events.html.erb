@@ -32,7 +32,7 @@
 			  <% @events.each do |event| %>
 			  	<% cls = @path.present? && @path["id"] == event.id.to_s ? 'tr-selected' : "" %>
 			  	<% abc = cls == "tr-selected" ? "abc" : ""%>
-			  	 <% if @path[:action] == "index" %>
+			  	 <% if @path.present? && @path[:action] == "index" %>
 		        <% abc = "" %>
 		      <% end %>
 				  <tr class="events-list <%= cls %> <%= abc %>">
