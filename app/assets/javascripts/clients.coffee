@@ -6,7 +6,6 @@ $ ->
 
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()
-		console.log("submit");
 		_form = $(this).closest("form")
 		$.ajax
 			type: "POST"
@@ -14,7 +13,7 @@ $ ->
 			url:  _form.attr("action")
 			success: (data) ->
 				$(".events-section").html(data)
-				$("#abc").hide()
+				$(".close").data("id").hide()
 
 	$(document).on 'click', '.edit-package', (e) ->
 		e.preventDefault()
