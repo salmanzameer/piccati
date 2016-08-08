@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   resources :clients do
     member do 
+      get "edit_package"
+      put "update_package"
       get "client_events"
       get "event"
     end

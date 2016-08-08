@@ -16,6 +16,28 @@ $ ->
 				$(".events-section").html(data)
 				$("#abc").hide()
 
+	$(document).on 'click', '.edit-package', (e) ->
+		e.preventDefault()
+		console.log("submit");
+		_form = $(this).closest("form")
+		$.ajax
+			type: "POST"
+			data: _form.serialize()
+			url:  _form.attr("action")
+			success: (data) ->
+				$(".package-details").html(data)
+				$("#edit_client_popup").hide()
+
+	$(document).on 'click', '.client-id', (e) ->
+		e.preventDefault()
+		client_id = $(this).data("client")
+		$.ajax
+			type: "GET"
+			url: "/clients/#{client_id}/edit_package"
+			success: (data) ->
+				$(".edit-package-form").html(data)
+				$("#edit_client_popup").show()
+
 	$(document).on 'click', '.show-client-events', (e) ->
 		e.preventDefault()
 		$('.tr-selected').removeClass('tr-selected')
@@ -33,7 +55,6 @@ $ ->
 
 	$(document).on 'click', '.popup', (e) ->
 		$("##{$(this).data("id")}").show()
-		$(".clients-table").hide()
 
 	$(document).on 'click', '.close', (e) ->
 		$(".clients-table").show()

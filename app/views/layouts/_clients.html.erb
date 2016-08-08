@@ -4,47 +4,46 @@
     <h1 class="heading-clientlist">Client List</h1>
     <div>
       <table class="table table-striped header-fixed">
-      <thead>
-        <tr class="Profile-heading">
-        <div>
-          <th class="table-row-width" style="background-color: #003366;color: #fff;border-bottom-width: 0px;">
-            <div id="container">
-            <div id="navi">Client Name</div>
-            <div id="infoi">
-              <form class="searchbox">
-                  <input type="search" placeholder="Search......" name="search" class="searchbox-input color-picker" onkeyup="buttonUp();" required>
-                  <input type="submit" class="searchbox-submit" value="GO">
-                  <span class="searchbox-icon"><i class="fa  fa-search" style="font-size: 21px;color: #fff;"></i></span> 
-              </form>
+        <thead>
+          <tr class="Profile-heading">
+            <div>
+              <th class="table-row-width" style="background-color: #003366;color: #fff;border-bottom-width: 0px;">
+                <div id="container">
+                  <div id="navi">Client Name</div>
+                  <div id="infoi">
+                    <form class="searchbox">
+                      <input type="search" placeholder="Search......" name="search" class="searchbox-input color-picker" onkeyup="buttonUp();" required>
+                      <input type="submit" class="searchbox-submit" value="GO">
+                      <span class="searchbox-icon"><i class="fa  fa-search" style="font-size: 21px;color: #fff;"></i></span> 
+                    </form>
+                  </div>
+                </div>
+              </th>
             </div>
-          </div>
-          </th>
-        </div>
-        </tr>
-      </thead>
-      <tbody class="client-table-setting">
-      
-
-      <% @clients.each do |client| %>
-      <%cls = @path.present? && @path[:client_id] == client.id.to_s ? 'tr-selected' : "" %>
-      <% abc = cls == "tr-selected" ? "abc" : ""%>
-      <% if @path.present? && @path[:action] == "index" %>
-        <% abc = "" %>
-      <% end %>
-      <tr class="clients-list <%= cls %> <%= abc %>">
-        <td class="table-row-width zero-border">
-        <div class="col-md-7 center-align-tag">
-          <%= link_to client.firstname, "#", class: "show-client-events", data: { id: client.id } %>
-        </div>
-        <div class="col-md-5">
-        <button type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;"><i class="fa  fa-edit btn-edit" style="font-size: 16px;color: #ddd;"></i></button>
-        <button type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;"><i class="fa  fa-times btn-del" style="font-size: 16px;color: #ddd;"></i></button>
-        </div>
-        </td>
-      </tr>
-      <% end %>
-    </tbody></table>
-    <button class="button button4 popup" id="popup" data-id= "abc2" ><i class="fa fa-plus-circle"></i> Add Client</button>
+          </tr>
+        </thead>
+        <tbody class="client-table-setting">
+          <% @clients.each do |client| %>
+            <%cls = @path.present? && @path[:client_id] == client.id.to_s ? 'tr-selected' : "" %>
+            <% abc = cls == "tr-selected" ? "abc" : ""%>
+            <% if @path.present? && @path[:action] == "index" %>
+              <% abc = "" %>
+            <% end %>
+            <tr class="clients-list <%= cls %> <%= abc %>">
+              <td class="table-row-width zero-border">
+                <div class="col-md-7 center-align-tag">
+                  <%= link_to client.firstname, "#", class: "show-client-events", data: { id: client.id } %>
+                </div>
+                <div class="col-md-5">
+                  <button class="client-id" type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;" id="popup" data-client="<%= client.id %>" data-id= "edit_client_popup" data=c = "<%= client.id %>" class="popup edit_client_package"><i class="fa  fa-edit btn-edit" style="font-size: 16px;color: #ddd;"></i></button>
+                  <button type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;"><i class="fa  fa-times btn-del" style="font-size: 16px;color: #ddd;"></i></button>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <button class="button button4 popup" id="popup" data-id= "abc2" ><i class="fa fa-plus-circle"></i> Add Client</button>
     </div>
     <div id="abc2" style="z-index: 9999">
     <!-- Popup Div Starts Here -->
@@ -64,19 +63,19 @@
                 </div>
               </div>
               <div class="searched_email row">
-                  
               </div>
-              <%#= f.password_field :password, autocomplete: "off", :placeholder => 'New Password', class: "first-field client_fields" %>
-
-           </fieldset>
-          <!-- <textarea id="msg" name="message" placeholder="Message"></textarea> -->
+          </fieldset>
         <% end %>
       </div>
   <!-- Popup Div Ends Here -->
     </div>
   </div>
-  <div class="events-section">
-    <%#= render "events", client: @current_client, events: @current_client.events, event: @event  if @clients.present? %>
+
+  <div id="edit_client_popup" style="z-index: 9999; display: none">
+    <div id="popupContact">
+      <div class="edit-package-form"></div>
+    </div>
   </div>
+  <div class="events-section"></div>
   
 </div>
