@@ -34,9 +34,9 @@
                 <%= f.text_field :lastname, autofocus: true, :placeholder => 'First Name', class: "first-field name-field zero-border", :id =>'form-firstname' %>
                 
                 <div class="custom-file-upload">
-                  <input id="uploadFile" placeholder="Choose File" disabled="disabled" class= "first-field name-field zero-border"/>
+                  <input id="uploadFile" disabled="disabled" class= "first-field name-field zero-border"  style="background: none;"/>
                   <div class="fileUpload btn btn-primary">
-                    <span>Upload</span>
+                    <span>load Image</span>
                     <%= f.file_field :avatar, class: "first-field zero-border upload-file-btn width-chosen-field", id: "uploadBtn",  class: "upload"%>
                   </div>
                 </div>
@@ -45,7 +45,13 @@
                 <%= f.text_field :username, autofocus: true , :placeholder => 'Display Name' ,class: "first-field name-field" %>
                 <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact Number' ,class: "first-field name-field ", :id =>'form-contact' %>
                 <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "first-field name-field email-edit-field", :id =>'form-username' %>
-                  <%= f.file_field :watermark_logo, class: "first-field watermark-field"  %>
+                  <div class="custom-file-upload">
+                    <input id="watermark-url" disabled="disabled" class= "first-field name-field zero-border" style="background: none;"/>
+                    <div class="fileUpload btn btn-primary">
+                      <span>load Watermark</span>
+                      <%= f.file_field :watermark_logo, class: "first-field zero-border upload-file-btn width-chosen-field", id: "upload-watermark",  class: "upload"%>
+                    </div>
+                  </div>
               </div>
             </fieldset>
           </div>

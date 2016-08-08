@@ -18,5 +18,8 @@ $ ->
   $(document).on 'click', '.month-sel', (e) ->
     $('.button_class').text('Monthly')
 
-  $("#uploadBtn").change (e) ->
+  $("#uploadBtn, #upload-watermark").change (e) ->
     $("#uploadFile").val($(this).val())
+
+  $("#upload-watermark").change (e) ->
+    $("#watermark-url").val($(this).val())
