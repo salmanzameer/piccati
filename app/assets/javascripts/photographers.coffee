@@ -7,7 +7,7 @@ $ ->
     e.preventDefault()
     $.ajax
       type: "GET"
-      url:  "/scheduled_events/"+$(this).text()
+      url:  "/scheduled_events/"+$(this).text().match(/\S+/g)[0]
       success: (data) ->
         $(".scheduled-events").html(data)
 
