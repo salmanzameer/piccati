@@ -46,6 +46,7 @@ class ClientsController < ApplicationController
       current_photographer.invite_clients.where(email: params[:email]).first_or_create
       InvitationMailer.client_invitation(current_photographer, params[:email]).deliver
     end
+    flash[:notice] = "Invitation has been sent to client"
     redirect_to photographer_clients_path(current_photographer)
   end
 
