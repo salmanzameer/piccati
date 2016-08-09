@@ -13,12 +13,13 @@
         
         <ul class="nav navbar-nav pull-right">
           <% if current_photographer %>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;"><%= image_tag("Clients.png", class: "img-circle img-setting-header") %>Client Managment <span class="caret"></span></a>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;"><%= image_tag("Clients.png", class: "img-circle img-setting-header") %><%= @page_name.present? ? @page_name : "Settings" %> <span class="caret"></span></a>
               <ul class="dropdown-menu ul-padding" style="margin-left:15px;">
+                <li class="name-prof1"><%= link_to "Home", photographer_path(current_photographer) %></li>
                 <li class="name-prof1"><%= link_to "Event Management", photographer_clients_path(current_photographer) %></li>
                 <li class="name-prof1"><%= link_to "Event Planning", photographer_events_info_path(current_photographer) %></li>
                 <li class="name-prof1"><%= link_to "Public Images", photographer_albums_path(current_photographer) %></li>
-                <li class="name-prof1"><%= link_to "Setting", edit_photographer_registration_path %></li>
+                <li class="name-prof1"><%= link_to "Settings", edit_photographer_registration_path %></li>
               </ul>
             </li>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;margin-right: 100px;"><%= image_tag (current_photographer.avatar), class: "img-circle", style: "width:30px;height:30px;" %>

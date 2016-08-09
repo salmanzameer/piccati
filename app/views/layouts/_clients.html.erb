@@ -48,6 +48,18 @@
               </td>
             </tr>
           <% end %>
+          <% @off_clients.each do |client| %>
+            <tr class="clients-list min-height-udate-event-tb">
+              <td class="table-row-width zero-border">
+                <div class="col-md-7 center-align-tag">
+                  <%= client.email %>
+                </div>
+                <div class="col-md-5">
+                  <%= link_to 'Invite',"#", class: "btn btn-uploadimage1", style: "border: 1px solid #ccc;" %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
       <button class="button button4 popup" id="popup" data-id= "abc2" ><i class="fa fa-plus-circle"></i> Add Client</button>

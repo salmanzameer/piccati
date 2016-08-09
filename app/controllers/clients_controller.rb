@@ -5,6 +5,8 @@ class ClientsController < ApplicationController
     @current_client = @clients.first
     @client = Client.new
     @event = @current_client.events.new if @current_client
+    @off_clients = current_photographer.invite_clients
+    @page_name = "Client Management"
   end
 
   def show
@@ -89,7 +91,7 @@ class ClientsController < ApplicationController
 
   def search_clients
     clients = Client.where("email LIKE ?", "%#{params[:email]}%")
-    return render partial: "search_clients", locals: { clients: clients }
+    return render partial: "search_clients", locals: { clients: clients, search_params: params[:email] }
   end
 
   def selected_images

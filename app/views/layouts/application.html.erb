@@ -5,24 +5,14 @@
 	  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 	  <%= stylesheet_link_tag    'application' %>
 	  <%= javascript_include_tag 'application' %>
-	  <%#= stylesheet_link_tag  'custom', :media => 'screen' %>
 	  <%= csrf_meta_tags %> 
 	</head>
 	<body>
 		<%= render 'layouts/header' %>
-		<br><br>
 		<% flash.each do |key, value| %>
-		  <div class="alert alert-<%= key %>">
-		    <a href="#" data-dismiss="alert" class="close">×</a>
-		    <ul>
-		      <li>
-		        <%= value %>
-		      </li>
-		    </ul>
-		  </div>
-		<% end %>
-		<% if current_photographer && current_photographer.plan_type.blank? %>
-			<span style="color:red; margin-top: 100px;"> Your trial period will expire on <%= remaining_days %></span>  Days. Suscribe
+			<div class="alert alert-info" role="alert">
+			  <%= value %>
+			</div>
 		<% end %>
 		<%= yield %>
 	</body>

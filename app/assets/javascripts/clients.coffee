@@ -114,14 +114,13 @@ $ ->
 		  return
 
 	$(".search_client_email").keyup (e) ->
-		if ($(this).val().length >= 3)
-			$.ajax
-				type: "GET"
-				url: "/search_clients"
-				data: { email:  $(this).val() }
-				success: (data) ->
-					$(".searched_email").html(data)
-					$(".searched_email").show()
+		$.ajax
+			type: "GET"
+			url: "/search_clients"
+			data: { email:  $(this).val() }
+			success: (data) ->
+				$(".searched_email").html(data)
+				$(".searched_email").show()
 	
 	$(document).on 'click', '.select-searched-email', (e) ->
 		e.preventDefault()
