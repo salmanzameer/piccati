@@ -1,0 +1,10 @@
+<div class="col-md-8 calendar-box">
+	<% if params[:calendar_type] == "week" %>
+		<%= render partial: 'photographers/week_calendar', locals: { events: @calendar_event} %>
+	<% else %>
+		<%= render partial: 'photographers/month_calendar', locals: { events: @calendar_event} %>
+	<% end %>
+</div>
+<div class="scheduled-events">
+  <%= render partial: "events/secheduled_events" %>
+</div>

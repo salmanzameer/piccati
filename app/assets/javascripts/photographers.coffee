@@ -3,14 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $(document).on 'click', '.day', (e) ->
+  $(document).on 'click', '.current-month', (e) ->
     e.preventDefault()
     $.ajax
       type: "GET"
-      url:  "/scheduled_events/"+$(this).text().match(/\S+/g)[0]
+      url:  "/scheduled_events/"+$(this).text().match(/\S+/g)[0]+" "+$(".calendar-title").text()
       success: (data) ->
         $(".scheduled-events").html(data)
-
 
   $(document).on 'click', '.week-sel', (e) ->
     $('.button_class').text('Weekly')
@@ -18,8 +17,20 @@ $ ->
   $(document).on 'click', '.month-sel', (e) ->
     $('.button_class').text('Monthly')
 
-  $("#uploadBtn, #upload-watermark").change (e) ->
-    $("#uploadFile").val($(this).val())
+  $("#uploadBtn").change (e) ->
+    $("#uploadFile").val($(this).val().replace(/^.*\\/, ''))
 
   $("#upload-watermark").change (e) ->
-    $("#watermark-url").val($(this).val())
+    $("#watermark-url").val($(this).val().replace(/^.*\\/, ''))
+
+  $(document).on 'click', '.event-submit-on-calendar', (e) ->
+    e.preventDefault()
+    _form = $(this).closest("form")
+    $.ajax
+      type: "POST"
+      data: _form.serialize()
+      url:  _form.attr("action")
+      success: (data) ->
+        $(".calender_and_info").html(data)
+        $("#abc2").hide()
+        
