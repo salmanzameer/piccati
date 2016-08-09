@@ -10,7 +10,9 @@
     </div>
     <div>
       <div class="collapse navbar-collapse" id="myNavbar">
+        
         <ul class="nav navbar-nav pull-right">
+          <% if current_photographer %>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;"><%= image_tag("Clients.png", class: "img-circle img-setting-header") %>Client Managment <span class="caret"></span></a>
               <ul class="dropdown-menu ul-padding" style="margin-left:15px;">
                 <li class="name-prof1"><%= link_to "Event Management", photographer_clients_path(current_photographer) %></li>
@@ -19,7 +21,6 @@
                 <li class="name-prof1"><%= link_to "Setting", edit_photographer_registration_path %></li>
               </ul>
             </li>
-          <% if current_photographer %>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;margin-right: 100px;"><%= image_tag (current_photographer.avatar), class: "img-circle", style: "width:30px;height:30px;" %>
            <span class="profile-name-set"><%= current_photographer.firstname.titleize %></span><span class="caret"></span></a>
             <ul class="dropdown-menu ul-padding" style="margin-left: 15px;width: 100px;">
