@@ -1,5 +1,6 @@
 class Image < ActiveRecord::Base
   include PublicActivity::Common
+  before_save :liked?
   # include PublicActivity::Model
   # tracked owner: ->(controller, model) { Photographer.first }#{ controller && controller.current_user }
 
@@ -45,6 +46,10 @@ class Image < ActiveRecord::Base
     # old_memory = photographer.memory_consumed
     # new_memory = self.image_file_size + old_memory
     # photographer.update_attributes(memory_consumed: new_memory)
+  end
+
+  def liked?
+    self.is_liked ||= false
   end
 
 end

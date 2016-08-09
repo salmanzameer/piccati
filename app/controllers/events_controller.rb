@@ -39,7 +39,7 @@ class EventsController < ApplicationController
     @client  = Client.find(params[:client_id])
     event    = @client.events.create(event_params.merge!(photographer_id: current_photographer.id))
     @events  = @client.events
-    @package = current_photographer.photographer_clients.where(client_id: @client.id, active: true).first
+    @package = current_photographer.photographer_clients.where(client_id: @client.id, active: true).first_or_initialize
     return render partial: "clients/events", locals: { events: @events, client: @client }
   end
 

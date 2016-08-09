@@ -15,6 +15,14 @@ $ ->
 				$(".events-section").html(data)
 				$("#abc2").hide()
 				$('.show-event').last().click()
+				# date = $("#datetimepicker1").find("input[type=datetime]").val().split(" ")[0].split("/").reverse().join('-')
+				# $( ".day:contains('2016-08-11')" ).click();
+				# $('.day').each (index, value) ->
+  		#  		if $(this).text().match(/\S+/g)[0] == date
+  		#  		  $(this).click()
+  		#  		  alert date+"f"
+  		#  		  return
+  		#  		return
 
 	$(document).on 'click', '.edit-package', (e) ->
 		e.preventDefault()
