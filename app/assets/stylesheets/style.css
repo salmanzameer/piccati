@@ -932,11 +932,24 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
 {
       text-align: left;
       color: white;
+      margin-top: 10px;
+      font-size: 30px;
+      font-weight: 100;
+      line-height: 35px;
+      margin-bottom: 10px;
+      padding-right: 15px;
+}
+
+.text-alignment-heading-album
+{
+  text-align: left;
 }
 
 .text-para
 {
   margin-top: 0px;
+  font-weight: normal;
+  font-size: 13px;
 }
 
 .hr-album
@@ -1120,18 +1133,18 @@ input::-webkit-input-placeholder {
     position: relative;
     left: -273px;
 }
-
-.calendar-heading a:first-child 
+.calendar-heading a:last-child 
 {
   float: left;
   color: white;
 }
 
-.calendar-heading a:last-child 
+.calendar-heading a:first-child 
 {
   float: right;
   color: white;
 }
+
 
 .btn-calandar-description-alignment
 {
@@ -1300,7 +1313,7 @@ input::-webkit-input-placeholder {
 .center-align-tag
 {
   display: flex;
-  margin-top: 5px;
+  
 }
 
 
@@ -1842,4 +1855,24 @@ $file-upload-size: 200px;
   width:30px;
   height:30px; 
   margin-right:5px;
+}
+
+
+.zero-padding
+{
+  padding: 0px  !important;
+  min-height: 52px;
+}
+
+.client-event-anchor-design
+{
+  min-height: 52px;
+  width: 100%;
+  padding: 10px;
+}
+
+
+.button-styling-clint-box-alignment
+{
+  padding: 10px;
 }
