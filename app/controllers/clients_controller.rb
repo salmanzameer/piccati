@@ -68,7 +68,7 @@ class ClientsController < ApplicationController
     @path = session[:save_client]
     @client = Client.find(params[:id])
     @package = PhotographerClient.where(photographer_id: current_photographer.id, client_id: @client.id, active: true).first
-    @events = @client.events
+    @events = @client.events.where(photographer_id: current_photographer.id)
     @event  = current_photographer.clients.find_by_id(params[:id]).events.new
     return render partial: "events", locals: { events: @events, event: @event, client: @client }
   end
