@@ -46,6 +46,7 @@ class ClientsController < ApplicationController
       current_photographer.invite_clients.where(email: params[:email]).first_or_create
       InvitationMailer.client_invitation(current_photographer, params[:email]).deliver
     end
+    flash[:notice] = "Invitation has been sent to client"
     redirect_to photographer_clients_path(current_photographer)
   end
 
@@ -68,7 +69,7 @@ class ClientsController < ApplicationController
     @path = session[:save_client]
     @client = Client.find(params[:id])
     @package = PhotographerClient.where(photographer_id: current_photographer.id, client_id: @client.id, active: true).first_or_initialize
-    @events = @client.events
+    @events = @client.events.where(photographer_id: current_photographer.id)
     @event  = current_photographer.clients.find_by_id(params[:id]).events.new
     return render partial: "events", locals: { events: @events, event: @event, client: @client }
   end

@@ -1,10 +1,9 @@
 <div class="show">
-<h1>Gallery for:</h1>
   <div class="form-group">
+    <br><br>
     <h1 class="center"> <%= @event.name%></h1>
-    
   </div>
-
+<%= link_to "< back", photographer_client_event_path(current_photographer.id, @client.id, @event.id) %>
 <div id = 'uploader' style="margin-left: 344px;">
 </div>
 <script>

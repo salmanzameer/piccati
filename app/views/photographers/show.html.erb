@@ -3,7 +3,7 @@
   <div class="container">
     <div class="col-md-12" style="margin-top:150px;margin-left: 60px;">
       <div class="col-md-3">
-        <%=link_to photographer_clients_path(current_photographer) do %>
+        <%= link_to photographer_clients_path(current_photographer) do %>
         <div class="boxhead pictureContainer">
           <center><%= image_tag("client-ani.png") %></center>
         </div>
@@ -11,7 +11,7 @@
         <% end %>
       </div>
       <div class="col-md-3">
-        <%=link_to photographer_events_info_path(current_photographer) do %>
+        <%= link_to photographer_events_info_path(current_photographer) do %>
           <div class="boxhead pictureContainer">
             <center><%= image_tag 'calender-ani.png'%></center>
           </div>
@@ -19,7 +19,7 @@
         <% end %>
       </div>
       <div class="col-md-3">
-        <%=link_to photographer_albums_path(current_photographer) do %>
+        <%= link_to photographer_albums_path(current_photographer) do %>
         <div class="boxhead pictureContainer">  
             <center><%= image_tag("album-ani.png") %></center>
           </div>
