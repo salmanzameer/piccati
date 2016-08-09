@@ -23,8 +23,11 @@ module ApplicationHelper
   #   end
   #   return message
   # end
+  def liked_images(event)
+    event.images.where(is_liked: true)
+  end
 
-	def default_url
+  def default_url
 		if photographer_signed_in?
 			photographer_path(current_photographer)
 		else

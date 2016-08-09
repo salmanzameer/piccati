@@ -1,0 +1,27 @@
+<div id="update-event-popup">
+  <div id="popupContact">
+    <%= form_for event, url: client_event_path(event.client, event), method: :put, html: { class: "form-action" } do |f| %>
+    <%= image_tag ("close1.png"), class: "close", data: { id: "update-event-popup" }%>
+    <center><h2>Update Event</h2></center>
+    <fieldset>
+      <%= f.text_field :name, autofocus: true, :placeholder =>"Name", :class => "first-field client_fields" %>
+      <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields" %>
+      <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "first-field client_fields" %>
+      <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "first-field client_fields" %>
+      
+      <div class='input-group date' id='datetimepicker2'>
+        <%= f.datetime_field :start_time, value: event.start_time.strftime("%m/%d/%Y"), autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields" %>
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+      <script type="text/javascript">
+        $(function () {
+          $('#datetimepicker2').datetimepicker();
+        });
+      </script>
+    </fieldset>
+    <center><%= f.button 'Update Event' , type: "submit", id: "submit", class: "button4 update-event-class" %></center>
+    <% end %>
+  </div>
+</div>

@@ -91,6 +91,11 @@ class ClientsController < ApplicationController
     return render partial: "search_clients", locals: { clients: clients }
   end
 
+  def selected_images
+    @client = Client.find(params[:client_id])
+    @events = @client.events
+  end
+
   def event 
     @event = Event.find_by_id(params[:id])
     return render partial: "event", locals: { event: @event }

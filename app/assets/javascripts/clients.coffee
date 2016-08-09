@@ -24,6 +24,17 @@ $ ->
   		#  		  return
   		#  		return
 
+	$(document).on 'click', '.update-event-class', (e) ->
+		e.preventDefault()
+		_form = $(this).closest("form")
+		$.ajax
+			type: "POST"
+			data: _form.serialize()
+			url:  _form.attr("action")
+			success: (data) ->
+				$(".clients-table").html(data)
+				$("#update-event-popup").hide()
+
 	$(document).on 'click', '.edit-package', (e) ->
 		e.preventDefault()
 		console.log("submit");
@@ -120,3 +131,11 @@ $ ->
 	$('.show-client-events').first().click()
 	$('.clients-list.abc').find("a").click()
 	
+	$(document).on 'click', '.update-event', (e) ->
+		e.preventDefault()
+		$.ajax
+			type: "GET"
+			url:  "/clients/"+$(this).data("client-id")+"/events/"+$(this).data("id")+"/edit"
+			success: (data) ->
+				$(".edit-event-section").html(data)
+				$("#update-event-popup").show()
