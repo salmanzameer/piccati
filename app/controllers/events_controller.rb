@@ -17,7 +17,7 @@ class EventsController < ApplicationController
 
   def index
     @client = Client.find(params[:client_id])
-    @event  = @client.events
+    @event  = @client.events.where(photographer_id: current_photographer.id)
   end
 
   def edit
@@ -47,7 +47,7 @@ class EventsController < ApplicationController
     params[:event][:start_time] = DateTime.strptime(params[:event][:start_time], "%m/%d/%Y") 
     @client  = Client.find(params[:client_id])
     event    = @client.events.create(event_params.merge!(photographer_id: current_photographer.id))
-    @events  = @client.events
+    @events  = @client.events.where(photographer_id: current_photographer.id)
     @package = current_photographer.photographer_clients.where(client_id: @client.id, active: true).first
     return render partial: "clients/events", locals: { events: @events, client: @client }
   end
