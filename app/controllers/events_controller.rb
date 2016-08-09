@@ -27,6 +27,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params["id"])
+    params[:event][:start_time] = DateTime.strptime(params[:event][:start_time], "%m/%d/%Y") 
     @event.update(event_params)
     render partial: "clients/event", locals: { event: @event }
   end
