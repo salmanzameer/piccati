@@ -3,6 +3,7 @@ class AlbumsController < ApplicationController
 
   def index
     @albums = current_photographer.albums
+    @page_name = "Public Albums"
   end
 
   def show

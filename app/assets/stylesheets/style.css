@@ -1625,7 +1625,7 @@ ul li:hover ,.dropdown-menu>li>a:hover
    padding: 12px 25px 12px 24px;
    -moz-box-shadow: 3px 3px 1px 1px #CCCCCC;
    -webkit-box-shadow: 3px 3px 1px 1px #CCCCCC;
-   box-shadow: 3px 3px 1px 1px #CCCCCC;
+   box-shadow: 0px;
 }
 
 
@@ -1843,3 +1843,15 @@ $file-upload-size: 200px;
   height:30px; 
   margin-right:5px;
 }
+
+
+.alert-info 
+{
+    color: #31708f;
+    background-color: #c8eafb;
+    border-radius: 4px;
+    text-align: left;
+}
+.alert {
+  box-shadow: 0px !important;
+  }

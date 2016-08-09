@@ -2,7 +2,10 @@
 <div class="rss-feed">
 <ul class="live-search-list">
 	<% clients.each do |client| %>
-		<li class="list-search-client-des"><%= link_to client.email, "#", class: "select-searched-email" %></li>
+		<li class="list-search-client-des"><%= image_tag (client.avatar), class: "img-circle", style: "width:20px;height:20px;" %><%= link_to client.email, "#", class: "select-searched-email" %></li>
+	<% end %>
+	<% if clients.blank? %>
+		<li>Client with email "<%= search_params %>" is not on Piccati</li>
 	<% end %>
 </ul>
 </div>
