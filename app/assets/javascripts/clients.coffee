@@ -16,6 +16,17 @@ $ ->
 				$("#abc2").hide()
 				$('.show-event').last().click()
 
+	$(document).on 'click', '.update-event-class', (e) ->
+		e.preventDefault()
+		_form = $(this).closest("form")
+		$.ajax
+			type: "POST"
+			data: _form.serialize()
+			url:  _form.attr("action")
+			success: (data) ->
+				$(".clients-table").html(data)
+				$("#update-event-popup").hide()
+
 	$(document).on 'click', '.edit-package', (e) ->
 		e.preventDefault()
 		console.log("submit");
