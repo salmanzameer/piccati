@@ -26,11 +26,11 @@
   </div> 
 	<% @albums.each do |album| %>
   <div class="col-md-12">
-  <div class="col-md-12">
-    <h1 class="album-text-align"><%= album.name.titleize %></h1>
+  <div class="col-md-12 text-alignment-heading-album">
+    <span class="album-text-align"><%= album.name.titleize %></span>
+    <span class="text-para">by <%= album.photographer.firstname.titleize+" "+album.photographer.lastname.titleize %><span class="pull-right"><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: album.id), class: "add-album-tag" %> <!-- | !--> <%#= link_to 'Edit', edit_photographer_album_path(id: album.id), class: "add-album-tag" %></span></span>
 	</div>
-	<div class="col-md-12 album-text-align"> 
-		<p class="text-para">by <%= album.photographer.firstname.titleize+" "+album.photographer.lastname.titleize %><span class="pull-right"><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: album.id), class: "add-album-tag" %> <!-- | !--> <%#= link_to 'Edit', edit_photographer_album_path(id: album.id), class: "add-album-tag" %></span></p>
+	<div class="col-md-12 album-text-align text-para"> 
 		<hr class="hr-album">
 	</div>
 	</div>
