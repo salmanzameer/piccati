@@ -38,7 +38,7 @@
     <div class="col-md-12" style="margin-bottom:50px;">
       <ul style="list-style:none;" class="ul-li">
         <% album.images.each do |img| %>
-          <li style="display: inline;" data-src="<%= img.image.url%>" class="col-md-2">
+          <li style="display: inline;margin-bottom:30px;" data-src="<%= img.image.url%>" class="col-md-2">
             <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
           </li>
         <% end %>

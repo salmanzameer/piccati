@@ -1,4 +1,4 @@
-<div style="margin-top:80px;"></div>
+<div style="margin-top:45px;"></div>
 <div class="container">
   <div class="col-md-3">
     <h1 class="heading-clientlist">Client List</h1>
@@ -36,7 +36,7 @@
             <% if @path.present? && @path[:action] == "index" %>
               <% abc = "" %>
             <% end %>
-            <tr class="clients-list <%= cls %> <%= abc %> tr-selection">
+            <tr class="clients-list <%= cls %> <%= abc %> tr-selection min-height-udate-event-tb    ">
               <td class="table-row-width zero-border">
                 <div class="col-md-7 center-align-tag">
                   <%= link_to client.firstname, "#", class: "show-client-events", data: { id: client.id } %>

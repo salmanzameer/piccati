@@ -1,4 +1,4 @@
-<div id="update-event-popup" style="z-index: 9999">
+<div id="update-event-popup">
   <div id="popupContact">
     <%= form_for event, url: client_event_path(event.client, event), method: :put, html: { class: "form-action" } do |f| %>
     <%= image_tag ("close1.png"), class: "close", data: { id: "update-event-popup" }%>

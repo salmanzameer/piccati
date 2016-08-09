@@ -306,6 +306,7 @@ a {
   }
   footer
   {
+      z-index: -1;
       position: fixed;
       bottom: 0;
       width: 100%;
@@ -377,7 +378,7 @@ a {
   
    input[type="email"], input[type="password"], input[type="text"], textarea, textarea.form-control 
    {
-        border: 1px solid #ccc!important;
+        border: 1px solid #ccc;
    }
       #abc1 {
       width:100%;
@@ -552,12 +553,12 @@ a {
       }
 
   input[type="text"]:focus, input[type="password"]:focus, textarea:focus, textarea.form-control  {
-    border: 3px solid #ddd;
+    border: 1px solid #ddd;
 }
 
 input[type="email"], input[type="password"], input[type="text"], textarea, textarea.form-control 
   {
-    border: 0px !important;
+    border: 0px ;
     }
 /* ***************** PL Upload ************************ */
 .plupload_header {
@@ -761,7 +762,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
   color: #d74b4b;
 }
 
-#abc2, #abc, #edit_client_popup {
+#abc2, #abc, #edit_client_popup, #update-event-popup {
       width:100%;
       height:100%;
       top:0;
@@ -1007,20 +1008,25 @@ table.head tr td {
     float: left;
 }
 
+.events-table-height
+{
+  min-height: 166px;
+}
+
 .selected-pkg
 {
   background-color: #003366;
   color: #fff;
   font-size: 16px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .selected-pkg-adjust
 {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .selected-pkg-adjust-bot
 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .heading-client-mangement
 {
@@ -1788,4 +1794,33 @@ $file-upload-size: 200px;
 }
 
 
+.heading-table-event-edit
+{
+  background-color: #003366; 
+  color: #fff; 
+  width: 100%;
+  border-bottom-width: 0px !important; 
+}
 
+.MT53
+{
+  margin-top: 53px;
+}
+
+.update-event-table-height
+{
+    min-height: 350px;
+    background-color: #fff;
+}
+
+
+.min-height-udate-event-tb
+{
+  min-height: 52px;
+}
+
+
+.border-zero-form
+{
+  border: 0px  !important;;
+}
