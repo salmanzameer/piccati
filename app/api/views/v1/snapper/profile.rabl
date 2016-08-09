@@ -12,7 +12,7 @@ child @user, object_root: false do
 			child :images, object_root: false do
         node(:image_id) { |img| img.id }
 				node(:url) { |img| img.image.url }
-        node(:is_liked) { |img| img.is_liked }
+        node(:is_liked) { |img| img.likes.where(client_id: @requester.id).present? }
 			end
 		end
     node(:number_of_clients) { |photographer| photographer.clients.count }
