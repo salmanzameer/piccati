@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   devise_for :clients
   mount API => '/'
-  root to: "photographers#sign_in"
-  devise_for :photographers , controllers: {registrations: 'registrations', omniauth_callbacks: "photographers/omniauth_callbacks"}
-  
+    devise_for :photographers , controllers: {registrations: 'registrations', omniauth_callbacks: "photographers/omniauth_callbacks"}
+  devise_scope :photographer do
+    authenticated :photographer do
+      root :to => 'photographers#show'
+    end
+    unauthenticated :photographer do
+      root :to => 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end 
   get "scheduled_events/:date", to: "events#scheduled_events"
   get 'expiries', to: "home#expires", as: :expires
   get 'update_paln', to: "home#plan_update", as: :plan_update
