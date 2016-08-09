@@ -11,11 +11,12 @@
     <div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav pull-right">
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;"><img src="http://image.gala.de/v1/cms/ZR/harry-styles_9814055-original-portrait_6col.jpg?v=12752457" class="img-circle" style="width:30px;height:30px; margin-right:5px;">Client Managment <span class="caret"></span></a>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;"><%= image_tag("Clients.png", class: "img-circle img-setting-header") %>Client Managment <span class="caret"></span></a>
               <ul class="dropdown-menu ul-padding" style="margin-left:15px;">
-                <li class="name-prof1"><a href="#section42">Event Planner</a></li>
-                <li class="name-prof1"><a href="#section42">Public Albums</a></li>
-                <li class="name-prof1"><a href="#section42">Setting</a></li>
+                <li class="name-prof1"><%= link_to "Event Management", photographer_clients_path(current_photographer) %></li>
+                <li class="name-prof1"><%= link_to "Event Planning", photographer_events_info_path(current_photographer) %></li>
+                <li class="name-prof1"><%= link_to "Public Images", photographer_albums_path(current_photographer) %></li>
+                <li class="name-prof1"><%= link_to "Setting", edit_photographer_registration_path %></li>
               </ul>
             </li>
           <% if current_photographer %>
