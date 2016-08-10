@@ -68,22 +68,29 @@ class ClientsController < ApplicationController
   def client_events
     @path = session[:save_client]
     @client = Client.find(params[:id])
-    @package = PhotographerClient.where(photographer_id: current_photographer.id, client_id: @client.id, active: true).first_or_initialize
+    @package = current_photographer.photographer_clients.where(client_id: @client.id, active: true).first_or_initialize
     @events = @client.events.where(photographer_id: current_photographer.id)
     @event  = current_photographer.clients.find_by_id(params[:id]).events.new
+
     return render partial: "events", locals: { events: @events, event: @event, client: @client }
   end
 
   def edit_package
     @client = Client.find_by_id params[:id]
-    package = PhotographerClient.where(photographer_id: current_photographer.id, client_id: @client.id, active: true).first_or_initialize
+    package = current_photographer.photographer_clients.where(client_id: @client.id, active: true).first_or_initialize
     return render partial: "package_form", locals: { package: package }
   end
 
   def update_package
     @client = Client.find(params[:id])
-    @package = PhotographerClient.where(photographer_id: current_photographer.id, client_id: @client.id, active: true).first_or_initialize
-    @package.update(package: params[:package], total: params[:total], advance: params[:advance], balance: params[:balance])
+
+    @package = current_photographer.photographer_clients.where(client_id: @client.id, active: true).first_or_initialize
+    package = params[:photographer_client][:package]
+    total = params[:photographer_client][:total]
+    balance = params[:photographer_client][:balance]
+    advance = params[:photographer_client][:advance]
+    @package.update(package: package, total: total, advance: advance, balance: balance)
+
     return render partial: "package", locals: { :@package => @package }
   end
 

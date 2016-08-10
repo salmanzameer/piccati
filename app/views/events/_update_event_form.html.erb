@@ -1,6 +1,6 @@
 <div id="update-event-popup">
   <div id="popupContact">
-    <%= form_for event, url: client_event_path(event.client, event), method: :put, html: { class: "form-action" } do |f| %>
+    <%= form_for event, url: client_event_path(event.client, event), method: :put, validate: true, html: { class: "form-action", id: "update-event-model" } do |f| %>
     <%= image_tag ("close1.png"), class: "close", data: { id: "update-event-popup" }%>
     <center><h2>Update Event</h2></center>
     <fieldset>

@@ -18,4 +18,5 @@
 //= require plupload.dev
 //= require jquery.plupload.queue
 //= require light-gallery
+//= require rails.validations
 //= require_tree .

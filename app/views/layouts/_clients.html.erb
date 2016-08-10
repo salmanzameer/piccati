@@ -56,7 +56,7 @@
     <!-- Popup Div Starts Here -->
       <div id="popupContact">
   <!-- Contact Us Form -->
-        <%= form_tag(connect_client_clients_path, method: :post, class: "form-action") do %>
+        <%= form_tag(connect_client_clients_path, method: :post, id: "add-client-model", class: "form-action", validate: true) do %>
           <%= image_tag ("close1.png"), class: "close", data: { id: "abc2" } %>
           <center><h2>Add a Client</h2></center>
           <fieldset>

@@ -14,6 +14,8 @@ class Client < ActiveRecord::Base
   has_many      :images
   has_many      :likes
 
+  validates :email, presence: true
+  
   has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
   :url  => "/system/avatar/images/000/000/00:id/:style/:basename.:extension",
   :path => ":rails_root/public/system/avatar/images/000/000/00:id/:style/:basename.:extension",

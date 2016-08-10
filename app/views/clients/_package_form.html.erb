@@ -1,17 +1,17 @@
-<%= form_tag(update_package_client_path(@client), method: :put, class: "form-action") do %>
+<%= form_for package, url: update_package_client_path(@client), method: :put,validate: true, html: { class: "edit-package-model form-action" } do |f| %>
   <%= image_tag ("close1.png"), class: "close", data: { id: "edit_client_popup" } %>
   <center><h2>Update Package</h2></center>
   
   <fieldset>
-    <%= text_field_tag :package, package.package, autofocus: true, :placeholder =>"Package", :class => "first-field client_fields" %>
+    <%= f.text_field :package, autofocus: true, :placeholder =>"Package", :class => "first-field client_fields" %>
 
-  <%= text_field_tag :advance, package.advance, autofocus: true, :placeholder =>"Advance", :class => "first-field client_fields" %>
+  <%= f.text_field :advance, autofocus: true, :placeholder =>"Advance", :class => "first-field client_fields" %>
 
-  <%= text_field_tag :total, package.total, autofocus: true, :placeholder =>"Total", :class => "first-field client_fields" %>
+  <%= f.text_field :total, autofocus: true, :placeholder =>"Total", :class => "first-field client_fields" %>
 
-  <%= text_field_tag :balance, package.balance, autofocus: true, :placeholder =>"Balance", :class => "first-field client_fields" %>
+  <%= f.text_field :balance, autofocus: true, :placeholder =>"Balance", :class => "first-field client_fields" %>
       
-  <%= submit_tag "Update", class: "button4 edit-package" %> 
+  <%= f.submit "Update", class: "button4 edit-package" %> 
 
   </fieldset>
 <% end %>
