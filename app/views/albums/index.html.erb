@@ -1,29 +1,6 @@
 <div style="margin-top:80px;"></div>
 <div class="container">
   <button class="button button4 popup album-btn" id="popup" data-id= "abc2" ><i class="fa fa-plus-circle"></i> Add Album</button>
-  <div id="abc2" style="z-index: 9999">
-    <!-- Popup Div Starts Here -->
-      <div id="popupContact">
-        <!-- Contact Us Form -->
-        <%= form_tag(photographer_albums_path, method: :post, class: "form-action") do %>
-          <%= image_tag ("close1.png"), class: "close", data: { id: "abc2" } %>
-          <center><h2>Add an album</h2></center>
-          <fieldset>
-              <div class="row">
-                <div class="email-add-client-field-view">
-                  <%= text_field_tag "album[name]", "", autocomplete: :off, autofocus: true, placeholder: "Album name", class: "first-field client_fields search_client_email ", style: "border: 1px solid !important;" %>
-                </div>
-                <div class="email-add-client-field-view">
-                  <%= text_area_tag "album[description]", "", autocomplete: :off, placeholder: "Album description", class: "first-field client_fields search_client_email ", style: "border: 1px solid !important; font-size: 24px; font-family: 'SegoeUI'; height: 150px;"%>
-                </div>
-                <br>
-                  <center><button type="submit" id="submit" class="button4 bt-add-cli">Add Album </button></center>
-              </div>
-          </fieldset>
-        <% end %>
-      </div>
-    <!-- Popup Div Ends Here -->
-  </div> 
 	<% @albums.each do |album| %>
   <div class="col-md-12">
   <div class="col-md-12 text-alignment-heading-album">
@@ -47,6 +24,30 @@
   </div>
   <%end%>
 </div>
+
+  <div id="abc2" style="z-index: 9999">
+    <!-- Popup Div Starts Here -->
+      <div id="popupContact">
+        <!-- Contact Us Form -->
+        <%= form_for current_photographer.albums.new ,url: photographer_albums_path(current_photographer), method: :post, validate: true, html: { id: "add-photographer-album", class: "form-action" } do |f| %>
+          <%= image_tag ("close1.png"), class: "close", data: { id: "abc2" } %>
+          <center><h2>Add an album</h2></center>
+          <fieldset>
+              <div class="row">
+                <div class="email-add-client-field-view">
+                  <%= f.text_field :name, autocomplete: :off, autofocus: true, placeholder: "Album name", class: "first-field client_fields search_client_email ", style: "border: 1px solid !important;" %>
+                </div>
+                <div class="email-add-client-field-view">
+                  <%= f.text_area :description, autocomplete: :off, placeholder: "Album description", class: "first-field client_fields search_client_email ", style: "border: 1px solid !important; font-size: 24px; font-family: 'SegoeUI'; height: 150px;"%>
+                </div>
+                <br>
+                  <center><%= f.submit 'Add Album' , id: "submit", class: "button4 bt-add-cli" %></center>
+              </div>
+          </fieldset>
+        <% end %>
+      </div>
+    <!-- Popup Div Ends Here -->
+  </div> 
 
 <script type="text/javascript">
   $(document).ready(function() {
