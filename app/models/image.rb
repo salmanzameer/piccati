@@ -28,7 +28,6 @@ class Image < ActiveRecord::Base
 	validates_attachment_size :image, :less_than => 15.megabytes
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
-
   def watermark_url
     Photographer.current_photographer.watermark_logo.url if Photographer.current_photographer.present? && Photographer.current_photographer.watermark_logo.present?
   end
@@ -36,6 +35,10 @@ class Image < ActiveRecord::Base
 	def image_url
     image.url
 	end
+
+  def medium_image_url
+    image.url(:medium)
+  end
 
   def after_upload
     # if self.imageable_type == "Event"
