@@ -1886,3 +1886,7 @@ $file-upload-size: 200px;
 {
   padding: 10px;
 }
+
+.current-month {
+  cursor: pointer;
+}

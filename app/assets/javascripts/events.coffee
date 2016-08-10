@@ -4,7 +4,6 @@
 
 $ ->
 
-  # $('.tr-selected').click() 
   $(document).on 'click', '.show-event', (e) ->
     e.preventDefault()
     $('.events-list.tr-selected').removeClass('tr-selected')

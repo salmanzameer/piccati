@@ -21,7 +21,7 @@
           <% end %>
       <% @events.each do |event| %>
       <tr>
-        <td><div class="col-md-10 heading-description-calendar"> <%= event.name.titleize%></div>
+        <td><div class="col-md-10 heading-description-calendar"> <%= link_to event.name.titleize, all_images_photographer_client_event_path(current_photographer, event.client, event) %></div>
         <div class="col-md-2 btn-calandar-description-alignment">
         <button type="button" class="btn-edit-calendar" ><i class="fa  fa-edit btn-edit btn-style"></i></button>
         <button type="button" class="btn-cancel-calendar"><i class="fa  fa-times btn-del btn-style" ></i></button>
@@ -35,4 +35,5 @@
       <% end %>
     </tbody></table></div></div>
     <button class="button button4 popup event-btn" id="popup" data-id="abc2"><i class="fa fa-plus-circle"></i> Calender Entry </button>
+    <%= image_tag ("loader.gif"), id: "loading-image", style: "display:none; position: absolute; top: 208px;" %>
 </div>
