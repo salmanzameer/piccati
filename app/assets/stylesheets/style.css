@@ -2033,3 +2033,17 @@ select, input, textarea, textarea.form-control:focus
     font-weight: normal;
     font-size: small;
 }
+
+.select-searched-email{
+  display: inline-block !important;
+}
+
+.error-p-tag{
+  color: red;
+  display: none;
+  float: left;
+    font-family: SegoeUI;
+    font-size: 14px;
+    margin-top: 0;
+    padding-left: 0;
+}

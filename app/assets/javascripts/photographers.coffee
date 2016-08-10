@@ -39,4 +39,3 @@ $ ->
       success: (data) ->
         $(".calender_and_info").html(data)
         $("#abc2").hide()
-        
