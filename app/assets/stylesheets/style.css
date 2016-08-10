@@ -1091,7 +1091,7 @@ input::-moz-placeholder {
 }
 
 input::-webkit-input-placeholder {
-     color:blue;
+     color:#ccc;
   }
 
 
@@ -2046,4 +2046,21 @@ select, input, textarea, textarea.form-control:focus
     font-size: 14px;
     margin-top: 0;
     padding-left: 0;
+}
+
+
+.input-group-addon
+{
+  background-color: #003366;
+}
+
+.sel-cal-field
+{
+    margin-top: 1px;
+    border: 1px solid #cccccc;
+}
+
+.calender-icon
+{
+  color: white;
 }
