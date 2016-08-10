@@ -27,8 +27,8 @@ a, a:hover, a:focus {
 
 .txt{
   color: #de615e;
-  font-size: 17px;
-  
+  font-size: 12px;
+  text-align: left;
 }
 
 
@@ -333,7 +333,14 @@ a {
 
   .form-field-password
   {
-    width: 120%;height: 50px;border-right-width: 0px;border-top-width: 0px;border-left-width: 0px;border-bottom-width: 0px;padding-bottom: 0px;padding-left: 10px;
+    width: 120.1%;
+    height: 50px;
+    border-right-width: 0px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-bottom-width: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
   }
   .submit-main-btn
    {
@@ -392,8 +399,8 @@ a {
       }
       img#close {
       position:absolute;
-      right: -35px;
-        top: 0px;
+      right: 50px;
+        top: 45px;
       cursor:pointer
       }
       div#popupContact {
@@ -788,7 +795,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
       form {
         width: 500px;
         min-width: 250px;
-        padding: 50px 50px;
+        padding: 30px 50px;
         /* border: 2px solid gray; */
         /* border-radius: 10px; */
         font-family: 'SegoeUI';
@@ -812,7 +819,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
       width:82%;
       padding:10px;
       padding-left: 20px !important;
-      font-size: 24px !important;
+      /*font-size: 24px !important;*/
       font-family: 'SegoeUI' !important;
       margin-top:1px;
       border:1px solid #ccc;
@@ -1284,7 +1291,7 @@ input::-webkit-input-placeholder {
 .form-setting-forall
 {
     padding-left: 20px;
-    font-size: 24px;
+    font-size: 16px;
     font-family: 'SegoeUI';
 }
 
@@ -1886,3 +1893,66 @@ $file-upload-size: 200px;
 {
   padding: 10px;
 }
+
+
+
+select, input, textarea, textarea.form-control
+{
+  color: #b7b7b7 !important;
+  font-family: 'SegoeUI' !important;
+}
+select, input, textarea, textarea.form-control:focus
+{
+  color:#333 !important; 
+  font-family: 'SegoeUI' !important;
+}
+
+
+.sign-up-index
+{
+  padding-left: 0px;
+  font-weight: bold; 
+  color: white; 
+  margin-top:40px;
+  width: 100%;
+  font-family: 'SegoeUI';
+}
+
+
+.heading-sign_up-sett
+{
+  padding: 0px;
+}
+
+
+.form-top-margin-fifty
+{
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+
+.border-solid-form
+{
+      border: 1px solid #cccccc !important;
+}
+
+
+
+.sign-up-data-align
+{
+  padding: 0px;
+  margin: 0px;
+  border-radius: 0px;
+  background-color: transparent;
+  color: white;
+  margin-bottom: 30px;
+  margin-top: 10px; 
+}
+
+
+.sign-up-form-set-align
+{
+  width: 100%;
+}
+

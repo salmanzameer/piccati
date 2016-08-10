@@ -25,8 +25,8 @@
       }
       img#close {
       position:absolute;
-      right: -35px;
-        top: 0px;
+      right: 50px;
+        top: 45px;
       cursor:pointer
       }
       div#popupContact {
@@ -66,7 +66,7 @@
       width:100%;
       text-align:center;
       display:block;
-        background-color: #ddd;
+        background-color: #fff;
         color: #003366;
       padding:10px 0;
       font-size:20px;
@@ -90,7 +90,7 @@
 </style>
 <center>
 <%= image_tag("piccati-login-logo.png", style: "margin-top: 60px;") %>
-<p style="margin-top:40px;margin-bottom:40px;color:#fff;font-size: 24px;">Sign in to Piccati</p></center>
+<p style="margin-top:30px;margin-bottom:0px;color:#fff;font-size: 24px;">Sign in to Piccati</p></center>
 <div class="top-content">
 <div>
     <div class="container">
@@ -137,7 +137,7 @@
           </div>
       </div>
           <div class="row">
-            <center><p style="margin-top:40px;color:#fff;">Don't have a Piccati account? <button id="popup" class= "button button-signup"onclick="div_show()" style="padding-left: 0px;font-weight: bold; color: white;">Create one now.</button></p></center>
+            <center><button id="popup" class= "button button-signup sign-up-index"onclick="div_show()">Sign up now.</button></center>
             <div id="abc1">
             <!-- Popup Div Starts Here -->
               <div id="popupContact">
@@ -145,7 +145,10 @@
               <%= form_for resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "form-action"} do |f| %>
                   <!-- <img id="close" src="close1.png" onclick ="div_hide()"> -->
                   <%= image_tag 'close1.png', id: 'close', onclick: 'div_hide()'%>
-                  <center><h2>Sign Up</h2></center>
+                  <center><h2 class="heading-sign_up-sett">Sign Up</h2></center>
+                   <div>
+                     <hr class="form-top-margin-fifty">
+                   </div>
                    <div class="form-group">
                     <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  }, class: "form-title form-control", :id => "form-title" , style: "height: 50px;")   %>
                     <div class="txt">
@@ -182,14 +185,14 @@
                  </div>
                  <div class="form-group">
                    <%= f.label :email, :class => 'sr-only', :for => 'form-username'%> 
-                   <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "form-username form-control", :id =>'form-username' %>
+                   <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "form-username form-control border-solid-form", :id =>'form-username' %>
                    <div class="txt">
                    <%= resource.errors["email"].first%>
                  </div>
                  </div>
                  <div class="form-group">
                    <%= f.label :password , :class => 'sr-only', :for =>'form-password' %>
-                   <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control", :id =>'form-password' %>
+                   <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control border-solid-form", :id =>'form-password' %>
                    <% if @minimum_password_length %>
                  <div class="txt">  <em>(<%= @minimum_password_length %> characters minimum)</em> 
                    </div> <% end %>
@@ -199,12 +202,12 @@
                  </div>
                  <div class="form-group">
                    <%= f.label :password_confirmation , :class => 'sr-only', :for =>'form-password' %>
-                   <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "form-password form-control", :id =>'form-password' %>
+                   <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "form-password form-control border-solid-form", :id =>'form-password' %>
                    <div class="txt">
                    <%= resource.errors["password_confirmation"].first%>
                  </div>
                  </div>
-                 <button type="submit" id="submit">Submit</button>
+                 <button type="submit" class="button button4 border-solid-form">Submit</button>
                   <% end %>
               </div>
           <!-- Popup Div Ends Here -->
