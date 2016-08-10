@@ -2089,3 +2089,7 @@ select, input, textarea, textarea.form-control:focus
   color: white;
   text-decoration: underline;
 }
+.message {
+    font-family: SegoeUI;
+    font-weight: normal;
+}
