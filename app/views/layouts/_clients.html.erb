@@ -52,7 +52,7 @@
             <tr class="clients-list min-height-udate-event-tb">
               <td class="table-row-width zero-border">
                 <div class="col-md-7 center-align-tag">
-                  <%= client.email %>
+                  <%= truncate(client.email, ommision: "..", length: 15) %>
                 </div>
                 <div class="col-md-5">
                   <%= link_to 'Invite',"#", class: "btn btn-uploadimage1", style: "border: 1px solid #ccc;" %>

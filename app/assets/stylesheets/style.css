@@ -1957,3 +1957,26 @@ select, input, textarea, textarea.form-control:focus
 {
   width: 100%;
 }
+
+.select2-input, .select2-search{
+  height: 40px !important;
+}
+
+.select2-result-label{
+  text-align: left;
+}
+
+
+ #error_explanation h2{
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 40px !important;
+    padding: 7px 35px;
+    border-radius: 0px;
+    margin-bottom: 10px  
+    }
+    
+  #error_explanation li{
+    list-style-type: none;
+    color: #337ab7;
+  }

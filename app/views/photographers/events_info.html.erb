@@ -17,7 +17,7 @@
 		<!-- Popup Div Starts Here -->
 			<div id="popupContact">
 	<!-- Contact Us Form -->
-				<%= form_for Event.new, url: photographer_client_events_path(current_photographer.id, Client.first), validate: true, html: { id: "add-calender-event-model", class: "form-action" } do |f| %>
+				<%= form_for Event.new, url: create_calender_event_path, validate: true, html: { id: "add-calender-event-model", class: "form-action" } do |f| %>
 					<%= image_tag ("close1.png"), class: "close", data: { id: "abc2" }%>
 					<center><h2>Add a Event</h2></center>
 					<fieldset>
@@ -25,7 +25,8 @@
 					  <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields" %>
 					  <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "first-field client_fields" %>
 					  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "first-field client_fields" %>
-					  <%= f.hidden_field :client_id, value: Client.first.id %>
+					  <%= f.select(:client_id , options_from_collection_for_select(current_photographer.clients, "id", "firstname"), { prompt: "Select client"  }, class: "form-title form-control", :id => "form-title" , style: "height: 50px;")   %>
+					  
 					  <div class='input-group date' id='datetimepicker1'>
                     <input type='datetime' class="first-field client_fields" name="event[start_time]" placeholder="Select Date" />
                     <span class="input-group-addon">
