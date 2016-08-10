@@ -3,6 +3,12 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+	$(document).on 'click', '.connect-with-client', (e) ->
+		e.preventDefault()
+		if $(".search_client_email").val().length < 1
+			$(".error-p-tag").show()
+		else
+			$(".connect-client-form").submit()	
 
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()
@@ -15,14 +21,6 @@ $ ->
 				$(".events-section").html(data)
 				$("#abc2").hide()
 				$('.show-event').last().click()
-				# date = $("#datetimepicker1").find("input[type=datetime]").val().split(" ")[0].split("/").reverse().join('-')
-				# $( ".day:contains('2016-08-11')" ).click();
-				# $('.day').each (index, value) ->
-  		#  		if $(this).text().match(/\S+/g)[0] == date
-  		#  		  $(this).click()
-  		#  		  alert date+"f"
-  		#  		  return
-  		#  		return
 
 	$(document).on 'click', '.update-event-class', (e) ->
 		e.preventDefault()
@@ -121,7 +119,8 @@ $ ->
 			success: (data) ->
 				$(".searched_email").html(data)
 				$(".searched_email").show()
-	
+				$(".error-p-tag").hide()
+
 	$(document).on 'click', '.select-searched-email', (e) ->
 		e.preventDefault()
 		$(".search_client_email").val($(this).text())	
