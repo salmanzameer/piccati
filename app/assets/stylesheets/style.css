@@ -2044,5 +2044,27 @@ select, input, textarea, textarea.form-control:focus
 .photographer-clients-list:hover
 {
   background-color: #003366;
+  color: white !important;
+}
+
+.font-color-gray > td > .button-styling-clint-box-alignment > button > i {
+  color: #aaa;
+}
+
+.font-color-gray > td > .center-align-tag > a {
+  color: #003366;
+}
+
+.tr-selected > td > .center-align-tag > a {
   color: white;
+}
+
+.photographer-clients-list:hover a
+{
+  color: white !important;
+}
+
+.photographer-clients-list:hover
+{
+  background-color: #003366;
 }
