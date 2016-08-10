@@ -49,11 +49,11 @@
 					  <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "first-field client_fields" %>
 					  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "first-field client_fields" %>
 					  <div class='input-group date' id='datetimepicker1'>
-                    <input type='datetime' class="first-field client_fields" name="event[start_time]" placeholder="Select Date" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
+					  	<%= f.datetime_field :start_time, autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields" %>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
             <script type="text/javascript">
 		            $(function () {
 		                $('#datetimepicker1').datetimepicker();

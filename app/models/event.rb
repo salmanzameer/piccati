@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
 	validates :location,    presence: true
 	validates :bridal ,     presence: true
 	validates :groom,       presence: true
-  #validates :start_time:, presence: true
+  validates :start_time,  presence: true
 	
   def selected
     self.images.where(is_liked: true)
