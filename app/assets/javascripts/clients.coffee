@@ -59,7 +59,6 @@ $ ->
 		e.preventDefault()
 		$('.tr-selected').removeClass('tr-selected')
 		$(this).closest("tr").addClass('tr-selected')
-		$(this).css('color','white')
 		id = $(this).data("id")
 		$.ajax
 			type: "GET"
