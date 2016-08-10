@@ -34,7 +34,7 @@
                 <%= f.text_field :lastname, autofocus: true, :placeholder => 'First Name', class: "first-field name-field zero-border", :id =>'form-firstname' %>
                 
                 <div class="custom-file-upload">
-                  <input id="uploadFile" disabled="disabled" class= "first-field name-field zero-border"  style="background: none;"/>
+                  <input id="uploadFile" disabled="disabled" class= "first-field name-field zero-border"  style="background: none;width: 46%;"/>
                   <div class="fileUpload btn btn-primary">
                     <span>Change profile image</span>
                     <%= f.file_field :avatar, class: "first-field zero-border upload-file-btn width-chosen-field", id: "uploadBtn",  class: "upload"%>
@@ -45,7 +45,7 @@
                 <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact Number' ,class: "first-field name-field border-zero-form", :id =>'form-contact' %>
                 <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "first-field name-field email-edit-field", :id =>'form-username' %>
                   <div class="custom-file-upload">
-                    <input id="watermark-url" disabled="disabled" class= "first-field name-field zero-border" style="background: none;"/>
+                    <input id="watermark-url" disabled="disabled" class= "first-field name-field zero-border" style="background: none;width: 46%;"/>
                     <div class="fileUpload btn btn-primary">
                       <span>Change watermark</span>
                       <%= f.file_field :watermark_logo, class: "first-field zero-border upload-file-btn width-chosen-field", id: "upload-watermark",  class: "upload"%>

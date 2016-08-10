@@ -1578,6 +1578,10 @@ border-radius: 0px;
 .bt-add-cli
 {
   height: 50px;
+  font-size: 14px !important;
+  border: 1px solid #cccccc;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .name-prof
@@ -1865,11 +1869,8 @@ $file-upload-size: 200px;
 }
 
 
-.alert-info 
+.alert-success 
 {
-    color: #31708f;
-    background-color: #c8eafb;
-    border-radius: 4px;
     text-align: left;
 }
 .alert {
@@ -1956,4 +1957,50 @@ select, input, textarea, textarea.form-control:focus
 .sign-up-form-set-align
 {
   width: 100%;
+}
+
+.form-box-s
+{
+  margin-top: 0px !important;
+}
+
+
+.btn-sign-up-registration
+{
+  margin-right: 15px;
+}
+
+
+.btn-sign-in-index-pg
+{
+  float: right;
+  margin-top: 10px;
+  color: white;
+}
+
+.alert {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  }
+
+.heading-margin-add-client
+{
+  margin-bottom: 25px;
+}
+
+.btn-margin-right-ten
+{
+  margin-right: 6px;
+}
+
+.btn-client-magin-zero
+{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.empty-tb-setting
+{
+  width: 100% !important; 
 }

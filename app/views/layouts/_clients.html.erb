@@ -25,7 +25,7 @@
         <tbody class="client-table-setting">
           <% if @clients.blank? %>
             <tr>
-              <td>
+              <td class="empty-tb-setting">
                 No Client Found
               </td>
             </tr>
@@ -70,15 +70,15 @@
   <!-- Contact Us Form -->
         <%= form_tag(connect_client_clients_path, method: :post, id: "add-client-model", class: "form-action", validate: true) do %>
           <%= image_tag ("close1.png"), class: "close", data: { id: "abc2" } %>
-          <center><h2>Add a Client</h2></center>
+          <center><h2 class="heading-sign_up-sett heading-margin-add-client"> Add a Client</h2></center>
           <fieldset>
               <%#= f.text_field :username, autofocus: true, :placeholder =>"User Name", :class => "first-field client_fields" %>
               <div class="row">
                 <div class="col-md-9 email-add-client-field-view">
-                  <%= text_field_tag "email", "", autocomplete: :off, autofocus: true, placeholder: "Email", class: "first-field client_fields search_client_email ", style: "border: 1px solid !important;" %>
+                  <%= text_field_tag "email", "", autocomplete: :off, autofocus: true, placeholder: "Email", class: "first-field client_fields search_client_email ", style: "border: 1px solid #cccccc !important;" %>
                 </div>
                 <div class="col-md-3 zero-padding">
-                  <center><button type="submit" id="submit" class="button4 bt-add-cli">Add Client </button></center>
+                  <center><button type="submit"  class="button button4 bt-add-cli btn-client-magin-zero"><i class="fa fa-plus-circle btn-margin-right-ten"></i>Add Client </button></center>
                 </div>
               </div>
               <div class="searched_email row">
