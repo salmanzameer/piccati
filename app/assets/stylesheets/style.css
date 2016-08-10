@@ -1812,13 +1812,6 @@ $file-upload-size: 200px;
   color: white !important;
 }
 
-.show-client-events:hover
-{
-   background-color: #003366 !important;
-  color: white !important;
-}
-
-
 .heading-table-event-edit
 {
   background-color: #003366; 
@@ -2046,4 +2039,10 @@ select, input, textarea, textarea.form-control:focus
     font-size: 14px;
     margin-top: 0;
     padding-left: 0;
+}
+
+.photographer-clients-list:hover
+{
+  background-color: #003366;
+  color: white;
 }
