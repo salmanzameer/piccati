@@ -1,103 +1,9 @@
-  <script type="text/javascript">
-          // Validating Empty Field
-    function div_show() {
-      document.getElementById('abc1').style.display = "block";
-      }
-      //Function to Hide Popup
-      function div_hide(){
-      document.getElementById('abc1').style.display = "none";
-      }
-  </script>
-  <style type="text/css">
-        @import "http://fonts.googleapis.com/css?family=Raleway";
-      /*----------------------------------------------
-      CSS settings for HTML div Exact Center
-      ------------------------------------------------*/
-      #abc1 {
-      width:100%;
-      height:100%;
-      top:0;
-      left:0;
-      display:none;
-      position:fixed;
-      background-color: rgba(49, 49, 49, 0.76);
-      overflow:auto
-      }
-      img#close {
-      position:absolute;
-      right: 50px;
-        top: 45px;
-      cursor:pointer
-      }
-      div#popupContact {
-      position:absolute;
-      left:50%;
-      top:17%;
-      margin-left:-202px;
-      font-family:'Raleway',sans-serif
-      }
-      .form-action {
-        width: 500px;
-        min-width: 250px;
-        padding: 50px 50px;
-        /* border: 2px solid gray; */
-        /* border-radius: 10px; */
-        font-family: raleway;
-        background-color: #fff;
-      }
-      textarea {
-      background-image:url(https://www.aorank.com/tutorial/createpopupform_livedemo/images/msg.png);
-      background-repeat:no-repeat;
-      background-position:5px 7px;
-      width:82%;
-      height:95px;
-      padding:10px;
-      resize:none;
-      margin-top:30px;
-      border:1px solid #ccc;
-      padding-left:40px;
-      font-size:16px;
-      font-family:raleway;
-      margin-bottom:30px
-      }
-      #submit {
-      margin-top: 1px;
-      text-decoration:none;
-      width:100%;
-      text-align:center;
-      display:block;
-        background-color: #fff;
-        color: #003366;
-      padding:10px 0;
-      font-size:20px;
-      cursor:pointer;
-      /*border-radius:5px*/
-      }
-      #submit:hover {
-      margin-top: 1px;
-      text-decoration:none;
-      width:100%;
-      text-align:center;
-      display:block;
-        background-color: #003366;
-        color: #fff !important;
-        border: 1px solid #003366;
-      padding:10px 0;
-      font-size:20px;
-      cursor:pointer;
-      /*border-radius:5px*/
-      }
-</style>
-<center>
 <%= image_tag("piccati-login-logo.png", style: "margin-top: 60px;") %>
 <p style="margin-top:30px;margin-bottom:0px;color:#fff;font-size: 24px;">Sign in to Piccati</p></center>
 <div class="top-content">
-<div>
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-sm-offset-2 text">
-
-
         </div>
       </div>
       <div class="row">
@@ -106,7 +12,7 @@
             <div class="form-top-left">
             </div>
             <div class="form-top-right">
-                
+
             </div>
           </div>
           <div class="form-bottom" style="margin-left: 335px;">
@@ -115,100 +21,30 @@
            <div class="form-group input-field-setting">
              <%= f.label :email, :class => 'sr-only', :for => 'form-username'%> 
              <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "form-username form-control", :id =>'form-username' %>
-               <div class="txt">
+             <div class="txt">
                <%= resource.errors[:email].first%>
-               </div>
+             </div>
            </div>
            <div class="form-group input-field-setting col-md-10" style="padding-left: 0px;padding-right: 0px;">
              <%= f.label :password , :class => 'sr-only', :for =>'form-password' %>
              <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control form-field-password", :id =>'form-password' %>
              <div class="txt">
-             <%= resource.errors[:password].first  %>
+               <%= resource.errors[:password].first  %>
              </div>
 
            </div>
            <div class="col-md-2" style="padding-left: 0px;padding-right: 0px;">
-                <button type="submit" class="btn btn-submit submit-main-btn"><i class="fa   fa-arrow-circle-o-right sign-up-btn"></i></button>
-             </div>
-           <% end %>
-         </div>
-       </div>
-           <div class="col-md-4">
+            <button type="submit" class="btn btn-submit submit-main-btn"><i class="fa   fa-arrow-circle-o-right sign-up-btn"></i></button>
           </div>
+          <% end %>
+        </div>
       </div>
-          <div class="row">
-            <center><button id="popup" class= "button button-signup sign-up-index"onclick="div_show()">Sign up now.</button></center>
-            <div id="abc1">
-            <!-- Popup Div Starts Here -->
-              <div id="popupContact">
-          <!-- Contact Us Form -->
-              <%= form_for resource, as: resource_name, url: registration_path(resource_name),validate: true, :html => {:class => "form-action", id: "signup-form" } do |f| %>
-                  <!-- <img id="close" src="close1.png" onclick ="div_hide()"> -->
-                  <%= image_tag 'close1.png', id: 'close', onclick: 'div_hide()'%>
-                  <center><h2 class="heading-sign_up-sett">Sign Up</h2></center>
-                   <div>
-                     <hr class="form-top-margin-fifty">
-                   </div>
-                   <div class="form-group">
-                    <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], "Mr" ), {prompt: true  }, class: "form-title form-control", :id => "form-title" , style: "height: 50px;")   %>
-                    <div class="txt">
-                    <%= resource.errors["title"].first%>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                   <%= f.label :firstname, :class => 'sr-only', :for => 'form-firstname'%> 
-                   <%= f.text_field :firstname, autofocus: true, :placeholder => 'Firstname' ,class: "form-firstname form-control", :id =>'form-firstname' %>
-                   <div class="txt">
-                   <%= resource.errors["firstname"].first%>
-                 </div>
-                 </div>
-                 <div class="form-group">
-                   <%= f.label :lastname, :class => 'sr-only', :for => 'form-lastname'%> 
-                   <%= f.text_field :lastname, autofocus: true, :placeholder => 'Lastname' ,class: "form-lastname form-control", :id =>'form-lastname' %>
-                   <div class="txt">
-                   <%= resource.errors["lastname"].first%>
-                 </div>
-                 </div>
-
-                 <div class="form-group">
-                   <%= f.label :contnumber, :class => 'sr-only', :for => 'form-contact'%> 
-                   <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact' ,class: "form-contact form-control", :id =>'form-contact' %>
-                   <div class="txt">
-                   <%= resource.errors["contnumber"].first%>
-                 </div>
-                 </div>
-                 <div class="form-group">
-                   <%= f.label :email, :class => 'sr-only', :for => 'form-username'%> 
-                   <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "form-username form-control border-solid-form", :id =>'form-username' %>
-                   <div class="txt">
-                   <%= resource.errors["email"].first%>
-                 </div>
-                 </div>
-                 <div class="form-group">
-                   <%= f.label :password , :class => 'sr-only', :for =>'form-password' %>
-                   <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control border-solid-form", :id =>'form-password' %>
-                   <% if @minimum_password_length %>
-                 <div class="txt">  <em>(<%= @minimum_password_length %> characters minimum)</em> 
-                   </div> <% end %>
-                   <div class="txt">
-                   <%= resource.errors["password"].first%>
-                 </div>
-                 </div>
-                 <div class="form-group">
-                   <%= f.label :password_confirmation , :class => 'sr-only', :for =>'form-password' %>
-                   <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "form-password form-control border-solid-form", :id =>'form-password' %>
-                   <div class="txt">
-                   <%= resource.errors["password_confirmation"].first%>
-                 </div>
-                 </div>
-                 <button type="submit" class="button button4 border-solid-form">Submit</button>
-                  <% end %>
-              </div>
-          <!-- Popup Div Ends Here -->
-            </div>
-          </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+    <div class="container">
+      <div class="col-md-8 zero-padding"><%= link_to "Sign up now.", new_photographer_registration_path, class: "btn-sign-in-index-pg" %></div>
+    </div>
   </div>
-</div>
-</div>
 </div>
 
