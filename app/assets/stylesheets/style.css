@@ -2083,3 +2083,9 @@ select, input, textarea, textarea.form-control:focus
 {
   background-color: #003366;
 }
+
+.btn-sign-in-index-pg:hover
+{
+  color: white;
+  text-decoration: underline;
+}
