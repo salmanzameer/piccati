@@ -6,9 +6,9 @@ $ ->
 	$(document).on 'click', '.connect-with-client', (e) ->
 		e.preventDefault()
 		if $(".search_client_email").val().length < 1
-			$(".error-p-tag").show()
+			$(".error-p-tag").show()	
 		else
-			$(".connect-client-form").submit()	
+			$(".connect-client-form").submit()
 
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()

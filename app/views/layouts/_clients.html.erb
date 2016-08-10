@@ -3,7 +3,7 @@
   <div class="col-md-3">
     <h1 class="heading-clientlist">Client List</h1>
     <div>
-      <table class="table table-striped header-fixed">
+      <table class="table header-fixed">
         <thead>
           <tr class="Profile-heading">
             <div>
@@ -36,7 +36,7 @@
             <% if @path.present? && @path[:action] == "index" %>
               <% abc = "" %>
             <% end %>
-            <tr class="clients-list <%= cls %> <%= abc %> tr-selection min-height-udate-event-tb    ">
+            <tr class="photographer-clients-list <%= cls %> <%= abc %>">
               <td class="table-row-width zero-border zero-padding">
                 <div class="col-md-7 center-align-tag">
                   <%= link_to client.firstname, "#", class: "show-client-events client-event-anchor-design", data: { id: client.id } %>
@@ -68,7 +68,7 @@
     <!-- Popup Div Starts Here -->
       <div id="popupContact">
   <!-- Contact Us Form -->
-        <%= form_tag(connect_client_clients_path, method: :post, id: "add-client-model", class: "form-action connect-client-form", validate: true) do %>
+        <%= form_tag(connect_client_clients_path, method: :post, id: "add-client-model", class: "form-action connect-client-form") do %>
           <%= image_tag ("close1.png"), class: "close", data: { id: "abc2" } %>
           <center><h2 class="heading-sign_up-sett heading-margin-add-client"> Add a Client</h2></center>
           <fieldset>
