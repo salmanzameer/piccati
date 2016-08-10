@@ -2,13 +2,15 @@
   <div class="col-md-2">
   </div>
   <div class="col-md-8">
-    <%= form_for resource, as: resource_name, url: registration_path(resource_name), html: { class: "sign-up-form-set-align" } do |f| %>
+    <%= form_for resource, as: resource_name, url: registration_path(resource_name), validate: true, html: { class: "sign-up-form-set-align", id: "signup-form" } do |f| %>
               <center><h2 class="sign-up-data-align">Sign Up</h2></center>
-    <div class="col-md-6">
-    <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  }, class: "form-title form-control", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>
+    <div class="col-md-12">
+      <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  }, class: "form-title form-control", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>
     <div class="txt">
       <%= resource.errors["title"].first%>
     </div>
+    </div>
+    <div class="col-md-6">
     <%= f.label :firstname, :class => 'sr-only', :for => 'form-firstname'%> 
       <%= f.text_field :firstname, autofocus: true , :placeholder => 'Firstname' ,class: "form-firstname form-control border-solid-form form-box-s", :id =>'form-firstname' %>
     <div class="txt">
@@ -19,22 +21,17 @@
     <div class="txt">
       <%= resource.errors["lastname"].first%>
     </div>
-    <%= f.label :username, :class => 'sr-only', :for => 'form-username'%> 
-      <%= f.text_field :username, autofocus: true , :placeholder => 'Username' ,class: "form-username form-control border-solid-form form-box-s", :id =>'form-username' %>
-    <div class="txt">
-     <%= resource.errors["lastname"].first%>
-    </div>
-    </div>
-    <div class="col-md-6">
-    <%= f.label :contnumber, :class => 'sr-only', :for => 'form-contact'%> 
-      <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact' ,class: "form-contact form-control border-solid-form", :id =>'form-contact' %>
-    <div class="txt">
-     <%= resource.errors["contnumber"].first%>
-    </div>
     <%= f.label :email, :class => 'sr-only', :for => 'form-username'%> 
       <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "form-username form-control border-solid-form", :id =>'form-username' %>
     <div class="txt">
      <%= resource.errors["email"].first%>
+    </div>
+    </div>
+    <div class="col-md-6">
+    <%= f.label :contnumber, :class => 'sr-only', :for => 'form-contact'%> 
+      <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact' ,class: "form-contact form-control border-solid-form", :id =>'form-contact' , style: "margin-top:0px;"%>
+    <div class="txt">
+     <%= resource.errors["contnumber"].first%>
     </div>
     <%= f.label :password , :class => 'sr-only', :for =>'form-password' %>
     <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control border-solid-form", :id =>'form-password' %>
