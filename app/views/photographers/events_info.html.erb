@@ -28,11 +28,11 @@
 					  <%= f.select(:client_id , options_from_collection_for_select(current_photographer.clients, "id", "firstname"), { prompt: "Select client"  }, class: "form-title form-control", :id => "form-title" , style: "height: 50px;")   %>
 					  
 					  <div class='input-group date' id='datetimepicker1'>
-                    <input type='datetime' class="first-field client_fields" name="event[start_time]" placeholder="Select Date" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
+              <%= f.datetime_field :start_time, autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields" %>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
             <script type="text/javascript">
 		            $(function () {
 		                $('#datetimepicker1').datetimepicker();
