@@ -41,7 +41,7 @@ class ClientsController < ApplicationController
 
   def connect_client
     client = Client.find_by_email(params[:email])
-    if client
+    if client.present?
       client.photographer_clients.create(photographer_id: current_photographer.id)
       InvitationMailer.client_acknowledge(current_photographer, params[:email]).deliver
     else

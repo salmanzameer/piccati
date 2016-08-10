@@ -2083,3 +2083,8 @@ select, input, textarea, textarea.form-control:focus
 {
   background-color: #003366;
 }
+
+.message {
+    font-family: SegoeUI;
+    font-weight: normal;
+}
