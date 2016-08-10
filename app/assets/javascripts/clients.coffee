@@ -127,8 +127,8 @@ $ ->
 		$(".searched_email").hide()
 
 	$('.show-client-events').first().click()
-	$('.clients-list.abc').find("a").click()
-	
+	$('.photographer-clients-list.abc').find("a").click()
+
 	$(document).on 'click', '.update-event', (e) ->
 		e.preventDefault()
 		$.ajax
