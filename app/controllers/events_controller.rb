@@ -35,6 +35,7 @@ class EventsController < ApplicationController
   def show
     @clients = current_photographer.clients
     @current_client = @clients.first
+    @off_clients = current_photographer.invite_clients
     @client = Client.new
     @event = @current_client.events.new if @current_client
   end

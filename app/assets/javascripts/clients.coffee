@@ -6,9 +6,9 @@ $ ->
 	$(document).on 'click', '.connect-with-client', (e) ->
 		e.preventDefault()
 		if $(".search_client_email").val().length < 1
-			$(".error-p-tag").show()
+			$(".error-p-tag").show()	
 		else
-			$(".connect-client-form").submit()	
+			$(".connect-client-form").submit()
 
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()
@@ -59,7 +59,6 @@ $ ->
 		e.preventDefault()
 		$('.tr-selected').removeClass('tr-selected')
 		$(this).closest("tr").addClass('tr-selected')
-		$(this).css('color','white')
 		id = $(this).data("id")
 		$.ajax
 			type: "GET"
@@ -127,8 +126,8 @@ $ ->
 		$(".searched_email").hide()
 
 	$('.show-client-events').first().click()
-	$('.clients-list.abc').find("a").click()
-	
+	$('.photographer-clients-list.abc').find("a").click()
+
 	$(document).on 'click', '.update-event', (e) ->
 		e.preventDefault()
 		$.ajax
