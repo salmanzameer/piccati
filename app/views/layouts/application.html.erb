@@ -10,9 +10,11 @@
 	<body>
 		<%= render 'layouts/header' %>
 		<% flash.each do |key, value| %>
-			<div class="alert alert-success" role="alert">
-			  <%= value %>
-			</div>
+			<% if value.present? %>
+				<div class="alert alert-success" role="alert">
+				  <%= value %>
+				</div>
+			<% end %>
 		<% end %>
 		<%= yield %>
 	</body>
