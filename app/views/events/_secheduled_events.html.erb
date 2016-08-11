@@ -27,8 +27,11 @@
         <button type="button" class="btn-cancel-calendar"><i class="fa  fa-times btn-del btn-style" ></i></button>
         </div>
         <div class="col-md-12 detail-description-calendar" style="">
-          <%= event.groom.titleize %> and <%= event.bridal.titleize %><br>
-          <%= event.location %>
+          <% if event.groom.present? %>
+            <%= event.groom.titleize %> and <%= event.bridal.titleize %> <br>
+          <% end %>
+          <%= event.location %><br>
+          <%= event.start_time.strftime('%a %b %d %Y %H:%M') %>
         </div>
         </td>
       </tr>

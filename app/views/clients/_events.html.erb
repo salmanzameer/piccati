@@ -44,6 +44,7 @@
 					<%= image_tag ("close1.png"), class: "close", data: { id: "abc" }%>
 					<center><h2>Add a Event</h2></center>
 					<fieldset>
+						<%= f.select(:category_id , options_from_collection_for_select(Category.all, "id", "name"), { prompt: "Event Type" }, class: "first-field client_fields event-category", :id => "event-category" , style: "height: 50px;margin-top: 1px;border-radius: 0px;width: 80%;")   %>
 					  <%= f.text_field :name, autofocus: true, :placeholder =>"Name", :class => "first-field client_fields" %>
 					  <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields" %>
 					  <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "first-field client_fields" %>

@@ -1,8 +1,6 @@
 <%= week_calendar number_of_weeks: 1, events: @calendar_event, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, events| %>
 	  <%= date %>
-	  <% events.each do |event| %>
-	    <div>
-	      <%= link_to  event.name, all_images_photographer_client_event_path(id: event.id, client_id: event.client_id, photographer_id: event.photographer.id) %>
-	    </div>
-	  <% end %>
+	  <div>
+	    <%= events.count.to_s+" event".pluralize(events.count) if events.present?  %>
+	  </div>
 	<% end %>
