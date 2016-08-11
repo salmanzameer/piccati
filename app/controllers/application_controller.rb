@@ -24,15 +24,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    photographer_path(resource)
+    resource.class.name == "Client" ? download_app_path : photographer_path(resource)
   end
 
   def after_sign_out_path_for(resource)
-    photographer_path(resource)
-  end
-
-  def current_client
-    @client = Client.where(email: params[:email], password: params[:password]).first 
+    resource == :client ? new_client_session_path : photographer_path(resource)
   end
 
   def client_match_token

@@ -20,7 +20,7 @@ class PhotographersController < ApplicationController
     end_of_day = Date.today.to_datetime.end_of_day
     @calendar_event = current_photographer.events
     @events = current_photographer.events.where("start_time >= ? and start_time <= ?", start_of_day, end_of_day)
-    @page_name = "Event Planning"
+    @page_name = "Calender"
     respond_to do |format|
       format.js
       format.html
