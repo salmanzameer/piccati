@@ -40,3 +40,9 @@ $ ->
       success: (data) ->
         $(".calender_and_info").html(data)
         $("#abc2").hide()
+
+  $(document).on 'change', '.event-category', (e) ->
+    if ($('.event-category option:selected').text() == "Wedding")
+      $(".bride_name, .groom_name").show()
+    else
+      $(".bride_name, .groom_name").hide()
