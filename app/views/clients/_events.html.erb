@@ -38,23 +38,23 @@
 		</div>
 		<div id="abc" style="z-index:9999">
 		<!-- Popup Div Starts Here -->
-			<div id="popupContact">
+			<div id="popupContact" class="form-calandar-popup-loc">
+				<%= image_tag ("close1.png"), class: "close cal-close", data: { id: "abc" }%>
 	<!-- Contact Us Form -->
-				<%= form_for Event.new, url: photographer_client_events_path(current_photographer.id, client.id), validate: true, html: { class: "form-action", id: "add-event-form" } do |f| %>
-					<%= image_tag ("close1.png"), class: "close", data: { id: "abc" }%>
-					<center><h2>Add a Event</h2></center>
-					<fieldset>
+				<%= form_for Event.new, url: photographer_client_events_path(current_photographer.id, client.id), validate: true, html: { class: "form-action form-calandar-popup", id: "add-event-form" } do |f| %>
+					<center><h2 class="form-calandar-popup-heading-top">Add a Event</h2></center>
+					<fieldset class="form-calandar-popup-fieldset">
 						<%= f.select(:category_id , options_from_collection_for_select(Category.all, "id", "name"), { prompt: "Event Type" }, class: "first-field client_fields event-category", :id => "event-category" , style: "height: 50px;margin-top: 1px;border-radius: 0px;width: 80%;")   %>
 					  <%= f.text_field :name, autofocus: true, :placeholder =>"Name", :class => "first-field client_fields" %>
-					  <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields" %>
-					  <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "first-field client_fields" %>
-					  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "first-field client_fields" %>
+					  <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields client_fields_calandar" %>
+					  <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "first-field client_fields client_fields_calandar" %>
+					  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "first-field client_fields  client_fields_calandar" %>
 					  <div class='input-group date' id='datetimepicker1'>
-					  	<%= f.datetime_field :start_time, autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields" %>
-              <span class="input-group-addon">
-	              <i class="fa fa-calendar calender-icon" aria-hidden="true"></i>
-	            </span>
-            </div>
+					  	<span class="input-group-addon">
+			              <i class="fa fa-calendar calender-icon" aria-hidden="true"></i>
+			            </span>
+					  	<%= f.datetime_field :start_time, autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields calendarfield-width" %>
+            		  </div>
             <script type="text/javascript">
 		            $(function () {
 		                $('#datetimepicker1').datetimepicker();
@@ -63,7 +63,9 @@
 					 </fieldset>
 					<!-- <textarea id="msg" name="message" placeholder="Message"></textarea> -->
 					
-					<center><%= f.button 'Add Event' , id: "submit", class: "button4 submit-event" %></center>
+					<div class="form-calandar-popup-fieldset">
+					<%= f.button 'Add Event' , class: "button button4 submit-event btn-cal-width-adj border-solid-form" %>
+					</div>
 				<% end %>
 			</div>
 	<!-- Popup Div Ends Here -->

@@ -1142,13 +1142,13 @@ input::-webkit-input-placeholder {
 }
 .calendar-heading a:last-child 
 {
-  float: left;
+  float: right;
   color: white;
 }
 
 .calendar-heading a:first-child 
 {
-  float: right;
+  float: left;
   color: white;
 }
 
@@ -1165,6 +1165,7 @@ input::-webkit-input-placeholder {
     min-height: 364px;
     background-color: #fff;
 }
+
 
 .editprofileheading
 {
@@ -2158,3 +2159,17 @@ select, input, textarea, textarea.form-control:focus
 {
   padding-right: 30px !important;
 }
+
+.form-sign-up-new
+{
+  padding-left: 0px;
+  padding-right: 100px;
+}
+
+.input-group {
+    position: relative;
+    display: inline-table;
+    border-collapse: separate;
+}
+
+
