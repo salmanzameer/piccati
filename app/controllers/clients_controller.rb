@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
-  
+  before_filter :authenticate_photographer!
+
   def index
     @clients = current_photographer.clients
     @current_client = @clients.first

@@ -1,17 +1,17 @@
 class EventsController < ApplicationController
   before_filter :authenticate_photographer!
-  before_filter :xyz, only: [:upload_image]
-  helper_method :xyz
+  # before_filter :xyz, only: [:upload_image]
+  # helper_method :xyz
 
-  def xyz
-    go_to = request.headers["HTTP_REFERER"]
-  end
+  # def xyz
+  #   go_to = request.headers["HTTP_REFERER"]
+  # end
 
 
   def scheduled_events
     start_of_day = params[:date].to_datetime.beginning_of_day
     end_of_day = params[:date].to_datetime.end_of_day
-    @events = Event.where("start_time >= ? and start_time <= ?", start_of_day, end_of_day)
+    @events = current_photographer.events.where("start_time >= ? and start_time <= ?", start_of_day, end_of_day)
     render partial: "secheduled_events", locals: { :@events => @events, :@date => params[:date] }
   end
 
@@ -86,7 +86,7 @@ class EventsController < ApplicationController
   def all_images
     @client = Client.find_by_id(params[:client_id])
     @event  = Event.find_by_id(params[:id])
-    @image  = Image.where(imageable_id: params[:id])    
+    @image  = Image.where(imageable_id: params[:id])
   end  
 
   def like

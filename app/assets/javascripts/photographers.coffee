@@ -3,7 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $(document).on 'click', '#signup-form, #add-event-form, #add-album-model, .edit-package-model, #update-event-model, #add-calender-event-model, #edit-photographer, #add-photographer-album', (e) ->
+  
+  $(document).on 'focus', '#signup-form, #add-event-form, #add-album-model, .edit-package-model, #update-event-model, #add-calender-event-model, #edit-photographer, #add-photographer-album', (e) ->
     $('form').enableClientSideValidations()
 
   $(document).on 'click', '.current-month', (e) ->

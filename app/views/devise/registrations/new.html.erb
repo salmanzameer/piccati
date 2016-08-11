@@ -12,24 +12,24 @@
     </div>
     <div class="col-md-6">
     <%= f.label :firstname, :class => 'sr-only', :for => 'form-firstname'%> 
-      <%= f.text_field :firstname, autofocus: true , :placeholder => 'Firstname' ,class: "form-firstname form-control border-solid-form form-box-s", :id =>'form-firstname' %>
+      <%= f.text_field :firstname , :placeholder => 'Firstname' ,class: "form-firstname form-control border-solid-form form-box-s", :id =>'form-firstname' %>
     <div class="txt">
       <%= resource.errors["firstname"].first%>
     </div>
     <%= f.label :lastname, :class => 'sr-only', :for => 'form-lastname'%> 
-      <%= f.text_field :lastname, autofocus: true , :placeholder => 'Lastname' ,class: "form-lastname form-control border-solid-form form-box-s", :id =>'form-lastname' %>
+      <%= f.text_field :lastname , :placeholder => 'Lastname' ,class: "form-lastname form-control border-solid-form form-box-s", :id =>'form-lastname' %>
     <div class="txt">
       <%= resource.errors["lastname"].first%>
     </div>
     <%= f.label :email, :class => 'sr-only', :for => 'form-username'%> 
-      <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "form-username form-control border-solid-form", :id =>'form-username' %>
+      <%= f.email_field :email , :placeholder => 'Email' ,class: "form-username form-control border-solid-form", :id =>'form-username' %>
     <div class="txt">
      <%= resource.errors["email"].first%>
     </div>
     </div>
     <div class="col-md-6">
     <%= f.label :contnumber, :class => 'sr-only', :for => 'form-contact'%> 
-      <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact' ,class: "form-contact form-control border-solid-form", :id =>'form-contact' , style: "margin-top:0px;"%>
+      <%= f.text_field :contnumber , :placeholder => 'Contact' ,class: "form-contact form-control border-solid-form", :id =>'form-contact' , style: "margin-top:0px;"%>
     <div class="txt">
      <%= resource.errors["contnumber"].first%>
     </div>

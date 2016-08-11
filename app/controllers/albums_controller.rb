@@ -1,4 +1,5 @@
 class AlbumsController < ApplicationController
+  before_filter :authenticate_photographer!
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -25,20 +25,21 @@
 					  <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields" %>
 					  <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "first-field client_fields" %>
 					  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "first-field client_fields" %>
-					  <%= f.select(:client_id , options_from_collection_for_select(current_photographer.clients, "id", "firstname"), { prompt: "Select client"  }, class: "form-title form-control", :id => "form-title" , style: "height: 50px;margin-top: 1px;border-radius: 0px;")   %>
+					  <%= f.select(:client_id , options_from_collection_for_select(current_photographer.clients, "id", "firstname"), { prompt: "Select client"  }, class: "form-title form-control", :id => "form-title" , style: "height: 50px;")   %>
 					  <div class='input-group date' id='datetimepicker1'>
-              			<%= f.datetime_field :start_time, autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields sel-cal-field" %>
-	              		  <span class="input-group-addon">
-	                		<i class="fa fa-calendar calender-icon" aria-hidden="true"></i>
-	              		  </span>
-            		  </div>
+              <%= f.datetime_field :start_time, autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields" %>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
             <script type="text/javascript">
 		            $(function () {
 		                $('#datetimepicker1').datetimepicker();
 		            });
 		        </script>
 					 </fieldset>
-					<center><button type="submit" class="button button4 event-submit-on-calendar border-solid-form"><i class="fa fa-plus-circle btn-sign-up-registration"></i>Add Event</button></center>
+					<!-- <textarea id="msg" name="message" placeholder="Message"></textarea> -->
+					<center><%= f.button 'Add Event' , id: "submit", class: "button4 event-submit-on-calendar" %></center>
 				<% end %>
 			</div>
 	<!-- Popup Div Ends Here -->

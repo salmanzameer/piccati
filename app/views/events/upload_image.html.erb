@@ -23,7 +23,7 @@
       init : {
          UploadComplete: function(up, files)
           {
-           window.location.href = "<%= xyz %>";
+           window.location.href = location.pathname.replace("upload_image","all_images");
         }
       }
     });
