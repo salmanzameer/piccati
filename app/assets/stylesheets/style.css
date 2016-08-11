@@ -411,7 +411,7 @@ a {
       font-family:'Raleway',sans-serif
       }
       .form-action {
-        width: 500px;
+        width: 550px;
         min-width: 250px;
         padding: 50px 50px;
         /* border: 2px solid gray; */
@@ -2092,8 +2092,8 @@ select, input, textarea, textarea.form-control:focus
 .message {
     font-family: SegoeUI;
     font-weight: normal;
+    margin-left: 9px;
 }
-
 
 .sign-up-data-align-sigin-heading
 {
@@ -2101,4 +2101,60 @@ select, input, textarea, textarea.form-control:focus
   margin-bottom:0px;
   color:#fff;
   font-size: 24px;
+}
+
+.form-calandar-popup-fieldset 
+{
+  padding-left: 90px;
+  text-align: left;
+}
+
+.form-calandar-popup
+{
+  width: 650px;
+  padding: 15px;
+}
+
+.form-calandar-popup-loc
+{
+  left: 40% !important;
+}
+
+.calendarfield-width
+{
+  width: 78.2% !important;
+}
+
+.btn-cal-width-adj
+{
+  width: 80%;
+}
+
+
+.form-calandar-popup-heading-top
+{
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.cal-close
+{
+  margin-right: 3%;
+}
+
+.client_fields_calandar
+{
+  width: 80% !important
+}
+
+.left-padding-thirty
+{
+  padding-left: 30px !important;
+}
+
+.right-padding-thirty
+{
+  padding-right: 30px !important;
 }
