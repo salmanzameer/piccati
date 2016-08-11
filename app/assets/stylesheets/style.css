@@ -2093,3 +2093,12 @@ select, input, textarea, textarea.form-control:focus
     font-family: SegoeUI;
     font-weight: normal;
 }
+
+
+.sign-up-data-align-sigin-heading
+{
+  margin-top:30px;
+  margin-bottom:0px;
+  color:#fff;
+  font-size: 24px;
+}
