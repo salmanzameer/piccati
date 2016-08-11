@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       root :to => 'devise/sessions#new', as: :unauthenticated_root
     end
   end 
+  get 'download_app', to: "clients#download_app"
   get "scheduled_events/:date", to: "events#scheduled_events"
   get 'expiries', to: "home#expires", as: :expires
   get 'update_paln', to: "home#plan_update", as: :plan_update

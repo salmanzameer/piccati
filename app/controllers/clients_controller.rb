@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-  before_filter :authenticate_photographer!
+  before_filter :authenticate_photographer!, except: [:download_app]
 
   def index
     @clients = current_photographer.clients
@@ -110,6 +110,9 @@ class ClientsController < ApplicationController
   def event 
     @event = Event.find_by_id(params[:id])
     return render partial: "event", locals: { event: @event }
+  end
+
+  def download_app
   end
 
   def editparams

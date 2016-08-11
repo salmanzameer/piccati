@@ -27,6 +27,11 @@
             </ul>
           </li>
           <% end %>
+          <% if current_client %>
+            <ul class="" style="margin-left: 15px;width: 100px;">
+              <li class="name-prof1"><%= link_to('Logout', destroy_client_session_path, :method => :delete ,class: "logout-btn-prof") %></li>
+            </ul>
+          <% end %>
         </ul>
     </div>
   </div>
