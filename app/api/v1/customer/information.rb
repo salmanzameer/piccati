@@ -165,6 +165,7 @@ module Customer
          
     end
 
+    #[ NOT IN USE ]
     get "/liked_images", rabl: "v1/customer/liked_images" do
 
       @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
