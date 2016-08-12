@@ -71,8 +71,10 @@ class EventsController < ApplicationController
 
   def upload_images
     param = { "image" => params[:file] }
-    @image = current_photographer.clients.find_by_id(params[:client_id]).events.find_by_id(params[:id]).images.new(param)
+    client = current_photographer.clients.find_by_id(params[:client_id])
+    @image = client.events.find_by_id(params[:id]).images.new(param)
     @image.save
+    client.update(enabled: true)
   end
 
   def upload_image

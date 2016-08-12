@@ -27,6 +27,13 @@ class PhotographersController < ApplicationController
     end
   end
 
+  def connect_client
+    @client = Client.find_by_id params[:client_id]
+    current_photographer.photographer_clients.where(client_id: @client.id).first.update(is_connected: true)
+    render text: @client.firstname + " now connected with you."
+    #settings_photographer_path(current_photographer)
+  end
+
   def update_password
     @photographer = Photographer.find(current_photographer)  
     if @photographer.update_with_password(photographer_params)          
@@ -43,6 +50,8 @@ class PhotographersController < ApplicationController
   end
 
   def settings
+    clients_ids = current_photographer.photographer_clients.where(is_connected: false).pluck(:id)
+    @clients = Client.where("id in (?)", clients_ids)
   end
 
   def add_achievements
