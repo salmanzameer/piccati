@@ -42,6 +42,9 @@ class PhotographersController < ApplicationController
     end
   end
 
+  def settings
+  end
+
   def add_achievements
     @achievements = current_photographer.achievements.create(photographer_params)
     redirect_to photographer_path(current_photographer)

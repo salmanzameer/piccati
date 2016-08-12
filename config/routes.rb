@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     end
     member do
       post 'update_password'
+      get "settings"
       get 'new_achievement', as: :new_achievement
       post 'add_achievements', as: :add_achievements
     end

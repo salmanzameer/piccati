@@ -21,8 +21,8 @@ class Photographer < ActiveRecord::Base
   validates :contnumber, presence: true, format: { with: /\A^[\d \+ \( \) \-]*$\z/,  message: 'digits 0-9 and special characters +,-,() only'}
   validates :email, presence: true
   #validates_format_of :email,:with => Devise::email_regexp
-  validates :password, presence: true
-  validates :password_confirmation, presence: true
+  validates :password, presence: true,on: :create
+  validates :password_confirmation, presence: true, on: :create
 
   has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
   :default_url => "user-avatar.png",
