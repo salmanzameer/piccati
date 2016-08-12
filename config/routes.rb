@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
   end 
   get 'download_app', to: "clients#download_app"
+  post 'photographers/connect_client', to: "photographers#connect_client"
   get "scheduled_events/:date", to: "events#scheduled_events"
   get 'expiries', to: "home#expires", as: :expires
   get 'update_paln', to: "home#plan_update", as: :plan_update
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
       post 'public_image'
     end
     member do
-      post 'update_password'
+      patch 'update_password'
       get "settings"
       get 'new_achievement', as: :new_achievement
       post 'add_achievements', as: :add_achievements

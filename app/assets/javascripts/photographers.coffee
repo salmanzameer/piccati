@@ -7,6 +7,14 @@ $ ->
   $(document).on 'focus', '#signup-form, #add-event-form, #add-album-model, .edit-package-model, #update-event-model, #add-calender-event-model, #edit-photographer, #add-photographer-album', (e) ->
     $('form').enableClientSideValidations()
 
+  $(document).on 'click', '#connect-client-id', (e) ->
+    $.ajax
+      type: "POST"
+      data: { client_id: $('#select2-client-id').val() }
+      url:  "/photographers/connect_client"
+      success: (data) ->
+        $("#connect-message").html(data)
+
   $(document).on 'click', '.current-month', (e) ->
     e.preventDefault()
     $.ajax
