@@ -43,14 +43,14 @@
 				<%= image_tag ("close1.png"), class: "close cal-close", data: { id: "abc" }%>
 	<!-- Contact Us Form -->
 				<%= form_for Event.new, url: photographer_client_events_path(current_photographer.id, client.id), validate: true, html: { class: "form-action form-calandar-popup", id: "add-event-form" } do |f| %>
-					<center><h2 class="form-calandar-popup-heading-top">Add a Event</h2></center>
+					<center><h2 class="form-calandar-popup-heading-top">Add an Event</h2></center>
 					<fieldset class="form-calandar-popup-fieldset">
-						<%= f.select(:category_id , options_from_collection_for_select(Category.all, "id", "name"), { prompt: "Event Type" }, class: "first-field client_fields event-category client_fields_calandar", :id => "event-category-test" , style: "height: 50px;margin-top: 1px;border-radius: 0px;width: 80%;")   %>
+						<%= f.select(:category_id , options_from_collection_for_select(Category.all, "id", "name"), { prompt: "Event Type" }, class: "first-field client_fields event-category client_fields_calandar", :id => "event-category-test" , style: "height: 50px; margin-top: 1px; border-radius: 0px; width: 80%; background-color: #fff !important, border: 1px solid #ccc !important;")   %>
 					  <%= f.text_field :name, autofocus: true, :placeholder =>"Event Name", :class => "first-field client_fields client_fields_calandar" %>
 					  <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields client_fields_calandar" %>
 					  <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "bride_name first-field client_fields client_fields_calandar", style: "display: none;" %>
 					  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "groom_name first-field client_fields  client_fields_calandar", style: "display: none;" %>
-					  <div class='input-group date' id='datetimepicker1'>
+					  <div class='input-group date datetimepicker' id='datetimepicker'>
 					  	<span class="input-group-addon">
 			              <i class="fa fa-calendar calender-icon" aria-hidden="true"></i>
 			            </span>
@@ -58,7 +58,7 @@
             		  </div>
             <script type="text/javascript">
 		            $(function () {
-		                $('#datetimepicker1').datetimepicker();
+		                $('.datetimepicker').datetimepicker();
 		            });
 		        </script>
 					 </fieldset>

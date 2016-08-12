@@ -319,7 +319,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_follower
   aws-sdk (< 2.0)
-  bootstrap3-datetimepicker-rails (~> 4.14.30)
+  bootstrap3-datetimepicker-rails
   byebug
   client_side_validations
   coffee-rails (~> 4.1.0)
@@ -333,7 +333,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   light_gallery_rails
-  momentjs-rails (>= 2.9.0)
+  momentjs-rails
   omniauth-facebook
   paperclip (~> 4.2)
   paperclip-watermark

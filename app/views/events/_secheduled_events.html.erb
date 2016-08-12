@@ -23,8 +23,8 @@
       <tr>
         <td><div class="col-md-10 heading-description-calendar"> <%= link_to event.name.titleize, all_images_photographer_client_event_path(current_photographer, event.client, event) %></div>
         <div class="col-md-2 btn-calandar-description-alignment">
-        <button type="button" class="btn-edit-calendar" ><i class="fa  fa-edit btn-edit btn-style"></i></button>
-        <button type="button" class="btn-edit-calendar"><i class="fa  fa-times btn-del btn-style" ></i></button>
+        <button type="button" class="btn-edit-calendar"><i class="fa  fa-edit btn-edit btn-style"></i></button>
+        <button type="button" class="btn-edit-calendar" id="popup" data-id="delete_event_popup"><i class="fa  fa-times btn-del btn-style" ></i></button>
         </div>
         <div class="col-md-12 detail-description-calendar" style="">
           <% if event.groom.present? %>
