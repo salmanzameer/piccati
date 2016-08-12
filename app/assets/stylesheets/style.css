@@ -1742,14 +1742,6 @@ $file-upload-size: 200px;
   opacity: 1 !important;
 }
 
-.drop-down-btn-cal-beauty:hover
-{
-  background-color: white !important;
-  color: #003366 !important;
-  opacity: 1 !important;
-}
-
-
 .dropdown-cal-ul
 {
   width: 184px;
@@ -2200,12 +2192,13 @@ select, input, textarea, textarea.form-control:focus
 
 .btn-dropdown-design
 {
-  width: 30%;
+   width: 30%;
   height: 35px !important;
   line-height: 16px !important;
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+
 }
 
 
@@ -2225,7 +2218,6 @@ select, input, textarea, textarea.form-control:focus
 {
   margin-top: 1px !important;
 }
-
 
 .select2-input
 {
