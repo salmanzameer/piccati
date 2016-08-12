@@ -26,7 +26,7 @@
 					  <%= f.text_field :name, autofocus: true, :placeholder =>"Name", :class => "first-field client_fields client_fields_calandar" %>
 					  <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields client_fields_calandar" %>
 					  <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "bride_name first-field client_fields client_fields_calandar", style: "display: none;" %>
-					  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "groom_name first-field client_fields client_fields_calandar", style: "display: none;"%>
+					  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "groom_name first-field client_fields client_fields_calandar", style: "display: none;" %>
 					  <%= f.select(:client_id , options_from_collection_for_select(current_photographer.clients, "id", "firstname"), { prompt: "Select client"  }, class: "form-title form-control", :id => "form-title" , style: "height: 50px;margin-top: 1px;border-radius: 0px;width: 80%; float: left;")   %>
 					  <div class='input-group date' id='datetimepicker1'>
 					  	<span class="input-group-addon">
