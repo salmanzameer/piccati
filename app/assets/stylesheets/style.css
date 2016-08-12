@@ -2227,3 +2227,16 @@ select, input, textarea, textarea.form-control:focus
 {
   margin-left: 15px !important;
 }
+
+
+.background-security-password
+{
+    height: 280px;
+    padding-top: 15px !important;
+    padding-bottom: 30px;
+}
+
+.mT1
+{
+  margin-top: 1px !important;
+}
