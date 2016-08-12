@@ -14,7 +14,6 @@ class ClientsController < ApplicationController
     if current_photographer.present?
       @client = current_photographer.clients.find(params[:id])
       @events = @client.events
-     
     else
        client_match_token
       if
@@ -42,13 +41,15 @@ class ClientsController < ApplicationController
 
   def connect_client
     client = Client.find_by_email(params[:email])
-    if client.present?
-      client.photographer_clients.create(photographer_id: current_photographer.id)
-      InvitationMailer.client_acknowledge(current_photographer, params[:email]).deliver
-    else
+    unless client.present?
       current_photographer.invite_clients.where(email: params[:email]).first_or_create
+      client = Client.create(email: params[:email], firstname: params[:firstname], lastname: params[:lastname], password: params[:password])
       InvitationMailer.client_invitation(current_photographer, params[:email]).deliver
+    else
+      InvitationMailer.client_acknowledge(current_photographer, params[:email]).deliver
     end
+
+    client.photographer_clients.where(photographer_id: current_photographer.id).first_or_create
     flash[:notice] = "Invitation has been sent to client"
     redirect_to photographer_clients_path(current_photographer)
   end
@@ -112,6 +113,11 @@ class ClientsController < ApplicationController
     return render partial: "event", locals: { event: @event }
   end
 
+  def search_client_fields
+    client = Client.find_by_email(params[:email])
+    return render partial: "client_autofilled_fields", locals: { client: client }
+  end
+
   def download_app
   end
 
@@ -122,5 +128,4 @@ class ClientsController < ApplicationController
   def clientsparams
     params.require(:client).permit(:firstname,:lastname,:username,:email,:password)  
   end
-
 end

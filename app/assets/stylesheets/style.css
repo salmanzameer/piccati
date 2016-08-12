@@ -1117,18 +1117,7 @@ input::-webkit-input-placeholder {
   overflow: hidden;
   outline:none;
   width: 45%;
-  height: 18px;
-}
-
-.btn-cancel-calendar
-{
-  background-color: Transparent;
-  background-repeat: no-repeat;
-  border: none;cursor: pointer;
-  overflow: hidden;
-  outline:none;
-  width: 45%;
-  height: 18px;
+  height: 25px;
 }
 
 .btn-style
@@ -2226,4 +2215,16 @@ select, input, textarea, textarea.form-control:focus
 .caret-cal
 {
   margin-left: 15px !important;
+}
+
+.background-security-password
+{
+    height: 280px;
+    padding-top: 15px !important;
+    padding-bottom: 30px;
+}
+
+.mT1
+{
+  margin-top: 1px !important;
 }
