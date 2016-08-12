@@ -2172,4 +2172,35 @@ select, input, textarea, textarea.form-control:focus
     border-collapse: separate;
 }
 
+.design-cal-field
+{
+  border-radius: 0px;
+  border: 1px solid rgb(204, 204, 204);
+  margin-top: 1px;
+  width: 78.5% !important;
+}
 
+.client_fields_calandar1
+{
+  display: inline;
+  width: 60% !important;
+}
+
+.client_fields_calandar2
+{
+  float: left;
+  width: 60% !important;
+}
+
+
+.form-calandar-popup-fieldset1 
+{
+  text-align: left;
+}
+
+.form-sign-up-new1
+{
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 650px;
+}

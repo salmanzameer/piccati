@@ -28,20 +28,20 @@
   <div id="abc2" style="z-index: 9999">
     <!-- Popup Div Starts Here -->
       <div id="popupContact">
+        <%= image_tag ("close1.png"), class: "close cal-close", data: { id: "abc2" } %>
         <!-- Contact Us Form -->
-        <%= form_for current_photographer.albums.new ,url: photographer_albums_path(current_photographer), method: :post, validate: true, html: { id: "add-photographer-album", class: "form-action" } do |f| %>
-          <%= image_tag ("close1.png"), class: "close", data: { id: "abc2" } %>
-          <center><h2>Add an album</h2></center>
-          <fieldset>
+        <%= form_for current_photographer.albums.new ,url: photographer_albums_path(current_photographer), method: :post, validate: true, html: { id: "add-photographer-album", class: "form-action form-calandar-popup" } do |f| %>
+          <center><h2 class="form-calandar-popup-heading-top">Add an album</h2></center>
+          <fieldset class="form-calandar-popup-fieldset">
               <div class="row">
                 <div class="email-add-client-field-view">
-                  <%= f.text_field :name, autocomplete: :off, autofocus: true, placeholder: "Album name", class: "first-field client_fields search_client_email ", style: "border: 1px solid !important;" %>
+                  <%= f.text_field :name, autocomplete: :off, autofocus: true, placeholder: "Album name", class: "first-field client_fields search_client_email client_fields_calandar", style: "border: 1px solid #cccccc !important;" %>
                 </div>
                 <div class="email-add-client-field-view">
-                  <%= f.text_area :description, autocomplete: :off, placeholder: "Album description", class: "first-field client_fields search_client_email ", style: "border: 1px solid !important; font-size: 24px; font-family: 'SegoeUI'; height: 150px;"%>
+                  <%= f.text_area :description, autocomplete: :off, placeholder: "Album description", class: "first-field client_fields search_client_email client_fields_calandar", style: "border: 1px solid #cccccc !important; font-size: 24px; font-family: 'SegoeUI'; height: 150px;"%>
                 </div>
                 <br>
-                  <center><%= f.submit 'Add Album' , id: "submit", class: "button4 bt-add-cli" %></center>
+                  <%= f.submit 'Add Album' , class: "button button4 bt-add-cli client_fields_calandar" %>
               </div>
           </fieldset>
         <% end %>
