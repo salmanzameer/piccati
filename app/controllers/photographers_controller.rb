@@ -4,7 +4,7 @@ class PhotographersController < ApplicationController
 
   def show
     @photographer = current_photographer 
-    @page_name = "Home"
+    @page_name = "Dashboard"
   end
 
   def edit

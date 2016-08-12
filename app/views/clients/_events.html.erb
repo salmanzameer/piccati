@@ -9,7 +9,7 @@
 				    	Event Type
 				    </th>
 				    <th style="background-color: #003366;color: #fff;">
-				    	No. of Photos 
+				   		Event Name 
 				    </th>
 				  </div>
 			  </tr>
@@ -25,10 +25,11 @@
 		        <% abc = "" %>
 		      <% end %>
 		      <tr class="events-list <%= cls %> <%= abc %>">
-				    <td class="events-list <%= cls %> <%= abc %> height-event-box"><%= link_to event.name, "#", class: "show-event", data: { id: event.id } %>
+				    <td class="events-list">
+				    	<%= event.category.name %>
 				    </td>
-				    <td>
-				    	<%= link_to 'Add Photos', upload_image_photographer_client_event_path(current_photographer, event.client.id, event), class: "btn btn-uploadimage1", style: "border: 1px solid #ccc;" %>
+				    <td class="events-list <%= cls %> <%= abc %> height-event-box" >
+				    	<%= link_to event.name, "#", class: "show-event", data: { id: event.id } %>
 				    </td>
 				  </tr>
 				 <% end %>

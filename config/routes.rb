@@ -51,6 +51,7 @@ Rails.application.routes.draw do
     end
     collection do
       post "connect_client"
+      get  "search_client_fields"
     end
     resources :events do
       get 'all_images'
