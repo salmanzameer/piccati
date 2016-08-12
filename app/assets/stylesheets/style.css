@@ -2202,10 +2202,7 @@ select, input, textarea, textarea.form-control:focus
 {
   width: 30%;
   height: 35px !important;
-  text-align: center;
-  justify-content: center;
-  flex-direction: column;
-  padding-left: 60px !important;
+  line-height: 16px !important;
   padding-right: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -2227,4 +2224,23 @@ select, input, textarea, textarea.form-control:focus
 .mT1
 {
   margin-top: 1px !important;
+}
+
+
+.select2-input
+{
+    height: 40px !important;
+    padding: 0px !important;
+}
+
+
+.mT25
+{
+  margin-top: 25px !important;
+}
+
+
+.select2-drop
+{
+  top: 302px !important;
 }

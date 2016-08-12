@@ -38,25 +38,18 @@
 
 
         <div class="tab-pane fade active in" id="security">
-          <div class="col-md-5 "> 
+          <div class="col-md-4 "> 
             <div class="col-md-12 editprofileheading">
-              <p class="edit-prfile-para">Change Password</p>
+              <p class="edit-prfile-para">Search Client to Connect With</p>
             </div>
             <div class="col-md-12 background-main-edit-profile background-security-password">
-              <fieldset>
-                <%= form_for :photographer, url: update_password_photographer_path, 
-                      html: { id: "current_photographer", class: 'dropdown-edit form-edit-profile-view '} do |f| %>
-                  <div style="margin-top:15px;margin-bottom:15px;">
-                    <%= f.password_field  :current_password, :placeholder => 'Current Password' ,class: "first-field name-field zero-border form-control", :id =>'form-current_password' %>
-                    <%= f.password_field :password, autocomplete: "off", :placeholder => 'New Password', class: "first-field name-field mT1 zero-border form-control", :id =>'form-password' %>
-                    <% if @minimum_password_length %>
-                      <em>(<%= @minimum_password_length %> characters minimum)</em> 
-                    <% end %>
-                    <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "mT1 first-field name-field zero-border form-control", :id =>'form-confirm-password' %>
-                  </div>
-                  <%= f.submit "Update and Save Profile", class: "button button4" %>
-                <% end %>
-              </fieldset>
+
+                <div style="margin-top:15px;margin-bottom:15px;">
+                  <%= select_tag "Clients", options_from_collection_for_select(Client.all, :id, :firstname), id: "simple-example", class: "first-field name-field zero-border form-control" ,style: "padding: 0px;"%> 
+                </div>
+                <div >
+                  <button class= "button button4 form-control mT25">Connect Client</button>
+                </div>
             </div>
           </div>
         </div>
@@ -107,3 +100,10 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  $(document).ready(function() {
+    $('select#simple-example').select2();
+  });
+</script>
