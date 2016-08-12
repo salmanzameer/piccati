@@ -1763,8 +1763,9 @@ $file-upload-size: 200px;
 
 .dropdown-cal-ul
 {
-  width: 160px;
+  width: 184px;
   margin-left: 15px;
+
   border-radius: 0px;
   border-top-width: 0px;
     border-bottom-width: 0px;
@@ -2172,4 +2173,57 @@ select, input, textarea, textarea.form-control:focus
     border-collapse: separate;
 }
 
+.design-cal-field
+{
+  border-radius: 0px;
+  border: 1px solid rgb(204, 204, 204);
+  margin-top: 1px;
+  width: 78.5% !important;
+}
 
+.client_fields_calandar1
+{
+  display: inline;
+  width: 60% !important;
+}
+
+.client_fields_calandar2
+{
+  float: left;
+  width: 60% !important;
+}
+
+
+.form-calandar-popup-fieldset1 
+{
+  text-align: left;
+}
+
+.form-sign-up-new1
+{
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 650px;
+}
+
+/*************************** Drop Down ************/
+
+
+.btn-dropdown-design
+{
+  width: 30%;
+  height: 35px !important;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 60px !important;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+
+.caret-cal
+{
+  margin-left: 15px !important;
+}
