@@ -1117,18 +1117,7 @@ input::-webkit-input-placeholder {
   overflow: hidden;
   outline:none;
   width: 45%;
-  height: 18px;
-}
-
-.btn-cancel-calendar
-{
-  background-color: Transparent;
-  background-repeat: no-repeat;
-  border: none;cursor: pointer;
-  overflow: hidden;
-  outline:none;
-  width: 45%;
-  height: 18px;
+  height: 25px;
 }
 
 .btn-style

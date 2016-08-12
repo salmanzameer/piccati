@@ -38,6 +38,10 @@ class Client < ActiveRecord::Base
     end
   end
 
+  def is_connected?(current_photographer)
+    photographer_clients.where(photographer_id: current_photographer.id).first.is_connected
+  end
+
 	def generate_authentication_token
 	  self.authentication_token = SecureRandom.hex
 	  self.password = Digest::SHA2.hexdigest(self.authentication_token + self.password) 

@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
   include PublicActivity::Common
-	belongs_to :client	 
+	
+  belongs_to :category
+  belongs_to :client	 
   belongs_to :photographer
 	has_many :images, as: :imageable	 
 	
@@ -15,5 +17,9 @@ class Event < ActiveRecord::Base
 	
   def selected
     self.images.where(is_liked: true)
+  end
+
+  def wedding?
+    category.name == "Wedding"
   end
 end

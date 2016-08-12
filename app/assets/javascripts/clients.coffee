@@ -124,6 +124,12 @@ $ ->
 		e.preventDefault()
 		$(".search_client_email").val($(this).text())	
 		$(".searched_email").hide()
+		$.ajax
+			type: "GET"
+			url:  "/clients/search_client_fields"
+			data: { email:  $(".search_client_email").val() }
+			success: (data) ->
+				$(".client-autofilled-fields").html(data)
 
 	$('.show-client-events').first().click()
 	$('.photographer-clients-list.abc').find("a").click()

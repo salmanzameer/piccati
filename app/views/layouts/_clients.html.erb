@@ -43,19 +43,7 @@
                 </div>
                 <div class="col-md-5 button-styling-clint-box-alignment">
                   <button class="client-id" type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;" id="popup" data-client="<%= client.id %>" data-id= "edit_client_popup" data=c = "<%= client.id %>" class="popup edit_client_package"><i class="fa  fa-edit btn-edit" style="font-size: 16px;color: #ddd;"></i></button>
-                  <button type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;"><i class="fa  fa-times btn-del" style="font-size: 16px;color: #ddd;"></i></button>
-                </div>
-              </td>
-            </tr>
-          <% end %>
-          <% @off_clients.each do |client| %>
-            <tr class="clients-list min-height-udate-event-tb">
-              <td class="table-row-width zero-border">
-                <div class="col-md-7 center-align-tag">
-                  <%= truncate(client.email, ommision: "..", length: 15) %>
-                </div>
-                <div class="col-md-5">
-                  <%= link_to 'Invite',"#", class: "btn btn-uploadimage1", style: "border: 1px solid #ccc;" %>
+                  <!-- <button type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;"><i class="fa  fa-times btn-del" style="font-size: 16px;color: #ddd;"></i></button> -->
                 </div>
               </td>
             </tr>
@@ -76,14 +64,16 @@
               <div class="row">
                 <div class="col-md-9 left-padding-thirty">
                   <%= text_field_tag "email", "", autocomplete: :off, autofocus: true, placeholder: "Email", class: "first-field client_fields search_client_email ", style: "border: 1px solid #cccccc !important;" %>
+                  <p class="error-p-tag">Email Field can'nt be blank</p>
                 </div>
-                <div class="col-md-3 zero-padding right-padding-thirty">
-                  <center><button type="submit"  class="button button4 bt-add-cli btn-client-magin-zero connect-with-client"><i class="fa fa-plus-circle btn-margin-right-ten"></i>Add Client </button></center>
+                <div class="searched_email row"></div>
+                <div class="client-autofilled-fields">
+                  <%= render partial: "clients/client_autofilled_fields", locals: { client: nil } %>
+                </div>
+                <div class="col-md-9 left-padding-thirty">
+                  <center><button type="submit"  class="button button4 bt-add-cli btn-client-magin-zero connect-with-client"><i class="fa fa-plus-circle btn-margin-right-ten"></i>Create Client </button></center>
                 </div>
               </div>
-              <div class="searched_email row">
-              </div>
-              <p class="error-p-tag">Email Field can'nt be blank</p>
           </fieldset>
         <% end %>
       </div>
