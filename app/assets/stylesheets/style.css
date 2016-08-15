@@ -2017,10 +2017,10 @@ select, input, textarea, textarea.form-control:focus
   display: inline-block !important;
 }
 
-.email-error-p-tag, .firstname-error-p-tag, .lastname-error-p-tag, .password-error-p-tag, .confirm-error-p-tag{
+.email-error-p-tag, .current-error-p-tag, .firstname-error-p-tag, .lastname-error-p-tag, .password-error-p-tag, .confirm-error-p-tag{
   color: red;
-  display: none;
   float: left;
+  display:none;
   font-family: SegoeUI;
   font-size: 14px;
   margin-top: 0;
@@ -2028,7 +2028,6 @@ select, input, textarea, textarea.form-control:focus
   font-weight: normal;
   margin-left: 9px;
   margin-top: 9px;
-
 }
 
 .input-group-addon
@@ -2303,4 +2302,15 @@ select, input, textarea, textarea.form-control:focus
 .full-width-show
 {
   width: 100%;
+}
+
+.error-message-update-password
+{
+    width: 77%;
+    float: left;
+}
+
+.pl
+{
+  padding-left: 90px;
 }

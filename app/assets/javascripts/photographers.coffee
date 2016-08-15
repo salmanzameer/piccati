@@ -11,10 +11,19 @@ $ ->
     e.preventDefault()
     if $('.cur-pass').val() == ""
       $(".cur-pass").focus()
+      $(".password-error-p-tag").hide()
+      $(".current-error-p-tag").hide()
+      $(".current-error-p-tag").show()
     else if $('.pass').val() == ""
       $(".pass").focus()
+      $(".password-error-p-tag").show()
+      $(".current-error-p-tag").hide()
+      $(".confirm-error-p-tag").hide()
     else if $('.pass-conf').val() == ""
       $('.pass-conf').focus()
+      $(".password-error-p-tag").hide()
+      $(".current-error-p-tag").hide()
+      $(".confirm-error-p-tag").show()
     else
       $(".password-update").submit()
 
