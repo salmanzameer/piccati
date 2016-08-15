@@ -2017,14 +2017,18 @@ select, input, textarea, textarea.form-control:focus
   display: inline-block !important;
 }
 
-.error-p-tag{
+.email-error-p-tag, .firstname-error-p-tag, .lastname-error-p-tag, .password-error-p-tag, .confirm-error-p-tag{
   color: red;
   display: none;
   float: left;
-    font-family: SegoeUI;
-    font-size: 14px;
-    margin-top: 0;
-    padding-left: 0;
+  font-family: SegoeUI;
+  font-size: 14px;
+  margin-top: 0;
+  padding-left: 0;
+  font-weight: normal;
+  margin-left: 9px;
+  margin-top: 9px;
+
 }
 
 .input-group-addon
@@ -2275,14 +2279,28 @@ select, input, textarea, textarea.form-control:focus
   margin-bottom: 70px;
 }
 
-.error-p-tag {
-    font-family: SegoeUI;
-    font-weight: normal;
-    margin-left: 9px;
-    margin-top: 9px;
-}
-
 .right-padding-twenty-four
 {
   padding-right: 24px;
+}
+
+.search-field-design-client
+{
+  padding-right: 35px !important;
+  padding-left: 45px ! important;
+}
+
+.events-list
+{
+  min-height: 55px;
+}
+
+.fl
+{
+  float: left;
+}
+
+.full-width-show
+{
+  width: 100%;
 }

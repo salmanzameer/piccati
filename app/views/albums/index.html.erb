@@ -1,28 +1,38 @@
-<div style="margin-top:80px;"></div>
 <div class="container">
   <button class="button button4 popup album-btn" id="popup" data-id= "abc2" ><i class="fa fa-plus-circle"></i> Add Album</button>
-	<% @albums.each do |album| %>
-  <div class="col-md-12">
-  <div class="col-md-12 text-alignment-heading-album">
-    <span class="album-text-align"><%= album.name.titleize %></span>
-    <span class="text-para">by <%= album.photographer.firstname.titleize+" "+album.photographer.lastname.titleize %><span class="pull-right"><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: album.id), class: "add-album-tag" %> <!-- | !--> <%#= link_to 'Edit', edit_photographer_album_path(id: album.id), class: "add-album-tag" %></span></span>
-	</div>
-	<div class="col-md-12 album-text-align text-para"> 
-		<hr class="hr-album">
-	</div>
-	</div>
-  <div class="row">
-    <div class="col-md-12" style="margin-bottom:50px;">
-      <ul style="list-style:none;" class="ul-li">
-        <% album.images.each do |img| %>
-          <li style="display: inline;margin-bottom:30px;" data-src="<%= img.image.url%>" class="col-md-2">
-            <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-  <%end%>
+	<% if @albums.present? %>
+    <% @albums.each do |album| %>
+      <div class="col-md-12">
+        <div class="col-md-12 text-alignment-heading-album">
+          <span class="album-text-align"><%= album.name.titleize %></span>
+          <span class="text-para">by <%= album.photographer.firstname.titleize+" "+album.photographer.lastname.titleize %><span class="pull-right"><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: album.id), class: "add-album-tag" %> <!-- | !--> <%#= link_to 'Edit', edit_photographer_album_path(id: album.id), class: "add-album-tag" %></span></span>
+      	</div>
+      	<div class="col-md-12 album-text-align text-para"> 
+      		<hr class="hr-album">
+      	</div>
+    	</div>
+      <div class="row">
+        <div class="col-md-12" style="margin-bottom:50px;">
+          <ul style="list-style:none;" class="ul-li">
+            <% album.images.each do |img| %>
+              <li style="display: inline;margin-bottom:30px;" data-src="<%= img.image.url%>" class="col-md-2">
+                <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="col-md-12">
+        <div class="col-md-12 text-alignment-heading-album">
+          <span class="album-text-align">No Album Uploaded</span>
+        </div>
+        <div class="col-md-12 album-text-align text-para"> 
+          <hr class="hr-album">
+        </div>
+      </div>
+  <% end %>
 </div>
 
   <div id="abc2" style="z-index: 9999">
