@@ -1,5 +1,5 @@
 <%= image_tag("piccati-login-logo.png", style: "margin-top: 60px;") %>
-<p class="sign-up-data-align-sigin-heading">Sign in to Piccati</p></center>
+<p class="sign-up-data-align-sigin-heading">Log in to Piccati</p></center>
 <div class="top-content">
     <div class="container">
       <div class="row">
@@ -17,7 +17,7 @@
           </div>
           <div class="form-bottom" style="margin-left: 335px;">
 
-           <%= form_for(resource, as: resource_name, url: session_path(resource_name), validate: true, :class => 'login-form') do |f| %>
+           <%= form_for(resource, as: resource_name, url: session_path(resource_name), validate: true, :class => 'login-form login-sign-up-button-padd') do |f| %>
            <div class="form-group input-field-setting">
              <%= f.label :email, :class => 'sr-only', :for => 'form-username'%> 
              <%= f.email_field :email , :placeholder => 'Email' ,class: "form-username form-control", :id =>'form-username' %>
@@ -31,11 +31,10 @@
              <div class="txt">
                <%= resource.errors[:password].first  %>
              </div>
-
            </div>
-           <div class="col-md-2" style="padding-left: 0px;padding-right: 0px;">
-            <button type="submit" class="btn btn-submit submit-main-btn"><i class="fa   fa-arrow-circle-o-right sign-up-btn"></i></button>
-          </div>
+           <div class="form-group input-field-setting" style="padding-left: 0px;padding-right: 0px;">
+              <button type="submit" class="button button4">Log In</button>
+           </div>
           <% end %>
         </div>
       </div>
@@ -43,7 +42,7 @@
       </div>
     </div>
     <div class="container">
-      <div class="col-md-8 zero-padding"><%= link_to "Sign up now.", new_photographer_registration_path, class: "btn-sign-in-index-pg" %></div>
+      <div class="col-md-9 zero-padding sign-up-now-btn-set"><%= link_to "Sign up now.", new_photographer_registration_path, class: "btn-sign-in-index-pg" %></div>
     </div>
   </div>
 </div>
