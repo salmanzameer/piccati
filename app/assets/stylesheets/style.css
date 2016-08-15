@@ -2314,3 +2314,8 @@ select, input, textarea, textarea.form-control:focus
 {
   padding-left: 90px;
 }
+
+.form-edit-password-setting
+{
+  padding-top: 110px;
+}
