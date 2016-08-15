@@ -15,25 +15,25 @@
 
             </div>
           </div>
-          <div class="form-bottom" style="margin-left: 335px;">
+          <div class="form-bottom" style="margin-left: 400px;">
 
-           <%= form_for(resource, as: resource_name, url: session_path(resource_name), validate: true, :class => 'login-form login-sign-up-button-padd') do |f| %>
+           <%= form_for resource, as: resource_name, url: session_path(resource_name), validate: true , html: { class: 'login-form login-sign-up-button-padd form-sign-up-new1' } do |f| %>
            <div class="form-group input-field-setting">
              <%= f.label :email, :class => 'sr-only', :for => 'form-username'%> 
-             <%= f.email_field :email , :placeholder => 'Email' ,class: "form-username form-control", :id =>'form-username' %>
+             <%= f.email_field :email , :placeholder => 'Email' ,class: "form-username form-control client_fields_calandar1", :id =>'form-username' %>
              <div class="txt">
                <%= resource.errors[:email].first%>
              </div>
            </div>
-           <div class="form-group input-field-setting col-md-10" style="padding-left: 0px;padding-right: 0px;">
+           <div class="form-group input-field-setting" style="padding-left: 0px;padding-right: 0px;">
              <%= f.label :password , :class => 'sr-only', :for =>'form-password' %>
-             <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control form-field-password", :id =>'form-password' %>
+             <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control form-field-password client_fields_calandar1", :id =>'form-password' %>
              <div class="txt">
                <%= resource.errors[:password].first  %>
              </div>
            </div>
            <div class="form-group input-field-setting" style="padding-left: 0px;padding-right: 0px;">
-              <button type="submit" class="button button4">Log In</button>
+              <button type="submit" class="button button4 client_fields_calandar1">Log In</button>
            </div>
           <% end %>
         </div>

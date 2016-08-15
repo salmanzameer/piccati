@@ -2286,3 +2286,14 @@ select, input, textarea, textarea.form-control:focus
 {
   padding-right: 24px;
 }
+
+.search-field-design-client
+{
+  padding-right: 35px !important;
+  padding-left: 45px ! important;
+}
+
+.events-list
+{
+  min-height: 55px;
+}
