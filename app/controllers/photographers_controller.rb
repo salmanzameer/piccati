@@ -28,7 +28,6 @@ class PhotographersController < ApplicationController
   end
 
   def connect_client
-    binding.pry
     @client = Client.find_by_id params[:client_id]
     current_photographer.photographer_clients.where(client_id: @client.id).first.update_attribute('is_connected', true)
     render text: @client.firstname + " now connected with you."
