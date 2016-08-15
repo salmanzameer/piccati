@@ -54,3 +54,14 @@ $ ->
       $(".bride_name, .groom_name").show()
     else
       $(".bride_name, .groom_name").hide()
+
+  $(".settings").click (e) ->
+    e.preventDefault()
+    $(".settings").closest("tr").removeClass("Profile-heading")
+    $(this).closest("tr").addClass("Profile-heading")
+    $.ajax
+      type: "GET"
+      data: { partial_name: $(this).data("id") }
+      url:  "/setting_partial"
+      success: (data) ->
+        $(".show_settings").html(data)

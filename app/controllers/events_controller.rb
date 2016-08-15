@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_filter :authenticate_photographer!
+   before_filter :trial_expired?
   # before_filter :xyz, only: [:upload_image]
   # helper_method :xyz
 
@@ -33,6 +34,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @page_name = "Client Management"
     @clients = current_photographer.clients
     @current_client = @clients.first
     @off_clients = current_photographer.invite_clients

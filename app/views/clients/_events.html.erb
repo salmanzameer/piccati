@@ -15,10 +15,10 @@
 			  </tr>
 			</thead>
 		  <tbody class="events-table-height">
-		  	<% if @events.blank? %>
+		  	<% if events.blank? %>
 		  		<tr><td><%= 'No Events' %></td></tr>
 		  	<% end %>
-			  <% @events.each do |event| %>
+			  <% events.each do |event| %>
 			  	<% cls = @path.present? && @path["id"] == event.id.to_s ? 'tr-selected' : "" %>
 			  	<% abc = cls == "tr-selected" ? "abc" : ""%>
 			  	 <% if @path.present? && @path[:action] == "index" %>

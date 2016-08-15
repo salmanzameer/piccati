@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       root :to => 'devise/sessions#new', as: :unauthenticated_root
     end
   end 
+
+  get '/setting_partial', to: "photographers#setting_partial"
   get 'download_app', to: "clients#download_app"
   post 'photographers/connect_client', to: "photographers#connect_client"
   get "scheduled_events/:date", to: "events#scheduled_events"

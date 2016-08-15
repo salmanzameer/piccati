@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
   before_filter :authenticate_photographer!, except: [:download_app]
+  before_filter :trial_expired?
 
   def index
     @clients = current_photographer.clients
@@ -70,7 +71,6 @@ class ClientsController < ApplicationController
   end
 
   def client_events
-    @path = session[:save_client]
     @client = Client.find(params[:id])
     @package = current_photographer.photographer_clients.where(client_id: @client.id, active: true).first_or_initialize
     @events = @client.events.where(photographer_id: current_photographer.id)

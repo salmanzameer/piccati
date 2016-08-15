@@ -4,7 +4,7 @@ class PhotographersController < ApplicationController
 
   def show
     @photographer = current_photographer 
-    @page_name = "Dashboard"
+    @page_name = "Studio Management"
   end
 
   def edit
@@ -20,7 +20,7 @@ class PhotographersController < ApplicationController
     end_of_day = Date.today.to_datetime.end_of_day
     @calendar_event = current_photographer.events
     @events = current_photographer.events.where("start_time >= ? and start_time <= ?", start_of_day, end_of_day)
-    @page_name = "Calender"
+    @page_name = "My Calender"
     respond_to do |format|
       format.js
       format.html
@@ -50,8 +50,13 @@ class PhotographersController < ApplicationController
   end
 
   def settings
+    @page_name = "All Settings"     
+  end
+
+  def setting_partial
     clients_ids = current_photographer.photographer_clients.where(is_connected: false).pluck(:id)
     @clients = Client.where("id in (?)", clients_ids)
+    return render partial: "#{params["partial_name"]}", locals: { clients: @clients }
   end
 
   def add_achievements

@@ -1,0 +1,37 @@
+<div class="tab-pane fade active in" id="profile">
+  <div class="col-md-9"> 
+    <div class="col-md-12 editprofileheading">
+      <p class="edit-prfile-para"> Update or Edit your Profile</p>
+    </div>
+    <div class="col-md-12 background-main-edit-profile">
+      <fieldset>
+        <%= form_for(current_photographer, as: :photographer, url: registration_path(:photographer),validate: true, html: { multipart: true, class: "dropdown-edit form-edit-profile-view", id: "edit-photographer" }) do |f| %>
+        <div class="col-md-6" style="margin-top:15px;margin-bottom:15px;">
+          <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], current_photographer.title ), {prompt: true  } , class: "form-control zero-border form-setting-forall", style:"height: 50px;")   %>
+          <%= f.text_field :firstname, autofocus: true, :placeholder => 'First Name', class: "first-field name-field zero-border", :id =>'form-firstname' %>      
+          <%= f.text_field :lastname, autofocus: true, :placeholder => 'First Name', class: "first-field name-field zero-border", :id =>'form-firstname' %>
+          <div class="custom-file-upload">
+            <input id="uploadFile" disabled="disabled" class= "first-field name-field zero-border"  style="background: none;width: 46%;"/>
+            <div class="fileUpload btn btn-primary">
+              <span>Change profile image</span>
+              <%= f.file_field :avatar, class: "first-field zero-border upload-file-btn width-chosen-field", id: "uploadBtn",  class: "upload"%>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6" style="margin-top:15px;margin-bottom:15px;">
+          <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact Number' ,class: "first-field name-field border-zero-form", :id =>'form-contact' %>
+          <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "first-field name-field email-edit-field", :id =>'form-username' %>
+          <div class="custom-file-upload">
+            <input id="watermark-url" disabled="disabled" class= "first-field name-field zero-border" style="background: none;width: 46%;"/>
+            <div class="fileUpload btn btn-primary">
+              <span>Change watermark</span>
+              <%= f.file_field :watermark_logo, class: "first-field zero-border upload-file-btn width-chosen-field", id: "upload-watermark",  class: "upload"%>
+            </div>
+          </div>
+        </div>
+        <%= f.submit "Update and Save Profile", class: "button button4" %>
+        <% end %>
+      </fieldset>
+    </div>      
+  </div>
+</div>

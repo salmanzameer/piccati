@@ -1,10 +1,11 @@
 class AlbumsController < ApplicationController
   before_filter :authenticate_photographer!
+   before_filter :trial_expired?
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
   def index
     @albums = current_photographer.albums
-    @page_name = "Public Albums"
+    @page_name = "My Albums"
   end
 
   def show
@@ -39,6 +40,7 @@ class AlbumsController < ApplicationController
   end
 
   def public_image
+    @page_name = "My Albums"
     @album = Album.find(params[:album_id])
     @album.images.create(image: params[:file])     
   end

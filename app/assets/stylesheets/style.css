@@ -1200,6 +1200,10 @@ input::-webkit-input-placeholder {
     color: white !important; 
 }
 
+.Profile-heading th div a{
+  color:white !important;
+}
+
 .profile-password-security
 {
       padding: 13px;
