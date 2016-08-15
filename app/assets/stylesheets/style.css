@@ -2319,3 +2319,25 @@ select, input, textarea, textarea.form-control:focus
 {
   padding-top: 110px;
 }
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+li.plupload_delete a
+{
+  background: url('http://protonlabscom.ipage.com/phptest/images/close2.png');
+}
+
+
+.plupload_file_name > span
+{
+  color: #003366;
+}
+
+
+.plupload_filelist>li:hover
+{
+  background-color: transparent;
+  color: #003366;
+}
