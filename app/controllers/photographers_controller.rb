@@ -54,7 +54,6 @@ class PhotographersController < ApplicationController
   end
 
   def setting_partial
-    binding.pry
     clients_ids = current_photographer.photographer_clients.where(is_connected: false).pluck(:client_id)
     @clients = Client.where("id in (?)", clients_ids)
     return render partial: "#{params["partial_name"]}", locals: { clients: @clients }
