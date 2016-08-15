@@ -2299,3 +2299,8 @@ select, input, textarea, textarea.form-control:focus
 {
   float: left;
 }
+
+.full-width-show
+{
+  width: 100%;
+}
