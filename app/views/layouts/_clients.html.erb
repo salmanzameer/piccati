@@ -63,7 +63,7 @@
               <%#= f.text_field :username, autofocus: true, :placeholder =>"User Name", :class => "first-field client_fields" %>
               <div>
                 <div class="col-md-12 left-padding-thirty">
-                  <%= text_field_tag "email", "", autocomplete: :off, autofocus: true, placeholder: "Email", class: "first-field client_fields search_client_email client_fields_calandar fl", style: "border: 1px solid #cccccc !important;" %>
+                  <%= text_field_tag "email", "", validate: { presence: true }, autocomplete: :off, autofocus: true, placeholder: "Email", class: "first-field client_fields search_client_email client_fields_calandar fl", style: "border: 1px solid #cccccc !important;" %>
                   <p class="email-error-p-tag">can't be blank</p>
                 </div>
                 <div class="searched_email row"></div>
