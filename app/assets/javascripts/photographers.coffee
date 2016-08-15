@@ -6,6 +6,17 @@ $ ->
   
   $(document).on 'focus', '#signup-form, #add-event-form, #add-album-model, .edit-package-model, #update-event-model, #add-calender-event-model, #edit-photographer, #add-photographer-album', (e) ->
     $('form').enableClientSideValidations()
+ 
+  $(document).on 'click', '.password-edit', (e) ->
+    e.preventDefault()
+    if $('.cur-pass').val() == ""
+      $(".cur-pass").focus()
+    else if $('.pass').val() == ""
+      $(".pass").focus()
+    else if $('.pass-conf').val() == ""
+      $('.pass-conf').focus()
+    else
+      $(".password-update").submit()
 
   $(document).on 'click', '#connect-client-id', (e) ->
     $.ajax
