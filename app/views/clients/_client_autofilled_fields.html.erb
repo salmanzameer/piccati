@@ -1,14 +1,14 @@
-<div class="col-md-9 left-padding-thirty">
-  <%= text_field_tag "firstname", client.present? ? client.firstname : nil , autocomplete: :off, autofocus: true, placeholder: "First Name", class: "first-field client_fields", style: "border: 1px solid #cccccc !important;" %>
+<div class="col-md-12 left-padding-thirty">
+  <%= text_field_tag "firstname", client.present? ? client.firstname : nil , autocomplete: :off, autofocus: true, placeholder: "First Name", class: "first-field client_fields client_fields_calandar", style: "border: 1px solid #cccccc !important;" %>
 </div>
-<div class="col-md-9 left-padding-thirty">
-  <%= text_field_tag "lastname", client.present? ? client.lastname : nil, autocomplete: :off, autofocus: true, placeholder: "Last Name", class: "first-field client_fields", style: "border: 1px solid #cccccc !important;" %>
+<div class="col-md-12 left-padding-thirty">
+  <%= text_field_tag "lastname", client.present? ? client.lastname : nil, autocomplete: :off, autofocus: true, placeholder: "Last Name", class: "first-field client_fields client_fields_calandar", style: "border: 1px solid #cccccc !important;" %>
 </div>
 <% unless client.present? %>
-  <div class="col-md-9 left-padding-thirty">
-    <%= text_field_tag "password", "", autocomplete: :off, autofocus: true, placeholder: "Password", class: "first-field client_fields", style: "border: 1px solid #cccccc !important;" %>
+  <div class="col-md-12 left-padding-thirty">
+    <%= text_field_tag "password", "", autocomplete: :off, autofocus: true, placeholder: "Password", class: "first-field client_fields client_fields_calandar", style: "border: 1px solid #cccccc !important;" %>
   </div>
-  <div class="col-md-9 left-padding-thirty">
-    <%= text_field_tag "confirm_password", "", autocomplete: :off, autofocus: true, placeholder: "Confirm Password", class: "first-field client_fields", style: "border: 1px solid #cccccc !important;" %>
+  <div class="col-md-12 left-padding-thirty">
+    <%= text_field_tag "confirm_password", "", autocomplete: :off, autofocus: true, placeholder: "Confirm Password", class: "first-field client_fields client_fields_calandar ", style: "border: 1px solid #cccccc !important;" %>
   </div>
 <% end %>

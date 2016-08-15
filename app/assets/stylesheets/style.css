@@ -55,8 +55,8 @@ h3 {
 
 img { max-width: 100%; }
 
-::-moz-selection { background: #de615e; color: #fff; text-shadow: none; }
-::selection { background: #de615e; color: #fff; text-shadow: none; }
+::-moz-selection { background: #61c6d9; color: #fff; text-shadow: none; }
+::selection { background: #61c6d9; color: #fff; text-shadow: none; }
 
 
 .btn-link-1 {
@@ -1972,7 +1972,6 @@ select, input, textarea, textarea.form-control:focus
 .btn-sign-in-index-pg
 {
   float: right;
-  margin-top: 10px;
   color: white;
 }
 
@@ -2235,4 +2234,51 @@ select, input, textarea, textarea.form-control:focus
 .select2-drop
 {
   top: 302px !important;
+}
+
+
+.header-ul-list-setting
+{
+  min-height: 40px;
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+  padding-right: 0px !important;
+  padding-left: 10px !important;
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+}
+
+
+.sign-up-now-btn-set
+{
+  padding-right: 85px !important;
+}
+
+.login-sign-up-button-padd
+{
+  padding-bottom: 20px !important;
+}
+
+
+.mT1
+{
+  margin-top: 1px !important;
+}
+
+.mB70
+{
+  margin-bottom: 70px;
+}
+
+.error-p-tag {
+    font-family: SegoeUI;
+    font-weight: normal;
+    margin-left: 9px;
+    margin-top: 9px;
+}
+
+.right-padding-twenty-four
+{
+  padding-right: 24px;
 }
