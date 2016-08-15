@@ -6,7 +6,15 @@ $ ->
 	$(document).on 'click', '.connect-with-client', (e) ->
 		e.preventDefault()
 		if $(".search_client_email").val().length < 1
-			$(".error-p-tag").show()	
+			$(".email-error-p-tag").show()
+		else if $(".create-firstname").val().length < 1
+			$(".firstname-error-p-tag").show()
+		else if $(".create-lastname").val().length < 1
+			$(".lastname-error-p-tag").show()
+		else if $(".create-password").val().length < 1
+			$(".password-error-p-tag").show()
+		else if $(".create-confirm").val().length < 1
+			$(".confirm-error-p-tag").show()
 		else
 			$(".connect-client-form").submit()
 
