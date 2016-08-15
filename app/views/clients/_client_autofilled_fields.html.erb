@@ -8,11 +8,11 @@
 </div>
 <% unless client.present? %>
   <div class="col-md-12 left-padding-thirty">
-    <%= text_field_tag "password", "", autocomplete: :off, autofocus: true, placeholder: "Password", class: "first-field client_fields client_fields_calandar create-password fl", style: "border: 1px solid #cccccc !important;" %>
+    <%= password_field_tag "password", "", autocomplete: :off, autofocus: true, placeholder: "Password", class: "first-field client_fields client_fields_calandar create-password fl", style: "border: 1px solid #cccccc !important;" %>
     <p class="password-error-p-tag">can't be blank</p>
   </div>
   <div class="col-md-12 left-padding-thirty">
-    <%= text_field_tag "confirm_password", "", autocomplete: :off, autofocus: true, placeholder: "Confirm Password", class: "first-field client_fields client_fields_calandar create-confirm fl", style: "border: 1px solid #cccccc !important;" %>
+    <%= password_field_tag "confirm_password", "", autocomplete: :off, autofocus: true, placeholder: "Confirm Password", class: "first-field client_fields client_fields_calandar create-confirm fl", style: "border: 1px solid #cccccc !important;" %>
     <p class="confirm-error-p-tag">can't be blank</p>
   </div>
 <% end %>
