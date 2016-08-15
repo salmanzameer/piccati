@@ -7,10 +7,10 @@
       <fieldset>
         <div id="connect-message"></div>
         <div style="margin-top:15px;margin-bottom:15px;">
-          <%= select_tag "Clients", options_from_collection_for_select(clients, :id, :firstname), id: "select2-client-id", class: "first-field name-field zero-border form-control" %> 
+          <%= select_tag "Clients", options_from_collection_for_select(clients, :id, :firstname), id: "select2-client-id", class: "first-field name-field zero-border full-width-show" %> 
         </div>
-        <div class="fileUpload btn btn-primary">
-          <%= link_to "Connect Client", "#", class: "first-field zero-border upload-file-btn width-chosen-field", id: "connect-client-id" %>
+        <div class="">
+          <%= link_to "Connect Client", "#", class: "button button4", id: "connect-client-id" %>
         </div>
       </fieldset>
     </div>

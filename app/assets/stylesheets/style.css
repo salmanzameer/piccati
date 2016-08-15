@@ -2297,3 +2297,8 @@ select, input, textarea, textarea.form-control:focus
 {
   min-height: 55px;
 }
+
+.full-width-show
+{
+  width: 100%;
+}
