@@ -4,15 +4,13 @@ module Authentication
     params do
       requires :email, type: String
       requires :password, type: String
-    	requires :role_type, type: String
     end
     
     post :login, rabl: "v1/authentication/login" do
-      rolee = params[:role_type].titleize
-      role = ["Freelancer","Studio"].include?(rolee) ? "Photographer" : "Client"
-      role = role.constantize 
 
-      @user = role.find_by_email(params[:email])
+      @user = Client.find_by_email params[:email]
+      @user = Photographer.find_by_email params[:email] unless @user.present?
+
       unless @user && @user.valid_password?(params[:password])
         throw :error, status: 404, message: "Invalid username/password"
       end

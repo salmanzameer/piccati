@@ -15,6 +15,13 @@ module Authentication
       requires :role_type, type: String   
     end
     post :register, rabl: "v1/authentication/register"  do
+      @client = Client.find_by_email params[:email]
+      @photographer = Photographer.find_by_email params[:email]
+
+      if @client.present? || @photographer.present?
+        throw :error, status: 404, message: "User already has been taken."
+      end
+
       role_type = params[:role_type].titleize
       role = ["Freelancer","Studio"].include?(role_type) ? "Photographer" : "Client"
       klass = role.constantize 
