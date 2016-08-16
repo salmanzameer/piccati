@@ -56,7 +56,7 @@ module Customer
       unless @client
         throw :error, status: 404, message: "Client not found!"
       end
-      @images = @client.images.where("is_liked = ?", true)
+      @images = @client.images.where(is_liked: true)
     end
 
     desc "Get liked images of client"
