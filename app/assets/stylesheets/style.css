@@ -2341,3 +2341,8 @@ li.plupload_delete a
   background-color: transparent;
   color: #003366;
 }
+
+.select2-no-results:hover
+{
+  color: #333;
+}
