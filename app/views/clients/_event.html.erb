@@ -18,7 +18,10 @@
       <td class="min-height-udate-event-tb"><%= @event.start_time.present? ? @event.start_time.strftime("%b %d, %Y") : nil %></td>
       <% if event.client.is_connected?(current_photographer) %>
         <td class="min-height-udate-event-tb">Upload</td>
-        <td class="min-height-udate-event-tb"><%= link_to 'Add Photos', upload_image_photographer_client_event_path(current_photographer, event.client.id, event), class: "btn btn-uploadimage1", style: "border: 1px solid #ccc;" %>
+        <td class="min-height-udate-event-tb"><%= link_to 'Add  Photos', upload_image_photographer_client_event_path(current_photographer, event.client.id, event), class: "btn btn-uploadimage1", style: "border: 1px solid #ccc;" %>
+        </td>
+        <td class="min-height-udate-event-tb">Gallery</td>
+        <td class="min-height-udate-event-tb"><%= link_to 'View Photos', all_images_photographer_client_event_path(current_photographer, event.client.id, event), class: "btn btn-uploadimage1", style: "border: 1px solid #ccc;" %>
         </td>
       <% end %>
     </tr>

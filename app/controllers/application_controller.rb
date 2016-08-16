@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
   end
 
   def remaining_days
-    ((current_photographer.created_at + 10.days).to_date - Date.today).round
+    ((current_photographer.created_at + 15.days).to_date - Date.today).round
   end
 
   def trial_expired?

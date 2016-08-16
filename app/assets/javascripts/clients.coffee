@@ -5,15 +5,15 @@
 $ ->
 	$(document).on 'click', '.connect-with-client', (e) ->
 		e.preventDefault()
-		if $(".search_client_email").val().length < 1
+		if $(".search_client_email").val() == ""
 			$(".email-error-p-tag").show()
-		else if $(".create-firstname").val().length < 1
+		else if $(".create-firstname").val() == ""
 			$(".firstname-error-p-tag").show()
-		else if $(".create-lastname").val().length < 1
+		else if $(".create-lastname").val() == ""
 			$(".lastname-error-p-tag").show()
-		else if $(".create-password").val().length < 1
+		else if $(".create-password").val() == ""
 			$(".password-error-p-tag").show()
-		else if $(".create-confirm").val().length < 1
+		else if $(".create-confirm").val() == ""
 			$(".confirm-error-p-tag").show()
 		else
 			$(".connect-client-form").submit()

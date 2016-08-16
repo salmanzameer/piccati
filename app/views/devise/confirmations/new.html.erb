@@ -10,13 +10,21 @@
       </div>
       <div class="form-bottom" style="margin-left: 335px;">
       	<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), :class => 'login-form', html: { method: :post }) do |f| %>
-      		<%= devise_error_messages! %>
+        <% flash[:already_confirmed] = "This email was already confirmed, please try signing in" %>
+        
+          
+      		<%#= devise_error_messages! %>
          	<div class="form-group input-field-setting">
            	<%= f.label :email, :class => 'sr-only', :for => 'form-username'%> 
            	<%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-username form-control" %> 
          </div>
-           <%= f.submit "Resend confirmation instructions", class: "btn btn-submit" %>
+           
+        <div class="form-group input-field-setting" style="padding-left: 0px;padding-right: 0px;">
+          <%= f.submit "Resend confirmation instructions", class: "button button4" %>
+          <%= link_to "Log In", new_photographer_session_path ,class: "button button4" %>
+        </div>
         <% end %>
+       
       </div>
     </div>
     <div class="col-md-4">

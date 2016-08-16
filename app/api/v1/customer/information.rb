@@ -73,7 +73,8 @@ module Customer
       unless @client
         throw :error, status: 404, message: "Client not found!"
       end
-      ids = @client.likes.where(like: true).pluck(:image_id)
+      ids = @client.likes.where(like: true).pluck(:image_id).uniq
+
       @images = Image.where("id in (?)", ids)
     end
 
