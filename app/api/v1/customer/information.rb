@@ -56,7 +56,9 @@ module Customer
       unless @client
         throw :error, status: 404, message: "Client not found!"
       end
-      @images = @client.images.where(is_liked: true)
+      events = @client.events.pluck(:id)
+      
+      @images = Image.where(imageable_type: "Event", is_liked: true).where("imageable_id in (?)", events)
     end
 
     desc "Get liked images of client"
