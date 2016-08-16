@@ -40,12 +40,14 @@ class ApplicationController < ActionController::Base
   end
 
   def trial_expired?
-    if current_photographer.expired_at.blank?
-      if (remaining_days <= 0)
+    if current_photographer
+      if current_photographer.expired_at.blank?
+        if (remaining_days <= 0)
+          redirect_to expires_path
+        end
+      elsif current_photographer.expired_at < Date.today
         redirect_to expires_path
       end
-    elsif current_photographer.expired_at < Date.today
-      redirect_to expires_path
     end
   end
 end 
