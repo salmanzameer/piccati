@@ -25,7 +25,7 @@ $ ->
       $(".current-error-p-tag").hide()
       $(".confirm-error-p-tag").show()
     else
-      $(".password-update").submit()
+      $("#password-update").submit()
 
   $(document).on 'click', '#connect-client-id', (e) ->
     $.ajax

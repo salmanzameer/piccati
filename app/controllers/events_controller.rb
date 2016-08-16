@@ -56,7 +56,8 @@ class EventsController < ApplicationController
   def create_event
     params[:event][:start_time] = DateTime.strptime(params[:event][:start_time], "%m/%d/%Y") 
     @client  = Client.find(params[:client_id])
-    event    = @client.events.create(event_params.merge!(photographer_id: current_photographer.id))
+    event    = @client.events.new(event_params.merge!(photographer_id: current_photographer.id))
+    event    = event.save(validate: false)
   end
 
   def create_calender_event

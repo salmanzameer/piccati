@@ -29,7 +29,7 @@ class PhotographersController < ApplicationController
 
   def connect_client
     @client = Client.find_by_id params[:client_id]
-    current_photographer.photographer_clients.where(client_id: @client.id).first.update(is_connected: true)
+    current_photographer.photographer_clients.where(client_id: @client.id).first.update_attribute('is_connected', true)
     render text: @client.firstname + " now connected with you."
     #settings_photographer_path(current_photographer)
   end
@@ -54,7 +54,7 @@ class PhotographersController < ApplicationController
   end
 
   def setting_partial
-    clients_ids = current_photographer.photographer_clients.where(is_connected: false).pluck(:id)
+    clients_ids = current_photographer.photographer_clients.where(is_connected: false).pluck(:client_id)
     @clients = Client.where("id in (?)", clients_ids)
     return render partial: "#{params["partial_name"]}", locals: { clients: @clients }
   end
