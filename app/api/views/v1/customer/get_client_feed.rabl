@@ -1,6 +1,7 @@
 object false
 
 child @activities , object_root: false do
+  attributes :id
   child :owner , object_root: false do
     attributes :id, :title, :firstname, :lastname, :created_at
     node(:profile_image) { |owner| owner.avatar.url  }
