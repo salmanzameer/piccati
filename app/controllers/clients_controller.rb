@@ -88,11 +88,7 @@ class ClientsController < ApplicationController
   def update_package
     @client = Client.find(params[:id])
     @package = current_photographer.photographer_clients.where(client_id: @client.id, active: true).first_or_initialize
-    package = params[:photographer_client][:package]
-    total = params[:photographer_client][:total]
-    advance = params[:photographer_client][:advance]
-    balance = total - advance
-    @package.update(package: package, total: total, advance: advance, balance: balance)
+    @package = @package.calc_balance(params[:photographer_client])
 
     return render partial: "package", locals: { :@package => @package }
   end
