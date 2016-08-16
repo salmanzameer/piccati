@@ -129,8 +129,8 @@ module Customer
       unless @event
         throw :error, status: 404, message: "Event not found!"
       end
-      @images = @client.images.where(imageable_id: @event.id, imageable_type: @event.class.name).paginate( page: params[:page], per_page: 6 )
-      # @event.images.paginate( page: params[:page], per_page: 6 )
+
+      @images = @event.images.paginate( page: params[:page], per_page: 6 )
       @total_images = @images.count
     end
 
