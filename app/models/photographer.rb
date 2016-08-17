@@ -16,9 +16,9 @@ class Photographer < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
-  validates :firstname, presence: true
-  validates :lastname, presence: true
-  validates :contnumber, presence: true, format: { with: /\A^[\d \+ \( \) \-]*$\z/,  message: 'digits 0-9 and special characters +,-,() only'}
+  validates :firstname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
+  validates :lastname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
+  validates :contnumber, presence: true, format: { with: /\A^(?:00|\+|0)?[1-9][[0-9]+[ \( \) \-]]*$\z/,  message: 'invalid'}
   validates :email, presence: true
   #validates_format_of :email,:with => Devise::email_regexp
   validates :password, presence: true,on: :create

@@ -38,7 +38,7 @@
             <tr class="photographer-clients-list <%= cls %> <%= abc %>">
               <td class="table-row-width zero-border zero-padding">
                 <div class="col-md-7 center-align-tag">
-                  <%= link_to client.firstname, "#", class: "show-client-events client-event-anchor-design", data: { id: client.id } %>
+                  <%= link_to client.fullname, "#", class: "show-client-events client-event-anchor-design", data: { id: client.id } %>
                 </div>
                 <div class="col-md-5 button-styling-clint-box-alignment">
                   <button class="client-id" type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;" id="popup" data-client="<%= client.id %>" data-id= "edit_client_popup" data=c = "<%= client.id %>" class="popup edit_client_package"><i class="fa  fa-edit btn-edit" style="font-size: 16px;color: #ddd;"></i></button>
@@ -59,7 +59,6 @@
         <%= form_for Client.new, url: connect_client_clients_path, method: :post, html: { id: "add-client-model", class: "form-action connect-client-form form-calandar-popup" }, validate: true do |f| %>
           <center><h2 class="form-calandar-popup-heading-top"> Add a Client</h2></center>
           <fieldset class="form-calandar-popup-fieldset">
-              <%#= f.text_field :username, autofocus: true, :placeholder =>"User Name", :class => "first-field client_fields" %>
               <div>
                 <div class="col-md-12 left-padding-thirty">
                   <%= f.text_field :email, autocomplete: :off, autofocus: true, placeholder: "Email", class: "first-field client_fields search_client_email client_fields_calandar fl", style: "border: 1px solid #cccccc !important;" %>

@@ -58,6 +58,10 @@ class Client < ActiveRecord::Base
     end
   end   
 
+  def fullname
+    "#{self.firstname} #{self.lastname}"
+  end
+
   def get_followings
     activities = []
     follows_type = self.follows.pluck(:followable_type).uniq
