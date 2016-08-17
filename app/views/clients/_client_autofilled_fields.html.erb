@@ -1,18 +1,18 @@
 <div class="col-md-12 left-padding-thirty">
-  <%= text_field_tag "firstname", client.present? ? client.firstname : nil , autocomplete: :off, autofocus: true, placeholder: "First Name", class: "create-firstname first-field client_fields client_fields_calandar fl", style: "border: 1px solid #cccccc !important;" %>
+  <%= f.text_field :firstname, value: client.try(:firstname) , autocomplete: :off, autofocus: true, placeholder: "First Name", class: "create-firstname first-field client_fields client_fields_calandar fl", style: "border: 1px solid #cccccc !important;" %>
   <p class="firstname-error-p-tag">can't be blank</p>
 </div>
 <div class="col-md-12 left-padding-thirty">
-  <%= text_field_tag "lastname", client.present? ? client.lastname : nil, autocomplete: :off, autofocus: true, placeholder: "Last Name", class: "create-lastname first-field client_fields client_fields_calandar fl", style: "border: 1px solid #cccccc !important;" %>
+  <%= f.text_field :lastname, value: client.try(:lastname), autocomplete: :off, autofocus: true, placeholder: "Last Name", class: "create-lastname first-field client_fields client_fields_calandar fl", style: "border: 1px solid #cccccc !important;" %>
   <p class="lastname-error-p-tag">can't be blank</p>
 </div>
 <% unless client.present? %>
   <div class="col-md-12 left-padding-thirty">
-    <%= password_field_tag "password", "", autocomplete: :off, autofocus: true, placeholder: "Password", class: "first-field client_fields client_fields_calandar create-password fl", style: "border: 1px solid #cccccc !important;" %>
+    <%= f.password_field :password, autocomplete: :off, autofocus: true, placeholder: "Password", class: "first-field client_fields client_fields_calandar create-password fl", style: "border: 1px solid #cccccc !important;" %>
     <p class="password-error-p-tag">can't be blank</p>
   </div>
   <div class="col-md-12 left-padding-thirty">
-    <%= password_field_tag "confirm_password", "", autocomplete: :off, autofocus: true, placeholder: "Confirm Password", class: "first-field client_fields client_fields_calandar create-confirm fl", style: "border: 1px solid #cccccc !important;" %>
+    <%= f.password_field :password_confirmation, autocomplete: :off, autofocus: true, placeholder: "Confirm Password", class: "first-field client_fields client_fields_calandar create-confirm fl", style: "border: 1px solid #cccccc !important;" %>
     <p class="confirm-error-p-tag">can't be blank</p>
   </div>
 <% end %>

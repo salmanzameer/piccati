@@ -14,8 +14,13 @@ class Client < ActiveRecord::Base
   has_many      :images
   has_many      :likes
 
+  validates_format_of :email,:with => Devise::email_regexp
+  validates :firstname, presence: true
+  validates :lastname, presence: true
   validates :email, presence: true
-  
+  validates :password, presence: true,on: :create
+  validates :password_confirmation, presence: true, on: :create
+ 
   has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
   default_url: 'user-avatar.png',
   :url  => "/system/avatar/images/000/000/00:id/:style/:basename.:extension",

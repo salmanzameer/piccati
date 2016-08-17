@@ -41,13 +41,14 @@ class ClientsController < ApplicationController
   end
 
   def connect_client
-    client = Client.find_by_email(params[:email])
+    email = params[:client][:email]
+    client = Client.find_by_email(email)
     unless client.present?
-      current_photographer.invite_clients.where(email: params[:email]).first_or_create
-      client = Client.create(email: params[:email], firstname: params[:firstname], lastname: params[:lastname], password: params[:password])
-      InvitationMailer.client_invitation(current_photographer, params[:email]).deliver
+      current_photographer.invite_clients.where(email: email).first_or_create
+      client = Client.create(create_clients_params)
+      InvitationMailer.client_invitation(current_photographer, email).deliver
     else
-      InvitationMailer.client_acknowledge(current_photographer, params[:email]).deliver
+      InvitationMailer.client_acknowledge(current_photographer, email).deliver
     end
 
     client.photographer_clients.where(photographer_id: current_photographer.id).first_or_create
@@ -113,8 +114,11 @@ class ClientsController < ApplicationController
   end
 
   def search_client_fields
-    client = Client.find_by_email(params[:email])
-    return render partial: "client_autofilled_fields", locals: { client: client }
+    @client = Client.find_by_email(params[:email])
+    respond_to do |format|
+      format.js
+    end
+    #return render partial: "client_autofilled_fields", locals: { client: @client }
   end
 
   def download_app
@@ -126,5 +130,9 @@ class ClientsController < ApplicationController
 
   def clientsparams
     params.require(:client).permit(:firstname,:lastname,:username,:email,:password)  
+  end
+
+  def create_clients_params
+    params.require(:client).permit(:firstname,:lastname,:username,:email,:password, :password_confirmation )  
   end
 end

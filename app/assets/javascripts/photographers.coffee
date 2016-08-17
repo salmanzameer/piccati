@@ -61,13 +61,16 @@ $ ->
   $(document).on 'click', '.event-submit-on-calendar', (e) ->
     e.preventDefault()
     _form = $(this).closest("form")
-    $.ajax
-      type: "POST"
-      data: _form.serialize()
-      url:  _form.attr("action")
-      success: (data) ->
-        $(".calender_and_info").html(data)
-        $("#abc2").hide()
+    id = "#"+$(_form).attr("id")
+    if $(id).isValid($(id).validate())
+      $.ajax
+        type: "POST"
+        data: _form.serialize()
+        url:  _form.attr("action")
+        success: (data) ->
+          $(".calender_and_info").html(data)
+          $("#abc2").hide()
+
 
   $(document).on 'change', '.event-category', (e) ->
     if ($('.event-category option:selected').text() == "Wedding")
@@ -85,3 +88,8 @@ $ ->
       url:  "/setting_partial"
       success: (data) ->
         $(".show_settings").html(data)
+
+  $(document).on 'click', ".submit-album", (e) ->
+     e.preventDefault()
+     if ($("#add-photographer-album").isValid($("#add-photographer-album").validate()))
+        $("#add-photographer-album").submit()

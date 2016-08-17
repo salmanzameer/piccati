@@ -26,7 +26,7 @@
 		      <% end %>
 		      <tr class="events-list <%= cls %> <%= abc %>">
 				    <td class="events-list">
-				    	<%= event.category.name %>
+				    	<%= event.category.name if event.category.present? %>
 				    </td>
 				    <td class="events-list <%= cls %> <%= abc %> height-event-box" >
 				    	<%= link_to event.name, "#", class: "show-event", data: { id: event.id } %>

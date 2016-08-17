@@ -5,30 +5,21 @@
 $ ->
 	$(document).on 'click', '.connect-with-client', (e) ->
 		e.preventDefault()
-		if $(".search_client_email").val() == ""
-			$(".email-error-p-tag").show()
-		else if $(".create-firstname").val() == ""
-			$(".firstname-error-p-tag").show()
-		else if $(".create-lastname").val() == ""
-			$(".lastname-error-p-tag").show()
-		else if $(".create-password").val() == ""
-			$(".password-error-p-tag").show()
-		else if $(".create-confirm").val() == ""
-			$(".confirm-error-p-tag").show()
-		else
+		if ($('#add-client-model').isValid($('#add-client-model').validate()))
 			$(".connect-client-form").submit()
 
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()
 		_form = $(this).closest("form")
-		$.ajax
-			type: "POST"
-			data: _form.serialize()
-			url:  _form.attr("action")
-			success: (data) ->
-				$(".events-section").html(data)
-				$("#abc2").hide()
-				$('.show-event').last().click()
+		if ($('#add-event-form').isValid($('#update-event-model').validate()))
+			$.ajax
+				type: "POST"
+				data: _form.serialize()
+				url:  _form.attr("action")
+				success: (data) ->
+					$(".events-section").html(data)
+					$("#abc2").hide()
+					$('.show-event').last().click()
 
 	$(document).on 'click', '.update-event-class', (e) ->
 		e.preventDefault()
@@ -78,6 +69,7 @@ $ ->
 
 	$(document).on 'click', '.popup', (e) ->
 		$("##{$(this).data("id")}").show()
+		$("#"+$($("#"+$(this).data("id")).find("form")).attr("id")).enableClientSideValidations()
 
 	$(document).on 'click', '.close', (e) ->
 		$(".clients-table").show()
@@ -128,17 +120,14 @@ $ ->
 				$(".searched_email").show()
 				$(".error-p-tag").hide()
 
-	$(document).on 'click', '.select-searched-email', (e) ->
+	$(document).on 'focusout', '.search_client_email', (e) ->
 		e.preventDefault()
-		$(".search_client_email").val($(this).text())	
 		$(".searched_email").hide()
 		$.ajax
 			type: "GET"
 			url:  "/clients/search_client_fields"
-			data: { email:  $(".search_client_email").val() }
-			success: (data) ->
-				$(".client-autofilled-fields").html(data)
-
+			data: { email: $(".search_client_email").val() }
+			
 	$('.show-client-events').first().click()
 	$('.photographer-clients-list.abc').find("a").click()
 
@@ -150,3 +139,4 @@ $ ->
 			success: (data) ->
 				$(".edit-event-section").html(data)
 				$("#update-event-popup").show()
+				$('#update-event-model').enableClientSideValidations()
