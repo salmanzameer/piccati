@@ -1,8 +1,9 @@
 '<%= form_for Client.new do |f| %>'
 	$('.client-autofilled-fields').html("<%= escape_javascript (render partial: 'client_autofilled_fields', locals: { client: @client, f: f }) %>");
 '<% end %>'
-<% if params["focus_email"].present? %> 
-	$(".search_client_email").focus();
-<% end %>
+
 $(".search_client_email").val("<%= params[:email] %>")	
 $(".searched_email").hide()
+$(".search_client_email").change()
+$(".search_client_email").focus();
+$(".create-firstname").focus();
