@@ -5,6 +5,7 @@ child @album, object_root: false do
 	child @images, object_root: false do
     node(:image_id) {|img| img.id}
 		node(:url) {|img| img.image_url}
+    node(:is_liked) {|img| @requester.likes.where(image_id: img.id, like: true).present? }
 	end
 end
 node(:images_count)	{@total_images}
