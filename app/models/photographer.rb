@@ -20,7 +20,6 @@ class Photographer < ActiveRecord::Base
   validates :lastname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
   validates :contnumber, presence: true, format: { with: /\A^(?:00|\+|0)?[1-9][[0-9]+[ \( \) \-]]*$\z/,  message: 'invalid'}
   validates :email, presence: true
-  #validates_format_of :email,:with => Devise::email_regexp
   validates :password, presence: true,on: :create
   validates :password_confirmation, presence: true, on: :create
 

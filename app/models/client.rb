@@ -19,7 +19,7 @@ class Client < ActiveRecord::Base
   validates :lastname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
   validates :email, presence: true
   validates :password, presence: true,on: :create
-  validates :password_confirmation, presence: true, on: :create
+  validates_confirmation_of :password, on: :create
  
   has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
   default_url: 'user-avatar.png',
