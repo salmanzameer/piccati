@@ -15,8 +15,8 @@ class Client < ActiveRecord::Base
   has_many      :likes
 
   validates_format_of :email,:with => Devise::email_regexp
-  validates :firstname, presence: true
-  validates :lastname, presence: true
+  validates :firstname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
+  validates :lastname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
   validates :email, presence: true
   validates :password, presence: true,on: :create
   validates :password_confirmation, presence: true, on: :create

@@ -41,10 +41,19 @@ module Snapper
     params do
       requires :id,                   type: Integer
       requires :photographer_id,      type: Integer
+      requires :requester_id,         type: Integer
+      requires :requester_type,       type: String
       optional :page,                 type: Integer
     end
 
     get "/photographer/:photographer_id/album/:id", rabl: "v1/snapper/album_show" do
+      requester = params[:requester_type].titleize
+      requester = ["Freelancer","Studio"].include?(requester) ? "Photographer" : "Client"
+      @requester = requester.constantize.find_by_id params[:requester_id]
+      unless @requester
+        throw :error, status: 404, message: "Requester not found!"
+      end
+
       @photographer = Photographer.find(params[:photographer_id])
       unless @photographer
         throw :error, status: 404, message: "Photographer not found!"
