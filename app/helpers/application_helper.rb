@@ -6,7 +6,6 @@ module ApplicationHelper
   def find_event(path)
     @path = Rails.application.routes.recognize_path(path)
     if !@path[:client_id].present?
-      #@photographer = Photographer.find_by_id @path[:photographer_id]
       @client = current_photographer.clients.first || Client.first
       @event = @client.events.first || Event.first
       @path = @path.merge({:client_id=>@client.id.to_s, :id=>@event.id.to_s})
@@ -14,15 +13,6 @@ module ApplicationHelper
     session[:save_client] = @path
   end
 
-  # def check_valid_url(path)
-  #   @photographer = Photographer.find_by_id path[:photographer_id]
-  #   @client = @photographer.clients.find_by_id path[:client_id]
-  #   @event = @client.events.find_by_id path[:id]
-  #   if !(@photographer.present? && @client.present? && @event.present?)
-  #     message =  "no record"
-  #   end
-  #   return message
-  # end
   def liked_images(event)
     event.images.where(is_liked: true)
   end

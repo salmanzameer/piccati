@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_filter :authenticate_photographer!
   before_filter :trial_expired?
-  
+
   def scheduled_events
     start_of_day = params[:date].to_datetime.beginning_of_day
     end_of_day = params[:date].to_datetime.end_of_day
@@ -125,6 +125,10 @@ class EventsController < ApplicationController
     end
   end
   
+  def selected_images
+    @event = Event.find_by_id params[:id]
+  end
+
   protected 
 
   def event_params
