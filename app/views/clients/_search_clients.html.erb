@@ -4,7 +4,7 @@
 	<% clients.each do |client| %>
 		<li class="list-search-client-des">
 		   <%= image_tag (client.avatar), class: "img-circle", style: "width:20px; height:20px; margin-left: 7px;" %>
-		   <%= link_to client.email, search_client_fields_clients_path(email: client.email, focus_email: "true"), class: "select-searched-email", remote: true %>
+		   <%= link_to client.email, search_client_fields_clients_path(email: client.email), class: "select-searched-email", remote: true %>
 		</li>
 	<% end %>
 	<% if clients.blank? %>
