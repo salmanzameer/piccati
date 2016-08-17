@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       get 'selected_images', to: "clients#selected_images", as: :selected_images
       resources :events do 
         member do
+          get 'selected_images'
           get 'upload_images'
           get 'upload_image'
           post 'upload_images'

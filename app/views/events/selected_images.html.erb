@@ -1,0 +1,39 @@
+<div class="container">
+      <% if liked_images(@event).present? %>
+      <div class="col-md-12">
+        <div class="col-md-12 text-alignment-heading-album">
+          <span class="album-text-align"><%= @event.name.titleize %></span>
+          <span class="text-para">by <%= @event.client.firstname.titleize+" "+@event.client.lastname.titleize %><span class="pull-right"></span></span>
+        </div>
+        <div class="col-md-12 album-text-align text-para"> 
+          <hr class="hr-album">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" style="margin-bottom:50px;">
+          <ul style="list-style:none;" class="ul-li">
+            <% liked_images(@event).each do |img| %>
+              <li style="display: inline;margin-bottom:30px; margin-right: 10px;" data-src="<%= img.image.url%>" class="col-md-2 zero-padding cursor-pointer">
+                <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+  <% else %>
+    <div class="col-md-12">
+        <div class="col-md-12 text-alignment-heading-album">
+          <span class="album-text-align">No Image Selected</span>
+        </div>
+        <div class="col-md-12 album-text-align text-para"> 
+          <hr class="hr-album">
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.ul-li').lightGallery();
+  });
+</script>

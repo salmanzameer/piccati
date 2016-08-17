@@ -1,13 +1,6 @@
 class EventsController < ApplicationController
   before_filter :authenticate_photographer!
-   before_filter :trial_expired?
-  # before_filter :xyz, only: [:upload_image]
-  # helper_method :xyz
-
-  # def xyz
-  #   go_to = request.headers["HTTP_REFERER"]
-  # end
-
+  before_filter :trial_expired?
 
   def scheduled_events
     start_of_day = params[:date].to_datetime.beginning_of_day
@@ -131,6 +124,10 @@ class EventsController < ApplicationController
     end
   end
   
+  def selected_images
+    @event = Event.find_by_id params[:id]
+  end
+
   protected 
 
   def event_params
