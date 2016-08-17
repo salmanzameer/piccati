@@ -1,9 +1,8 @@
-<div style="margin-top:80px;"></div>
 <div class="container">
 	<% @events.each do |event| %>
   <div class="col-md-12">
   <div class="col-md-12">
-  <%unless liked_images(event).blank?%>
+  <% unless liked_images(event).blank? %>
     <h1 class="album-text-align"><%= event.name.titleize %>'s Collection</h1>
 	</div>
 	<div class="col-md-12 album-text-align"> 
@@ -20,10 +19,10 @@
           </li>
         <% end %>
       </ul>
-      <%end%>
+      <% end %>
     </div>
   </div>
-  <%end%>
+  <% end %>
 </div>
 
 <script type="text/javascript">

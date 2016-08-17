@@ -2367,3 +2367,29 @@ li.plupload_delete a
 .selected-event > .today-date{
   border-color: #fff;
 }
+
+.hr-album1 {
+    margin: 0px 0px;
+    margin-bottom: 20px;
+}
+
+.add-album-setting-heading
+{
+  color: white;
+}
+
+.add-album-setting-heading:hover
+{
+  color: white;
+}
+
+.add-album-setting
+{
+  padding-right: 50px;
+  margin-top: 10px;
+}
+
+.no-image
+{
+  font-size: 16px;
+}

@@ -1,19 +1,40 @@
-<p id="notice"><%= notice %></p>
-Name: <%= @album.name%><br>
-Description: <%= @album.description%><br>
+<div class="container">
+  <% if @album.images.present? %>
+      <div class="col-md-12">
+        <div class="col-md-12 text-alignment-heading-album">
+          <span class="album-text-align"><%= @album.name.titleize %></span>
+          <span class="text-para">by <%= @album.photographer.firstname.titleize+" "+@album.photographer.lastname.titleize %><span class="pull-right"><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album.id), class: "add-album-tag" %></span></span>
+      	</div>
+      	<div class="col-md-12 album-text-align text-para"> 
+      		<hr class="hr-album1">
+      	</div>
+    	</div>
+      <div class="row">
+        <div class="col-md-12" style="margin-bottom:50px;">
+          <ul style="list-style:none;" class="ul-li">
+            <% @album.images.each do |img| %>
+              <li style="display: inline;margin-bottom:30px; margin-right: 10px;" data-src="<%= img.image.url%>" class="col-md-2 zero-padding cursor-pointer">
+                <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+  <% else %>
+    <div class="col-md-12">
+        <div class="col-md-12 text-alignment-heading-album">
+          <span class="album-text-align">No Image Uploaded</span><span class="pull-right"><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album.id), class: "add-album-setting-heading text-para" %></span>
+        </div>
+        <div class="col-md-12 album-text-align text-para"> 
+          <hr class="hr-album1">
+        </div>
+      </div>
+  <% end %>
+</div>
 
-<ul style="list-style:none;" id="ul-li">
-	<% @album.images.each do |img| %>
-	  <li style="display: inline;" data-src="<%= img.image.url%>">
-	    <img class= "img-rounded" style=" width: 300px; height: 200px; " src="<%= img.image.url(:medium) %>" />
-	  </li>
-	<% end %>
-</ul>
-<%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album.id)%> |
-<%= link_to 'Edit', edit_photographer_album_path(id: @album.id) %>
-
+</div>
 <script type="text/javascript">
   $(document).ready(function() {
-  	$('#ul-li').lightGallery();
+    $('.ul-li').lightGallery();
   });
 </script>
