@@ -56,7 +56,7 @@ class PhotographersController < ApplicationController
   def settings
     clients_ids = current_photographer.photographer_clients.where(is_connected: false).pluck(:client_id)
     @clients = Client.where("id in (?)", clients_ids)
-    @page_name = "All Settings"     
+    @page_name = "Connects"     
   end
 
   def profile

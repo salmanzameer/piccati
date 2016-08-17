@@ -9,6 +9,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @page_name = "My Albums"
   end
 
   def new
