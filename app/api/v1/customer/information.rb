@@ -40,7 +40,7 @@ module Customer
       @like.update(like: params[:like], unlike: !params[:like])
 
       message = @like.like ? "like" : "unlike"
-      @image.create_activity(key: "#{message} a image", owner: @client)
+      @image.create_activity(key: "#{message} an image", owner: @client)
 
     end
 
@@ -57,7 +57,7 @@ module Customer
         throw :error, status: 404, message: "Client not found!"
       end
       events = @client.events.pluck(:id)
-      
+
       @images = Image.where(imageable_type: "Event", is_liked: true).where("imageable_id in (?)", events)
     end
 
@@ -93,7 +93,6 @@ module Customer
       @activities = @client.get_followings
     end
 
-######################################
     desc "Get images of photographers liked followed by client (feed)"
     params do
       requires :authentication_token, type: String
@@ -110,7 +109,34 @@ module Customer
       @followers = @photographer.followers
       @follower_count = @followers.count
     end
-    ############################################
+
+    desc "Get clients of a photographer"
+    params do
+      requires :authentication_token, type: String
+      requires :photographer_id,      type: Integer
+    end
+
+    get "/get_photographer_clients", rabl: "v1/customer/get_photographer_clients" do
+
+      @photographer = Photographer.find_by_id_and_authentication_token(params[:photographer_id], params[:authentication_token])
+      unless @photographer
+        throw :error, status: 404, message: "Photographer not found!"
+      end
+
+      clients = @photographer.photographer_clients.is_connected?.pluck(:client_id).uniq
+      @clients = Client.where("id in (?)", clients)
+    end
+
+    desc "Get Event Categories"
+
+    get "/get_event_categories", rabl: "v1/customer/get_event_categories" do
+
+      @categories = Category.all
+
+      unless @categories.present?
+        throw :error, status: 404, message: "No event types found."
+      end
+    end
 
     desc "Get single event images"
     params do
@@ -158,7 +184,7 @@ module Customer
       @image.update_attributes(is_liked: params[:is_liked])
 
       message = @image.is_liked ? "like" : "unlike"
-      @image.create_activity(key: "#{message} a image", owner: @client)
+      @image.create_activity(key: "#{message} an image", owner: @client)
     end
 
     desc "Get all liked images"
@@ -201,7 +227,7 @@ module Customer
       photographer = Photographer.find(params[:photographer_id])
       @client.send("#{params[:follow_type]}", photographer)
 
-      photographer.create_activity(key: "follow a person", owner: @client)
+      photographer.create_activity(key: "followed a person", owner: @client)
     end
 
     desc "Request photographer"
