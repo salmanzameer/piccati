@@ -2346,3 +2346,24 @@ li.plupload_delete a
 {
   color: #333;
 }
+
+.today{
+  background: transparent !important;
+}
+
+
+.selected-event{
+  background-color: #003366 !important;
+  color: white !important;
+}
+
+.today > .today-date{
+  border: 1px solid #003366;
+  border-radius: 50px;
+  width: 25px;
+  height: 25px;
+}
+
+.selected-event > .today-date{
+  border-color: #fff;
+}

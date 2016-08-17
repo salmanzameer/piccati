@@ -36,6 +36,8 @@ $ ->
         $("#connect-message").html(data)
 
   $(document).on 'click', '.current-month', (e) ->
+    $(".current-month").removeClass("selected-event")
+    $(this).addClass("selected-event")
     e.preventDefault()
     $.ajax
       type: "GET"

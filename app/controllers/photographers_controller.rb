@@ -54,13 +54,17 @@ class PhotographersController < ApplicationController
   end
 
   def settings
+    clients_ids = current_photographer.photographer_clients.where(is_connected: false).pluck(:client_id)
+    @clients = Client.where("id in (?)", clients_ids)
     @page_name = "All Settings"     
   end
 
+  def profile
+    @page_name = "My Profile"
+  end
+
   def setting_partial
-    clients_ids = current_photographer.photographer_clients.where(is_connected: false).pluck(:client_id)
-    @clients = Client.where("id in (?)", clients_ids)
-    return render partial: "#{params["partial_name"]}", locals: { clients: @clients }
+    return render partial: "#{params["partial_name"]}"
   end
 
   def add_achievements
