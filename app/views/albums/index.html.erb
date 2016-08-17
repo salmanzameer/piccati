@@ -1,5 +1,5 @@
 <div class="container">
-  <button class="button button4 popup album-btn" id="popup" data-id= "abc2" ><i class="fa fa-plus-circle"></i> Add Album</button>
+  <button class="button button4 album-btn client_management_popup" data-id= "add_album" data-popup="add_album_popup" data-client-id= "" ><i class="fa fa-plus-circle"></i> Add Album </button>
 	<% if @albums.present? %>
     <% @albums.each do |album| %>
       <div class="col-md-12">
@@ -35,29 +35,12 @@
   <% end %>
 </div>
 
-  <div id="abc2" style="z-index: 9999">
-    <!-- Popup Div Starts Here -->
-      <div id="popupContact">
-        <%= image_tag ("close1.png"), class: "close cal-close", data: { id: "abc2" } %>
-        <!-- Contact Us Form -->
-        <%= form_for current_photographer.albums.new ,url: photographer_albums_path(current_photographer), method: :post, validate: true, html: { id: "add-photographer-album", class: "form-action form-calandar-popup" } do |f| %>
-          <center><h2 class="form-calandar-popup-heading-top">Add an album</h2></center>
-          <fieldset class="form-calandar-popup-fieldset">
-              <div class="row">
-                <div class="email-add-client-field-view">
-                  <%= f.text_field :name, autocomplete: :off, autofocus: true, placeholder: "Album name", class: "first-field client_fields client_fields_calandar", style: "border: 1px solid #cccccc !important;" %>
-                </div>
-                <div class="email-add-client-field-view">
-                  <%= f.text_area :description, autocomplete: :off, placeholder: "Album description", class: "first-field client_fields client_fields_calandar", style: "border: 1px solid #cccccc !important; font-size: 24px; font-family: 'SegoeUI'; height: 150px;"%>
-                </div>
-                <br>
-                  <%= f.submit 'Add Album' , class: "button button4 bt-add-cli client_fields_calandar submit-album" %>
-              </div>
-          </fieldset>
-        <% end %>
+</div>
+    <div id="add_album_popup" style="z-index:9999">
+      <div id="popupContact" class="form-calandar-popup-loc">
+        <div id="add_album"></div>    
       </div>
-    <!-- Popup Div Ends Here -->
-  </div> 
+    </div>
 
 <script type="text/javascript">
   $(document).ready(function() {

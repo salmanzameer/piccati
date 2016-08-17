@@ -42,40 +42,18 @@
                 </div>
                 <div class="col-md-5 button-styling-clint-box-alignment">
                   <button class="client-id" type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;" id="popup" data-client="<%= client.id %>" data-id= "edit_client_popup" data=c = "<%= client.id %>" class="popup edit_client_package"><i class="fa  fa-edit btn-edit" style="font-size: 16px;color: #ddd;"></i></button>
-                  <!-- <button type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;"><i class="fa  fa-times btn-del" style="font-size: 16px;color: #ddd;"></i></button> -->
                 </div>
               </td>
             </tr>
           <% end %>
         </tbody>
       </table>
-      <button class="button button4 popup" id="popup" data-id= "abc2" ><i class="fa fa-plus-circle"></i> Add Client</button>
+      <button class="button button4 client_management_popup" data-id= "add_client" data-popup="add_client_popup" data-client-id= "" ><i class="fa fa-plus-circle"></i> Add Client</button>
     </div>
-    <div id="abc2" style="z-index: 9999">
-    <!-- Popup Div Starts Here -->
+    <div id="add_client_popup" style="z-index: 9999">
       <div id="popupContact" class="form-calandar-popup-loc">
-        <%= image_tag ("close1.png"), class: "close cal-close", data: { id: "abc2" } %>
-  <!-- Contact Us Form -->
-        <%= form_for Client.new, url: connect_client_clients_path, method: :post, html: { id: "add-client-model", class: "form-action connect-client-form form-calandar-popup" }, validate: true do |f| %>
-          <center><h2 class="form-calandar-popup-heading-top"> Add a Client</h2></center>
-          <fieldset class="form-calandar-popup-fieldset">
-              <div>
-                <div class="col-md-12 left-padding-thirty">
-                  <%= f.text_field :email, autocomplete: :off, autofocus: true, placeholder: "Email", class: "first-field client_fields search_client_email client_fields_calandar fl", style: "border: 1px solid #cccccc !important;" %>
-                  <p class="email-error-p-tag">can't be blank</p>
-                </div>
-                <div class="searched_email row"></div>
-                <div class="client-autofilled-fields">
-                  <%= render partial: "clients/client_autofilled_fields", locals: { f: f, client: nil } %>
-                </div>
-                <div class="col-md-10 left-padding-thirty right-padding-twenty-four">
-                  <button type="submit"  class="button button4 bt-add-cli btn-client-magin-zero connect-with-client"><i class="fa fa-plus-circle btn-margin-right-ten"></i>Create Client </button>
-                </div>
-              </div>
-        </fieldset>
-        <% end %>
+        <div id="add_client"></div>  
       </div>
-  <!-- Popup Div Ends Here -->
     </div>
   </div>
 

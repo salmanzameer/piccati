@@ -1,0 +1,19 @@
+<%= image_tag ("close1.png"), class: "close cal-close", data: { id: "add_client_popup" } %>
+<%= form_for Client.new, url: connect_client_clients_path, method: :post, html: { id: "add-client-model", class: "form-action connect-client-form form-calandar-popup" }, validate: true do |f| %>
+  <center><h2 class="form-calandar-popup-heading-top"> Add a Client</h2></center>
+  <fieldset class="form-calandar-popup-fieldset">
+    <div>
+      <div class="col-md-12 left-padding-thirty">
+        <%= f.text_field :email, autocomplete: :off, autofocus: true, placeholder: "Email", class: "first-field client_fields search_client_email client_fields_calandar fl", style: "border: 1px solid #cccccc !important;" %>
+        <p class="email-error-p-tag">can't be blank</p>
+      </div>
+      <div class="searched_email row"></div>
+      <div class="client-autofilled-fields">
+        <%= render partial: "clients/client_autofilled_fields", locals: { f: f, client: nil } %>
+      </div>
+      <div class="col-md-10 left-padding-thirty right-padding-twenty-four">
+        <button type="submit"  class="button button4 bt-add-cli btn-client-magin-zero connect-with-client"><i class="fa fa-plus-circle btn-margin-right-ten"></i>Create Client </button>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

@@ -109,8 +109,7 @@ $ ->
 		    $('.searchbox-icon').css 'display', 'block'
 		    submitIcon.click()
 		  return
-
-	$(".search_client_email").keyup (e) ->
+	$(document).on 'keyup', '.search_client_email', (e) ->
 		$.ajax
 			type: "GET"
 			url: "/search_clients"
@@ -140,3 +139,16 @@ $ ->
 				$(".edit-event-section").html(data)
 				$("#update-event-popup").show()
 				$('#update-event-model').enableClientSideValidations()
+
+	$(document).on 'click', '.client_management_popup', (e) ->
+		id = "#"+$(this).data("id")
+		popup = "#"+$(this).data("popup")
+		e.preventDefault()
+		$.ajax
+			type: "GET"
+			url:  "/get_forms"
+			data: { form_name:  $(this).data("id"), client_id: $(this).data("client-id")  }
+			success: (data) ->
+				$(id).html(data)
+				$(popup).show()
+				

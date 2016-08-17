@@ -99,6 +99,11 @@ class ClientsController < ApplicationController
     return render partial: "search_clients", locals: { clients: clients, search_params: params[:email] }
   end
 
+  def get_forms
+    client = Client.find_by_id(params["client_id"])
+    return render partial: "#{params["form_name"]}", locals: { client: client }
+  end
+
   def selected_images
     @client = Client.find(params[:client_id])
     @events = @client.events
