@@ -10,6 +10,7 @@ module Authentication
       requires :email, type: String
       requires :city, type: String
       requires :password, type: String
+      requires :password_confirmation, type: String
       optional :website, type: String
       optional :avatar, type: Rack::Multipart::UploadedFile
       requires :role_type, type: String   
@@ -33,6 +34,7 @@ module Authentication
         email:        params[:email],
         city:         params[:city],
         password:     params[:password],
+        password_confirmation:     params[:password_confirmation],
         website:      params[:website]
         )
       if klass.name == "Photographer"
@@ -48,7 +50,7 @@ module Authentication
         user_token = @user.ensure_authentication_token
         @user.save  
       else
-        throw :error, status: 404, message: "User is invalid."
+        throw :error, status: 404, message: @user.errors.messages
       end
     end
   end
