@@ -4,10 +4,10 @@
   <div class="col-md-12">
   <div class="col-md-12">
   <%unless liked_images(event).blank?%>
-    <h1 class="album-text-align"><%= event.name.titleize %></h1>
+    <h1 class="album-text-align"><%= event.name.titleize %>'s Collection</h1>
 	</div>
 	<div class="col-md-12 album-text-align"> 
-		<p class="text-para">by <%= event.photographer.firstname.titleize+" "+event.photographer.lastname.titleize %></p>
+		<p class="text-para">by <%= "#{event.client.firstname} #{event.client.lastname}" %></p>
 		<hr class="hr-album">
 	</div>
 	</div>
