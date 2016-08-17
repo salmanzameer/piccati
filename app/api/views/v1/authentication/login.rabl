@@ -4,7 +4,7 @@ child @user => :user do
 	  attributes :id, :firstname, :email, :contnumber, :website, :authentication_token, :username, :lastname, :title
     node(:url) { @user.avatar.url }
     if @user.class.name == "Client"
-      node(:role_type) { |user| "client"  }
+      node(:role_type) { "Client"  }
     else
       node(:role_type) { |user| user.role_type  }
     end
