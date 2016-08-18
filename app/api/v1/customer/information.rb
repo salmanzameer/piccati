@@ -93,6 +93,18 @@ module Customer
       @activities = @client.get_followings
     end
 
+    desc "Get images with likes greater than 1000 (collection feed)"
+
+    get "/get_collection_feed", rabl: "v1/customer/get_collection_feed" do
+
+      @images = Image.where(imageable_type: "Album").where("likes_count > 100")
+      
+      unless @images.present?
+        throw :error, status: 404, message: "No Images found!"
+      end
+      
+    end
+
     desc "Get images of photographers liked followed by client (feed)"
     params do
       requires :authentication_token, type: String
