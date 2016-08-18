@@ -71,7 +71,7 @@ $ ->
         url:  _form.attr("action")
         success: (data) ->
           $(".calender_and_info").html(data)
-          $("#abc2,#update-event-popup").hide()
+          $("#add_calender_event_popup").hide()
 
 
   $(document).on 'change', '.event-category', (e) ->
