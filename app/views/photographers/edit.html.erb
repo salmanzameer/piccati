@@ -1,38 +1,52 @@
+
+  <table>
+    <tbody class="nav nav-tabs">
+      <tr class="Profile-heading zero-border-bottom">
+         <th class="tbheaderback zero-border-bottom">
+          <div class="col-md-10">
+            Change Password
+          </div>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
   <div class="background-image">
     <div class="top-content">
       <div >
         <div class="container">
           <div class="row">
             <div class="col-sm-8 col-sm-offset-2 text">
-
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-2">
             </div>
-            <div class="col-md-4 form-box">
+            <div class="col-md-2">
               <div class="form-top">
                 <div class="form-top-left">
                 </div>
                </div>
               <div class="form-bottom">
-                <%= form_for @photographer, url: update_password_photographer_path, html: { class: 'form-horizontal form-edit-password-setting' } do |f| %>
+                <%= form_for @photographer, url: update_password_photographer_path, html: { class: 'form-horizontal form-edit-password-setting reset-password' } do |f| %>
+              <fieldset>
+                <div class="editprofileheading reset-password-input">
+                  <p class="edit-prfile-para">Change Password</p>
+                </div>
 
                 <div>
-                  <%= f.label :current_password, :class => 'sr-only', :for => 'form-current_password'%> 
-                  <%= f.password_field  :current_password, autofocus: true , :placeholder => 'Current Password' ,class: "form-current_password form-control mT1", :id =>'form-current_password' %>
+                  <%= f.password_field  :current_password, autofocus: true , :placeholder => 'Current Password' ,class: "form-current_password form-control mT1 reset-password-input", :id =>'form-current_password' %>
                 </div>
                 <div >
-                 <%= f.label :password , :class => 'sr-only', :for =>'form-password' %>
-                 <%= f.password_field :password, autocomplete: "off", :placeholder => 'New Password', class: "form-password form-control mT1", :id =>'form-password' %>
+                 <%= f.password_field :password, autocomplete: "off", :placeholder => 'New Password', class: "form-password form-control mT1 reset-password-input", :id =>'form-password' %>
                 </div>
                <div>
-                 <%= f.label :password_confirmation , :class => 'sr-only', :for =>'form-password' %>
-                 <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "form-password form-control mT1", :id =>'form-password' %>
+                 <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "reset-password-input form-password form-control mT1", :id =>'form-password' %>
                 </div>
                <div class="actions">
-                <%= f.button 'Update password', class: "button button4 bt-add-cli" %>
+                <%= f.button 'Update password', class: "button button4 bt-add-cli reset-password-input" %>
               </div>
+              </fieldset>
               <% end %>
                
             </div>

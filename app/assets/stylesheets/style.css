@@ -2468,3 +2468,16 @@ li.plupload_delete a
     padding-bottom: 30px;
 }
 
+.reset-password {
+    width: 700px;
+}
+
+.reset-password-input{
+      width: 61%;
+    float: left;
+}
+
+.reset-password label
+{
+  margin-top: 13px !important;
+}
