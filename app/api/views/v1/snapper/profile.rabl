@@ -18,7 +18,7 @@ child @user, object_root: false do
     node(:number_of_clients) { |photographer| photographer.clients.count }
     node(:number_of_follows) { |photographer| photographer.followers_count }
     node(:number_of_likes) {  |photographer| photographer.images_likes_count }
-    node(:is_connected) { |photographer| photographer.photographer_clients.where(client_id: @requester.id).first.is_connected }
+    node(:is_connected) { |photographer| photographer.photographer_clients.where(client_id: @requester.id).first.try(:is_connected) }
 	end
 end
 
