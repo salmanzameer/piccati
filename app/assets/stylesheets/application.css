@@ -13,6 +13,7 @@
  *= require simple_calendar
  *= require light-gallery
  *= require bootstrap
+ *= require bootstrap-datetimepicker
  *= require_tree .
  *= require_self
  */
