@@ -21,33 +21,15 @@
                 <div>
                   <%= f.label :current_password, :class => 'sr-only', :for => 'form-current_password'%> 
                   <%= f.password_field  :current_password, autofocus: true , :placeholder => 'Current Password' ,class: "form-current_password form-control mT1", :id =>'form-current_password' %>
-                  <% if @photographer.errors.present? %>
-                  <div class="txt">
-                    <%= @photographer.errors["current_password"].first%>
-                  </div>
-                  <% end %>
                 </div>
                 <div >
                  <%= f.label :password , :class => 'sr-only', :for =>'form-password' %>
                  <%= f.password_field :password, autocomplete: "off", :placeholder => 'New Password', class: "form-password form-control mT1", :id =>'form-password' %>
-                 <% if @minimum_password_length %>
-                 <em>(<%= @minimum_password_length %> characters minimum)</em> 
-                 <% end %>
-                 <% if @photographer.errors.present? %>
-                 <div class="txt">
-                   <%= @photographer.errors["password"].first%>
-                 </div>
-                 <% end %>
-               </div>
+                </div>
                <div>
                  <%= f.label :password_confirmation , :class => 'sr-only', :for =>'form-password' %>
                  <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "form-password form-control mT1", :id =>'form-password' %>
-                 <% if @photographer.errors.present? %>
-                 <div class="txt">
-                   <%= @photographer.errors["password_confirmation"].first%>
-                 </div>
-                 <% end %>
-               </div>
+                </div>
                <div class="actions">
                 <%= f.button 'Update password', class: "button button4 bt-add-cli" %>
               </div>
