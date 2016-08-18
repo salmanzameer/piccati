@@ -26,6 +26,7 @@
                 <% else %>
                   <%= link_to image_tag("download.jpg", width: 183, height: 183), photographer_album_path(current_photographer, album) %>
                 <% end %>
+                <span class="text-alignment-heading-album" style="float:left"><%= album.name %></span>
               </li>
             <% end %>
           </ul>

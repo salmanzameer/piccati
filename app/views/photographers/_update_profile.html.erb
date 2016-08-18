@@ -22,6 +22,13 @@
           <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact Number' ,class: "first-field name-field border-zero-form", :id =>'form-contact' %>
           <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "first-field name-field email-edit-field", :id =>'form-username' %>
           <div class="custom-file-upload">
+            <input id="featured" disabled="disabled" class= "first-field name-field zero-border"  style="background: none;width: 46%;"/>
+            <div class="fileUpload btn btn-primary">
+              <span>Change featured image</span>
+              <%= f.file_field :feature_image, class: "first-field zero-border upload-file-btn width-chosen-field", id: "featured-image",  class: "upload"%>
+            </div>
+          </div>
+          <div class="custom-file-upload">
             <input id="watermark-url" disabled="disabled" class= "first-field name-field zero-border" style="background: none;width: 46%;"/>
             <div class="fileUpload btn btn-primary">
               <span>Change watermark</span>

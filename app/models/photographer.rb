@@ -48,6 +48,18 @@ class Photographer < ActiveRecord::Base
   validates_attachment_size :watermark_logo, :less_than => 5.megabytes
   validates_attachment_content_type :watermark_logo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+  has_attached_file :feature_image, styles: { original: "500x500", medium: "300x300>"},
+  :default_url => "user-avatar.png",
+  :url  => "/system/feature_image/images/000/000/00:id/:style/:basename.:extension",
+  :path => ":rails_root/public/system/feature_image/images/000/000/00:id/:style/:basename.:extension",
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => 'gls-testing', 
+    :access_key_id => 'AKIAJ2CZ275DJXIPIAEQ',
+    :secret_access_key => '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' 
+  }
+  validates_attachment_size :feature_image, :less_than => 5.megabytes
+  validates_attachment_content_type :feature_image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   accepts_nested_attributes_for :achievements, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
