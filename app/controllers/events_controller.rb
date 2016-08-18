@@ -90,7 +90,7 @@ class EventsController < ApplicationController
   def all_images
     @client = Client.find_by_id(params[:client_id])
     @event  = Event.find_by_id(params[:id])
-    @image  = Image.where(imageable_id: params[:id])
+    @images  = Image.where(imageable_id: params[:id], imageable_type: "Event")
     @page_name = "Client Management"
   end  
 

@@ -1,34 +1,41 @@
 <div class="container">
-      <% if liked_images(@event).present? %>
-      <div class="col-md-12">
-        <div class="col-md-12 text-alignment-heading-album">
-          <span class="album-text-align"><%= @event.name.titleize %></span>
-          <span class="text-para">by <%= @event.client.firstname.titleize+" "+@event.client.lastname.titleize %><span class="pull-right"></span></span>
-        </div>
-        <div class="col-md-12 album-text-align text-para"> 
-          <hr class="hr-album">
-        </div>
+  <% if liked_images(@event).present? %>
+    <div class="col-md-12">
+      <div class="col-md-12 text-alignment-heading-album">
+        <span class="album-text-align"><%= @event.name.titleize %></span>
+        <span class="text-para">by <%= @event.client.firstname.titleize+" "+@event.client.lastname.titleize %>
+          <span class="pull-right"><%= link_to 'Back', photographer_client_event_path(current_photographer, @event.client, @event), class: "add-album-tag" %></span>
+        </span>
       </div>
-      <div class="row">
-        <div class="col-md-12" style="margin-bottom:50px;">
-          <ul style="list-style:none;" class="ul-li">
-            <% liked_images(@event).each do |img| %>
-              <li style="display: inline;margin-bottom:30px; margin-right: 10px;" data-src="<%= img.image.url%>" class="col-md-2 zero-padding cursor-pointer">
-                <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
-              </li>
-            <% end %>
-          </ul>
-        </div>
+      <div class="col-md-12 album-text-align text-para"> 
+        <hr class="hr-album1">
       </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" style="margin-bottom:50px;">
+        <ul style="list-style:none;" class="ul-li">
+          <% liked_images(@event).each do |img| %>
+            <li style="display: inline;margin-bottom:30px; margin-right: 10px;" data-src="<%= img.image.url%>" class="col-md-2 zero-padding cursor-pointer">
+              <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   <% else %>
     <div class="col-md-12">
-        <div class="col-md-12 text-alignment-heading-album">
-          <span class="album-text-align">No Image Selected</span>
-        </div>
-        <div class="col-md-12 album-text-align text-para"> 
-          <hr class="hr-album">
-        </div>
+      <div class="col-md-12 text-alignment-heading-album">
+        <span class="album-text-align">No Image Selected</span>
+        <span class="text-para">
+          <span class="pull-right">
+            <%= link_to 'Back', photographer_client_event_path(current_photographer, @event.client, @event), class: "add-album-setting-heading" %>
+          </span>
+        </span>
       </div>
+      <div class="col-md-12 album-text-align text-para"> 
+        <hr class="hr-album1">
+      </div>
+    </div>
   <% end %>
 </div>
 

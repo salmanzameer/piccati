@@ -1,7 +1,18 @@
-<div class="show">
-  <div class="form-group">
-    <h1 class="center"> <%= @event.name%></h1>
+<div class="container">
+  <div class="col-md-12">
+    <div class="col-md-12 text-alignment-heading-album">
+      <span class="album-text-align"><%= @event.name.titleize %></span>
+      <span class="text-para">by <%= @event.client.firstname.titleize+" "+@event.client.lastname.titleize %>
+        <span class="pull-right"><%= link_to 'Back', photographer_client_event_path(current_photographer, @event.client, @event), class: "add-album-tag" %></span>
+      </span>
+    </div>
+    <div class="col-md-12 album-text-align text-para"> 
+      <hr class="hr-album1">
+    </div>
   </div>
+</div>
+
+<div class="show">
 <div id = 'uploader' style="margin-left: 344px;">
 </div>
 <script>

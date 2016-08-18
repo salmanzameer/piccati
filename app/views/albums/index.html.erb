@@ -2,20 +2,20 @@
   <div class="col-md-12">
   </div>
 	<% if @albums.present? %>
-      <div class="col-md-12">
-        <div class="col-md-12 text-alignment-heading-album">
-          <span class="album-text-align">All Albums</span>
-          <span class="text-para">by <%= current_photographer.firstname.titleize+" "+current_photographer.lastname.titleize %>
-            <span class="pull-right add-album-setting">
-      <i class="fa fa-plus-circle"></i>
-      <%= link_to "Add Album", "#", class: "client_management_popup add-album-setting-heading", data: { id: "add_album", popup: "add_album_popup", client_id: "" } %>
-    </span>
+    <div class="col-md-12">
+      <div class="col-md-12 text-alignment-heading-album">
+        <span class="album-text-align">All Albums</span>
+        <span class="text-para">by <%= current_photographer.firstname.titleize+" "+current_photographer.lastname.titleize %>
+          <span class="pull-right add-album-setting">
+            <i class="fa fa-plus-circle"></i>
+            <%= link_to "Add Album", "#", class: "client_management_popup add-album-setting-heading", data: { id: "add_album", popup: "add_album_popup", client_id: "" } %>
           </span>
-        </div>
-        <div class="col-md-12 album-text-align text-para"> 
-      		<hr class="hr-album1">
-      	</div>
+        </span>
+      </div>
+      <div class="col-md-12 album-text-align text-para"> 
+    		<hr class="hr-album1">
     	</div>
+    </div>
       <div class="row">
         <div class="col-md-12" style="margin-bottom:50px;">
           <ul style="list-style:none;" class="ul-li">
@@ -32,14 +32,19 @@
         </div>
       </div>
   <% else %>
-    <div class="col-md-12">
+<div class="col-md-12">
         <div class="col-md-12 text-alignment-heading-album">
           <span class="album-text-align">No Album Uploaded</span>
+          <span class="text-para">
+            <span class="pull-right add-album-setting">
+      <i class="fa fa-plus-circle"></i>
+      <%= link_to "Add Album", "#", class: "client_management_popup add-album-setting-heading", data: { id: "add_album", popup: "add_album_popup", client_id: "" } %>
+    </span>
+          </span>
         </div>
         <div class="col-md-12 album-text-align text-para"> 
-          <hr class="hr-album">
+          <hr class="hr-album1">
         </div>
-      </div>
   <% end %>
 </div>
 
