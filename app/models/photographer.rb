@@ -95,6 +95,10 @@ class Photographer < ActiveRecord::Base
       end
   end
 
+  def fullname
+    "#{firstname} #{lastname}"
+  end
+
   def images_likes_count
     count = 0
     self.albums.each do |album|

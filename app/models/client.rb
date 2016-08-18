@@ -63,6 +63,7 @@ class Client < ActiveRecord::Base
   end
 
   def get_followings
+    #@act = PublicActivity::Activity.joins("join follows f on owner_id = followable_id and owner_type = f.followable_type where f.follower_id = '#{self.id}' and f.follower_type = '#{self.class.name}'")
     activities = []
     follows_type = self.follows.pluck(:followable_type).uniq
     follows_type.each do |f|
