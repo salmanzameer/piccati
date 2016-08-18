@@ -151,4 +151,8 @@ $ ->
 			success: (data) ->
 				$(id).html(data)
 				$(popup).show()
+				if (popup == "#add_client_popup")
+					$("input:text:visible:first").focus()
+				else  
+					$("select:visible:first").focus()
 				

@@ -64,14 +64,15 @@ $ ->
     e.preventDefault()
     _form = $(this).closest("form")
     id = "#"+$(_form).attr("id")
+    section_class = "."+$(this).data("section-class")
     if $(id).isValid($(id).validate())
       $.ajax
         type: "POST"
         data: _form.serialize()
         url:  _form.attr("action")
         success: (data) ->
-          $(".calender_and_info").html(data)
-          $("#add_calender_event_popup").hide()
+          $(section_class).html(data)
+          $("#update-event-popup, #add_calender_event_popup").hide()
 
 
   $(document).on 'change', '.event-category', (e) ->

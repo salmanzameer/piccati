@@ -1822,7 +1822,10 @@ $file-upload-size: 200px;
 .min-height-udate-event-tb
 {
   min-height: 52px;
-  padding: 13px 15px 15px 18px !important;
+  padding: 8px 8px 8px 18px !important;
+  display: flex !important;
+  justify-content: center;
+  flex-direction: column;
 }
 
 
