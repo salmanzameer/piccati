@@ -1030,7 +1030,7 @@ table.head tr td {
 
 .events-table-height
 {
-  min-height: 166px;
+  min-height: 159px;
 }
 
 .selected-pkg
@@ -1814,7 +1814,7 @@ $file-upload-size: 200px;
 
 .update-event-table-height
 {
-    min-height: 350px;
+    min-height: 348px;
     background-color: #fff;
 }
 
