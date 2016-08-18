@@ -1289,7 +1289,10 @@ input::-webkit-input-placeholder {
     font-family: 'SegoeUI';
 }
 
-
+.zero-border-bottom
+{
+  border-bottom-width: 0px !important;
+}
 
 .client-table-setting
 {
@@ -2245,6 +2248,7 @@ select, input, textarea, textarea.form-control:focus
 .select2-drop
 {
   top: 302px !important;
+  width: 320px !important;
 }
 
 
@@ -2439,3 +2443,16 @@ li.plupload_delete a
   font-weight: bold;
   padding-left: 5px;
 }
+
+.select2-results 
+{
+  max-height: 120px;
+}
+
+.background-security-password1 
+{
+    height: 220px;
+    padding-top: 15px !important;
+    padding-bottom: 30px;
+}
+
