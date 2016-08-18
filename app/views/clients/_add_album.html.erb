@@ -7,9 +7,8 @@
         <%= f.text_field :name, autocomplete: :off, autofocus: true, placeholder: "Album name", class: "first-field client_fields client_fields_calandar", style: "border: 1px solid #cccccc !important;" %>
       </div>
       <div class="email-add-client-field-view">
-        <%= f.text_area :description, autocomplete: :off, placeholder: "Album description", class: "first-field client_fields client_fields_calandar", style: "border: 1px solid #cccccc !important; font-size: 24px; font-family: 'SegoeUI'; height: 150px;"%>
+        <%= f.text_area :description, autocomplete: :off, placeholder: "Album description", class: "first-field client_fields client_fields_calandar", style: "border: 1px solid #cccccc !important;height: 150px;margin-top:1px;padding-left: 20px;"%>
       </div>
-      <br>
         <%= f.submit 'Add Album' , class: "button button4 bt-add-cli client_fields_calandar submit-album" %>
     </div>
   </fieldset>
