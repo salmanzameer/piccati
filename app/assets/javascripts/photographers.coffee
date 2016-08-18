@@ -60,6 +60,9 @@ $ ->
   $("#upload-watermark").change (e) ->
     $("#watermark-url").val($(this).val().replace(/^.*\\/, ''))
 
+  $("#featured-image").change (e) ->
+    $("#featured").val($(this).val().replace(/^.*\\/, ''))
+
   $(document).on 'click', '.event-submit-on-calendar', (e) ->
     e.preventDefault()
     _form = $(this).closest("form")
@@ -71,7 +74,7 @@ $ ->
         url:  _form.attr("action")
         success: (data) ->
           $(".calender_and_info").html(data)
-          $("#abc2,#update-event-popup").hide()
+        $("#add_calender_event_popup").hide()
 
 
   $(document).on 'change', '.event-category', (e) ->

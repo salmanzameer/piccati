@@ -39,7 +39,7 @@ module Customer
       @like = @image.likes.where({client_id: @client.id}).first_or_initialize(client_id: @client.id)
       @like.update(like: params[:like], unlike: !params[:like])
 
-      message = @like.like ? "like" : "unlike"
+      message = @like.like ? "liked" : "unliked"
       @image.create_activity(key: "#{message} an image", owner: @client)
 
     end
@@ -183,7 +183,7 @@ module Customer
       end
       @image.update_attributes(is_liked: params[:is_liked])
 
-      message = @image.is_liked ? "like" : "unlike"
+      message = @image.is_liked ? "liked" : "unliked"
       @image.create_activity(key: "#{message} an image", owner: @client)
     end
 

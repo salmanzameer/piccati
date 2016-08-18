@@ -2393,3 +2393,17 @@ li.plupload_delete a
 {
   font-size: 16px;
 }
+
+
+.button-album-back-pictres
+{
+  margin-top: 8px;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+.button-album-back-pictres-dash
+{
+  padding-left: 15px;
+  padding-right: 15px;  
+}

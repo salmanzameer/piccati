@@ -1,3 +1,14 @@
+<div class="container">
+  <div class="col-md-12">
+    <div class="col-md-12 text-alignment-heading-album">
+      <span class="album-text-align"><%= @album.name.titleize %></span>
+      <span class="text-para">by <%= @album.photographer.firstname.titleize+" "+@album.photographer.lastname.titleize %><span class="pull-right button-album-back-pictres"><span><%= link_to "Back", photographer_album_path(current_photographer, @album), class: "add-album-setting-heading button-album-back-pictres" %></span></span></span>
+    </div>
+    <div class="col-md-12 album-text-align text-para"> 
+      <hr class="hr-album1">
+    </div>
+  </div>
+</div>
 <div id = 'uploader' style="margin-left: 344px; margin-top:100px;">
 </div>
 <script>
