@@ -3,12 +3,12 @@
 	<div style="margin-top:15px;">
 		<table class="table table-striped header-fixed">
 			<thead>
-				<tr>
+				<tr class="event-type-name-table-heading">
 				  <div>
-				    <th style="background-color: #003366;color: #fff;">
+				    <th style="background-color: #003366;color: #fff;border-bottom-width: 0px;">
 				    	Event Type
 				    </th>
-				    <th style="background-color: #003366;color: #fff;">
+				    <th style="background-color: #003366;color: #fff;border-bottom-width: 0px;">
 				   		Event Name 
 				    </th>
 				  </div>
@@ -25,11 +25,11 @@
 		        <% abc = "" %>
 		      <% end %>
 		      <tr class="events-list <%= cls %> <%= abc %>">
-				    <td class="events-list">
+				    <td class="events-list" style="padding: 16px 15px 15px 13px;">
 				    	<%= event.category.name if event.category.present? %>
 				    </td>
 				    <td class="events-list <%= cls %> <%= abc %> height-event-box" >
-				    	<%= link_to event.name, "#", class: "show-event", data: { id: event.id } %>
+				    	<%= link_to event.name.titleize, "#", class: "show-event", data: { id: event.id } %>
 				    </td>
 				  </tr>
 				 <% end %>
@@ -44,7 +44,8 @@
 		</div>
 
 </div>
-<div class="col-md-5 MT53">
+<h1 class="heading-clientlist heading-clientlist-event-detail">Event Details</h1>
+<div class="col-md-5">
 	<div class="clients-table">
 	</div>
 	<div class="edit-event-section"></div>
