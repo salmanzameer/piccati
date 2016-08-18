@@ -21,8 +21,6 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params["id"])
-    params[:event][:start_time] = DateTime.strptime(params[:event][:start_time], "%m/%d/%Y") 
-
     event_params.each do |key, value|
       @event.assign_attributes(key => value)
     end
@@ -52,7 +50,6 @@ class EventsController < ApplicationController
   end
 
   def create_event
-    params[:event][:start_time] = DateTime.strptime(params[:event][:start_time], "%m/%d/%Y") 
     @client  = Client.find(params[:client_id])
     event    = @client.events.new(event_params.merge!(photographer_id: current_photographer.id))
     event    = event.wedding? ? event.save : event.save(validate: false)
@@ -61,7 +58,6 @@ class EventsController < ApplicationController
   def create_calender_event
     start_of_day    = Date.today.to_datetime.beginning_of_day
     end_of_day      = Date.today.to_datetime.end_of_day
-    params[:event][:start_time] = DateTime.strptime(params[:event][:start_time], "%m/%d/%Y") 
     @client         = Client.find(params[:event][:client_id])
     event           = @client.events.new(event_params.merge!(photographer_id: current_photographer.id))
     event           = event.save(validate: false)

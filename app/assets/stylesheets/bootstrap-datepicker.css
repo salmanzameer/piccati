@@ -157,17 +157,6 @@
   border: 0;
   content: "Show Minutes";
 }
-.bootstrap-datetimepicker-widget .btn[data-action="togglePeriod"]::after {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-  content: "Toggle AM/PM";
-}
 .bootstrap-datetimepicker-widget .btn[data-action="clear"]::after {
   position: absolute;
   width: 1px;
