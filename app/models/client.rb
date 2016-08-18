@@ -59,7 +59,7 @@ class Client < ActiveRecord::Base
   end   
 
   def fullname
-    "#{self.firstname} #{self.lastname}"
+    "#{firstname} #{lastname}".titleize
   end
 
   def get_followings

@@ -6,9 +6,9 @@
         <thead>
           <tr class="Profile-heading">
             <div>
-              <th class="table-row-width" style="background-color: #003366;color: #fff;border-bottom-width: 0px;">
+              <th class="table-row-width heading-table-client">
                 <div id="container">
-                  <div id="navi">Client Name</div>
+                  <div id="navi">Search Client</div>
                   <div id="infoi">
                     <form class="searchbox">
                       <input type="search" placeholder="Search......" name="search" class="searchbox-input color-picker" onkeyup="buttonUp();" required>
@@ -37,11 +37,8 @@
             <% end %>
             <tr class="photographer-clients-list <%= cls %> <%= abc %>">
               <td class="table-row-width zero-border zero-padding">
-                <div class="col-md-7 center-align-tag">
+                <div class="col-md-12 center-align-tag">
                   <%= link_to client.fullname, "#", class: "show-client-events client-event-anchor-design", data: { id: client.id } %>
-                </div>
-                <div class="col-md-5 button-styling-clint-box-alignment">
-                  <button class="client-id" type="button" style="background-color: Transparent;background-repeat: no-repeat;border: none;cursor: pointer;overflow: hidden;outline:none;width: 45%;height: 30px;" id="popup" data-client="<%= client.id %>" data-id= "edit_client_popup" data=c = "<%= client.id %>" class="popup edit_client_package"><i class="fa  fa-edit btn-edit" style="font-size: 16px;color: #ddd;"></i></button>
                 </div>
               </td>
             </tr>
