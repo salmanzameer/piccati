@@ -671,14 +671,14 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
   width: 100%;
   height: 100%;
   position: absolute;
-  top: -5px;
+  top: -3px;
   left: 0;
 }
 #infoi {
   width: 233%;
   height: 100%;
   position: absolute;
-  top: -5px;
+  top: -3px;
   left: 0px;
 }
 #infoi {
@@ -712,23 +712,23 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
     height:50px;
     margin:0;
     padding:0px 55px 0px 10px;
-    font-size:20px;
+    font-size:16px;
     color:#fff;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 .searchbox-input::-webkit-input-placeholder {
-    color: #d74b4b;
+    color: #003366;
 }
 .searchbox-input:-moz-placeholder {
-    color: #d74b4b;
+    color: #003366;
 }
 .searchbox-input::-moz-placeholder {
-    color: #d74b4b;
+    color: #003366;
 }
 .searchbox-input:-ms-input-placeholder {
-    color: #d74b4b;
+    color: #003366;
 }
 
 .searchbox-icon,
@@ -1030,7 +1030,7 @@ table.head tr td {
 
 .events-table-height
 {
-  min-height: 159px;
+  min-height: 170px;
 }
 
 .selected-pkg
@@ -1038,7 +1038,7 @@ table.head tr td {
   background-color: #003366;
   color: #fff;
   font-size: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .selected-pkg-adjust
 {
@@ -1087,7 +1087,7 @@ input::-moz-placeholder {
 }
 
 .searchbox-input, .actual-edit-overlay {
-    -webkit-text-fill-color:  #7F7F7F;
+    -webkit-text-fill-color:  #003366;
 }
 
 input::-webkit-input-placeholder {
@@ -1822,6 +1822,7 @@ $file-upload-size: 200px;
 .min-height-udate-event-tb
 {
   min-height: 52px;
+  padding: 13px 15px 15px 18px !important;
 }
 
 
@@ -1866,7 +1867,7 @@ $file-upload-size: 200px;
 {
   min-height: 52px;
   width: 100%;
-  padding: 10px;
+  padding: 14px 10px 10px 2px;
 }
 
 
