@@ -1,6 +1,6 @@
 <%= month_calendar events: @calendar_event, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, events| %>
 	  <%= date %>
-	  <div>
+	  <div class="calender-event-count">
 	    <%= events.count.to_s+" event".pluralize(events.count) if events.present? %>
 	  </div>
 	<% end %>

@@ -37,6 +37,6 @@
       </tr>
       <% end %>
     </tbody></table></div></div>
-    <button class="button button4 event-btn client_management_popup" data-id= "add_calender_event" data-popup="add_calender_event_popup" data-client-id= "" ><i class="fa fa-plus-circle"></i> Calendar Entry </button>
+    <button class="button button4 event-btn client_management_popup" data-calendar-type= "<%= params[:calendar_type] %>" data-id= "add_calender_event" data-popup="add_calender_event_popup" data-client-id= "" ><i class="fa fa-plus-circle"></i> Calendar Entry </button>
     <%= image_tag ("loader.gif"), id: "loading-image", style: "display:none; position: absolute; top: 208px;" %>
 </div>

@@ -147,7 +147,7 @@ $ ->
 		$.ajax
 			type: "GET"
 			url:  "/get_forms"
-			data: { form_name:  $(this).data("id"), client_id: $(this).data("client-id")  }
+			data: { form_name:  $(this).data("id"), client_id: $(this).data("client-id"), calendar_type: $(this).data("calendar-type") }
 			success: (data) ->
 				$(id).html(data)
 				$(popup).show()

@@ -75,6 +75,7 @@ class EventsController < ApplicationController
   end
 
   def upload_image
+    @page_name = "Client Management"
     @client = Client.find_by_id(params[:client_id]) 
     @event  = Event.find_by_id(params[:id])
   end
@@ -122,6 +123,7 @@ class EventsController < ApplicationController
   end
   
   def selected_images
+    @page_name = "Client Management"
     @event = Event.find_by_id params[:id]
   end
 
