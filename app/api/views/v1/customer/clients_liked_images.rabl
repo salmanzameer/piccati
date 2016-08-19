@@ -4,6 +4,9 @@ child @images , object_root: false do
   attributes :event_id
   node(:image_id) { |img| img.id  }
   node(:url) { |img| img.image_url  }
+  node(:photographer_id) { |img| img.imageable.photographer.id  }
+  node(:photographer_name) { |img| img.imageable.photographer.fullname  }
+  node(:photographer_profile_image) { |img| img.imageable.photographer.avatar.url  }
   node(:is_liked) { true }
 end
 node(:images_count) {@images.count}
