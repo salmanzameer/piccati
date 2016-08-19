@@ -8,4 +8,11 @@ class UserNotifier < ApplicationMailer
 	  subject: 'Event request')
 	end
 
+	def website_form_email(name,email,message)
+		@name = name
+		@email = email
+		@message = message
+		mail( to: "info@piccati.com",
+	  subject: 'Contact Us')
+	end
 end

@@ -1,0 +1,13 @@
+<%#= render partial: "layouts/mail_template", locals: { name: @name, email: @email, message: @message } %>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Dear Piccati Management,</p>
+    <p>Name: <%= @name.titleize %> has filled out contact us form.</p>
+    <p>Email: <%= @email %></p>
+    <p>Message: <%= @message %><br>
+    <br>Thank you. </p>
+  </body>
+</html>

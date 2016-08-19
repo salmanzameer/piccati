@@ -294,5 +294,19 @@ module Customer
       @enquiry.save
       UserNotifier.client_request_event_email(@enquiry).deliver_now
     end 
+    desc "Get email form from piccati.com"
+    params do
+      requires :email,    type: String
+      requires :name,     type: String
+      requires :message,  type: String
+    end
+
+    get "/email_form", rabl: "v1/customer/email_form" do
+      @name = params[:name]
+      @email = params[:email]
+      @message = params[:message]
+      UserNotifier.website_form_email(@name,@email,@message).deliver_now
+    end
+
   end
 end
