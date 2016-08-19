@@ -2470,6 +2470,8 @@ li.plupload_delete a
 
 .reset-password {
     width: 700px;
+    padding-left: 0px;
+    padding-right: 100px;
 }
 
 .reset-password-input{
@@ -2480,4 +2482,8 @@ li.plupload_delete a
 .reset-password label
 {
   margin-top: 13px !important;
+}
+
+.reset-password-input1{
+    width: 61%;
 }
