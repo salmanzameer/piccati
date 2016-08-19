@@ -20,8 +20,8 @@ class Photographer < ActiveRecord::Base
   validates :lastname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
   validates :contnumber, presence: true, format: { with: /\A^(?:00|\+|0)?[1-9][[0-9]+[ \( \) \-]]*$\z/,  message: 'invalid'}
   validates :email, presence: true
-  validates :password, presence: true,on: :create
-  validates :password_confirmation, presence: true, on: :create
+  validates :password, presence: true, on: :create
+  validates_confirmation_of :password_confirmation, on: :create
 
   has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
   :default_url => "user-avatar.png",
@@ -64,6 +64,12 @@ class Photographer < ActiveRecord::Base
   accepts_nested_attributes_for :achievements, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
   #before_create :skip_confirmation if Rails.env.production?
+
+  before_create :set_role_type
+
+  def set_role_type
+    self.role_type = "Studio"
+  end
 
   def skip_confirmation
     self.skip_confirmation!

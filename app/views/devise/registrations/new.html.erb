@@ -9,7 +9,7 @@
     
       <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], 'Mr' ), {prompt: false }, class: "form-title form-control client_fields_calandar1 zero-border", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>
 
-      <%= f.select(:role_type , options_for_select(['Freelancer', 'Studio'], 'Freelancer' ), {prompt: false }, class: "form-title form-control client_fields_calandar1 zero-border mT1", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>
+      <%#= f.select(:role_type , options_for_select(['Freelancer', 'Studio'], 'Freelancer' ), {prompt: false }, class: "form-title form-control client_fields_calandar1 zero-border mT1", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>
 
       <%= f.text_field :firstname, autofocus: true , :placeholder => 'First Name' ,class: "form-firstname form-control  form-box-s client_fields_calandar1 zero-border mT1", :id =>'form-firstname' %>
     
