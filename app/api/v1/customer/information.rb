@@ -93,11 +93,41 @@ module Customer
       @activities = @client.get_followings
     end
 
+    desc "Search Photographer"
+    params do
+      requires :search_string, type: String
+      requires :authentication_token, type: String
+      requires :requester_id,         type: String
+    end
+
+    get "/search_photographer", rabl: "v1/customer/search_photographer" do
+
+      @requester = Client.find_by_id_and_authentication_token(params[:requester_id], params[:authentication_token])
+      @requester = Photographer.find_by_id_and_authentication_token(params[:requester_id], params[:authentication_token]) unless @requester.present?
+
+      unless @requester.present?
+        throw :error, status: 404, message: "Requester not found!"
+      end
+
+      search = params[:search_string].downcase
+      @photographers = Photographer.where('lower(firstname) like :f or lower(lastname) like :l ', f: "%#{search}%", l: "%#{search}%")
+    end
+
     desc "Get images with likes greater than 1000 (collection feed)"
     params do
-      optional :page,   type: Integer
+      requires :authentication_token, type: String
+      requires :requester_id,         type: String
+      optional :page,                 type: Integer
     end
     get "/get_collection_feed", rabl: "v1/customer/get_collection_feed" do
+
+      @requester = Client.find_by_id_and_authentication_token(params[:requester_id], params[:authentication_token])
+      @requester = Photographer.find_by_id_and_authentication_token(params[:requester_id], params[:authentication_token]) unless @requester.present?
+
+      unless @requester.present?
+        throw :error, status: 404, message: "Requester not found!"
+      end
+
       @images = Image.where(imageable_type: "Album").where("likes_count > 100").order("likes_count DESC").paginate( page: params[:page], per_page: 10 )
     end
 
