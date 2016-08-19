@@ -19,9 +19,9 @@ class Client < ActiveRecord::Base
   validates :lastname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
   #validates :contnumber, presence: true, format: { with: /\A^(?:00|\+|0)?[1-9][[0-9]+[ \( \) \-]]*$\z/,  message: 'invalid'}
   validates :email, presence: true
-  validates :password, presence: true,on: :create
-  validates_confirmation_of :password_confirmation, on: :create
- 
+  validates :password, presence: true
+  validates_confirmation_of :password
+
   has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
   default_url: 'user-avatar.png',
   :url  => "/system/avatar/images/000/000/00:id/:style/:basename.:extension",
