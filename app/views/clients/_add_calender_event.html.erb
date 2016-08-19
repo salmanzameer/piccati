@@ -2,6 +2,7 @@
 <%= form_for Event.new, url: create_calender_event_path, validate: true, html: { id: "add-calender-event-model", class: "form-action form-calandar-popup" } do |f| %>
 	<center><h2 class="form-calandar-popup-heading-top">Add an Event</h2></center>
 	<fieldset class="form-calandar-popup-fieldset">
+    <%= hidden_field_tag :calendar_type, params[:calendar_type] %>
 	  <%= f.select(:category_id , options_from_collection_for_select(Category.all, "id", "name"), { prompt: "Event Type"  }, class: "form-title form-control event-category", :id => "event-category" , style: "height: 50px;margin-top: 1px;border-radius: 0px;width: 80%;float:left;")   %>
 	  <%= f.text_field :name, autofocus: true, :placeholder =>"Name", :class => "first-field client_fields client_fields_calandar" %>
 	  <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields client_fields_calandar" %>

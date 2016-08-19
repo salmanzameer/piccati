@@ -3,10 +3,19 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-	$(document).on 'click', '.connect-with-client', (e) ->
-		e.preventDefault()
-		if ($('#add-client-model').isValid($('#add-client-model').validate()))
-			$(".connect-client-form").submit()
+	$(document).on 'click', '.connect-with-client, .submit-event', (e) ->
+		$('.connect-client-form, #add-event-form').find('input').filter(->
+	  	if $(this).val() == ''
+	    	$(this).focus()
+	    	return
+		).first().focus()
+		#$('.show-client-events').last().click()
+	$(document).on 'click', '.event-submit-on-calendar', (e) ->
+		$('#add-calender-event-model').find('input, select').filter(->
+	  	if $(this).val() == ''
+	    	$(this).focus()
+	    	return
+		).first().focus()
 
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()
@@ -147,7 +156,7 @@ $ ->
 		$.ajax
 			type: "GET"
 			url:  "/get_forms"
-			data: { form_name:  $(this).data("id"), client_id: $(this).data("client-id")  }
+			data: { form_name:  $(this).data("id"), client_id: $(this).data("client-id"), calendar_type: $(this).data("calendar-type") }
 			success: (data) ->
 				$(id).html(data)
 				$(popup).show()

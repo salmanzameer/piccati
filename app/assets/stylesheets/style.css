@@ -2493,7 +2493,11 @@ li.plupload_delete a
   margin-top: 13px !important;
 }
 
+.today .today-date  .calender-event-count
+{
+  float: left;
+}
+
 .reset-password-input1{
     width: 61%;
 }
-
