@@ -94,15 +94,11 @@ module Customer
     end
 
     desc "Get images with likes greater than 1000 (collection feed)"
-
+    params do
+      optional :page,   type: Integer
+    end
     get "/get_collection_feed", rabl: "v1/customer/get_collection_feed" do
-
-      @images = Image.where(imageable_type: "Album").where("likes_count > 100")
-      
-      unless @images.present?
-        throw :error, status: 404, message: "No Images found!"
-      end
-      
+      @images = Image.where(imageable_type: "Album").where("likes_count > 100").order("likes_count DESC").paginate( page: params[:page], per_page: 10 )
     end
 
     desc "Get images of photographers liked followed by client (feed)"
