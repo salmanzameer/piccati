@@ -17,10 +17,11 @@ class Client < ActiveRecord::Base
   validates_format_of :email,:with => Devise::email_regexp
   validates :firstname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
   validates :lastname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
+  #validates :contnumber, presence: true, format: { with: /\A^(?:00|\+|0)?[1-9][[0-9]+[ \( \) \-]]*$\z/,  message: 'invalid'}
   validates :email, presence: true
-  validates :password, presence: true,on: :create
-  validates_confirmation_of :password, on: :create
- 
+  validates :password, presence: true
+  validates_confirmation_of :password
+
   has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
   default_url: 'user-avatar.png',
   :url  => "/system/avatar/images/000/000/00:id/:style/:basename.:extension",
@@ -63,6 +64,7 @@ class Client < ActiveRecord::Base
   end
 
   def get_followings
+    #@act = PublicActivity::Activity.joins("join follows f on owner_id = followable_id and owner_type = f.followable_type where f.follower_id = '#{self.id}' and f.follower_type = '#{self.class.name}'")
     activities = []
     follows_type = self.follows.pluck(:followable_type).uniq
     follows_type.each do |f|

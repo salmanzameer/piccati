@@ -24,7 +24,7 @@
                 <% if album.images.present? %>
                   <%= link_to image_tag(album.images.first.image.url(:medium), style: "width: 100%;"), photographer_album_path(current_photographer, album) %>
                 <% else %>
-                  <%= link_to image_tag("download.jpg", width: 183, height: 183), photographer_album_path(current_photographer, album) %>
+                  <%= link_to image_tag("default-album.png", width: 183, height: 183), photographer_album_path(current_photographer, album) %>
                 <% end %>
                 <span class="text-alignment-heading-album" style="float:left"><%= album.name %></span>
               </li>

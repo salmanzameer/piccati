@@ -1289,7 +1289,10 @@ input::-webkit-input-placeholder {
     font-family: 'SegoeUI';
 }
 
-
+.zero-border-bottom
+{
+  border-bottom-width: 0px !important;
+}
 
 .client-table-setting
 {
@@ -1855,7 +1858,16 @@ $file-upload-size: 200px;
 
 .alert-success 
 {
-    text-align: left;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    color: #003366;
+    font-family: 'SegoeUI';
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: -20px;
 }
 .alert {
   box-shadow: 0px !important;
@@ -2245,6 +2257,7 @@ select, input, textarea, textarea.form-control:focus
 .select2-drop
 {
   top: 302px !important;
+  width: 320px !important;
 }
 
 
@@ -2451,3 +2464,36 @@ li.plupload_delete a
   font-weight: bold;
   padding-left: 5px;
 }
+
+.select2-results 
+{
+  max-height: 120px;
+}
+
+.background-security-password1 
+{
+    height: 220px;
+    padding-top: 15px !important;
+    padding-bottom: 30px;
+}
+
+.reset-password {
+    width: 700px;
+    padding-left: 0px;
+    padding-right: 100px;
+}
+
+.reset-password-input{
+      width: 61%;
+    float: left;
+}
+
+.reset-password label
+{
+  margin-top: 13px !important;
+}
+
+.reset-password-input1{
+    width: 61%;
+}
+
