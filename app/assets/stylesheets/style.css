@@ -1858,7 +1858,16 @@ $file-upload-size: 200px;
 
 .alert-success 
 {
-    text-align: left;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    color: #003366;
+    font-family: 'SegoeUI';
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: -20px;
 }
 .alert {
   box-shadow: 0px !important;
@@ -2470,6 +2479,8 @@ li.plupload_delete a
 
 .reset-password {
     width: 700px;
+    padding-left: 0px;
+    padding-right: 100px;
 }
 
 .reset-password-input{
@@ -2485,4 +2496,8 @@ li.plupload_delete a
 .today .today-date  .calender-event-count
 {
   float: left;
+}
+
+.reset-password-input1{
+    width: 61%;
 }

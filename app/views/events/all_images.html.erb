@@ -14,7 +14,7 @@
         <div class="col-md-12" style="margin-bottom:50px;">
           <ul style="list-style:none;" class="ul-li">
             <% @images.each do |img| %>
-              <li style="display: inline;margin-bottom:30px; margin-right: 10px;" data-src="<%= img.image.url%>" class="col-md-2 zero-padding cursor-pointer">
+              <li style="display: inline;margin-bottom:35px; margin-right: 35px;" data-src="<%= img.image.url%>" class="col-md-2 zero-padding cursor-pointer">
                 <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
               </li>
             <% end %>
