@@ -7,6 +7,10 @@ $ ->
   $(document).on 'focus', '#signup-form, #add-event-form, #add-album-model, #add-client-model, .edit-package-model, #update-event-model, #add-calender-event-model, #edit-photographer, #add-photographer-album', (e) ->
     $('form').enableClientSideValidations()
  
+  $('a.calender-tab').click ->
+    $('#dropdownMenu1').dropdown 'toggle'
+    return
+
   window.onload = ->
     setTimeout (->
       $('.devise-noti').remove()
