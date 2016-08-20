@@ -472,7 +472,7 @@
         }
       },
       confirmation: function(element, options) {
-        if (element.val() !== $("#" + (element.attr('id')) + "_confirmation").val()) {
+        if (($("#" + (element.attr('id')) + "_confirmation").length > 0) && (element.val() !== $("#" + (element.attr('id')) + "_confirmation").val())) {
           return options.message;
         }
       },

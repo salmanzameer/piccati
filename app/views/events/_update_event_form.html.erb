@@ -14,7 +14,7 @@
         <span class="input-group-addon">
           <i class="fa fa-calendar calender-icon" aria-hidden="true"></i>
         </span>
-        <%= f.datetime_field :start_time, value: event.start_time.strftime("%m/%d/%Y"), autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields calendarfield-width design-cal-field" %>
+        <%= f.datetime_field :start_time, value: event.start_time, autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields calendarfield-width design-cal-field" %>
       </div>
       <script type="text/javascript">
         $(function () {

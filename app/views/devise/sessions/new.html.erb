@@ -21,17 +21,11 @@
            <div class="form-group input-field-setting">
              <%= f.label :email, :class => 'sr-only', :for => 'form-username'%> 
              <%= f.email_field :email , :placeholder => 'Email' ,class: "form-username form-control client_fields_calandar1", :id =>'form-username' %>
-             <div class="txt">
-               <%= resource.errors[:email].first%>
-             </div>
-           </div>
+            </div>
            <div class="form-group input-field-setting" style="padding-left: 0px;padding-right: 0px;">
              <%= f.label :password , :class => 'sr-only', :for =>'form-password' %>
-             <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control form-field-password client_fields_calandar1", :id =>'form-password' %>
-             <div class="txt">
-               <%= resource.errors[:password].first  %>
-             </div>
-           </div>
+             <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control form-field-password client_fields_calandar1", :id =>'password' %>
+            </div>
            <div class="form-group input-field-setting" style="padding-left: 0px;padding-right: 0px;">
               <button type="submit" class="button button4 client_fields_calandar1">Log In</button>
            </div>

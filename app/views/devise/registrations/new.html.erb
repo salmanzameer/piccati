@@ -11,17 +11,17 @@
 
       <%#= f.select(:role_type , options_for_select(['Freelancer', 'Studio'], 'Freelancer' ), {prompt: false }, class: "form-title form-control client_fields_calandar1 zero-border mT1", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>
 
-      <%= f.text_field :firstname, autofocus: true , :placeholder => 'First Name' ,class: "form-firstname form-control  form-box-s client_fields_calandar1 zero-border mT1", :id =>'form-firstname' %>
+      <%= f.text_field :firstname, autofocus: true , :placeholder => 'First Name' ,class: "form-firstname form-control  form-box-s client_fields_calandar1 zero-border mT1" %>
     
-      <%= f.text_field :lastname, autofocus: true , :placeholder => 'Last Name' ,class: "form-lastname form-control  form-box-s client_fields_calandar1 zero-border mT1", :id =>'form-lastname' %>
+      <%= f.text_field :lastname, autofocus: true , :placeholder => 'Last Name' ,class: "form-lastname form-control  form-box-s client_fields_calandar1 zero-border mT1" %>
     
-      <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "form-username form-control  client_fields_calandar1 zero-border mT1", :id =>'form-username' %>
+      <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "form-username form-control  client_fields_calandar1 zero-border mT1" %>
     
-      <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact' ,class: "form-contact form-control  client_fields_calandar1 zero-border mT1", :id =>'form-contact' , style: "margin-top:0px;"%>
+      <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact' ,class: "form-contact form-control  client_fields_calandar1 zero-border mT1" , style: "margin-top:0px;"%>
     
-    <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control  client_fields_calandar2 zero-border mT1", :id =>'form-password' %>
-      <%= f.label :password_confirmation , :class => 'sr-only', :for =>'form-password' %>
-      <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "form-password form-control  client_fields_calandar1 zero-border mT1", :id =>'form-password' %>
+    <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control  client_fields_calandar2 zero-border mT1" %>
+      
+      <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "form-password form-control  client_fields_calandar1 zero-border mT1" %>
       <button type="submit" class="button button4 client_fields_calandar2 mB70"><i class="fa fa-plus-circle btn-sign-up-registration"></i>Submit</button>
     </fieldset>
     </div>

@@ -8,8 +8,8 @@ $ ->
 	  	if $(this).val() == ''
 	    	$(this).focus()
 	    	return
-		).first().focus()
-		#$('.show-client-events').last().click()
+		)
+	
 	$(document).on 'click', '.event-submit-on-calendar', (e) ->
 		$('#add-calender-event-model').find('input, select').filter(->
 	  	if $(this).val() == ''
@@ -17,10 +17,12 @@ $ ->
 	    	return
 		).first().focus()
 
+	
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()
 		_form = $(this).closest("form")
-		if ($('#add-event-form').isValid($('#update-event-model').validate()))
+		id = "#"+$(_form).attr("id")
+		if ($(id).isValid($(id).validate()))
 			$.ajax
 				type: "POST"
 				data: _form.serialize()
@@ -29,17 +31,6 @@ $ ->
 					$(".events-section").html(data)
 					$("#abc2").hide()
 					$('.show-event').last().click()
-
-	$(document).on 'click', '.update-event-class', (e) ->
-		e.preventDefault()
-		_form = $(this).closest("form")
-		$.ajax
-			type: "POST"
-			data: _form.serialize()
-			url:  _form.attr("action")
-			success: (data) ->
-				$(".clients-table").html(data)
-				$("#update-event-popup").hide()
 
 	$(document).on 'click', '.edit-package', (e) ->
 		e.preventDefault()
