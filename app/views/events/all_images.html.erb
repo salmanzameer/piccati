@@ -24,7 +24,7 @@
   <% else %>
      <div class="col-md-12">
         <div class="col-md-12 text-alignment-heading-album">
-          <span class="album-text-align">No Image Uploaded</span>
+          <span class="album-text-align"><%= @event.name.titleize %></span>
           <span class="text-para">by <%= @event.client.firstname.titleize+" "+@event.client.lastname.titleize %><span class="pull-right button-album-back-pictres"><span><%= link_to "Back", photographer_client_event_path(current_photographer, @event.client, @event), class: "add-album-setting-heading button-album-back-pictres" %></span><span class="button-album-back-pictres-dash">|</span><%= link_to 'Add Pictures', upload_image_photographer_client_event_path(current_photographer, @event.client, @event), class: "add-album-tag" %></span></span>
         </div>
         <div class="col-md-12 album-text-align text-para"> 
