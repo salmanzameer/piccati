@@ -1,7 +1,7 @@
 <div class="col-md-6"></div>
 <div class="dropdown col-md-6 drop-down-btn-cal">
   <button class="btn btn-default dropdown-toggle drop-down-btn-cal-beauty btn-dropdown-design" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    <span class="button_class"><%= params[:calendar_type].present? ? params[:calendar_type].capitalize : "Monthly" %></span>
+    <span class="button_class"><%= params[:calendar_type].present? ? params[:calendar_type].capitalize+"ly" : "Monthly" %></span>
     <span class="caret drop-down-btn-cal-beauty caret-cal"></span>
   </button>
   <ul class="dropdown-menu dropdown-cal-ul" aria-labelledby="dropdownMenu1">
