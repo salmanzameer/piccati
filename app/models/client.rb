@@ -7,7 +7,7 @@ class Client < ActiveRecord::Base
   acts_as_followable
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many      :photographer_clients  
   has_many      :photographers, through: :photographer_clients
   has_many      :events
