@@ -1,7 +1,7 @@
 '<%= form_for Client.new do |f| %>'
 	$('.client-autofilled-fields').html("<%= escape_javascript (render partial: 'client_autofilled_fields', locals: { client: @client, f: f }) %>");
 '<% end %>'
-
+$("#add-client-model").enableClientSideValidations();
 $(".search_client_email").val("<%= params[:email] %>")	
 $(".searched_email").hide()
 $(".search_client_email").change()
