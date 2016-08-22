@@ -3,10 +3,15 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-	$(document).on 'click', '.connect-with-client, .submit-event', (e) ->
-		$('.connect-client-form, #add-event-form').find('input').filter(->
+	$(document).on 'click', '.calender-icon-span', (e) ->
+		$('#datetimepicker, #datetimepicker2, #datetimepicker1').datetimepicker format: 'dddd, MMMM Do YYYY HH:mm'
+		$('form').enableClientSideValidations()
+
+	$(document).on 'click', '.event-submit-on-calendar, .connect-with-client, .update-event, .submit-event', (e) ->
+		$('.connect-client-form, #add-event-form, #update-event-model, #add-calender-event-model').find('input').filter(->
 	  	if $(this).val() == ''
 	    	$(this).focus()
+	    	$(this).focusout()
 	    	return
 		)
 	
