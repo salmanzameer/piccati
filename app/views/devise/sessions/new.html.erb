@@ -1,43 +1,39 @@
-<center><%= image_tag("piccati-login-logo.png", style: "margin-top: 60px;") %>
-<p class="sign-up-data-align-sigin-heading">Log in to Piccati</p></center>
-<div class="top-content">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-sm-offset-2 text">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 form-box">
-          <div class="form-top">
-            <div class="form-top-left">
-            </div>
-            <div class="form-top-right">
-
+<center>
+  <%= image_tag("piccati-icon.svg", class: "logo-position") %>
+  <p class="sign-up-data-align-sigin-heading">Log in to Piccati</p>
+</center>
+<div>
+    <div class="container container-table">
+      <div class="row vertical-center-row">
+        <div class="text-center col-md-5 col-md-offset-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="form-horizontal">
+                 <%= form_for resource, as: resource_name, url: session_path(resource_name), validate: true , html: { class: 'login-form login-sign-up-button-padd form-sign-up-new1' } do |f| %>
+                 <div class="form-group input-field-setting">
+                   <div class="col-sm-12 zero-padding">
+                     <%= f.email_field :email , :placeholder => 'Email' ,class: "form-username form-control input-lg form-sign-in-input-field", :id =>'form-username' %>
+                   </div>
+                 </div>
+                 <div class="form-group input-field-setting">
+                   <div class="col-sm-12 zero-padding">
+                      <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control input-lg form-sign-in-input-field", :id =>'password' %>
+                    </div>
+                 </div>
+                 <div class="form-group input-field-setting">
+                  <div class="col-sm-12 zero-padding">
+                    <button type="submit" class="button button4 form-sign-in-input-field-btn">Log In</button>
+                  </div>
+                 </div>
+                <% end %>
+              </div>
             </div>
           </div>
-          <div class="form-bottom" style="margin-left: 400px;">
-
-           <%= form_for resource, as: resource_name, url: session_path(resource_name), validate: true , html: { class: 'login-form login-sign-up-button-padd form-sign-up-new1' } do |f| %>
-           <div class="form-group input-field-setting">
-             <%= f.label :email, :class => 'sr-only', :for => 'form-username'%> 
-             <%= f.email_field :email , :placeholder => 'Email' ,class: "form-username form-control client_fields_calandar1", :id =>'form-username' %>
-            </div>
-           <div class="form-group input-field-setting" style="padding-left: 0px;padding-right: 0px;">
-             <%= f.label :password , :class => 'sr-only', :for =>'form-password' %>
-             <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control form-field-password client_fields_calandar1", :id =>'password' %>
-            </div>
-           <div class="form-group input-field-setting" style="padding-left: 0px;padding-right: 0px;">
-              <button type="submit" class="button button4 client_fields_calandar1">Log In</button>
-           </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-md-4">
+    <div>
+      <div class="col-xs-10 zero-padding"><%= link_to "Sign up now.", new_photographer_registration_path, class: "btn-sign-in-index-pg" %></div>
+    </div>
+       </div>
       </div>
     </div>
-    <div class="container">
-      <div class="col-md-9 zero-padding sign-up-now-btn-set"><%= link_to "Sign up now.", new_photographer_registration_path, class: "btn-sign-in-index-pg" %></div>
-    </div>
-  </div>
 </div>
 

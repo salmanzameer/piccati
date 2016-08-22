@@ -1,31 +1,61 @@
-<%= image_tag("piccati-login-logo.png", style: "margin-top: 60px;") %>
-<center><p class="sign-up-data-align-sigin-heading">Sign up to Piccati</p></center>
-<div class="col-md-12">
-  <div class="col-md-4">
-  </div>
-  <div class="col-md-6">
-    <fieldset class="form-calandar-popup-fieldset1">
-    <%= form_for resource, as: resource_name, url: registration_path(resource_name), validate: true, html: { class: "form-sign-up-new1", id: "signup-form" } do |f| %>
-    
-      <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], 'Mr' ), {prompt: false }, class: "form-title form-control client_fields_calandar1 zero-border", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>
-
-      <%#= f.select(:role_type , options_for_select(['Freelancer', 'Studio'], 'Freelancer' ), {prompt: false }, class: "form-title form-control client_fields_calandar1 zero-border mT1", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>
-
-      <%= f.text_field :firstname, autofocus: true , :placeholder => 'First Name' ,class: "form-firstname form-control  form-box-s client_fields_calandar1 zero-border mT1" %>
-    
-      <%= f.text_field :lastname, autofocus: true , :placeholder => 'Last Name' ,class: "form-lastname form-control  form-box-s client_fields_calandar1 zero-border mT1" %>
-    
-      <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "form-username form-control  client_fields_calandar1 zero-border mT1" %>
-    
-      <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact' ,class: "form-contact form-control  client_fields_calandar1 zero-border mT1" , style: "margin-top:0px;"%>
-    
-    <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control  client_fields_calandar2 zero-border mT1" %>
-      
-      <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "form-password form-control  client_fields_calandar1 zero-border mT1" %>
-      <button type="submit" class="button button4 client_fields_calandar2 mB70"><i class="fa fa-plus-circle btn-sign-up-registration"></i>Submit</button>
-    </fieldset>
-    </div>
+<center>
+  <%= image_tag("piccati-icon.svg", class: "logo-position") %>
+  <p class="sign-up-data-align-sigin-heading">Sign up to Piccati</p>
+</center>
+<div>
+    <div class="container container-table">
+      <div class="row vertical-center-row">
+        <div class="text-center col-md-5 col-md-offset-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="form-horizontal">
+                <%= form_for resource, as: resource_name, url: registration_path(resource_name), validate: true, html: { class: "sign_up-form form-sign-up-new1", id: "signup-form" } do |f| %>
+                  <div class="form-group input-field-setting">
+                   <div class="col-sm-12 zero-padding">                
+                    <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], 'Mr' ), {prompt: false }, class: "form-title form-control zero-border form-sign-up-input-field input-lg", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>
+                   </div>
+                  </div>
+                  <%#= f.select(:role_type , options_for_select(['Freelancer', 'Studio'], 'Freelancer' ), {prompt: false }, class: "form-title form-control client_fields_calandar1 zero-border mT1", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>
+                  <div class="form-group input-field-setting">
+                   <div class="col-sm-12 zero-padding">
+                    <%= f.text_field :firstname, autofocus: true , :placeholder => 'First Name' ,class: "form-firstname form-control  form-box-s zero-border mT1 form-sign-up-input-field input-lg" %>
+                   </div>
+                  </div>
+                  <div class="form-group input-field-setting">
+                   <div class="col-sm-12 zero-padding">
+                    <%= f.text_field :lastname, autofocus: true , :placeholder => 'Last Name' ,class: "form-lastname form-control  form-box-s zero-border mT1 form-sign-up-input-field input-lg" %>
+                   </div>
+                  </div>
+                  <div class="form-group input-field-setting">
+                   <div class="col-sm-12 zero-padding">
+                    <%= f.email_field :email, autofocus: true , :placeholder => 'Email' ,class: "form-username form-control zero-border mT1 form-sign-up-input-field input-lg" %>
+                   </div>
+                  </div>
+                  <div class="form-group input-field-setting">
+                   <div class="col-sm-12 zero-padding">
+                    <%= f.text_field :contnumber, autofocus: true , :placeholder => 'Contact' ,class: "form-contact form-control zero-border mT1 form-sign-up-input-field input-lg" , style: "margin-top:0px;"%>
+                   </div>
+                  </div>
+                  <div class="form-group input-field-setting">
+                   <div class="col-sm-12 zero-padding">
+                    <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control zero-border mT1 form-sign-up-input-field input-lg" %>
+                   </div>
+                  </div>
+                  <div class="form-group input-field-setting">
+                   <div class="col-sm-12 zero-padding">
+                    <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "form-password form-control zero-border mT1 form-sign-up-input-field input-lg" %>
+                   </div>
+                  </div>
+                  <div class="form-group input-field-setting">
+                   <div class="col-sm-12 zero-padding">
+                    <button type="submit" class="button button4 mB70 form-sign-up-input-field-btn"><i class="fa fa-plus-circle btn-sign-up-registration"></i>Submit</button>
+                   </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
       <% end %>
-</div>
-            
+      </div>
+    </div>
 </div>

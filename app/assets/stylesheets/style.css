@@ -6,8 +6,11 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
-    background-image: url(http://static1.squarespace.com/static/54174487e4b03dbd0c081bda/561ff4fde4b0b02e3cd33bb8/561ff502e4b0eb2227835570/1444934915222/Nigerian-Wedding-Photographer-0403.jpg);
-    background-repeat: no-repeat;
+    background:url(bg-new.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 strong { font-weight: 500; 
@@ -272,15 +275,17 @@ a {
 /* ********************  New Desgin ****************** */
   body
   {
-    background-image: url('bg-new.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  height: 100%;
-  font-size: 16px;
+    background:url(bg-new.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    font-size: 16px;
   }
   .navbar-brand 
   {
-    padding: 10px 15px;
+    padding: 12px 15px;
   }
   .navbar-inverse 
   {
@@ -478,7 +483,7 @@ a {
   }
   .pictureContainer 
   {
-      height: 159px;
+      height: 160px;
       width: 150px;
       overflow: hidden;
   }
@@ -486,14 +491,14 @@ a {
     transform: translate3d(0px, 0px, 0px);
 }
 .pictureContainer img:hover {
-    transform: translate3d(0px, -150px, 0px);
+    transform: translate3d(0px, -170px, 0px);
 }
 .pictureContainer img {
     transform: translate3d(0px, 0px, 0px);
     transition: transform .2s ease-in-out;
 }
 .pictureContainer img:hover {
-    transform: translate3d(0px, -150px, 0px);
+    transform: translate3d(0px, -170px, 0px);
 }
 
   .menu-first-page
@@ -2206,7 +2211,7 @@ select, input, textarea, textarea.form-control:focus
 {
   padding-left: 0px;
   padding-right: 0px;
-  width: 650px;
+  width: 100%;
 }
 
 /*************************** Drop Down ************/
@@ -2500,4 +2505,55 @@ li.plupload_delete a
 
 .reset-password-input1{
     width: 61%;
+}
+
+
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+ .container-table {
+    display: table;
+}
+
+.text-center
+{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.panel
+{
+  background-color: transparent;
+  border: 0px;
+  margin-bottom: 0px;
+}
+
+.form-sign-in-input-field,.form-sign-up-input-field
+{
+  position: absolute;
+  width: 80% !important;
+}
+
+.form-sign-in-input-field-btn,.form-sign-up-input-field-btn
+{
+  width: 80% !important;
+  float: left;
+}
+
+.login-form label,.sign_up-form label
+{
+  position: relative;
+  right: 0;
+  width:100%;
+  line-height:47px;
+  text-align: right;
+}
+
+.logo-position
+{
+  margin-top:  60px;
+  height: 114px;
 }
