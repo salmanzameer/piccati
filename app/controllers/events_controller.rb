@@ -60,8 +60,7 @@ class EventsController < ApplicationController
     end_of_day      = Date.today.to_datetime.end_of_day
     @client         = Client.find(params[:event][:client_id])
     event           = @client.events.new(event_params.merge!(photographer_id: current_photographer.id))
-    event    = event.wedding? ? event.save : event.save(validate: false)
-    #event           = event.save(validate: false)
+    event           = event.wedding? ? event.save : event.save(validate: false)
     @calendar_event = current_photographer.events
     @events         = current_photographer.events.where("start_time >= ? and start_time <= ?", start_of_day, end_of_day)
     return render partial: "photographers/calender_and_info", locals: { calendar_event: @calendar_event, events: @events }
