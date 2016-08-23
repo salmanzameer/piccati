@@ -1,0 +1,14 @@
+<div class="mailer-main-body">
+  <p>
+  <div class="heading-miler-name">Dear <%= @resource.fullname %>,</div>
+  <%= @resource.invitor.fullname %> invited you to connect at Piccati. Once you are connected at Piccati you have access to view, select and manage your events image gallery from anywhere in the world. 
+  <br>
+  <div class="heading-notice-mailer">
+    Team Piccati wishes everlasting relationship between photographers and clients. Accept the invitation by clicking on the link below
+  </div>
+  <p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %></p>
+
+  <div>Kind regards,</div>
+  <div class="heading-mailer-name">Piccati Admin</div>
+  <div><a href="http://app.piccati.com">Login to Piccati</a></div>
+</div>

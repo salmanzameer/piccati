@@ -157,3 +157,10 @@ $ ->
 					$("select:visible:first").focus()
 				$("#event_start_time").val($(".selected-date-div").text())
 				$("#"+$(popup).find('form').attr("id")).enableClientSideValidations()
+
+	$(".invite-client-again").click (e) ->
+		e.preventDefault()
+		$.ajax
+			type: "POST"
+			url:  "/invite_client"
+			data: { id: $(this).data("id") }

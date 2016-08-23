@@ -45,8 +45,7 @@ class ClientsController < ApplicationController
     client = Client.find_by_email(email)
     unless client.present?
       current_photographer.invite_clients.where(email: email).first_or_create
-      client = Client.create(create_clients_params)
-      InvitationMailer.client_invitation(current_photographer, email).deliver
+      client = Client.invite!(create_clients_params, current_photographer)
     else
       InvitationMailer.client_acknowledge(current_photographer, email).deliver
     end
@@ -54,6 +53,14 @@ class ClientsController < ApplicationController
     client.photographer_clients.where(photographer_id: current_photographer.id).first_or_create
     flash[:notice] = "Invitation has been sent to client"
     redirect_to photographer_clients_path(current_photographer)
+  end
+
+  def invite_client
+    client = Client.find_by_id(params[:id])
+    client.invite!(current_photographer)
+    respond_to do |format|
+      format.js { flash[:notice] = "Invitation has been sent to client" }
+    end
   end
 
   def edit
@@ -126,14 +133,14 @@ class ClientsController < ApplicationController
   end
 
   def editparams
-    params.require(:client).permit(:firstname,:lastname,:username,:email)
+    params.require(:client).permit(:firstname, :lastname, :email)
   end
 
   def clientsparams
-    params.require(:client).permit(:firstname,:lastname,:username,:email,:password)  
+    params.require(:client).permit(:firstname, :lastname, :email, :password)  
   end
 
   def create_clients_params
-    params.require(:client).permit(:firstname,:lastname,:username,:email,:password, :password_confirmation )  
+    params.require(:client).permit(:firstname, :lastname, :contnumber, :email)  
   end
 end

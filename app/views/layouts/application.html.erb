@@ -10,13 +10,9 @@
 	</head>
 	<body>
 		<%= render 'layouts/header' %>
-		<% flash.each do |key, value| %>
-			<% if value.present? %>
-				<div class="devise-noti alert alert-success" role="alert">
-				  <%= value %>
-				</div>
-			<% end %>
-		<% end %>
+		<div class="flash_notice">
+			<%= render 'layouts/flash' %>
+		</div>	
 		<%= yield %>
 	</body>
 	<%= render 'layouts/footer' %>

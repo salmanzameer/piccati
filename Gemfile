@@ -40,6 +40,7 @@ gem "twitter-bootstrap-rails"
 gem 'aws-sdk', '< 2.0'
 # devise for authentication
 gem 'devise'
+gem 'devise_invitable'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 # Use ActiveModel has_secure_password
