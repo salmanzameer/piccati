@@ -20,19 +20,53 @@ module Authentication
     params do
       requires :id,     type: Integer
       requires :avatar, type: Rack::Multipart::UploadedFile
-      requires :role_type, type: String
+      requires :authentication_token, type: String
     end
     
     put :update_user, rabl: "v1/authentication/update_user" do
-      rolee = params[:role_type].titleize
-      role = ["Freelancer","Studio"].include?(rolee) ? "Photographer" : "Client"
-      role = role.constantize 
+      
+      @user = Client.find_by_id_and_authentication_token(params[:id], params[:authentication_token])
+      @user = Photographer.find_by_id_and_authentication_token(params[:id], params[:authentication_token]) unless @user.present?
 
-      @user = role.find_by_id(params[:id])
       unless @user
         throw :error, status: 404, message: "User not found"
       end
       @user.update(avatar: params[:avatar].tempfile)
     end  
+
+    desc "Forgot password"
+    params do
+      requires :email, type: String
+    end
+    
+    post :forgot_password, rabl: "v1/authentication/forgot_password" do
+      @user = Client.find_by_email params[:email]
+      @user = Photographer.find_by_email params[:email] unless @user.present?
+
+      unless @user
+        throw :error, status: 404, message: "User not found"
+      end
+      
+      @user.class.send_reset_password_instructions(@user)
+    end
+
+##########################################
+    desc "Change my password"
+    params do
+      requires :reset_password_token, type: String
+      requires :password, type: String
+      requires :password_confirmation, type: String
+    end
+    
+    put :change_my_password, rabl: "v1/authentication/change_my_password" do
+
+
+      binding.pry
+      Photographer.reset_password_by_token(params)
+
+
+    end
+
+####################################
   end
 end
