@@ -2569,3 +2569,9 @@ li.plupload_delete a
   height: 30px;
   float: right;
 }
+
+.package-class
+{
+  left: 40% !important;
+  top: 24% !important;
+}
