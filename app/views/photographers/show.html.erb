@@ -1,38 +1,46 @@
 <div style="margin-top:80px;"></div>
 <div>
   <div class="container">
-    <div class="col-md-12" style="margin-top:150px;margin-left: 60px;">
+    <div class="col-md-12" style="margin-top:150px;">
       <div class="col-md-3">
+        <center>
         <%= link_to photographer_clients_path(current_photographer) do %>
         <div class="boxhead pictureContainer">
-          <center><%= image_tag("client-management-icon.svg") %></center>
+          <%= image_tag("client-management-icon.svg") %>
         </div>
         <p class="menu-first-page">Client Management</p>
         <% end %>
+        </center>
       </div>
       <div class="col-md-3">
+        <center>
         <%= link_to photographer_events_info_path(current_photographer) do %>
           <div class="boxhead pictureContainer">
-            <center><%= image_tag 'my-calendar-icon.svg'%></center>
+            <%= image_tag 'my-calendar-icon.svg'%>
           </div>
-          <p class="menu-first-page" style="text-indent: 1em;">My Calendar</p>
+          <p class="menu-first-page">My Calendar</p>
         <% end %>
+        </center>
       </div>
       <div class="col-md-3">
+        <center>
         <%= link_to photographer_albums_path(current_photographer) do %>
         <div class="boxhead pictureContainer">  
-            <center><%= image_tag("album-icon.svg") %></center>
+            <%= image_tag("album-icon.svg") %>
           </div>
-          <p class="menu-first-page" style="text-indent: 1em;">My Albums</p>
+          <p class="menu-first-page">My Albums</p>
         <% end %>
+        </center>
       </div>
       <div class="col-md-3">
+        <center>
         <%= link_to settings_photographer_path(current_photographer) do %>
         <div class="boxhead pictureContainer">
-          <center><%= image_tag("connect-icon.svg") %></center>
+          <%= image_tag("connect-icon.svg") %>
         </div>
-        <p class="menu-first-page" style="text-indent: 2.5em;">Connects</p>
+        <p class="menu-first-page">Connects</p>
         <% end %>
+        </center>
       </div>
     </div>
   </div>

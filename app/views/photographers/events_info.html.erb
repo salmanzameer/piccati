@@ -9,7 +9,7 @@
     <li><%= link_to "Weekly", photographer_events_info_path(calendar_type: "week"), class: 'calender-tab week-sel link-padding-zero', remote: true %></li>
   </ul>
 </div>
-<div>
+<div class="container-fluid">
 	<div class="calender_and_info">
 		<%= render partial: "calender_and_info", calendar_event: @calendar_event %>
 	</div>

@@ -21,7 +21,7 @@
                 <li class="name-prof1"><%= link_to "My Profile", profile_photographer_path(current_photographer), class: "header-ul-list-setting" %></li>
               </ul>
             </li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;margin-right: 100px;"><%= image_tag (current_photographer.avatar), class: "img-circle", style: "width:30px;height:30px;" %>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;"><%= image_tag (current_photographer.avatar), class: "img-circle", style: "width:30px;height:30px;" %>
            <span class="profile-name-set"><%= current_photographer.firstname.titleize %></span><span class="caret"></span></a>
             <ul class="dropdown-menu ul-padding" style="margin-left: 15px;width: 100px;">
               <li class="name-prof1"><%= link_to('My Profile', profile_photographer_path(current_photographer), class: "logout-btn-prof") %></li>
@@ -29,14 +29,14 @@
             </ul>
           </li>
           <% elsif current_client %>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;margin-right: 100px;"><%= image_tag (current_client.avatar), class: "img-circle", style: "width:30px;height:30px;" %>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;"><%= image_tag (current_client.avatar), class: "img-circle", style: "width:30px;height:30px;" %>
             <span class="profile-name-set"><%= current_client.firstname.titleize %></span><span class="caret"></span></a>
             <ul class="dropdown-menu ul-padding" style="margin-left: 15px;width: 100px;">
               <li class="name-prof1"><%= link_to('Logout', destroy_client_session_path, :method => :delete ,class: "logout-btn-prof") %></li>
             </ul>
             </li>
           <% end %>
-        </ul>
+      </ul>
     </div>
   </div>
 </nav>
