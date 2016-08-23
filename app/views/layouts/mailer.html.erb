@@ -1,68 +1,6 @@
 <html lang="en">
 	<head>
-		<style type="text/css">
-			.mailer-head
-	    {
-	      background-color: #003366;
-	      color: #fff;
-	      min-height: 61px;
-	      padding: 15px 15px 15px 45px; 
-	      font-family: 'SegoeUI';
-	      font-size: 16px;
-	    }
-	    .mailer-background
-	    {
-	      background-color: rgb(217, 223, 226);
-	    }
-	    .mailer-footer
-	    {
-	      background-color: #003366;
-	      min-height: 61px;
-	      padding: 21px 15px 15px 45px; 
-	      color: white;
-	    }
-	    .mailer-disclaimer
-	    {
-	      background-color: rgb(236, 240, 245);
-	      min-height: 150px;
-	      color: black;
-	      padding: 45px;
-	    }
-	    .zero-padding
-	    {
-	      padding-left: 1px !important;
-	      padding-right: 1px !important;
-	    }
-	    .mailer-main-body
-	    {
-	      padding: 45px;
-	      background-color: #eee;
-	    }
-	    .heading-miler-name
-	    {
-	      padding-bottom: 20px;
-	    }
-	    .heading-notice-mailer
-	    {
-	      padding-top: 5px;
-	      padding-bottom: 20px;
-	    }
-	    .mailer-footer > ul {
-			  margin: 0;
-			  padding: 0;
-			}
-			.mailer-footer li {
-			  display: inline-block;
-			  width: 18px;
-			  line-height: 25px;
-			}
-			.mailer-footer a {
-			  color: #fff;
-			}
-			.mailer-footer a:hover {
-			  color: #fff;
-			}
-		</style>
+		
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -70,40 +8,41 @@
 	</head>
 	<body>
 		<div class="col-md-6 col-md-offset-3">
-			<div class="col-md-12 mailer-background zero-padding">  
-				<div class="mailer-head">
+			<div class="col-md-12 mailer-background zero-padding" style="background-color: rgb(217, 223, 226);padding-left: 1px !important;
+	      padding-right: 1px !important;">  
+				<div class="mailer-head" style="background-color: #003366;color: #fff;min-height: 61px;padding: 15px 15px 15px 45px;font-family: 'SegoeUI';font-size: 16px;">
 					<div class="continer">
 						<%= link_to image_tag("http://app.piccati.com/assets/logo-f87ac75a8546cdbc1c4e2e41b459f0e407e18265e5266d2abad6b8161fed363e.png"), "http://app.piccati.com/" %>
 					</div>
 				</div>
 				<%= yield %>
-				<div class="mailer-footer">
+				<div class="mailer-footer" style="background-color: #003366;min-height: 61px;padding: 21px 15px 15px 45px;color: white;">
 					<div class="col-md-4">info@piccati.com</div>
-					<div class="col-md-4"><%= link_to "www.piccati.com", "www.piccati.com" %></div>
+					<div class="col-md-4"><%= link_to "www.piccati.com", "www.piccati.com" ,style: "color: #fff;" %></div>
 					<div class="col-md-4">
-						<ul>
-							<li> 
-								<a href="https://www.facebook.com/piccatiofficial/" target="_blank" class="socialcolors">
+						<ul style="margin: 0;padding: 0;">
+							<li style="display: inline-block;width: 18px;line-height: 25px;"> 
+								<a href="https://www.facebook.com/piccatiofficial/" target="_blank" class="socialcolors" style="color: #fff;">
 						 			<i class="fa fa-facebook" aria-hidden="true"></i>
 						 		</a>
 						 	</li>
-							<li> 
-								<a href="https://twitter.com/PiccatiOfficial" target="_blank" class="socialcolors">
+							<li style="display: inline-block;width: 18px;line-height: 25px;"> 
+								<a href="https://twitter.com/PiccatiOfficial" target="_blank" class="socialcolors" style="color: #fff;">
 						 			<i class="fa fa-twitter" aria-hidden="true"></i>
 						 		</a>
 						 	</li>
-							<li>
-								<a href="https://plus.google.com/b/101609696226945901716/101609696226945901716?hl=en-GB" class="socialcolors" target="_blank"> 
+							<li style="display: inline-block;width: 18px;line-height: 25px;">
+								<a href="https://plus.google.com/b/101609696226945901716/101609696226945901716?hl=en-GB" class="socialcolors" target="_blank" style="color: #fff;"> 
  									<i class="fa fa-google-plus" aria-hidden="true"></i>
  							 	</a>
  							</li>
- 							<li>
- 						 		<a href="https://www.instagram.com/piccatiofficial/" target="_blank" class="socialcolors">
+ 							<li style="display: inline-block;width: 18px;line-height: 25px;">
+ 						 		<a href="https://www.instagram.com/piccatiofficial/" target="_blank" class="socialcolors" style="color: #fff;">
  						 			<i class="fa fa-instagram" aria-hidden="true"></i>
  						 		</a>
  						 	</li>
- 							<li> 
- 								<a href="https://www.youtube.com/channel/UCK66NiGTuZul6TSZarA6Qyw" target="_blank" class="socialcolors">
+ 							<li style="display: inline-block;width: 18px;line-height: 25px;"> 
+ 								<a href="https://www.youtube.com/channel/UCK66NiGTuZul6TSZarA6Qyw" target="_blank" class="socialcolors" style="color: #fff;">
  									<i class="fa fa-youtube-square" aria-hidden="true"></i>
  								</a>
  							</li>
