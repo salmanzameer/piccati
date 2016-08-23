@@ -40,7 +40,7 @@
                 <div class="col-md-8 center-align-tag">
                   <%= link_to client.fullname, "#", class: "show-client-events client-event-anchor-design", data: { id: client.id } %>
                 </div>
-                <% if client.invitor == current_photographer %> 
+                <% if client.is_invited?(current_photographer) %> 
                   <div class="col-md-4 center-align-tag">
                      <%= link_to 'Invite',"#", class: "btn btn-uploadimage1 invite-client-again", style: "margin-top: 10px; border: 1px solid #ccc;", data: { id: client.id } %>
                    </div>

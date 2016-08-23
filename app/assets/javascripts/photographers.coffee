@@ -3,11 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('.choosed-file').hide()
-  
-  # $(document).on 'focus', '#signup-form, #add-event-form, #add-album-model, #add-client-model, .edit-package-model, #update-event-model, #add-calender-event-model, #edit-photographer, #add-photographer-album', (e) ->
-  #   $('form').enableClientSideValidations()
- 
+  $(document).on "focus", ".datetimepicker", (e) ->
+    $('.datetimepicker').datetimepicker format: 'dddd, MMMM Do YYYY HH:mm'
+
   $('a.calender-tab').click ->
     $('#dropdownMenu1').dropdown 'toggle'
     return
@@ -112,7 +110,7 @@ $ ->
      if ($("#add-photographer-album").isValid($("#add-photographer-album").validate()))
         $("#add-photographer-album").submit()
 
-  $('#uploadBtn').change ->
+  $(document).on 'change', '#uploadBtn', (e) ->
     if $(this).prop("files")
       reader = new FileReader
 
@@ -122,7 +120,7 @@ $ ->
 
     reader.readAsDataURL $(this).prop("files")[0]
 
-  $('#featured-image').change ->
+  $(document).on 'change', '#featured-image', (e) ->
     if $(this).prop("files")
       reader = new FileReader
 
@@ -132,7 +130,7 @@ $ ->
 
     reader.readAsDataURL $(this).prop("files")[0]
 
-  $('#upload-watermark').change ->
+  $(document).on 'change', '#upload-watermark', (e) ->
     if $(this).prop("files")
       reader = new FileReader
 

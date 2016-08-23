@@ -38,10 +38,19 @@ class Client < ActiveRecord::Base
  
   after_create :invited_client
 
+  def self.get_not_connected_clients(current_photographer)
+    Client.joins("INNER JOIN photographer_clients on photographer_clients.client_id = clients.id")
+    .select("clients.*")
+    .where("(CASE WHEN clients.invited_by_id IS NULL THEN clients.invitation_accepted_at IS NULL ELSE clients.invitation_accepted_at IS NOT NULL END) AND photographer_clients.is_connected = false AND photographer_clients.photographer_id = #{current_photographer.id}")
+  end
+
+  def is_invited?(current_photographer)
+    (invitor == current_photographer) && (invitation_accepted_at.blank?)
+  end
+
   def invited_client
-    invited_clients = InviteClient.where(email: self.email)  
-    if invited_clients
-      invited_clients.map { |invited_client| self.photographer_clients.create( photographer_id: invited_client.photographer_id) }
+    if invitor.present?
+      photographer_clients.create( photographer_id: invitor.id)
     end
   end
 

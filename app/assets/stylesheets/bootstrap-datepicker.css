@@ -365,3 +365,7 @@
 .glyphicon-chevron-up, .glyphicon-chevron-down, .glyphicon-chevron-right, .glyphicon-chevron-left, .glyphicon-calendar, .glyphicon-time{
   color: #003366;
 }
+
+.bootstrap-datetimepicker-widget{
+  bottom: 0px !important;
+}
