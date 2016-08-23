@@ -2625,3 +2625,20 @@ li.plupload_delete a
     flex-direction: column !important;
     width: 100%;
 }
+.edit-package-button{
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline:none;
+  width: 8%;
+  height: 30px;
+  float: right;
+}
+
+.package-class
+{
+  left: 40% !important;
+  top: 24% !important;
+}
