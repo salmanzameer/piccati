@@ -50,7 +50,6 @@ module Authentication
       @user.class.send_reset_password_instructions(@user)
     end
 
-##########################################
     desc "Change my password"
     params do
       requires :reset_password_token, type: String
@@ -60,13 +59,14 @@ module Authentication
     
     put :change_my_password, rabl: "v1/authentication/change_my_password" do
 
+      @user = Photographer.reset_password_by_token(params)
+      @user = Client.reset_password_by_token(params) unless @user.persisted?
 
-      binding.pry
-      Photographer.reset_password_by_token(params)
-
-
+      unless @user.persisted?
+        throw :error, status: 404, message: "Invalid reset password token"
+      end
+      
     end
 
-####################################
   end
 end

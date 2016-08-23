@@ -1,14 +1,28 @@
-<h2>Forgot your password?</h2>
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<center>
+  <%= image_tag("piccati-icon.svg", class: "logo-position") %>
+  <p class="sign-up-data-align-sigin-heading">Forgot your password?</p>
+</center>
+  <div class="container container-table">
+    <div class="row vertical-center-row">
+      <div class="text-center col-md-5 col-md-offset-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="form-horizontal">
+              <%= form_for(resource, as: resource_name, url: password_path(resource_name), validate: true, html: { method: :post, class: 'forget-password-form login-form login-sign-up-button-padd form-sign-up-new1' }) do |f| %>
+                <div class="form-group input-field-setting">
+                  <div class="col-sm-12 zero-padding">
+                    <%= f.email_field :email , :placeholder => 'Email' ,class: "form-username form-control input-lg form-sign-in-input-field", :id =>'form-username' %>
+                  </div>
+                </div>   
+                <div class="form-group input-field-setting">
+                  <div class="col-sm-12 zero-padding"><%= f.submit "Send me reset password instructions", class: "button button4 form-sign-in-input-field-btn" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div></div>
