@@ -506,7 +506,6 @@ a {
       margin-top: 15px;
       color: white;
       font-size: 17px;
-      float: left;
   }
 
 /* Client Mangament */
@@ -564,7 +563,7 @@ a {
       overflow:auto
       }
 
-  input[type="text"]:focus, input[type="password"]:focus, textarea:focus, textarea.form-control  {
+  input[type="text"]:focus, textarea:focus, textarea.form-control  {
     border: 1px solid #ddd;
 }
 
@@ -649,7 +648,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
     font-size: 16px;
 }
 
-.plupload_file_size, .plupload_file_status, .plupload_file_action {
+.plupload_file_size, .plupload_file_status, .plupload_file_action,.selct-field {
     font-size: 16px;
 }
 .plupload_buttons {
@@ -673,14 +672,14 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
 }
 #navi
 {
-  width: 100%;
+  width: 105%;
   height: 100%;
   position: absolute;
   top: -3px;
   left: 0;
 }
 #infoi {
-  width: 233%;
+  width: 232%;
   height: 100%;
   position: absolute;
   top: -3px;
@@ -1150,8 +1149,6 @@ input::-webkit-input-placeholder {
 .btn-calandar-description-alignment
 {
   margin-top: 10px;
-  padding-left: 10px;
-  padding-right: 0px;
 }
 
 .calendar-entry-table-height
@@ -1389,7 +1386,7 @@ input::-webkit-input-placeholder {
 
 .topspacing
 {
-  margin-top: 120px;
+  margin-top: 80px;
 }
 
 .email-edit-field
@@ -1491,7 +1488,7 @@ border-radius: 0px;
 
 
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-    margin-left: 60px;
+    margin-left: 0px;
 }
 
 .img-card
@@ -2258,14 +2255,6 @@ select, input, textarea, textarea.form-control:focus
   margin-top: 25px !important;
 }
 
-
-.select2-drop
-{
-  top: 302px !important;
-  width: 320px !important;
-}
-
-
 .header-ul-list-setting
 {
   min-height: 40px;
@@ -2380,10 +2369,10 @@ li.plupload_delete a
 }
 
 .today > .today-date{
-  border: 1px solid #003366;
-  border-radius: 50px;
-  width: 25px;
-  height: 25px;
+    border: 1px solid #003366;
+    border-radius: 50px;
+    width: 25px;
+    height: 25px;
 }
 
 .selected-event > .today-date{
@@ -2558,14 +2547,81 @@ li.plupload_delete a
   height: 114px;
 }
 
-.edit-package-button{
-  background-color: Transparent;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  outline:none;
-  width: 8%;
-  height: 30px;
-  float: right;
+@media (min-width: 280px) and (max-width: 320px) {
+  #navi
+  {
+    width: 105%;
+    height: 100%;
+    position: absolute;
+    top: -3px;
+    left: 0;
+  }
+  #infoi 
+  {
+    width: 235%;
+    height: 100%;
+    position: absolute;
+    top: -3px;
+    left: 0px;
+  }
+}
+
+@media (min-width: 322px) and (max-width: 361px) 
+{
+  #navi
+  {
+    width: 105%;
+    height: 100%;
+    position: absolute;
+    top: -3px;
+    left: 0;
+  }
+  #infoi 
+  {
+    width: 270%;
+    height: 100%;
+    position: absolute;
+    top: -3px;
+    left: 0px;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 980px) 
+{
+  #navi
+  {
+    width: 105%;
+    height: 100%;
+    position: absolute;
+    top: -3px;
+    left: 0;
+  }
+  #infoi 
+  {
+    width: 640%;
+    height: 100%;
+    position: absolute;
+    top: -3px;
+    left: 0px;
+  }
+}
+
+.edit-package-button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    width: 8%;
+    height: 30px;
+    float: right;
+}
+
+.profile-tab-btn
+{
+    display: flex !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    width: 100%;
 }
