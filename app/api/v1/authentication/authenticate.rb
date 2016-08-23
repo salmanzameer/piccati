@@ -34,7 +34,7 @@ module Authentication
       @user.update(avatar: params[:avatar].tempfile)
     end  
 
-    desc "Forgot password"
+    desc "Forgot password (STEP I)"
     params do
       requires :email, type: String
     end
@@ -46,7 +46,7 @@ module Authentication
       unless @user
         throw :error, status: 404, message: "User not found"
       end
-      
+
       @user.class.send_reset_password_instructions(@user)
     end
 
