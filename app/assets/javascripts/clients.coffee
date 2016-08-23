@@ -3,19 +3,23 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-	$(document).on 'click', '.connect-with-client, .submit-event', (e) ->
-		$('.connect-client-form, #add-event-form').find('input').filter(->
+	$(document).on 'click', '.calender-icon-span', (e) ->
+		$('#datetimepicker, #datetimepicker2, #datetimepicker1').datetimepicker format: 'dddd, MMMM Do YYYY HH:mm'
+		
+	$(document).on 'click', '.event-submit-on-calendar, .connect-with-client, .update-event, .submit-event', (e) ->
+		$('.connect-client-form, #add-event-form, #update-event-model, #add-calender-event-model').find('input').filter(->
 	  	if $(this).val() == ''
 	    	$(this).focus()
-	    	return
-		)
-	
-	$(document).on 'click', '.event-submit-on-calendar', (e) ->
-		$('#add-calender-event-model').find('input, select').filter(->
-	  	if $(this).val() == ''
-	    	$(this).focus()
+	    	$(this).focusout()
 	    	return
 		).first().focus()
+	
+	# $(document).on 'click', '.event-submit-on-calendar', (e) ->
+	# 	$('#add-calender-event-model').find('input, select').filter(->
+	#   	if $(this).val() == ''
+	#     	$(this).focus()
+	#     	return
+	# 	).first().focus()
 
 	
 	$(document).on 'click', '.submit-event', (e) ->
@@ -66,10 +70,6 @@ $ ->
 				$(".events-section").html(data)
 				$('.show-event').first().click()
 				$('.events-list.abc').find("a").click()
-
-	$(document).on 'click', '.popup', (e) ->
-		$("##{$(this).data("id")}").show()
-		$("#"+$($("#"+$(this).data("id")).find("form")).attr("id")).enableClientSideValidations()
 
 	$(document).on 'click', '.close', (e) ->
 		$(".clients-table").show()
@@ -155,4 +155,12 @@ $ ->
 					$("input:text:visible:first").focus()
 				else  
 					$("select:visible:first").focus()
-				
+				$("#event_start_time").val($(".selected-date-div").text())
+				$("#"+$(popup).find('form').attr("id")).enableClientSideValidations()
+
+	$(".invite-client-again").click (e) ->
+		e.preventDefault()
+		$.ajax
+			type: "POST"
+			url:  "/invite_client"
+			data: { id: $(this).data("id") }

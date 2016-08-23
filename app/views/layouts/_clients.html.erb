@@ -37,9 +37,14 @@
             <% end %>
             <tr class="photographer-clients-list <%= cls %> <%= abc %>">
               <td class="table-row-width zero-border zero-padding">
-                <div class="col-md-12 center-align-tag">
+                <div class="col-md-8 center-align-tag">
                   <%= link_to client.fullname, "#", class: "show-client-events client-event-anchor-design", data: { id: client.id } %>
                 </div>
+                <% if client.invitor == current_photographer %> 
+                  <div class="col-md-4 center-align-tag">
+                     <%= link_to 'Invite',"#", class: "btn btn-uploadimage1 invite-client-again", style: "margin-top: 10px; border: 1px solid #ccc;", data: { id: client.id } %>
+                   </div>
+                <% end %>
               </td>
             </tr>
           <% end %>

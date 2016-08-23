@@ -1,5 +1,14 @@
-<p>Welcome <%= @email %>!</p>
+<div class="mailer-main-body">
+	<p>
+	<div class="heading-miler-name">Dear <%= @resource.fullname %>,</div>
+	You are now one step short of using Piccati, Please verify you email address and join the celebrated community of photographers and clients at Piccati.  
+	<br>
+	<div class="heading-notice-mailer">
+		Team Piccati wishes everlasting relationship between photographers and clients. Verify Your Account by clicking on the link below
+	</div>
+	<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
 
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+	<div>Kind regards,</div>
+	<div class="heading-mailer-name">Piccati Admin</div>
+	<div><a href="http://app.piccati.com">Login to Piccati</a></div>
+</div>

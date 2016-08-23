@@ -10,7 +10,7 @@
 	  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "groom_name first-field client_fields client_fields_calandar", style: "display: none;" %>
 	  <%= f.select(:client_id , options_from_collection_for_select(current_photographer.clients, "id", "firstname"), { prompt: "Select client"  }, class: "form-title form-control", :id => "form-title" , style: "height: 50px;margin-top: 1px;border-radius: 0px;width: 80%; float: left;")   %>
 	  <div class='input-group date datetimepicker' id='datetimepicker1'>
-	  	<span class="input-group-addon">
+	  	<span class="input-group-addon calender-icon-span">
          <i class="fa fa-calendar calender-icon" aria-hidden="true"></i>
       </span>
       <%= f.datetime_field :start_time, autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields sel-cal-field calendarfield-width" %>
@@ -18,10 +18,3 @@
 	</fieldset>
 	<div class="form-calandar-popup-fieldset"><button type="submit" class="button button4 event-submit-on-calendar border-solid-form btn-cal-width-adj" data-section-class="calender_and_info"><i class="fa fa-plus-circle btn-sign-up-registration"></i>Add Event</button></div>
 <% end %>
-<script type="text/javascript">
-  $(function () {
-    $('.datetimepicker').datetimepicker({
-    	format: 'dddd, MMMM Do YYYY HH:mm'
-    });
-	});
-</script>

@@ -10,19 +10,13 @@
         <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "first-field client_fields client_fields_calandar" %>
         <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "first-field client_fields client_fields_calandar" %>
       <% end %>
-      <div class='input-group date datetimepicker' id='datetimepicker2'>
-        <span class="input-group-addon">
+      <div class='input-group date' id='datetimepicker2'>
+        <span class="input-group-addon calender-icon-span">
           <i class="fa fa-calendar calender-icon" aria-hidden="true"></i>
         </span>
         <%= f.datetime_field :start_time, value: event.start_time, autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields calendarfield-width design-cal-field" %>
       </div>
-      <script type="text/javascript">
-        $(function () {
-          $('.datetimepicker').datetimepicker({
-            format: 'dddd, MMMM Do YYYY HH:mm'
-          });
-        });
-      </script>
+      
     </fieldset>
     <div class="form-calandar-popup-fieldset">
     <%= f.button 'Update Event' , type: "submit", class: "button button4 event-submit-on-calendar border-solid-form btn-cal-width-adj", data: { section_class: "clients-table"} %>

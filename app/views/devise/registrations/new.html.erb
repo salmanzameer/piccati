@@ -12,7 +12,7 @@
                 <%= form_for resource, as: resource_name, url: registration_path(resource_name), validate: true, html: { class: "sign_up-form form-sign-up-new1", id: "signup-form" } do |f| %>
                   <div class="form-group input-field-setting">
                    <div class="col-sm-12 zero-padding">                
-                    <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], 'Mr' ), {prompt: false }, class: "form-title form-control zero-border form-sign-up-input-field input-lg", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>
+                    <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs'], 'Mr' ), {prompt: false }, class: "form-title form-control zero-border form-sign-up-input-field input-lg", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>
                    </div>
                   </div>
                   <%#= f.select(:role_type , options_for_select(['Freelancer', 'Studio'], 'Freelancer' ), {prompt: false }, class: "form-title form-control client_fields_calandar1 zero-border mT1", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>

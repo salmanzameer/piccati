@@ -65,6 +65,10 @@ class Photographer < ActiveRecord::Base
 
   before_create :set_role_type
 
+  def decrement_invitation_limit!
+    true  
+  end
+
   def set_role_type
     self.role_type = "Studio"
   end

@@ -6,18 +6,19 @@ class Client < ActiveRecord::Base
   acts_as_follower
   acts_as_followable
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :invitable, :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many      :photographer_clients  
   has_many      :photographers, through: :photographer_clients
   has_many      :events
   has_many      :images
   has_many      :likes
+  belongs_to    :invitor, :class_name => 'Photographer', :foreign_key => 'invited_by_id'
 
   validates_format_of :email,:with => Devise::email_regexp
   validates :firstname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
   validates :lastname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
-  #validates :contnumber, presence: true, format: { with: /\A^(?:00|\+|0)?[1-9][[0-9]+[ \( \) \-]]*$\z/,  message: 'invalid'}
+  validates :contnumber, presence: true, format: { with: /\A^(?:00|\+|0)?[1-9][[0-9]+[ \( \) \-]]*$\z/,  message: 'invalid'}
   validates :email, presence: true
   validates :password, presence: true
   validates_confirmation_of :password

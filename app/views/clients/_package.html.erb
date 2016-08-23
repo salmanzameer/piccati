@@ -1,15 +1,16 @@
-<div class="package-details">  
+<div class="package-details">
   <h1 class="heading-client-mangement heading-clientlist"><%= [@package.client.try(:title), @package.client.firstname.capitalize].join(' ') %></h1>
   <div class="col-md-12 selected-pkg">
+    <button class="client-id edit-package-button" type="button" id="popup" data-client="<%= @package.client.id %>" data-id= "edit_client_popup" data= c = "<%= @package.client.id %>" class="popup edit_client_package"><i class="fa  fa-edit btn-edit" style="font-size: 16px;color: #ddd;"></i></button>  
     <div class="selected-pkg-adjust selected-pkg-adjust-bot">
       <div class="col-md-4 selected-pkg-adjust-bot">Package</div>
-      <div class="col-md-8 selected-pkg-adjust-bot"><%= @package.package || "nil" %></div>
+      <div class="col-md-6 selected-pkg-adjust-bot"><%= @package.package || "nil" %></div>
       <div class="col-md-4 selected-pkg-adjust-bot">Advance</div>
-      <div class="col-md-8 selected-pkg-adjust-bot"><%= @package.advance || "nil" %></div>
+      <div class="col-md-6 selected-pkg-adjust-bot"><%= @package.advance || "nil" %></div>
       <div class="col-md-4 selected-pkg-adjust-bot">Total</div>
-      <div class="col-md-8 selected-pkg-adjust-bot"><%= @package.total || "nil" %></div>
-      <div class="col-md-4 selected-pkg-adjust-bot">Balnace</div>
-      <div class="col-md-8 selected-pkg-adjust-bot"><%= @package.balance || "nil" %></div>
+      <div class="col-md-6 selected-pkg-adjust-bot"><%= @package.total || "nil" %></div>
+      <div class="col-md-4 selected-pkg-adjust-bot">Balance</div>
+      <div class="col-md-6 selected-pkg-adjust-bot"><%= @package.balance || "nil" %></div>
     </div>
   </div>
 </div>

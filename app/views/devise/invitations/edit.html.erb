@@ -1,6 +1,6 @@
 <center>
   <%= image_tag("piccati-icon.svg", class: "logo-position") %>
-  <p class="sign-up-data-align-sigin-heading">Log in to Piccati</p>
+  <p class="sign-up-data-align-sigin-heading">Set Password</p>
 </center>
 <div>
     <div class="container container-table">
@@ -9,29 +9,27 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <div class="form-horizontal">
-                 <%= form_for resource, as: resource_name, url: session_path(resource_name), validate: true , html: { class: 'login-form login-sign-up-button-padd form-sign-up-new1' } do |f| %>
+                 <%= form_for resource, as: resource_name, url: invitation_path(resource_name), validate: true , html: { method: :put, class: 'login-form login-sign-up-button-padd form-sign-up-new1' } do |f| %>
+                 <%= f.hidden_field :invitation_token %>
                  <div class="form-group input-field-setting">
                    <div class="col-sm-12 zero-padding">
-                     <%= f.email_field :email , :placeholder => 'Email' ,class: "form-username form-control input-lg form-sign-in-input-field", :id =>'form-username' %>
-                   </div>
+                      <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control input-lg form-sign-in-input-field" %>
+                    </div>
                  </div>
                  <div class="form-group input-field-setting">
                    <div class="col-sm-12 zero-padding">
-                      <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control input-lg form-sign-in-input-field", :id =>'password' %>
+                      <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "form-password form-control input-lg form-sign-in-input-field" %>
                     </div>
                  </div>
                  <div class="form-group input-field-setting">
                   <div class="col-sm-12 zero-padding">
-                    <button type="submit" class="button button4 form-sign-in-input-field-btn">Log In</button>
+                    <%= f.submit "Set Password", class: "button button4 form-sign-in-input-field-btn" %>
                   </div>
                  </div>
                 <% end %>
               </div>
             </div>
           </div>
-    <div>
-      <div class="col-xs-10 zero-padding"><%= link_to "Sign Up Now!", new_photographer_registration_path, class: "btn-sign-in-index-pg" %></div>
-    </div>
        </div>
       </div>
     </div>

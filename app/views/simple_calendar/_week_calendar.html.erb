@@ -2,11 +2,11 @@
   <div class="calendar-heading">
     <% if request.xhr? %>
       <%= link_to t('simple_calendar.previous', default: 'Previous'), "/photographers/#{current_photographer.id}/events_info?start_date=#{start_date.last_week}&&calendar_type=#{params[:calendar_type]}" %>
-      <span class="calendar-title">Week <%= start_date.strftime("%U").to_i %></span>
+      <span class="calendar-title"><%= start_date.strftime("%B %Y") %></span>
       <%= link_to t('simple_calendar.next', default: 'Next'), "/photographers/#{current_photographer.id}/events_info?start_date=#{start_date.next_week}&&calendar_type=#{params[:calendar_type]}" %>
     <% else %>
       <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
-      <span class="calendar-title">Week <%= start_date.strftime("%U").to_i %></span>
+      <span class="calendar-title"><%= start_date.strftime("%B %Y") %></span>
       <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
     <% end %>
   </div>

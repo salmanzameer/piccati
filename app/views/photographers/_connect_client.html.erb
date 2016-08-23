@@ -18,6 +18,10 @@
 </div>
 <script>
   $(document).ready(function() {
-    $('#select2-client-id').select2();
+    $('#select2-client-id').select2({
+       formatNoMatches: function() {
+        return 'No Match Found!';
+      }
+    });
   });
 </script>

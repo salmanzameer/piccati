@@ -6,7 +6,7 @@
         <th style="background-color: #003366;color: #fff;">
           <span class="text">
           <% @date = @date.blank? ? Date.today.strftime("%d %B %Y") : @date %>
-            <center><%= @date %></center>
+            <center class="selected-date-div"><%= @date %></center>
           </span>
         </th>
       </div>

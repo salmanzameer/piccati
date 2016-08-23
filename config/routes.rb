@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
   end 
 
+  post '/invite_client', to: "clients#invite_client"
   get '/get_forms', to: "clients#get_forms"
   get '/setting_partial', to: "photographers#setting_partial"
   get 'download_app', to: "clients#download_app"
