@@ -3,30 +3,47 @@
     <div>
       <div class="container">
         <div>
-          <div class="col-md-4">
+          <div class="col-md-3 form-edit-password-setting">
+          <table>
+            <tbody class="nav nav-tabs zero-border-bottom">
+              <tr class="zero-border-bottom Profile-heading">
+                <th class="tbheaderback">
+                  <div class="col-md-11 col-xs-11">
+                    <%= link_to "Password & Security", "#",  data: { id: "change_password" }, class: "settings profile-tab-btn"  %>
+                  </div>   
+                  <div class="col-md-1 email-add-client-field-view"><i class="fa fa-angle-right font-awesome-size"></i></div>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
           </div>
-          <div class="col-md-4">
-            <div class="form-bottom">
-              <%= form_for @photographer, url: update_password_photographer_path, html: { class: 'form-horizontal form-edit-password-setting reset-password' } do |f| %>
-            <div class="editprofileheading reset-password-input1">
+          <div class="tab-pane fade active in" id="security">
+            <div class="col-md-7" style="padding-top: 110px;"> 
+              <div class="col-md-12 editprofileheading">
                 <p class="edit-prfile-para">Change Password</p>
+              </div>
+              <div class="col-md-12 background-main-edit-profile background-security-password pl" >
+                <fieldset style="margin-top: -28px;">
+                  <%= form_for @photographer, url: update_password_photographer_path, html: { class: 'form-horizontal reset-password' } do |f| %>
+                  <div style="margin-top:15px;margin-bottom:15px;">
+                    <div>
+                      <%= f.password_field  :current_password, autofocus: true , :placeholder => 'Current Password' ,class: "form-current_password form-control mT1 reset-password-input", :id =>'form-current_password' %>
+                      </div>
+                      <div >
+                       <%= f.password_field :password, autocomplete: "off", :placeholder => 'New Password', class: "form-password form-control mT1 reset-password-input", :id =>'form-password' %>
+                      </div>
+                     <div>
+                       <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "reset-password-input form-password form-control mT1", :id =>'form-password' %>
+                      </div>
+                     <div class="actions">
+                      <%= f.button 'Update password', class: "button button4 bt-add-cli reset-password-input" %>
+                      </div>
+                  </div>
+                  <% end %>
+                </fieldset>
+              </div>
             </div>
-            <fieldset>
-              <div>
-                <%= f.password_field  :current_password, autofocus: true , :placeholder => 'Current Password' ,class: "form-current_password form-control mT1 reset-password-input", :id =>'form-current_password' %>
-              </div>
-              <div >
-               <%= f.password_field :password, autocomplete: "off", :placeholder => 'New Password', class: "form-password form-control mT1 reset-password-input", :id =>'form-password' %>
-              </div>
-             <div>
-               <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "reset-password-input form-password form-control mT1", :id =>'form-password' %>
-              </div>
-             <div class="actions">
-              <%= f.button 'Update password', class: "button button4 bt-add-cli reset-password-input" %>
-            </div>
-            </fieldset>
-            <% end %>
-             
           </div>
         </div>
           <div class="col-md-4">
@@ -36,5 +53,3 @@
   </div>
 </div>
 </div>
-
-
