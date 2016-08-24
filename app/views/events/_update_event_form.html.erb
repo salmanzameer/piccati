@@ -10,7 +10,7 @@
         <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "first-field client_fields client_fields_calandar" %>
         <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "first-field client_fields client_fields_calandar" %>
       <% end %>
-      <%= f.datetime_field :start_time, :value => f.object.start_time.to_datetime, :placeholder =>"Select Date", :class => "first-field client_fields calendarfield-width design-cal-field datetimepicker" %>
+      <%= f.datetime_field :start_time, :value => f.object.start_time.to_datetime, :placeholder =>"Select Date", :class => "first-field client_fields  client_fields_calandar design-cal-field datetimepicker" %>
     </fieldset>
     <div class="form-calandar-popup-fieldset">
     <%= f.button 'Update Event' , type: "submit", class: "button button4 event-submit-on-calendar border-solid-form btn-cal-width-adj", data: { section_class: "clients-table"} %>
