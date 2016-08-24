@@ -409,19 +409,18 @@ a {
       cursor:pointer
       }
       div#popupContact {
-      position:absolute;
-      left:50%;
-      top:17%;
-      margin-left:-202px;
-      font-family:'Raleway',sans-serif
+      position: relative;
+      width: auto;
+      margin: 10px;
+      font-family: 'SegoeUI';
       }
       .form-action {
-        width: 550px;
+        /*width: 550px;
         min-width: 250px;
-        padding: 50px 50px;
+        padding: 50px 50px;*/
         /* border: 2px solid gray; */
         /* border-radius: 10px; */
-        font-family: raleway;
+        /*font-family: raleway;*/
         background-color: #fff;
       }
       textarea {
@@ -790,11 +789,10 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
       cursor:pointer
       }
       div#popupContact {
-      position:absolute;
-      left:50%;
-      top:17%;
-      margin-left:-202px;
-      font-family:'Raleway',sans-serif
+      position: relative;
+      width: auto;
+      margin: 10px;
+      font-family: 'SegoeUI';
       }
       form {
         width: 500px;
@@ -2015,7 +2013,6 @@ select, input, textarea, textarea.form-control:focus
 
 .btn-client-magin-zero
 {
-  margin-top: 0px;
   margin-bottom: 0px;
 }
 
@@ -2112,13 +2109,13 @@ select, input, textarea, textarea.form-control:focus
 
 .form-calandar-popup-fieldset 
 {
-  padding-left: 90px;
+  padding-left: 75px;
   text-align: left;
 }
 
 .form-calandar-popup
 {
-  width: 650px;
+  width: 100%;
   padding: 15px;
 }
 
@@ -2148,7 +2145,7 @@ select, input, textarea, textarea.form-control:focus
 
 .cal-close
 {
-  margin-right: 3%;
+  margin-right: 0;
 }
 
 .client_fields_calandar
@@ -2183,7 +2180,6 @@ select, input, textarea, textarea.form-control:focus
   border-radius: 0px;
   border: 1px solid rgb(204, 204, 204);
   margin-top: 1px;
-  width: 78.5% !important;
 }
 
 .client_fields_calandar1
@@ -2586,7 +2582,7 @@ li.plupload_delete a
   }
 }
 
-@media (min-width: 420px) and (max-width: 980px) 
+@media (min-width: 362px) and (max-width: 419px) 
 {
   #navi
   {
@@ -2598,7 +2594,47 @@ li.plupload_delete a
   }
   #infoi 
   {
-    width: 640%;
+    width: 305%;
+    height: 100%;
+    position: absolute;
+    top: -3px;
+    left: 0px;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 510px) 
+{
+  #navi
+  {
+    width: 105%;
+    height: 100%;
+    position: absolute;
+    top: -3px;
+    left: 0;
+  }
+  #infoi 
+  {
+    width: 323%;
+    height: 100%;
+    position: absolute;
+    top: -3px;
+    left: 0px;
+  }
+}
+
+@media (min-width: 511px) and (max-width: 980px) 
+{
+  #navi
+  {
+    width: 105%;
+    height: 100%;
+    position: absolute;
+    top: -3px;
+    left: 0;
+  }
+  #infoi 
+  {
+    width: 380%;
     height: 100%;
     position: absolute;
     top: -3px;
@@ -2641,4 +2677,33 @@ li.plupload_delete a
 {
   left: 40% !important;
   top: 24% !important;
+}
+
+input[type="password"]:focus
+{
+  border: 0px !important;
+}
+
+@media (min-width: 768px){
+div#popupContact {
+    width: 600px;
+    margin: 30px auto;
+}
+}
+
+@media (min-width: 322px) and (max-width: 980px)
+{
+  .form-calandar-popup-fieldset 
+  {
+    padding-left: 0px;
+    text-align: left;
+  }
+  .client_fields_calandar
+  {
+    width: 100% !important;
+  }
+  .right-padding-twenty-four
+  {
+    padding-right: 15px;
+  }
 }

@@ -9,7 +9,7 @@
 	  <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields client_fields_calandar" %>
 	  <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "bride_name first-field client_fields client_fields_calandar", style: "display: none;" %>
 	  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "groom_name first-field client_fields  client_fields_calandar", style: "display: none;" %>
-	  	<%= f.datetime_field :start_time, autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields calendarfield-width align-calandar-field datetimepicker" %>
+	  	<%= f.datetime_field :start_time, autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields client_fields_calandar align-calandar-field datetimepicker" %>
   </fieldset>
 	<div class="form-calandar-popup-fieldset">
 		<%= f.button 'Create Event' , class: "button button4 submit-event btn-cal-width-adj border-solid-form" %>
