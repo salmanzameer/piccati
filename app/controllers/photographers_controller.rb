@@ -30,12 +30,14 @@ class PhotographersController < ApplicationController
   def connect_client
     connected_clients = current_photographer.photographer_clients.is_connected?.count
     if ((connected_clients >= 1) && (current_photographer.expired_at.blank?))
-      render text: "You can connect with only 1 client during trial period"
+      text = "You can connect with only 1 client during trial period"
     else  
       @client = Client.find_by_id params[:client_id]
       current_photographer.photographer_clients.where(client_id: @client.id).first.update_attribute('is_connected', true)
-      render text: @client.firstname + " now connected with you."
+      text = @client.firstname + " now connected with you."
     end
+    flash[:notice] = text
+    render js: "window.location = '#{photographer_client_path(current_photographer, params[:client_id])}';"
   end
 
   def update_password

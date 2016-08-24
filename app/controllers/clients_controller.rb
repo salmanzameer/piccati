@@ -12,19 +12,7 @@ class ClientsController < ApplicationController
   end
 
   def show
-    if current_photographer.present?
-      @client = current_photographer.clients.find(params[:id])
-      @events = @client.events
-    else
-       client_match_token
-      if
-        @client.present?
-        @events
-        render :json => @client.to_json( :only =>[:id,:firstname,:lastname,:username,:email] )  
-      else
-        render json: {status: 'error'}
-      end
-    end
+    index
   end
 
   def new

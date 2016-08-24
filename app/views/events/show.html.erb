@@ -1,2 +1,8 @@
-<% find_event(request.fullpath) if Event.count > 0 && Client.count > 0 %>
 <%= render partial: 'layouts/clients' %>
+
+<script>
+$(document).ready(function() {
+  $('a.show-event[data-id='+"<%= params[:id] %>"+']:first').addClass('clicked-link');
+  $('a.show-client-events[data-id='+"<%= params[:client_id] %>"+']:first').click();
+});
+</script>

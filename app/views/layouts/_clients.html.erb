@@ -30,12 +30,7 @@
             </tr>
           <% end %>
           <% @clients.each do |client| %>
-            <%cls = @path.present? && @path[:client_id] == client.id.to_s ? 'tr-selected' : "" %>
-            <% abc = cls == "tr-selected" ? "abc" : ""%>
-            <% if @path.present? && @path[:action] == "index" %>
-              <% abc = "" %>
-            <% end %>
-            <tr class="photographer-clients-list <%= cls %> <%= abc %>">
+            <tr class="photographer-clients-list">
               <td class="table-row-width zero-border zero-padding">
                 <div class="col-md-8 center-align-tag">
                   <%= link_to client.fullname, "#", class: "show-client-events client-event-anchor-design", data: { id: client.id } %>
