@@ -71,7 +71,7 @@ class EventsController < ApplicationController
     client = current_photographer.clients.find_by_id(params[:client_id])
     @image = client.events.find_by_id(params[:id]).images.new(param)
     @image.save
-    client.update(enabled: true)
+    client.update_attribute('enabled', true)
   end
 
   def upload_image
