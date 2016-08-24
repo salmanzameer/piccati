@@ -139,3 +139,7 @@ $ ->
       return
 
     reader.readAsDataURL $(this).prop("files")[0]
+
+  $(".signup_buttons_popup").click (e) ->
+    e.preventDefault()
+    $("#signup_buttons_popup").show()  

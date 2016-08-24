@@ -30,11 +30,19 @@
             </div>
           </div>
     <div>
-      <div class="col-xs-10"><%= link_to "Sign Up Now!", new_photographer_registration_path, class: "btn-sign-in-index-pg" %></div>
+      <div class="col-xs-10"><%= link_to "Sign Up Now!", new_photographer_registration_path, class: "btn-sign-in-index-pg signup_buttons_popup" %></div>
       <div class="col-xs-10"><%= link_to "Forgot your password?", new_password_path(resource_name), class: "btn-sign-in-index-pg" %></div>
     </div>
        </div>
       </div>
     </div>
+</div>
+<div id="signup_buttons_popup" style="z-index: 9999; display: none">
+  <div class="package-class sign-up-popup" id="popupContact">
+    <%= image_tag ("close1.png"), class: "close cal-close", data: { id: "signup_buttons_popup" } %>
+    <center><h2 class="form-calandar-popup-heading-top">Signup</h2></center>
+    <button class="button button4 submit-event btn-cal-width-adj border-solid-form"> Sign Up as .......</button>
+    <button class="button button4 submit-event btn-cal-width-adj border-solid-form"> Sign Up as .......</button>
+  </div>
 </div>
 
