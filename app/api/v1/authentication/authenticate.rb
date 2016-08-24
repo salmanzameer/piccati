@@ -31,7 +31,7 @@ module Authentication
       unless @user
         throw :error, status: 404, message: "User not found"
       end
-      @user.update(avatar: params[:avatar].tempfile)
+      @user.update_attribute('avatar', params[:avatar].tempfile)
     end  
 
     desc "Forgot password (STEP I)"
