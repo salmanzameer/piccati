@@ -2692,7 +2692,7 @@ input[type="password"]:focus
 @media (min-width: 768px){
 div#popupContact {
     width: 600px;
-    margin: 30px auto;
+    margin: 150px auto;
 }
 }
 

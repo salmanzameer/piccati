@@ -38,11 +38,11 @@
     </div>
 </div>
 <div id="signup_buttons_popup" style="z-index: 9999; display: none">
-  <div class="package-class sign-up-popup" id="popupContact">
+  <div class="sign-up-popup" id="popupContact">
     <%= image_tag ("close1.png"), class: "close cal-close", data: { id: "signup_buttons_popup" } %>
     <center><h2 class="form-calandar-popup-heading-top">Signup</h2></center>
-    <button class="button button4 submit-event btn-cal-width-adj border-solid-form"> Sign Up as .......</button>
-    <button class="button button4 submit-event btn-cal-width-adj border-solid-form"> Sign Up as .......</button>
+    <%= link_to "Sign Up As Photographer", new_photographer_registration_path, class: "button button4 btn-cal-width-adj border-solid-form" %>
+    <%= link_to "Sign Up As Client", new_client_registration_path, class: "button button4 btn-cal-width-adj border-solid-form" %>
   </div>
 </div>
 
