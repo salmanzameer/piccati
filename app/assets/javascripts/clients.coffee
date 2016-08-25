@@ -114,8 +114,6 @@ $ ->
 			type: "GET"
 			url:  "/clients/search_client_fields"
 			data: { email: $(".search_client_email").val() }
-	
-	$('.show-client-events').first().click()
 
 	$(document).on 'click', '.update-event', (e) ->
 		e.preventDefault()

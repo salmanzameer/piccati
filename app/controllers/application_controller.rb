@@ -5,12 +5,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :set_current_photographer
   
-  def set_current_photographer
-    Photographer.current_photographer = current_photographer
-  end
-
   protected
 
   def configure_permitted_parameters
