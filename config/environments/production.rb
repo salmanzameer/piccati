@@ -78,14 +78,6 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
-  Rails.application.config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :deliver_with => :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
-    :email_prefix => "heroku.com",
-    :sender_address => %{app54640505@heroku.com},
-    :exception_recipients => %w{salman@protonlabs.com}
-  }
-
   ActionMailer::Base.delivery_method = :smtp
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
