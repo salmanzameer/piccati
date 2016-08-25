@@ -11,6 +11,13 @@ $ ->
 	    	return
 		).first().focus()
 	
+	$(document).on 'click', '.event-submit-on-calendar, .event-submit-on-calendar, .submit-event', (e) ->
+	 	$('#add-calender-event-model, #update-event-model, #add-event-form').find('input, select').filter(->
+	   	if $(this).val() == ''
+	     	$(this).focus()
+	     	return
+	 	).first().focus()
+
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()
 		_form = $(this).closest("form")
