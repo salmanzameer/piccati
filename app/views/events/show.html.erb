@@ -2,7 +2,12 @@
 
 <script>
 $(document).ready(function() {
-  $('a.show-event[data-id='+"<%= params[:id] %>"+']:first').addClass('clicked-link');
   $('a.show-client-events[data-id='+"<%= params[:client_id] %>"+']:first').click();
+  setTimeout(function(){
+    $('a.show-event:first').closest('.tr-selected').removeClass('tr-selected');
+   },100);
+  setTimeout(function(){
+    $('a.show-event[data-id='+"<%= params[:id] %>"+']:first').click();
+   },100);
 });
 </script>

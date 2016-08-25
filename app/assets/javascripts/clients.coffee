@@ -69,7 +69,6 @@ $ ->
 			success: (data) ->
 				$(".events-section").html(data)
 				$('.show-event').first().click()
-				$('.clicked-link').click()
 
 	$(document).on 'click', '.close', (e) ->
 		$(".clients-table").show()
