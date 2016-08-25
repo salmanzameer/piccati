@@ -6,7 +6,7 @@ $ ->
 
   $(document).on 'click', '.show-event', (e) ->
     e.preventDefault()
-    $('.show-event').find('.tr-selected').removeClass('tr-selected')
+    $('td.events-list.tr-selected').removeClass('tr-selected')
     $(".show-event").css('color','#23527c')
     $(this).closest("td").addClass('tr-selected')
     $(this).css('color','white')
