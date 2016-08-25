@@ -1,2 +1,10 @@
-<% find_event(request.fullpath) if Event.count > 0 && Client.count > 0 %>
 <%= render partial: 'layouts/clients' %>
+
+<script>
+$(document).ready(function() {
+  $('a.show-client-events[data-id='+"<%= params[:client_id] %>"+']:first').click();
+  setTimeout(function(){
+    $('a.show-event[data-id='+"<%= params[:id] %>"+']:first').click();
+   },100);
+});
+</script>

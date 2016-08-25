@@ -3,15 +3,6 @@ module ApplicationHelper
   def remaining_days
     ((current_photographer.created_at + 10.days).to_date - Date.today).round
   end
-  def find_event(path)
-    @path = Rails.application.routes.recognize_path(path)
-    if !@path[:client_id].present?
-      @client = current_photographer.clients.first || Client.first
-      @event = @client.events.first || Event.first
-      @path = @path.merge({:client_id=>@client.id.to_s, :id=>@event.id.to_s})
-    end
-    session[:save_client] = @path
-  end
 
   def liked_images(event)
     event.images.where(is_liked: true)

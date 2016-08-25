@@ -19,16 +19,11 @@
 		  		<tr><td><%= 'No Events' %></td></tr>
 		  	<% end %>
 			  <% events.each do |event| %>
-			  	<% cls = @path.present? && @path["id"] == event.id.to_s ? 'tr-selected' : "" %>
-			  	<% abc = cls == "tr-selected" ? "abc" : ""%>
-			  	 <% if @path.present? && @path[:action] == "index" %>
-		        <% abc = "" %>
-		      <% end %>
-		      <tr class="events-list <%= cls %> <%= abc %>">
+		      <tr class="events-list">
 				    <td class="events-list" style="padding: 16px 15px 15px 13px;">
 				    	<%= event.category.name if event.category.present? %>
 				    </td>
-				    <td class="events-list <%= cls %> <%= abc %> height-event-box" >
+				    <td class="events-list height-event-box" >
 				    	<%= link_to event.name.titleize, "#", class: "show-event", data: { id: event.id } %>
 				    </td>
 				  </tr>

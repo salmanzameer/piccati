@@ -37,12 +37,13 @@ $ ->
       $("#password-update").submit()
 
   $(document).on 'click', '#connect-client-id', (e) ->
+    client_id = $('#select2-client-id').val()
     $.ajax
       type: "POST"
-      data: { client_id: $('#select2-client-id').val() }
+      data: { client_id: client_id }
       url:  "/photographers/connect_client"
       success: (data) ->
-        $("#connect-message").html(data)
+        $('a.show-client-events[data-id='+client_id+']:first').click()
 
   $(document).on 'click', '.current-month', (e) ->
     $(".current-month").removeClass("selected-event")

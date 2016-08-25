@@ -58,7 +58,6 @@ $ ->
 			success: (data) ->
 				$(".events-section").html(data)
 				$('.show-event').first().click()
-				$('.events-list.abc').find("a").click()
 
 	$(document).on 'click', '.close', (e) ->
 		$(".clients-table").show()
@@ -115,9 +114,8 @@ $ ->
 			type: "GET"
 			url:  "/clients/search_client_fields"
 			data: { email: $(".search_client_email").val() }
-			
+	
 	$('.show-client-events').first().click()
-	$('.photographer-clients-list.abc').find("a").click()
 
 	$(document).on 'click', '.update-event', (e) ->
 		e.preventDefault()
