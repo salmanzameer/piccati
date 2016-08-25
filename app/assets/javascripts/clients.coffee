@@ -52,12 +52,15 @@ $ ->
 		$('.tr-selected').removeClass('tr-selected')
 		$(this).closest("tr").addClass('tr-selected')
 		id = $(this).data("id")
+		photographer_id = $(this).data("photographer-id")
 		$.ajax
 			type: "GET"
 			url: "/clients/#{id}/client_events"
 			success: (data) ->
 				$(".events-section").html(data)
 				$('.show-event').first().click()
+				url = "/photographers/#{photographer_id}/clients/#{id}"
+				window.history.pushState("", "", url)
 
 	$(document).on 'click', '.close', (e) ->
 		$(".clients-table").show()
