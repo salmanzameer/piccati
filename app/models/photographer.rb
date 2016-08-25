@@ -29,9 +29,9 @@ class Photographer < ActiveRecord::Base
   :path => ":rails_root/public/system/avatar/images/000/000/00:id/:style/:basename.:extension",
   :storage => :s3,
   :s3_credentials => {
-    :bucket => 'gls-testing', 
-    :access_key_id => 'AKIAJ2CZ275DJXIPIAEQ',
-    :secret_access_key => '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' 
+    :bucket => 'production-piccati', 
+    :access_key_id => 'AKIAII3XERQAPXKD26ZQ',
+    :secret_access_key => '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' 
   }
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
@@ -41,9 +41,9 @@ class Photographer < ActiveRecord::Base
   :path => ":rails_root/public/system/watermark_logo/images/:id/:style/:basename.:extension",
   :storage => :s3,
   :s3_credentials => {
-    :bucket => 'gls-testing', 
-    :access_key_id => 'AKIAJ2CZ275DJXIPIAEQ',
-    :secret_access_key => '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' 
+    :bucket => 'production-piccati', 
+    :access_key_id => 'AKIAII3XERQAPXKD26ZQ',
+    :secret_access_key => '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' 
   }  
   validates_attachment_size :watermark_logo, :less_than => 5.megabytes
   validates_attachment_content_type :watermark_logo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
@@ -54,9 +54,9 @@ class Photographer < ActiveRecord::Base
   :path => ":rails_root/public/system/feature_image/images/000/000/00:id/:style/:basename.:extension",
   :storage => :s3,
   :s3_credentials => {
-    :bucket => 'gls-testing', 
-    :access_key_id => 'AKIAJ2CZ275DJXIPIAEQ',
-    :secret_access_key => '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' 
+    :bucket => 'production-piccati', 
+    :access_key_id => 'AKIAII3XERQAPXKD26ZQ',
+    :secret_access_key => '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' 
   }
   validates_attachment_size :feature_image, :less_than => 5.megabytes
   validates_attachment_content_type :feature_image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]

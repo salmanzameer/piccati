@@ -19,9 +19,9 @@ class Image < ActiveRecord::Base
 	:path => ":rails_root/public/system/events/images/000/000/00:id/:style/:basename.:extension",
   :storage => :s3,
   :s3_credentials => {
-    :bucket => 'gls-testing', 
-    :access_key_id => 'AKIAJ2CZ275DJXIPIAEQ',
-    :secret_access_key => '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' 
+    :bucket => 'production-piccati', 
+    :access_key_id => 'AKIAII3XERQAPXKD26ZQ',
+    :secret_access_key => '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' 
   }
   validates_attachment_presence :image
 	validates_attachment_size :image, :less_than => 15.megabytes
