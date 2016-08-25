@@ -28,6 +28,7 @@ class Photographer < ActiveRecord::Base
   :url  => "/system/avatar/images/000/000/00:id/:style/:basename.:extension",
   :path => ":rails_root/public/system/avatar/images/000/000/00:id/:style/:basename.:extension",
   :storage => :s3,
+  :s3_region => 'ap-south-1',
   :s3_credentials => {
     :bucket => 'production-piccati', 
     :access_key_id => 'AKIAII3XERQAPXKD26ZQ',
@@ -40,6 +41,7 @@ class Photographer < ActiveRecord::Base
   :url  => "/system/watermark_logo/images/:id/:style/:basename.:extension",
   :path => ":rails_root/public/system/watermark_logo/images/:id/:style/:basename.:extension",
   :storage => :s3,
+  :s3_region => 'ap-south-1',
   :s3_credentials => {
     :bucket => 'production-piccati', 
     :access_key_id => 'AKIAII3XERQAPXKD26ZQ',
@@ -53,6 +55,7 @@ class Photographer < ActiveRecord::Base
   :url  => "/system/feature_image/images/000/000/00:id/:style/:basename.:extension",
   :path => ":rails_root/public/system/feature_image/images/000/000/00:id/:style/:basename.:extension",
   :storage => :s3,
+  :s3_region => 'ap-south-1',
   :s3_credentials => {
     :bucket => 'production-piccati', 
     :access_key_id => 'AKIAII3XERQAPXKD26ZQ',

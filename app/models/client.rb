@@ -28,6 +28,7 @@ class Client < ActiveRecord::Base
   :url  => "/system/avatar/images/000/000/00:id/:style/:basename.:extension",
   :path => ":rails_root/public/system/avatar/images/000/000/00:id/:style/:basename.:extension",
   :storage => :s3,
+  :s3_region => 'ap-south-1',
   :s3_credentials => {
     :bucket => 'production-piccati', 
     :access_key_id => 'AKIAII3XERQAPXKD26ZQ',
