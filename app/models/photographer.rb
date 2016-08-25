@@ -25,10 +25,9 @@ class Photographer < ActiveRecord::Base
 
   has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
   :default_url => "user-avatar.png",
-  :url  => "/system/avatar/images/000/000/00:id/:style/:basename.:extension",
-  :path => ":rails_root/public/system/avatar/images/000/000/00:id/:style/:basename.:extension",
+  url: ':s3_domain_url',
+  path: '/:class/:attachment/:id_partition/:style/:filename',
   :storage => :s3,
-  :s3_region => 'ap-south-1',
   :s3_credentials => {
     :bucket => 'production-piccati', 
     :access_key_id => 'AKIAII3XERQAPXKD26ZQ',
@@ -38,10 +37,9 @@ class Photographer < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   has_attached_file :watermark_logo, styles: { original: "500x500"},
-  :url  => "/system/watermark_logo/images/:id/:style/:basename.:extension",
-  :path => ":rails_root/public/system/watermark_logo/images/:id/:style/:basename.:extension",
+  url: ':s3_domain_url',
+  path: '/:class/:attachment/:id_partition/:style/:filename',
   :storage => :s3,
-  :s3_region => 'ap-south-1',
   :s3_credentials => {
     :bucket => 'production-piccati', 
     :access_key_id => 'AKIAII3XERQAPXKD26ZQ',
@@ -52,10 +50,9 @@ class Photographer < ActiveRecord::Base
 
   has_attached_file :feature_image, styles: { original: "500x500", medium: "300x300>"},
   :default_url => "user-avatar.png",
-  :url  => "/system/feature_image/images/000/000/00:id/:style/:basename.:extension",
-  :path => ":rails_root/public/system/feature_image/images/000/000/00:id/:style/:basename.:extension",
+  url: ':s3_domain_url',
+  path: '/:class/:attachment/:id_partition/:style/:filename',
   :storage => :s3,
-  :s3_region => 'ap-south-1',
   :s3_credentials => {
     :bucket => 'production-piccati', 
     :access_key_id => 'AKIAII3XERQAPXKD26ZQ',

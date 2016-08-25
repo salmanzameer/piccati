@@ -15,14 +15,13 @@ class Image < ActiveRecord::Base
       medium: "300x300#"
     }
   },
-  :url  => "/system/events/images/000/000/00:id/:style/:basename.:extension",
-	:path => ":rails_root/public/system/events/images/000/000/00:id/:style/:basename.:extension",
-  :storage => :s3,
-  :s3_region => 'ap-south-1',
-  :s3_credentials => {
-    :bucket => 'production-piccati', 
-    :access_key_id => 'AKIAII3XERQAPXKD26ZQ',
-    :secret_access_key => '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' 
+  url: ':s3_domain_url',
+  path: '/:class/:attachment/:id_partition/:style/:filename',
+  storage: :s3,
+  s3_credentials: {
+    bucket: 'production-piccati', 
+    access_key_id: 'AKIAII3XERQAPXKD26ZQ',
+    secret_access_key: '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'
   }
   validates_attachment_presence :image
 	validates_attachment_size :image, :less_than => 15.megabytes
