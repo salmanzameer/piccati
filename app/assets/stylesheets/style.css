@@ -2551,6 +2551,82 @@ li.plupload_delete a
   height: 114px;
 }
 
+.edit-package-button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    width: 8%;
+    height: 30px;
+    float: right;
+}
+
+.profile-tab-btn
+{
+    display: flex !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    width: 100%;
+}
+.edit-package-button{
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline:none;
+  width: 8%;
+  height: 30px;
+  float: right;
+}
+
+.package-class
+{
+  left: 40% !important;
+  top: 24% !important;
+}
+
+.sign-up-popup
+{
+  background-color: #fff;
+  padding-bottom: 32px;
+}
+input[type="password"]:focus
+{
+  border: 0px !important;
+}
+
+/***********************            Media  Queries            ***********************/
+@media (min-width: 768px){
+div#popupContact {
+    width: 600px;
+    margin: 150px auto;
+}
+}
+
+@media (min-width: 322px) and (max-width: 980px)
+{
+  .form-calandar-popup-fieldset 
+  {
+    padding-left: 0px;
+    text-align: left;
+  }
+  .client_fields_calandar
+  {
+    width: 100% !important;
+  }
+  .right-padding-twenty-four
+  {
+    padding-right: 15px;
+  }
+  .btn-cal-width-adj 
+  {
+    width: 100%;
+  }
+}
+
 @media (min-width: 280px) and (max-width: 320px) {
   #navi
   {
@@ -2650,73 +2726,24 @@ li.plupload_delete a
   }
 }
 
-.edit-package-button {
-    background-color: Transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-    width: 8%;
-    height: 30px;
-    float: right;
-}
-
-.profile-tab-btn
+@media (min-width: 280px) and (max-width: 990px)
 {
-    display: flex !important;
-    justify-content: center !important;
-    flex-direction: column !important;
-    width: 100%;
-}
-.edit-package-button{
-  background-color: Transparent;
-  background-repeat: no-repeat;
-  border: none;
-  cursor: pointer;
-  overflow: hidden;
-  outline:none;
-  width: 8%;
-  height: 30px;
-  float: right;
-}
-
-.package-class
-{
-  left: 40% !important;
-  top: 24% !important;
-}
-
-.sign-up-popup
-{
-  background-color: #fff;
-  padding-bottom: 32px;
-}
-input[type="password"]:focus
-{
-  border: 0px !important;
-}
-
-@media (min-width: 768px){
-div#popupContact {
-    width: 600px;
-    margin: 150px auto;
-}
-}
-
-@media (min-width: 322px) and (max-width: 980px)
-{
-  .form-calandar-popup-fieldset 
+  .login-form label, .sign_up-form label 
   {
-    padding-left: 0px;
+    position: relative;
+    right: 0;
+    width: 100%;
+    line-height: 0px;
     text-align: left;
   }
-  .client_fields_calandar
+  .form-sign-in-input-field, .form-sign-up-input-field 
   {
+    position: relative;
     width: 100% !important;
   }
-  .right-padding-twenty-four
+  .form-sign-in-input-field-btn, .form-sign-up-input-field-btn 
   {
-    padding-right: 15px;
+    width: 100% !important;
+    float: left;
   }
 }
