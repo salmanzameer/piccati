@@ -11,8 +11,12 @@ $ ->
     $(this).closest("td").addClass('tr-selected')
     $(this).css('color','white')
     id = $(this).data("id")
+    photographer_id = $(this).data("photographer-id")
+    client_id = $(this).data("client-id")
     $.ajax
       type: "GET"
       url:  "/clients/#{id}/event"
       success: (data) ->
         $(".clients-table").html(data)
+        url = "/photographers/#{photographer_id}/clients/#{client_id}/events/#{id}"
+        window.history.pushState("", "", url)

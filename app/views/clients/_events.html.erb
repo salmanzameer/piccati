@@ -24,7 +24,7 @@
 				    	<%= event.category.name if event.category.present? %>
 				    </td>
 				    <td class="events-list height-event-box" >
-				    	<%= link_to event.name.titleize, "#", class: "show-event", data: { id: event.id } %>
+				    	<%= link_to event.name.titleize, "#", class: "show-event", data: { client_id: event.client.id, photographer_id: current_photographer.id, id: event.id } %>
 				    </td>
 				  </tr>
 				 <% end %>
