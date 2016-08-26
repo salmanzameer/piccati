@@ -19,9 +19,9 @@ class Image < ActiveRecord::Base
   path: '/:class/:attachment/:id_partition/:style/:filename',
   storage: :s3,
   s3_credentials: {
-    bucket: 'production-piccati', 
-    access_key_id: 'AKIAII3XERQAPXKD26ZQ',
-    secret_access_key: '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'
+    :bucket =>            ENV['S3_BUCKET_NAME'],
+    :access_key_id =>     ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
   }
   validates_attachment_presence :image
 	validates_attachment_size :image, :less_than => 15.megabytes
