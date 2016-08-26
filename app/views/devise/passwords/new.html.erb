@@ -11,7 +11,7 @@
               <%= form_for(resource, as: resource_name, url: password_path(resource_name), validate: true, html: { method: :post, class: 'forget-password-form login-form login-sign-up-button-padd form-sign-up-new1' }) do |f| %>
                 <div class="form-group input-field-setting">
                   <div class="col-sm-12 zero-padding">
-                    <%= f.email_field :email , :placeholder => 'Email' ,class: "form-username form-control input-lg form-sign-in-input-field", :id =>'form-username' %>
+                    <%= f.email_field :email, value: "", placeholder: 'Email', class: "form-username form-control input-lg form-sign-in-input-field", autofocus: true %>
                   </div>
                 </div>   
                 <div class="form-group input-field-setting">
