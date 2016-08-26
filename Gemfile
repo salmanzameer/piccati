@@ -23,6 +23,8 @@ gem 'paperclip', '~> 4.2'
 gem 'paperclip-watermark'
 gem 'client_side_validations'
 
+gem 'raygun4ruby'
+
 gem 'will_paginate'
 gem 'grape'
 gem 'grape-rabl'

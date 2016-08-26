@@ -123,6 +123,9 @@ GEM
     html_routes (1.0)
       launchy (~> 2.0)
       syntax (~> 1.0)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     ice_nine (0.11.2)
     jbuilder (2.4.1)
@@ -241,6 +244,10 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.1.1)
+    raygun4ruby (1.1.11)
+      httparty (~> 0.13.7)
+      json
+      rack
     rdoc (4.2.2)
       json (~> 1.4)
     ref (2.0.0)
@@ -349,6 +356,7 @@ DEPENDENCIES
   public_activity
   rails (= 4.2.4)
   rails_12factor
+  raygun4ruby
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
