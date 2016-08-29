@@ -1,43 +1,60 @@
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  	<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-	</head>
-	<body>
-		<div class="col-md-6 col-md-offset-3">
-			<div class="col-md-12 mailer-background zero-padding" style="background-color: rgb(217, 223, 226);padding-left: 1px !important;
-	      padding-right: 1px !important;">  
-				<div class="mailer-head" style="background-color: #003366;color: #fff;min-height: 61px;padding: 15px 15px 15px 45px;font-family: 'SegoeUI';font-size: 16px;">
-					<div class="continer">
-						<%= link_to image_tag("http://app.piccati.com/assets/logo-f87ac75a8546cdbc1c4e2e41b459f0e407e18265e5266d2abad6b8161fed363e.png"), "http://app.piccati.com/" %>
-					</div>
-				</div>
-				<%= yield %>
-				<div class="mailer-footer" style="background-color: #003366;min-height: 61px;padding: 21px 15px 15px 45px;color: white;">
-					<div><span style="padding-right:93px;">info@piccati.com</span>
-					<span><%= link_to "www.piccati.com", "www.piccati.com" ,style: "color: #fff;" %></span>
-					<span style="float:right;padding-right: 30px;">
-					<a href="https://www.facebook.com/piccatiofficial/" target="_blank" class="socialcolors" style="color: #fff; text-decoration: none;"><%= image_tag("https://s3-us-west-2.amazonaws.com/piccati-app/images/facebook-3-16.png")%>
-					</a>
-			 		<a href="https://twitter.com/PiccatiOfficial" target="_blank" class="socialcolors" style="color: #fff; text-decoration: none;">
-	 				<%= image_tag("https://s3-us-west-2.amazonaws.com/piccati-app/images/twitter-3-16.png") %>
-			 		</a>
-			 		<a href="https://plus.google.com/b/101609696226945901716/101609696226945901716?hl=en-GB" class="socialcolors" target="_blank" style="color: #fff; text-decoration: none;"> 
- 									<%= image_tag("https://s3-us-west-2.amazonaws.com/piccati-app/images/google-plus-3-16.png") %>
- 								</a>
- 					<a href="https://www.instagram.com/piccatiofficial/" target="_blank" class="socialcolors" style="color: #fff; text-decoration: none;">
- 						 			<%= image_tag("https://s3-us-west-2.amazonaws.com/piccati-app/images/instagram-16.png") %>
- 						 		</a>
- 					<a href="https://www.youtube.com/channel/UCK66NiGTuZul6TSZarA6Qyw" target="_blank" class="socialcolors" style="color: #fff; text-decoration: none;">
- 									<%= image_tag("https://s3-us-west-2.amazonaws.com/piccati-app/images/youtube-3-16.png") %>
- 								</a>
-					</span>
-					</div>
-				</div>
-			</div>
-		</div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<table cellspacing="0" cellpadding="0" border="0" width="100%">
+        <tr>
+            <td align="center">
+                <!-- This setup makes the nav background stretch the whole width of the screen. -->
+                <table width="650px" cellspacing="0" cellpadding="3" class="mailer-head">
+                    <tr>
+                        <td bgcolor="#003366" style="padding: 15px 15px 15px 45px;"><%= link_to image_tag("http://app.piccati.com/assets/logo-f87ac75a8546cdbc1c4e2e41b459f0e407e18265e5266d2abad6b8161fed363e.png"), "http://app.piccati.com/" %></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF" align="center">
+                <table width="650px" cellspacing="0" cellpadding="3">
+                    <tr>
+                        <td>
+                        	<%= yield %>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <table width="650px" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td bgcolor="#003366" style="color:#fff;padding: 15px 15px 15px 45px;width:33.33%;">info@piccati.com</td>
+                        <td bgcolor="#003366" style="color:#fff;width:33.33%;text-align:center;">www.piccati.com</td>
+                        <td bgcolor="#003366" style="color:#fff;width:33.33%;text-align:center;"><a href="https://www.facebook.com/piccatiofficial/" target="_blank" class="socialcolors" style="color: #fff; text-decoration: none;"><%= image_tag("https://s3-us-west-2.amazonaws.com/piccati-app/images/facebook-3-16.png")%>
+                    </a>
+                    <a href="https://twitter.com/PiccatiOfficial" target="_blank" class="socialcolors" style="color: #fff; text-decoration: none;">
+                    <%= image_tag("https://s3-us-west-2.amazonaws.com/piccati-app/images/twitter-3-16.png") %>
+                    </a>
+                    <a href="https://plus.google.com/b/101609696226945901716/101609696226945901716?hl=en-GB" class="socialcolors" target="_blank" style="color: #fff; text-decoration: none;"> 
+                                    <%= image_tag("https://s3-us-west-2.amazonaws.com/piccati-app/images/google-plus-3-16.png") %>
+                                </a>
+                    <a href="https://www.instagram.com/piccatiofficial/" target="_blank" class="socialcolors" style="color: #fff; text-decoration: none;">
+                                    <%= image_tag("https://s3-us-west-2.amazonaws.com/piccati-app/images/instagram-16.png") %>
+                                </a>
+                    <a href="https://www.youtube.com/channel/UCK66NiGTuZul6TSZarA6Qyw" target="_blank" class="socialcolors" style="color: #fff; text-decoration: none;">
+                                    <%= image_tag("https://s3-us-west-2.amazonaws.com/piccati-app/images/youtube-3-16.png") %></a></td>
+                    </tr>
+                </table>
+             </td>
+    	</tr>
+	</table>
 	</body>
 </html>
+            
+
