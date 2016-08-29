@@ -6,7 +6,7 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
-    background:url(bg-new.jpg) no-repeat center center fixed; 
+    background:url(piccati-bg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -283,7 +283,7 @@ a {
 /* ********************  New Desgin ****************** */
   body
   {
-    background:url(bg-new.jpg) no-repeat center center fixed; 
+    background:url(piccati-bg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -673,24 +673,21 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
       }
 
   #container {
-  width: 104px;
-  height: 20px;
   position: relative;
 }
 #navi
 {
-  width: 105%;
+  width: 100%;
   height: 100%;
   position: absolute;
-  top: -3px;
-  left: 0;
 }
 #infoi {
-  width: 232%;
+  width: 100%;
+  position: relative;
+  right: 0px;
+  float: right;
   height: 100%;
   position: absolute;
-  top: -3px;
-  left: 0px;
 }
 #infoi {
   z-index: 10;
@@ -813,13 +810,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
       p {
       margin-top:30px
       }
-      h2 {
-      background-color:white;
-      padding:20px 35px;
-      margin:-10px -50px;
-      text-align:center;
-      border-radius:10px 10px 0 0
-      }
+      
       hr {
       margin:10px -50px;
       border:0;
@@ -1040,7 +1031,8 @@ table.head tr td {
 
 .events-table-height
 {
-  min-height: 170px;
+  min-height: 175px;
+  background-color: #fff;
 }
 
 .selected-pkg
@@ -1171,6 +1163,9 @@ input::-webkit-input-placeholder {
   text-align: left;
   padding: 15px;
   font-size: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 
@@ -1179,7 +1174,7 @@ input::-webkit-input-placeholder {
   color:white;
   margin-bottom:0px;
   font-weight: bold;
-  margin: 0 auto;
+  margin: 0 0 0 0;
   font-family: 'SegoeUI';
   font-size: 16px;
 }
@@ -1187,6 +1182,7 @@ input::-webkit-input-placeholder {
 .background-main-edit-profile
 {
   background-color:#dcdcdc;
+  min-height: 270px;
 }
 
 @font-face 
@@ -1304,7 +1300,7 @@ input::-webkit-input-placeholder {
 
 .client-table-setting
 {
-    min-height: 350px;
+    min-height: 372px;
     background-color: white;
 }
 
@@ -1392,7 +1388,7 @@ input::-webkit-input-placeholder {
 
 .topspacing
 {
-  margin-top: 80px;
+  margin-top: 5%;
 }
 
 .email-edit-field
@@ -1825,7 +1821,7 @@ $file-upload-size: 200px;
 
 .update-event-table-height
 {
-    min-height: 348px;
+    min-height: 375px;
     background-color: #fff;
 }
 
@@ -2215,6 +2211,16 @@ select, input, textarea, textarea.form-control:focus
   width: 100%;
 }
 
+.center-align-icons
+{
+  margin-top: 15%;
+}
+
+.connect-client
+{
+  margin-bottom: 10px;
+}
+
 /*************************** Drop Down ************/
 
 
@@ -2598,6 +2604,70 @@ input[type="password"]:focus
   border: 0px !important;
 }
 
+.selct-field option:hover{
+  background-color: #000 !important;
+}
+
+.center-align-content
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.update-profile-field
+{
+  padding-top: 2%;
+  padding-bottom: 1.5%;
+}
+
+.edit-profile-profile-image-field
+{
+  min-height: 120px;
+  padding-top: 35px;
+}
+
+.mH52
+{
+  min-height: 52px;
+}
+
+.table
+{
+  margin-bottom: 0px;
+}
+.transparent tr, .transparent td{
+    background-color: transparent !important;
+    color: #fff !important;
+    border: 0px !important;
+    text-align: center;
+}
+.downloadapp-btn
+{
+  background-color: #fff !important;
+  color: #003366 !important;
+}
+.downloadapp-btn:hover
+{
+  color: #fff !important;
+  background-color: #003366 !important;
+  opacity: 1 !important;
+}
+.download-app-margin
+{
+  margin-top:10%;
+}
+.download-app-margin-heading
+{
+  font-size: 40px;font-weight: 100;color: #fff;line-height: 50px;
+}
+.download-app-margin-para
+{
+  font-size: 16px;
+  font-weight: 100;
+  color: #fff;
+  line-height: 25px;
+}
 /***********************            Media  Queries            ***********************/
 @media (min-width: 768px){
 div#popupContact {
@@ -2628,102 +2698,80 @@ div#popupContact {
 }
 
 @media (min-width: 280px) and (max-width: 320px) {
-  #navi
+
+
+  .logo-position {
+    margin-top: 10px;
+    height: 80px;
+}
+  .sign-up-data-align-sigin-heading
   {
-    width: 105%;
-    height: 100%;
-    position: absolute;
-    top: -3px;
-    left: 0;
+    margin-top: 15px;
   }
-  #infoi 
+  .form-sign-up-new1
   {
-    width: 235%;
-    height: 100%;
-    position: absolute;
-    top: -3px;
-    left: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px !important;
   }
 }
 
 @media (min-width: 322px) and (max-width: 361px) 
 {
-  #navi
-  {
-    width: 105%;
-    height: 100%;
-    position: absolute;
-    top: -3px;
-    left: 0;
+
+  .logo-position {
+    margin-top: 10px;
+    height: 80px;
   }
-  #infoi 
+  .sign-up-data-align-sigin-heading
   {
-    width: 270%;
-    height: 100%;
-    position: absolute;
-    top: -3px;
-    left: 0px;
+    margin-top: 15px;
+  }
+  .form-sign-up-new1
+  {
+    padding-top: 10px;
+    padding-bottom: 10px !important;
   }
 }
 
 @media (min-width: 362px) and (max-width: 419px) 
 {
-  #navi
-  {
-    width: 105%;
-    height: 100%;
-    position: absolute;
-    top: -3px;
-    left: 0;
+
+  .logo-position {
+    margin-top: 10px;
+    height: 80px;
   }
-  #infoi 
+  .sign-up-data-align-sigin-heading
   {
-    width: 305%;
-    height: 100%;
-    position: absolute;
-    top: -3px;
-    left: 0px;
+    margin-top: 15px;
+  }
+  .form-sign-up-new1
+  {
+    padding-top: 10px;
+    padding-bottom: 10px !important;
   }
 }
 
 @media (min-width: 420px) and (max-width: 510px) 
 {
-  #navi
-  {
-    width: 105%;
-    height: 100%;
-    position: absolute;
-    top: -3px;
-    left: 0;
+
+  .logo-position {
+    margin-top: 10px;
+    height: 80px;
   }
-  #infoi 
+  .sign-up-data-align-sigin-heading
   {
-    width: 323%;
-    height: 100%;
-    position: absolute;
-    top: -3px;
-    left: 0px;
+    margin-top: 15px;
+  }
+  .form-sign-up-new1
+  {
+    padding-top: 10px;
+    padding-bottom: 10px !important;
   }
 }
 
 @media (min-width: 511px) and (max-width: 980px) 
 {
-  #navi
-  {
-    width: 105%;
-    height: 100%;
-    position: absolute;
-    top: -3px;
-    left: 0;
-  }
-  #infoi 
-  {
-    width: 380%;
-    height: 100%;
-    position: absolute;
-    top: -3px;
-    left: 0px;
-  }
+
 }
 
 @media (min-width: 280px) and (max-width: 990px)
