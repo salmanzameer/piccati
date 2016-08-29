@@ -4,6 +4,8 @@
   <%= @client.fullname %> has requested you for meeting.
   <br>
   <div class="heading-notice-mailer" style="padding-top: 5px;padding-bottom: 20px;">
+    Email: <%= @client.email %><br>
+    Phone: <%= @client.contnumber %><br>
     Event Type: <%= @event_name %><br>
     Event Date: <%= @enquiry.event_date %><br> 
     Number of persons: <%= @enquiry.guests %>
