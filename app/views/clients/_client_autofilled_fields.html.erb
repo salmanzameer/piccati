@@ -3,12 +3,12 @@
   <p class="firstname-error-p-tag">can't be blank</p>
 </div>
 <div class="col-md-12 left-padding-thirty">
-  <%= f.text_field :lastname, value: client.try(:lastname), autocomplete: :off, autofocus: true, placeholder: "Last Name", class: "create-lastname first-field client_fields_calandar fl", style: "border: 1px solid #cccccc !important;" %>
+  <%= f.text_field :lastname, value: client.try(:lastname), autocomplete: :off, placeholder: "Last Name", class: "create-lastname first-field client_fields_calandar fl", style: "border: 1px solid #cccccc !important;" %>
   <p class="lastname-error-p-tag">can't be blank</p>
 </div>
 <% unless client.present? %>
   <div class="col-md-12 left-padding-thirty">
-    <%= f.text_field :contnumber, value: client.try(:contnumber), autocomplete: :off, autofocus: true, placeholder: "Contact Number", class: "create-lastname first-field client_fields_calandar fl", style: "border: 1px solid #cccccc !important;" %>
+    <%= f.text_field :contnumber, value: client.try(:contnumber), autocomplete: :off, placeholder: "Contact Number", class: "create-lastname first-field client_fields_calandar fl", style: "border: 1px solid #cccccc !important;" %>
     <p class="lastname-error-p-tag">can't be blank</p>
   </div>
 <% end %> 

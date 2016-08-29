@@ -1,9 +1,9 @@
 <div class="background-image">
   <div class="top-content">
-    <div>
-      <div class="container">
+    <div class="topspacing">
+      <div class="container-fluid">
         <div>
-          <div class="col-md-3 form-edit-password-setting">
+          <div class="col-md-3">
           <table>
             <tbody class="nav nav-tabs zero-border-bottom">
               <tr class="zero-border-bottom Profile-heading">
@@ -19,11 +19,11 @@
         </div>
           </div>
           <div class="tab-pane fade active in" id="security">
-            <div class="col-md-7" style="padding-top: 110px;"> 
+            <div class="col-md-6"> 
               <div class="col-md-12 editprofileheading">
                 <p class="edit-prfile-para">Change Password</p>
               </div>
-              <div class="col-md-12 background-main-edit-profile background-security-password pl" >
+              <div class="col-md-12 background-main-edit-profile center-align-content" >
                 <fieldset style="margin-top: -28px;">
                   <%= form_for @photographer, url: update_password_photographer_path, html: { class: 'form-horizontal reset-password' } do |f| %>
                   <div style="margin-top:15px;margin-bottom:15px;">
