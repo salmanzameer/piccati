@@ -20,7 +20,7 @@ module Authentication
       @photographer = Photographer.find_by_email params[:email]
 
       if @client.present? || @photographer.present?
-        throw :error, status: 404, message: "User already has been taken."
+        throw :error, status: 404, message: "Email already has been taken."
       end
 
       role_type = params[:role_type].titleize
