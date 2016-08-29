@@ -2668,6 +2668,14 @@ input[type="password"]:focus
   color: #fff;
   line-height: 25px;
 }
+.dropdown-menu
+{
+  min-width: 132px;
+}
+.main-menu
+{
+  min-width: 150px !important;
+}
 /***********************            Media  Queries            ***********************/
 @media (min-width: 768px){
 div#popupContact {
@@ -2795,3 +2803,4 @@ div#popupContact {
     float: left;
   }
 }
+z
