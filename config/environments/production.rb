@@ -69,7 +69,7 @@ Rails.application.configure do
   # if ENV["SERVER_TYPE"] = "staging"
   #   config.action_mailer.default_url_options = { :host => 'staging-piccati.herokuapp.com' }
   # else
-    config.action_mailer.default_url_options = { :host => 'http://app.piccati.com' }
+    config.action_mailer.default_url_options = { :host => 'piccati.com' }
   # end
   
   config.i18n.fallbacks = true
