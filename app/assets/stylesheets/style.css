@@ -2548,7 +2548,8 @@ li.plupload_delete a
   right: 0;
   width:100%;
   line-height:47px;
-  text-align: right;
+  text-align: left;
+  margin-left: 370px;
 }
 
 .logo-position
