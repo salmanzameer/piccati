@@ -1,14 +1,13 @@
 <div class="mailer-main-body" style="padding: 45px;background-color: #eee;">
   <p>
   <div class="heading-miler-name" style="padding-bottom: 20px;">Dear <%= @resource.fullname %>,</div>
-  <%= @resource.invitor.fullname %> invited you to connect at Piccati. Once you are connected at Piccati you have access to view, select and manage your events image gallery from anywhere in the world. 
+  <%= @resource.invitor.fullname %> has invited you to join Piccati. 
   <br>
   <div class="heading-notice-mailer" style="padding-top: 5px;padding-bottom: 20px;">
-    Team Piccati wishes everlasting relationship between photographers and clients. Accept the invitation by clicking on the link below
+     Accept the invitation by clicking on the link below and set your password.      
   </div>
   <p><%= link_to t("devise.mailer.invitation_instructions.accept"), accept_invitation_url(@resource, :invitation_token => @token) %></p>
 
   <div>Kind regards,</div>
   <div class="heading-mailer-name" style="padding-bottom: 20px;">Team Piccati</div>
-  <div><a href="http://app.piccati.com">Login to Piccati</a></div>
 </div>
