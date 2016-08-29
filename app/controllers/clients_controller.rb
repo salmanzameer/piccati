@@ -35,7 +35,7 @@ class ClientsController < ApplicationController
       current_photographer.invite_clients.where(email: email).first_or_create
       client = Client.invite!(create_clients_params, current_photographer)
     else
-      InvitationMailer.client_acknowledge(current_photographer, email).deliver
+      InvitationMailer.client_acknowledge(current_photographer, client).deliver_now
     end
 
     client.photographer_clients.where(photographer_id: current_photographer.id).first_or_create

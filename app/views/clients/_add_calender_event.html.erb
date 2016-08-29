@@ -5,11 +5,11 @@
     <%= hidden_field_tag :calendar_type, params[:calendar_type] %>
 	  <%= f.select(:category_id , options_from_collection_for_select(Category.all, "id", "name"), { prompt: "Event Type"  }, class: "form-title form-control event-category client_fields_calandar", :id => "event-category" , style: "height: 50px;margin-top: 1px;border-radius: 0px;width: 80%;float:left;")   %>
 	  <%= f.text_field :name, autofocus: true, :placeholder =>"Name", :class => "first-field client_fields client_fields_calandar" %>
-	  <%= f.text_field :location, autofocus: true, :placeholder =>"Location", :class => "first-field client_fields client_fields_calandar" %>
-	  <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "bride_name first-field client_fields client_fields_calandar", style: "display: none;" %>
-	  <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "groom_name first-field client_fields client_fields_calandar", style: "display: none;" %>
+	  <%= f.text_field :location, :placeholder =>"Location", :class => "first-field client_fields client_fields_calandar" %>
+	  <%= f.text_field :bridal, :placeholder =>"Bride Name", :class => "bride_name first-field client_fields client_fields_calandar", style: "display: none;" %>
+	  <%= f.text_field :groom, :placeholder =>"Groom Name", :class => "groom_name first-field client_fields client_fields_calandar", style: "display: none;" %>
 	  <%= f.select(:client_id , options_from_collection_for_select(current_photographer.clients, "id", "firstname"), { prompt: "Select client"  }, class: "form-title form-control client_fields_calandar", :id => "form-title" , style: "height: 50px;margin-top: 1px;border-radius: 0px;width: 80%; float: left;")   %>
-	  <%= f.datetime_field :start_time, autofocus: true, :placeholder =>"Select Date", :class => "first-field client_fields client_fields_calandar align-calandar-field datetimepicker" %>
+	  <%= f.datetime_field :start_time, :placeholder =>"Select Date", :class => "first-field client_fields client_fields_calandar align-calandar-field datetimepicker" %>
   </fieldset>
 	<div class="form-calandar-popup-fieldset"><button type="submit" class="button button4 event-submit-on-calendar border-solid-form btn-cal-width-adj" data-section-class="calender_and_info"><i class="fa fa-plus-circle btn-sign-up-registration"></i>Add Event</button></div>
 <% end %>

@@ -40,7 +40,7 @@
            </div>
            <div class="form-group">
              <%= f.label :location, :class => 'sr-only', :for => 'form-location'%>
-             <%= f.text_field :location ,autofocus: true, :placeholder =>"Location Name", :class => "form-location form-control", :id => "form-location" %>
+             <%= f.text_field :location, :placeholder =>"Location Name", :class => "form-location form-control", :id => "form-location" %>
          <% if @event.errors.present? %>
            <div class="txt">
            <%=  @event.errors.messages[:location].first%>
@@ -51,7 +51,7 @@
            
             <div class="form-group">
              <%= f.label :bridal, :class => 'sr-only', :for => 'form-name'%>
-             <%= f.text_field :bridal, autofocus: true, :placeholder =>"Bride Name", :class => "form-bridal form-control", :id => "form-bridal" %>
+             <%= f.text_field :bridal, :placeholder =>"Bride Name", :class => "form-bridal form-control", :id => "form-bridal" %>
          <% if @event.errors.present? %>  
             <div class="txt">
           <%=  @event.errors.messages[:bridal].first%>
@@ -62,7 +62,7 @@
           
             <div class="form-group">
              <%= f.label :groom, :class => 'sr-only', :for => 'form-name'%>
-             <%= f.text_field :groom, autofocus: true, :placeholder =>"Groom Name", :class => "form-groom form-control", :id => "form-groom" %>
+             <%= f.text_field :groom, :placeholder =>"Groom Name", :class => "form-groom form-control", :id => "form-groom" %>
          <% if @event.errors.present? %>
          <div class="txt">  <%=  @event.errors.messages[:groom].first%></div>
          <% end %> 

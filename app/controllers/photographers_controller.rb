@@ -35,6 +35,7 @@ class PhotographersController < ApplicationController
       @client = Client.find_by_id params[:client_id]
       current_photographer.photographer_clients.where(client_id: @client.id).first.update_attribute('is_connected', true)
       text = @client.firstname + " now connected with you."
+      UserNotifier.connection_added(current_photographer,@client).deliver_now
     end
     flash[:notice] = text
     render js: "window.location = '#{photographer_client_path(current_photographer, params[:client_id])}';"

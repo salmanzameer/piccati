@@ -292,7 +292,7 @@ module Customer
         guests:     params[:guests] 
         )
       @enquiry.save
-      UserNotifier.client_request_event_email(@enquiry).deliver_now
+      UserNotifier.client_request_event_email(@enquiry,params[:event_name]).deliver_now
     end 
     desc "Get email form from piccati.com"
     params do
