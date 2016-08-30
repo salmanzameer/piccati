@@ -84,6 +84,27 @@ class Client < ActiveRecord::Base
     activities.sort_by(&:created_at).reverse
   end
 
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << ["email","firstname","lastname","contnumber"]
+      all.each do |client|
+        csv << client.attributes.values_at("email","firstname","lastname","contnumber")
+      end
+    end
+  end
+
+  def self.import(file,current_photographer)
+    CSV.foreach(file.path, headers: true) do |row|
+      client_hash = row.to_hash
+      client =  Client.find_by_email(client_hash["email"])
+      if client
+        current_photographer.photographer_clients.create(client_id: client.id)
+      else
+        Client.invite!(client_hash.merge!(skip_invitation: true))
+      end
+    end
+  end
+
   private
   def generate_authentication_token
     loop do

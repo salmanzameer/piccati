@@ -60,5 +60,17 @@
     </div>
   </div>
   <div class="events-section"></div>
-  
+</div>
+<button type="button" class="btn btn-default signup_buttons_popup" style="background-color:#003366;">CSV</button>
+<div id="signup_buttons_popup" style="z-index: 9999; display: none">
+  <div class="sign-up-popup" id="popupContact">
+    <%= image_tag ("close1.png"), class: "close cal-close", data: { id: "signup_buttons_popup" } %>
+    <center><h2 class="form-calandar-popup-heading-top">CSV</h2></center>
+    <div>
+    <%= form_tag photographer_import_clients_csv_path(photographer_id: current_photographer.id), multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Import CSV", class:"btn import-csv-btn" %>
+    <% end %>
+    <%= link_to "Export CSV", photographer_export_clients_csv_path(format: "csv", photographer_id: current_photographer.id), class:"btn" ,style: "color:white; background-color:#003366" %>
+  </div>
 </div>

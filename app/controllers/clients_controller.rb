@@ -117,6 +117,19 @@ class ClientsController < ApplicationController
     #return render partial: "client_autofilled_fields", locals: { client: @client }
   end
 
+  def export_clients_csv
+    @clients = current_photographer.clients
+    respond_to do |format|
+      format.html
+      format.csv { send_data @clients.to_csv }
+    end
+  end
+
+  def import_clients_csv
+    Client.import(params[:file], current_photographer)
+    redirect_to photographer_clients_path(photographer_id: current_photographer.id)     
+  end
+
   def download_app
   end
 

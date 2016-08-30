@@ -2804,3 +2804,9 @@ div#popupContact {
     float: left;
   }
 }
+.import-csv-btn{
+  background-color:#003366;
+  color:white !important;
+  margin-top: -60px;
+  margin-left: 194px;
+}
