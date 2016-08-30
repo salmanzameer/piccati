@@ -1,3 +1,14 @@
+<div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style= "background-color: #003366;">
+  V
+  </button>
+  <div class="dropdown-menu">
+    <% t('date.month_names').compact.each do |month| %> 
+      <a class="dropdown-item" style="color:#003366;" href="/photographers/<%= current_photographer.id %>/events_info?start_date=<%= month.to_date.to_formatted_s(:db)%>"><%= month %></a>
+      <br>
+    <%end%>
+  </div>
+</div>
 <div class="simple-calendar">
   <div class="calendar-heading">
     <% if request.xhr? %>

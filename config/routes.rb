@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'search_clients', to: "clients#search_clients", as: :search_clients
   post 'clients/event', to: "events#create_calender_event", as: :create_calender_event
   resources :photographers do
+    get 'export_clients', to: "clients#export_clients_csv", as: :export_clients_csv
+    post 'import_clients', to: "clients#import_clients_csv", as: :import_clients_csv
     resources :albums do
       get 'public_image'
       post 'public_image'
