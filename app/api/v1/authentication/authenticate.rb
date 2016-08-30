@@ -11,12 +11,16 @@ module Authentication
       @user = Client.find_by_email params[:email]
       @user = Photographer.find_by_email params[:email] unless @user.present?
       
-      unless @user.confirmed?
-        throw :error, status: 404, message: "Email is not confirmed!"
-      end
+      if @user.present?
+        unless @user.confirmed?
+          throw :error, status: 404, message: "Email is not confirmed!"
+        end
 
-      unless @user && @user.valid_password?(params[:password])
-        throw :error, status: 404, message: "Invalid username/password"
+        unless @user.valid_password?(params[:password])
+          throw :error, status: 404, message: "Invalid username/password"
+        end
+      else
+        throw :error, status: 404, message: "User not found"
       end
     end
 

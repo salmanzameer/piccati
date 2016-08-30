@@ -23,16 +23,20 @@ class Client < ActiveRecord::Base
   validates :password, presence: true
   validates_confirmation_of :password
 
-  has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
-  default_url: 'user-avatar.png',
-  url: ':s3_domain_url',
-  path: '/:class/:attachment/:id_partition/:style/:filename',
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket =>            ENV['S3_BUCKET_NAME'],
-    :access_key_id =>     ENV['AWS_ACCESS_KEY_ID'],
-    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-  }  
+  if Rails.env.production?
+    has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
+    default_url: 'user-avatar.png',
+    url: ':s3_domain_url',
+    path: '/:class/:attachment/:id_partition/:style/:filename',
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket =>            ENV['S3_BUCKET_NAME'],
+      :access_key_id =>     ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  else
+    has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>" }, default_url: "user-avatar.png"  
+  end
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
  
@@ -73,8 +77,7 @@ class Client < ActiveRecord::Base
     "#{firstname} #{lastname}".titleize
   end
 
-  def get_followings
-    #@act = PublicActivity::Activity.joins("join follows f on owner_id = followable_id and owner_type = f.followable_type where f.follower_id = '#{self.id}' and f.follower_type = '#{self.class.name}'")
+  def get_activity
     activities = []
     follows_type = self.follows.pluck(:followable_type).uniq
     follows_type.each do |f|

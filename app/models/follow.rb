@@ -1,5 +1,6 @@
 class Follow < ActiveRecord::Base
 
+	include PublicActivity::Common
   extend ActsAsFollower::FollowerLib
   extend ActsAsFollower::FollowScopes
 

@@ -23,41 +23,54 @@ class Photographer < ActiveRecord::Base
   validates :password, presence: true, on: :create
   validates_confirmation_of :password, on: :create
 
-  has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
-  :default_url => "user-avatar.png",
-  url: ':s3_domain_url',
-  path: '/:class/:attachment/:id_partition/:style/:filename',
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket =>            ENV['S3_BUCKET_NAME'],
-    :access_key_id =>     ENV['AWS_ACCESS_KEY_ID'],
-    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'] 
-  }
+  if Rails.env.production?
+    has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
+    :default_url => "user-avatar.png",
+    url: ':s3_domain_url',
+    path: '/:class/:attachment/:id_partition/:style/:filename',
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket =>            ENV['S3_BUCKET_NAME'],
+      :access_key_id =>     ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'] 
+    }
+  else
+    has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>" }, default_url: "user-avatar.png"  
+  end
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
-  has_attached_file :watermark_logo, styles: { original: "500x500"},
-  url: ':s3_domain_url',
-  path: '/:class/:attachment/:id_partition/:style/:filename',
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket =>            ENV['S3_BUCKET_NAME'],
-    :access_key_id =>     ENV['AWS_ACCESS_KEY_ID'],
-    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-  }  
+  if Rails.env.production?
+    has_attached_file :watermark_logo, styles: { original: "500x500"},
+    url: ':s3_domain_url',
+    path: '/:class/:attachment/:id_partition/:style/:filename',
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket =>            ENV['S3_BUCKET_NAME'],
+      :access_key_id =>     ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }  
+  else
+    has_attached_file :watermark_logo, styles: { original: "500x500", medium: "300x300>" }, default_url: "user-avatar.png"  
+  end
+
   validates_attachment_size :watermark_logo, :less_than => 5.megabytes
   validates_attachment_content_type :watermark_logo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
-  has_attached_file :feature_image, styles: { original: "500x500", medium: "300x300>"},
-  :default_url => "user-avatar.png",
-  url: ':s3_domain_url',
-  path: '/:class/:attachment/:id_partition/:style/:filename',
-  :storage => :s3,
-  :s3_credentials => {
-    :bucket =>            ENV['S3_BUCKET_NAME'],
-    :access_key_id =>     ENV['AWS_ACCESS_KEY_ID'],
-    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-  }
+  if Rails.env.production?
+    has_attached_file :feature_image, styles: { original: "500x500", medium: "300x300>"},
+    :default_url => "user-avatar.png",
+    url: ':s3_domain_url',
+    path: '/:class/:attachment/:id_partition/:style/:filename',
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket =>            ENV['S3_BUCKET_NAME'],
+      :access_key_id =>     ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  else
+    has_attached_file :feature_image, styles: { original: "500x500", medium: "300x300>" }, default_url: "user-avatar.png"  
+  end
   validates_attachment_size :feature_image, :less_than => 5.megabytes
   validates_attachment_content_type :feature_image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
@@ -81,6 +94,10 @@ class Photographer < ActiveRecord::Base
     def current_photographer
       Thread.current[:current_photographer]
     end
+  end
+
+  def get_activity
+    activities = PublicActivity::Activity.where(recipient_type: self.class.to_s,recipient_id: self.id)
   end
 
   def self.from_omniauth(auth)

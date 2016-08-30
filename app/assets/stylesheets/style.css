@@ -580,7 +580,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
     }
 /* ***************** PL Upload ************************ */
 .plupload_header {
-    background: #003366 url('../img/backgrounds.gif') repeat-x;
+    background: #003366 url('/assets/backgrounds.gif') repeat-x;
 }
 
 .plupload_header_title:after {
