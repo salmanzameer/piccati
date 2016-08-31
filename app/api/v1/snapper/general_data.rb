@@ -5,7 +5,7 @@ module Snapper
       optional :page,                   type: Integer
     end
     get :photographers, rabl: "v1/snapper/photographers_index" do
-	    @photographer = Photographer.all.paginate( page: params[:page], per_page: 6 ).order("created_at ASC")
+	    @photographer = Photographer.where("confirmed_at IS NOT NULL").paginate( page: params[:page], per_page: 6 ).order("created_at ASC")
 	    unless @photographer
 	      throw :error, status: 404, message: "Photographer not found!"
 	    end
