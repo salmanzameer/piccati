@@ -20,4 +20,9 @@ class UserNotifier < ApplicationMailer
 		@client = client
 		mail( to: @client.email, subject: 'Connected with you.')
 	end
+
+	def plan_upgraded(photographer)
+		@photographer = photographer
+		mail( to: @photographer.email, subject: 'Upgraded Plan')
+	end
 end

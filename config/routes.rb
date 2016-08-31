@@ -18,9 +18,10 @@ Rails.application.routes.draw do
   post 'photographers/connect_client', to: "photographers#connect_client"
   get "scheduled_events/:date", to: "events#scheduled_events"
   get 'expiries', to: "home#expires", as: :expires
-  get 'update_paln', to: "home#plan_update", as: :plan_update
+  get 'update_plan', to: "photographers#plan_update", as: :plan_update
   get 'search_clients', to: "clients#search_clients", as: :search_clients
   post 'clients/event', to: "events#create_calender_event", as: :create_calender_event
+  resources :packages
   resources :photographers do
     resources :albums do
       get 'public_image'
