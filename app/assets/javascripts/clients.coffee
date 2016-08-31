@@ -53,6 +53,7 @@ $ ->
 			success: (data) ->
 				$(".edit-package-form").html(data)
 				$("#edit_client_popup").show()
+				$('#package-update-client').enableClientSideValidations()
 
 	$(document).on 'click', '.show-client-events', (e) ->
 		e.preventDefault()
