@@ -17,4 +17,8 @@ class PhotographerClient < ActiveRecord::Base
     self.update(package: package, total: total, advance: advance, balance: balance)
     self
   end
+
+  def self.client_connected?(client)
+    where(client_id: client.id).first.try(:is_connected)
+  end
 end
