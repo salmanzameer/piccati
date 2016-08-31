@@ -77,6 +77,6 @@ class PhotographersController < ApplicationController
   private
 
   def photographer_params
-    params.require(:photographer).permit( :current_password, :password, :password_confirmation, achievement_attributes: [:title, :description])
+    params.require(:photographer).permit(:email, :password, :password_confirmation)
   end
 end
