@@ -5,6 +5,8 @@ child @user => :user do
     node(:url) { @user.avatar.url }
     if @user.class.name == "Client"
       node(:role_type) { "Client"  }
+      node(:invited_by_id) { |user| user.invited_by_id }
+      node(:invited_by_type) { |user| user.invited_by_type }
     else
       node(:role_type) { |user| user.role_type  }
     end

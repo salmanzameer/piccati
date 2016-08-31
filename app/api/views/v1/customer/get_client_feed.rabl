@@ -23,6 +23,9 @@ child @activities , object_root: false do
     node(:total_guests) { |trackable| trackable.guests }
   end
 
+  child :trackable, if: lambda { |activity| activity.trackable_type == "Photographer" }  do
+  end
+
   node(:activity) { |activity| activity.key }
 end
 
