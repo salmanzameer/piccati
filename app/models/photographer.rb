@@ -7,8 +7,11 @@ class Photographer < ActiveRecord::Base
   acts_as_follower
 
   has_many    :photographer_clients  
+  has_many    :packages
   has_many    :clients, through: :photographer_clients
-  has_many    :events   
+  has_many    :events
+  has_many    :photographer_plans
+  has_one     :plan, through: :photographer_plans
   belongs_to  :package
   has_many    :achievements
   has_many    :albums
