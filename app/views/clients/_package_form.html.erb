@@ -3,7 +3,7 @@
   <center><h2 class="form-calandar-popup-heading-top">Update Package</h2></center>
   
   <fieldset  class="form-calandar-popup-fieldset">
-    <%= f.select(:package_id , options_from_collection_for_select(current_photographer.packages, "id", "name", package.package_id), { prompt: "Event Type"  }, class: "form-title form-control event-category client_fields_calandar", style: "height: 50px;margin-top: 1px;border-radius: 0px;width: 80%;float:left;")   %>
+    <%= f.select(:package_id , options_from_collection_for_select(current_photographer.packages, "id", "name", package.package_id), { prompt: "Package Type"  }, class: "form-title form-control event-category client_fields_calandar", style: "height: 50px;margin-top: 1px;border-radius: 0px;width: 80%;float:left;")   %>
 
     <%= f.text_field :advance, :placeholder =>"Advance", :class => "first-field client_fields client_fields_calandar" %>
 
