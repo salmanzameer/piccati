@@ -2,7 +2,8 @@ class PhotographerClient < ActiveRecord::Base
 
 	belongs_to :photographer
 	belongs_to :client
-
+  belongs_to :package
+  
   validates :package_id, presence: true, on: :update
   validates :total, 	presence: true, numericality: { greater_than_or_equal_to: 0 }, on: :update
   validates :advance, presence: true, numericality: { greater_than_or_equal_to: 0 }, on: :update
