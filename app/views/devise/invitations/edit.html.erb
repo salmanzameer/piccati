@@ -5,14 +5,15 @@
 <div>
     <div class="container container-table">
       <div class="row vertical-center-row">
-        <div class="text-center col-md-5 col-md-offset-4">
+        <div class="col-md-4 col-xs-3 col-sm-3"></div>
+        <div class="text-center col-md-5 col-xs-12 col-sm-6">
           <div class="panel panel-default">
             <div class="panel-body">
               <div class="form-horizontal">
                  <%= form_for resource, as: resource_name, url: invitation_path(resource_name), validate: true , html: { method: :put, class: 'login-form login-sign-up-button-padd form-sign-up-new1' } do |f| %>
                  <%= f.hidden_field :invitation_token %>
                  <div class="form-group input-field-setting">
-                   <div class="col-sm-12 zero-padding">
+                   <div class="col-sm-12 zero-padding"> 
                       <%= f.password_field :password, autocomplete: "off", :placeholder => 'Password', class: "form-password form-control input-lg form-sign-in-input-field" %>
                     </div>
                  </div>

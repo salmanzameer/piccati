@@ -1,22 +1,31 @@
-<div class="btn-group">
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style= "background-color: #003366;">
-  V
-  </button>
-  <div class="dropdown-menu">
-    <% t('date.month_names').compact.each do |month| %> 
-      <a class="dropdown-item" style="color:#003366;" href="/photographers/<%= current_photographer.id %>/events_info?start_date=<%= month.to_date.to_formatted_s(:db)%>"><%= month %></a>
-      <br>
-    <%end%>
-  </div>
-</div>
 <div class="simple-calendar">
   <div class="calendar-heading">
     <% if request.xhr? %>
       <%= link_to t('simple_calendar.previous', default: 'Previous'), "/photographers/#{current_photographer.id}/events_info?start_date=#{start_date.last_month}" %>
+      <div class="btn-group">
+        <button type="button" class="btn btn-danger dropdown-toggle caret-calander" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+        </button>
+        <div class="dropdown-menu">
+          <% t('date.month_names').compact.each do |month| %> 
+            <a class="dropdown-item drop-cal-selector" style="color:#003366;" href="/photographers/<%= current_photographer.id %>/events_info?start_date=<%= month.to_date.to_formatted_s(:db)%>"><%= month %></a>
+          <%end%>
+        </div>
+      </div>
       <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
       <%= link_to t('simple_calendar.next', default: 'Next'), "/photographers/#{current_photographer.id}/events_info?start_date=#{start_date.next_month}" %>
     <% else %>
       <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
+      <div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle caret-calander" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <span class="caret"></span>
+  </button>
+  <div class="dropdown-menu">
+    <% t('date.month_names').compact.each do |month| %> 
+      <a class="dropdown-item drop-cal-selector" style="color:#003366;" href="/photographers/<%= current_photographer.id %>/events_info?start_date=<%= month.to_date.to_formatted_s(:db)%>"><%= month %></a>
+    <%end%>
+  </div>
+</div>
       <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
       <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
     <% end %>

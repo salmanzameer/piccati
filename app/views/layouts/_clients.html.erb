@@ -8,12 +8,14 @@
             <div>
               <th class="table-row-width heading-table-client">
                 <div id="container">
-                  <div id="navi">Search Client</div>
+                  <div id="navi">Clients</div>
+                  <button4 id="navi1" class="btn btn-client signup_buttons_popup">Import</button4>
+                  <%= link_to "Export", photographer_export_clients_csv_path(format: "csv", photographer_id: current_photographer.id), class:"btn btn-client", id: "navi2" %>
                   <div id="infoi">
                     <form class="searchbox">
                       <input type="search" placeholder="Search......" name="search" class="searchbox-input color-picker" onkeyup="buttonUp();" required>
                       <input type="submit" class="searchbox-submit" value="GO">
-                      <span class="searchbox-icon"><i class="fa  fa-search" style="font-size: 21px;color: #fff;"></i></span> 
+                      <span class="searchbox-icon"><i class="fa  fa-search" style="font-size: 21px;color: #fff;float: right;"></i></span> 
                     </form>
                   </div>
                 </div>
@@ -61,16 +63,26 @@
   </div>
   <div class="events-section"></div>
 </div>
-<button type="button" class="btn btn-default signup_buttons_popup" style="background-color:#003366;">CSV</button>
 <div id="signup_buttons_popup" style="z-index: 9999; display: none">
   <div class="sign-up-popup" id="popupContact">
     <%= image_tag ("close1.png"), class: "close cal-close", data: { id: "signup_buttons_popup" } %>
-    <center><h2 class="form-calandar-popup-heading-top">CSV</h2></center>
     <div>
-    <%= form_tag photographer_import_clients_csv_path(photographer_id: current_photographer.id), multipart: true do %>
-      <%= file_field_tag :file %>
-      <%= submit_tag "Import CSV", class:"btn import-csv-btn" %>
+    <%= form_tag photographer_import_clients_csv_path(photographer_id: current_photographer.id), class: "form-calandar-popup", multipart: true do %>
+      <center><h2 class="form-calandar-popup-heading-top">Import Contacts</h2></center>
+      <input id="uploadFile" class= "first-field name-field zero-border choosed-file" disabled="disabled"/>
+      <div class="fileUpload btn btn-primary input-csv-btn">
+        <span>Upload Image</span>
+        <%= file_field_tag :file, class: "upload btn", id: "uploadBtn" %>
+      </div>
+      <%= submit_tag "Import", class:"button button4 btn-csv-width-adj border-solid-form" %>
     <% end %>
-    <%= link_to "Export CSV", photographer_export_clients_csv_path(format: "csv", photographer_id: current_photographer.id), class:"btn" ,style: "color:white; background-color:#003366" %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(function(){
+    $( "#uploadBtn" ).change(function() {
+      $("#uploadFile").val($(this).val());
+    };
+  });
+</script>
