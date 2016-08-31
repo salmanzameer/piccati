@@ -11,8 +11,8 @@ $ ->
 	    	return
 		).first().focus()
 	
-	$(document).on 'click', '.event-submit-on-calendar, .event-submit-on-calendar, .submit-event', (e) ->
-	 	$('#add-calender-event-model, #update-event-model, #add-event-form').find('input, select').filter(->
+	$(document).on 'click', '.event-submit-on-calendar, .update-package-setting, .add-package-setting, .event-submit-on-calendar, .submit-event', (e) ->
+	 	$('#add-calender-event-model, #create-photographer-package-setting, #edit-photographer-package-setting, #update-event-model, #add-event-form').find('input, select').filter(->
 	   	if $(this).val() == ''
 	     	$(this).focus()
 	     	return
@@ -142,7 +142,7 @@ $ ->
 		$.ajax
 			type: "GET"
 			url:  "/get_forms"
-			data: { form_name:  $(this).data("id"), client_id: $(this).data("client-id"), calendar_type: $(this).data("calendar-type") }
+			data: { form_name:  $(this).data("id"), package_id: $(this).data("package-id"), client_id: $(this).data("client-id"), calendar_type: $(this).data("calendar-type") }
 			success: (data) ->
 				$(id).html(data)
 				$(popup).show()

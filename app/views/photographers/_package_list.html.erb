@@ -1,0 +1,21 @@
+<table class="table header-fixed">
+  <tbody class="client-table-setting">
+    <% if packages.blank? %>
+      <tr>
+        <td class="empty-tb-setting">
+          No Package Found
+        </td>
+      </tr>
+    <% end %>
+    <% packages.each do |package| %>
+      <tr class="photographer-clients-list">
+        <td class="table-row-width zero-border zero-padding">
+          <div class="col-md-8 center-align-tag">
+            <%= link_to package.name, "#", class: "show-package client-event-anchor-design", data: { id: package.id, photographer_id: current_photographer.id } %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<button class="button button4 package-settings client_management_popup" data-id= "add_package" data-popup="add_pkg_popup" data-client-id= "" ><i class="fa fa-plus-circle"></i> Add Package</button>

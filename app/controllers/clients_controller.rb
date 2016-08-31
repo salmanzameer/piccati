@@ -96,7 +96,8 @@ class ClientsController < ApplicationController
 
   def get_forms
     client = Client.find_by_id(params["client_id"])
-    return render partial: "#{params["form_name"]}", locals: { client: client }
+    package = Package.find_by_id params["package_id"]
+    return render partial: "#{params["form_name"]}", locals: { client: client, package: package }
   end
 
   def selected_images
@@ -115,6 +116,19 @@ class ClientsController < ApplicationController
       format.js
     end
     #return render partial: "client_autofilled_fields", locals: { client: @client }
+  end
+
+  def export_clients_csv
+    @clients = current_photographer.clients
+    respond_to do |format|
+      format.html
+      format.csv { send_data @clients.to_csv }
+    end
+  end
+
+  def import_clients_csv
+    Client.import(params[:file], current_photographer)
+    redirect_to photographer_clients_path(photographer_id: current_photographer.id)     
   end
 
   def download_app
