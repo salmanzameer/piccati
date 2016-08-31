@@ -35,10 +35,14 @@
                 <div class="col-md-8 center-align-tag">
                   <%= link_to client.fullname, "#", class: "show-client-events client-event-anchor-design", data: { id: client.id, photographer_id: current_photographer.id } %>
                 </div>
-                <% if client.is_invited?(current_photographer) %> 
+                <% if client.is_invited?(current_photographer) %>
                   <div class="col-md-4 center-align-tag">
-                     <%= link_to 'Invite',"#", class: "btn btn-uploadimage1 invite-client-again", style: "margin-top: 10px; border: 1px solid #ccc;", data: { id: client.id } %>
-                   </div>
+                    <%= link_to 'Invite',"#", class: "btn btn-uploadimage1 invite-client-again", style: "margin-top: 10px; border: 1px solid #ccc;", data: { id: client.id } %>
+                  </div>
+                <% elsif !client.is_connected?(current_photographer) %>
+                   <div class="col-md-4 center-align-tag">
+                    <%= link_to 'Connect',settings_photographer_path(current_photographer, client_id: client), class: "btn btn-uploadimage1 to-connect-page", style: "margin-top: 10px; border: 1px solid #ccc;" %>
+                  </div>
                 <% end %>
               </td>
             </tr>
