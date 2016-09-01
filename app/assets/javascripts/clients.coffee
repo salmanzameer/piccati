@@ -21,12 +21,19 @@ $ ->
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()
 		_form = $(this).closest("form")
+		_this = $(this)
 		id = "#"+$(_form).attr("id")
 		if ($(id).isValid($(id).validate()))
 			$.ajax
 				type: "POST"
 				data: _form.serialize()
 				url:  _form.attr("action")
+				beforeSend: ->
+          $(_this).parent().append(get_ajax_loader_html())
+          $(_this).attr 'disabled', true
+        complete: ->
+          $(_this).find("img").remove()
+          $(_this).attr 'disabled', false
 				success: (data) ->
 					$(".events-section").html(data)
 					$("#abc2").hide()
@@ -36,10 +43,17 @@ $ ->
 		e.preventDefault()
 		console.log("submit");
 		_form = $(this).closest("form")
+		_this = $(this)
 		$.ajax
 			type: "POST"
 			data: _form.serialize()
 			url:  _form.attr("action")
+			beforeSend: ->
+          $(_this).parent().append(get_ajax_loader_html())
+          $(_this).attr 'disabled', true
+      complete: ->
+          $(_this).find("img").remove()
+          $(_this).attr 'disabled', false
 			success: (data) ->
 				$(".package-details").html(data)
 				$("#edit_client_popup").hide()

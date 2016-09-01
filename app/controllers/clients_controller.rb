@@ -136,7 +136,7 @@ class ClientsController < ApplicationController
   end
 
   def editparams
-    params.require(:client).permit(:firstname, :lastname, :email)
+    params.require(:client).permit(:firstname, :lastname, :email, :description)
   end
 
   def clientsparams
@@ -144,6 +144,6 @@ class ClientsController < ApplicationController
   end
 
   def create_clients_params
-    params.require(:client).permit(:firstname, :lastname, :contnumber, :email)  
+    params.require(:client).permit(:firstname, :lastname, :contnumber, :email, :description)  
   end
 end

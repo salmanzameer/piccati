@@ -1,3 +1,12 @@
+html{
+  /* This image will be displayed fullscreen */
+  background:url('piccati-bg.jpg') no-repeat center center;
+  
+  /* Ensure the html element always takes up the full height of the browser window */
+  min-height:100%;
+  background-size:cover;
+}
+
 body {
   
     font-family: 'SegoeUI';
@@ -11,6 +20,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    min-height: 100%;
 }
 
 strong { font-weight: 500; 
@@ -281,16 +291,6 @@ a {
 
 
 /* ********************  New Desgin ****************** */
-  body
-  {
-    background:url(piccati-bg.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%;
-    font-size: 16px;
-  }
   .navbar-brand 
   {
     padding: 12px 15px;
@@ -2054,7 +2054,7 @@ select, input, textarea, textarea.form-control:focus
   display: inline-block !important;
 }
 
-.email-error-p-tag, .current-error-p-tag, .firstname-error-p-tag, .lastname-error-p-tag, .password-error-p-tag, .confirm-error-p-tag{
+.email-error-p-tag, .description-error-p-tag, .current-error-p-tag, .firstname-error-p-tag, .lastname-error-p-tag, .password-error-p-tag, .confirm-error-p-tag{
   color: red;
   float: left;
   display:none;
@@ -2695,6 +2695,13 @@ input[type="password"]:focus
 {
   min-width: 150px !important;
 }
+.description-field-client
+{
+    margin-top: 1px;
+    padding-left: 20px;
+    margin-bottom: 0px;
+}
+
 .btn-client
 {
   background-color: white !important;
@@ -2770,6 +2777,13 @@ input[type="password"]:focus
 {
   color: white !important;
   background-color: #003366;
+}
+
+.description-field-client
+{
+    margin-top: 1px;
+    padding-left: 20px;
+    margin-bottom: 0px;
 }
 /***********************            Media  Queries            ***********************/
 @media (min-width: 768px){
@@ -2886,6 +2900,7 @@ div#popupContact {
     width: 100%;
     line-height: 0px;
     text-align: left;
+    margin-left: 0px;
   }
   .form-sign-in-input-field, .form-sign-up-input-field 
   {
