@@ -110,7 +110,7 @@ module Customer
       end
 
       search = params[:search_string].downcase
-      @photographers = Photographer.where('lower(firstname) like :f or lower(lastname) like :l ', f: "%#{search}%", l: "%#{search}%")
+      @photographers = Photographer.where("(firstname LIKE ? OR lastname LIKE ?) AND confirmed_at IS NOT NULL", "%#{search}%", "%#{search}%")
     end
 
     desc "Get images with likes greater than 1000 (collection feed)"
