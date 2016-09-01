@@ -6,6 +6,7 @@ $ ->
 
   $(document).on 'click', '.show-event', (e) ->
     e.preventDefault()
+    _this = $(this)
     $('td.events-list.tr-selected').removeClass('tr-selected')
     $(".show-event").css('color','#23527c')
     $(this).closest("td").addClass('tr-selected')
@@ -16,6 +17,10 @@ $ ->
     $.ajax
       type: "GET"
       url:  "/clients/#{id}/event"
+      beforeSend: ->
+        $(_this).attr 'disabled', true
+      complete: ->
+        $(_this).attr 'disabled', false
       success: (data) ->
         $(".clients-table").html(data)
         url = "/photographers/#{photographer_id}/clients/#{client_id}/events/#{id}"

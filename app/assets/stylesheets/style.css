@@ -2046,7 +2046,7 @@ select, input, textarea, textarea.form-control:focus
   display: inline-block !important;
 }
 
-.email-error-p-tag, .current-error-p-tag, .firstname-error-p-tag, .lastname-error-p-tag, .password-error-p-tag, .confirm-error-p-tag{
+.email-error-p-tag, .description-error-p-tag, .current-error-p-tag, .firstname-error-p-tag, .lastname-error-p-tag, .password-error-p-tag, .confirm-error-p-tag{
   color: red;
   float: left;
   display:none;
@@ -2687,6 +2687,7 @@ input[type="password"]:focus
 {
   min-width: 150px !important;
 }
+
 .btn-client
 {
   background-color: white !important;
@@ -2762,6 +2763,13 @@ input[type="password"]:focus
 {
   color: white !important;
   background-color: #003366;
+}
+
+.description-field-client
+{
+    margin-top: 1px;
+    padding-left: 20px;
+    margin-bottom: 0px;
 }
 /***********************            Media  Queries            ***********************/
 @media (min-width: 768px){

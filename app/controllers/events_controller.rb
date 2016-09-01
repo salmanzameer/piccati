@@ -130,7 +130,7 @@ class EventsController < ApplicationController
   protected 
 
   def event_params
-    params.require(:event).permit(:name, :location, :bridal, :groom, :start_time, :category_id)
+    params.require(:event).permit(:name, :location, :bridal, :groom, :start_time, :category_id, :description)
   end
 end
  
