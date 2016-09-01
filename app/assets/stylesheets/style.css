@@ -1,3 +1,12 @@
+html{
+  /* This image will be displayed fullscreen */
+  background:url('piccati-bg.jpg') no-repeat center center;
+  
+  /* Ensure the html element always takes up the full height of the browser window */
+  min-height:100%;
+  background-size:cover;
+}
+
 body {
   
     font-family: 'SegoeUI';
@@ -11,6 +20,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    min-height: 100%;
 }
 
 strong { font-weight: 500; 
@@ -281,16 +291,6 @@ a {
 
 
 /* ********************  New Desgin ****************** */
-  body
-  {
-    background:url(piccati-bg.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%;
-    font-size: 16px;
-  }
   .navbar-brand 
   {
     padding: 12px 15px;
@@ -2878,6 +2878,7 @@ div#popupContact {
     width: 100%;
     line-height: 0px;
     text-align: left;
+    margin-left: 0px;
   }
   .form-sign-in-input-field, .form-sign-up-input-field 
   {
