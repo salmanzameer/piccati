@@ -5,19 +5,19 @@
 
 				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
 					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-						<button class="btn btn-success">
+						<button class="btn btn-success btn-admin">
 							<i class="ace-icon fa fa-signal"></i>
 						</button>
 
-						<button class="btn btn-info">
+						<button class="btn btn-info btn-admin">
 							<i class="ace-icon fa fa-pencil"></i>
 						</button>
 
-						<button class="btn btn-warning">
+						<button class="btn btn-warning btn-admin">
 							<i class="ace-icon fa fa-users"></i>
 						</button>
 
-						<button class="btn btn-danger">
+						<button class="btn btn-danger btn-admin">
 							<i class="ace-icon fa fa-cogs"></i>
 						</button>
 					</div>
@@ -35,11 +35,10 @@
 
 				<ul class="nav nav-list">
 					<li class="active">
-						<a href="index.html">
+						<%= link_to admins_dashboard_path do %>
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> Dashboard </span>
-						</a>
-
+						<% end %>
 						<b class="arrow"></b>
 					</li>
 
@@ -47,7 +46,7 @@
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-desktop"></i>
 							<span class="menu-text">
-								UI &amp; Elements
+								Plans
 							</span>
 
 							<b class="arrow fa fa-angle-down"></b>
@@ -56,11 +55,11 @@
 						<b class="arrow"></b>
 
 						<ul class="submenu">
-							<li class="">
+<!-- 							<li class="">
 								<a href="#" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
 
-									Layouts
+									Plans
 									<b class="arrow fa fa-angle-down"></b>
 								</a>
 
@@ -68,19 +67,12 @@
 
 								<ul class="submenu">
 									<li class="">
-										<a href="top-menu.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Top Menu
-										</a>
+
 
 										<b class="arrow"></b>
 									</li>
 
 									<li class="">
-										<a href="two-menu-1.html">
-											<i class="menu-icon fa fa-caret-right"></i>
-											Two Menus 1
-										</a>
 
 										<b class="arrow"></b>
 									</li>
@@ -121,27 +113,27 @@
 										<b class="arrow"></b>
 									</li>
 								</ul>
-							</li>
+							</li> -->
 
 							<li class="">
-								<a href="typography.html">
+								<%= link_to admins_new_plan_path	do %>
 									<i class="menu-icon fa fa-caret-right"></i>
-									Typography
-								</a>
+									New Plan
+								<% end %>
 
 								<b class="arrow"></b>
 							</li>
 
 							<li class="">
-								<a href="elements.html">
+								<%= link_to admins_show_all_plans_path do %>
 									<i class="menu-icon fa fa-caret-right"></i>
-									Elements
-								</a>
+									All Plans
+								<% end %>
 
 								<b class="arrow"></b>
 							</li>
 
-							<li class="">
+<!-- 							<li class="">
 								<a href="buttons.html">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Buttons &amp; Icons
@@ -184,9 +176,9 @@
 								</a>
 
 								<b class="arrow"></b>
-							</li>
+							</li> -->
 
-							<li class="">
+<!-- 							<li class="">
 								<a href="#" class="dropdown-toggle">
 									<i class="menu-icon fa fa-caret-right"></i>
 
@@ -237,7 +229,7 @@
 										</ul>
 									</li>
 								</ul>
-							</li>
+							</li> -->
 						</ul>
 					</li>
 
@@ -261,47 +253,44 @@
 								<b class="arrow"></b>
 							</li>
 
-							<li class="">
+<!-- 							<li class="">
 								<a href="jqgrid.html">
 									<i class="menu-icon fa fa-caret-right"></i>
 									jqGrid plugin
 								</a>
 
 								<b class="arrow"></b>
-							</li>
+							</li> -->
 						</ul>
 					</li>
 
 					<li class="">
-						<a href="#" class="dropdown-toggle">
+						<a href="" class="dropdown-toggle">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
-							<span class="menu-text"> Forms </span>
-
+							Photographers
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
-
 						<b class="arrow"></b>
 
 						<ul class="submenu">
 							<li class="">
-								<a href="form-elements.html">
+								<%= link_to admins_show_all_photographers_path do %>
 									<i class="menu-icon fa fa-caret-right"></i>
-									Form Elements
-								</a>
-
+									Photographer Plans
+								<% end %>
 								<b class="arrow"></b>
 							</li>
 
-							<li class="">
+<!-- 							<li class="">
 								<a href="form-elements-2.html">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Form Elements 2
+									Photographers
 								</a>
 
 								<b class="arrow"></b>
 							</li>
-
-							<li class="">
+ -->
+<!-- 							<li class="">
 								<a href="form-wizard.html">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Wizard &amp; Validation
@@ -326,11 +315,11 @@
 								</a>
 
 								<b class="arrow"></b>
-							</li>
+							</li> -->
 						</ul>
 					</li>
 
-					<li class="">
+<!-- 					<li class="">
 						<a href="widgets.html">
 							<i class="menu-icon fa fa-list-alt"></i>
 							<span class="menu-text"> Widgets </span>
@@ -353,8 +342,8 @@
 						</a>
 
 						<b class="arrow"></b>
-					</li>
-
+					</li> -->
+<!-- 
 					<li class="">
 						<a href="gallery.html">
 							<i class="menu-icon fa fa-picture-o"></i>
@@ -510,7 +499,7 @@
 								<b class="arrow"></b>
 							</li>
 						</ul>
-					</li>
+					</li> -->
 				</ul><!-- /.nav-list -->
 
 				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">

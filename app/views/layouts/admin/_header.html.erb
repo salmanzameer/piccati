@@ -11,12 +11,10 @@
 			</button>
 
 			<div class="navbar-header pull-left">
-				<a href="index.html" class="navbar-brand">
-					<small>
-						<i class="fa fa-leaf"></i>
-						Piccati Admin
-					</small>
-				</a>
+				<%= link_to admins_dashboard_path,class: "navbar-brand" do %>
+					<i class="fa fa-leaf"></i>
+					Piccati Admin
+				<% end %>
 			</div>
 
 			<div class="navbar-buttons navbar-header pull-right" role="navigation">

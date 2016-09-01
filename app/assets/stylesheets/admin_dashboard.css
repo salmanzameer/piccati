@@ -25,7 +25,7 @@
   border-top: 3px double #E5E5E5;
 }
 
-.btn {
+.btn-admin {
   height: 30px !important;
 }
 
@@ -40,6 +40,7 @@
 .container {
   position: absolute;
 }
+
 
 .admin_image_settings {
   width: 100%;
@@ -64,4 +65,39 @@
 
 .album_image_width {
   width: 100%;
+}
+
+.admin_photgraphers_container {
+  position: absolute;
+  left: 28em;  
+}
+
+.admin_plans_btn{
+  height: 24px !important;
+  line-height: 8px !important; 
+}
+.container_heading {
+  margin-left: 4em;
+}
+.border_right {
+  border-right-width: 0px !important;
+}
+
+.btn_disabled {
+  opacity: 0.65; 
+  cursor: not-allowed;
+}
+
+#new_plan {
+  position: absolute;
+  left: 25em;
+  width: 500px;
+}
+
+.btn_setting {
+  background-color: none !important;
+}
+
+.plan_form_field {
+  border: 1px solid #dcdcdc !important;
 }

@@ -13,3 +13,4 @@ class PhotographerPlan < ActiveRecord::Base
     }
   end
 end
+

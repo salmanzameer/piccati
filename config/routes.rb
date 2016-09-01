@@ -5,11 +5,16 @@ Rails.application.routes.draw do
   get 'admins/show_all_albums'
   get 'admins/album_images'
   get 'admins/update_all_images'
-  
-  devise_for :admins
+  get 'admins/show_all_plans'
+  get 'admins/show_all_photographers'
+  get 'admins/change_status'
+  get 'admins/new_plan'
+  post 'admins/create_plan'
+  get 'admins/destroy_plan'
 
   devise_for :clients, controllers: {invitations: 'invitations', sessions: 'sessions', registrations: 'registrations'}
 
+  devise_for :admins
   mount API => '/'
     devise_for :photographers , controllers: {invitations: 'invitations', sessions: 'sessions', registrations: 'registrations', omniauth_callbacks: "photographers/omniauth_callbacks"}
   devise_scope :photographer do
