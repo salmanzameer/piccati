@@ -1,0 +1,14 @@
+<h1>New Admin</h1>
+<%= form_for @admin, url: admin_registration_path do |f| %>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  <div class="actions">
+    <%= f.submit class:"btn btn-link-1", style:"padding-bottom: 16px;" %>
+  </div>
+<% end %>
+

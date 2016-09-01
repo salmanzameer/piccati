@@ -1,15 +1,15 @@
-<div class="container topspacing bot-spacing">
+<div class="container topspacing1 bot-spacing">
   <div class="row">
-    <div class="col-md-4">
-      <%= image_tag("BasicPackage.png",class: "basic-pkg") %>
+    <div class="col-md-4 col-xs-4 col-sm-4">
+      <%= image_tag("card1.png",class: "basic-pkg") %>
       <%= link_to "Buy Now", plan_update_path(plan_type: "Standard"), class: "button btn-basic-pkg" %>
     </div>
-    <div class="col-md-4">
-      <%= image_tag("StandardPackage.png",class: "basic-pkg") %>
+    <div class="col-md-4 col-xs-4 col-sm-4">
+      <%= image_tag("card2.png",class: "basic-pkg") %>
       <%= link_to "Buy Now", plan_update_path(plan_type: "Executive"), class: "button btn-stadard-pkg" %>
     </div>
-    <div class="col-md-4">
-      <%= image_tag("PremiumPackage.png",class: "basic-pkg") %>
+    <div class="col-md-4 col-xs-4 col-sm-4">
+      <%= image_tag("card3.png",class: "basic-pkg") %>
       <%= link_to "Buy Now", plan_update_path(plan_type: "Premium"), class: "button btn-prem-pkg" %>
     </div>
   </div>
