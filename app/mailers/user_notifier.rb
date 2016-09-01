@@ -5,7 +5,7 @@ class UserNotifier < ApplicationMailer
 	  @event_name = event_name
 	  @client = Client.find(enquiry.client_id)
 	  @photographer = Photographer.find(enquiry.photographer_id)
-	  mail( to: @photographer.email, subject: 'Event request')
+	  mail( to: @photographer.email, subject: 'Event Request')
 	end
 
 	def website_form_email(name,email,message)
@@ -23,6 +23,6 @@ class UserNotifier < ApplicationMailer
 
 	def plan_upgraded(photographer)
 		@photographer = photographer
-		mail( to: @photographer.email, subject: 'Upgraded Plan')
+		mail( to: @photographer.email, subject: 'Upgrad Plan')
 	end
 end

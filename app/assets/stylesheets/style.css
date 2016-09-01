@@ -1,3 +1,12 @@
+html{
+  /* This image will be displayed fullscreen */
+  background:url('piccati-bg.jpg') no-repeat center center;
+  
+  /* Ensure the html element always takes up the full height of the browser window */
+  min-height:100%;
+  background-size:cover;
+}
+
 body {
   
     font-family: 'SegoeUI';
@@ -11,6 +20,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    min-height: 100%;
 }
 
 strong { font-weight: 500; 
@@ -281,16 +291,6 @@ a {
 
 
 /* ********************  New Desgin ****************** */
-  body
-  {
-    background:url(piccati-bg.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: 100%;
-    font-size: 16px;
-  }
   .navbar-brand 
   {
     padding: 12px 15px;
@@ -1316,7 +1316,7 @@ input::-webkit-input-placeholder {
 
 .basic-pkg
 {
-  width: 100%;
+  width: 80%;
 }
 
 .heading-clientlist
@@ -1399,6 +1399,11 @@ input::-webkit-input-placeholder {
 .topspacing
 {
   margin-top: 5%;
+}
+
+.topspacing1
+{
+  margin-top: 4%;
 }
 
 .email-edit-field
@@ -1512,39 +1517,39 @@ border-radius: 0px;
   background-color: #82bad6;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 0px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  width: 100%;
+  width: 80%;
 }
 .btn-stadard-pkg
 {
   background-color: #67c26d;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 0px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  width: 100%;
+  width: 80%;
 }
 .btn-prem-pkg
 {
   background-color: #d2cb5f;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 0px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  width: 100%;
+  width: 80%;
 }
 
 .bot-spacing
@@ -1845,6 +1850,14 @@ $file-upload-size: 200px;
   flex-direction: column;
 }
 
+.min-height-udate-package-tb
+{
+  min-height: 65px;
+  padding: 8px 8px 8px 18px !important;
+  display: flex !important;
+  justify-content: center;
+  flex-direction: column;
+}
 
 .border-zero-form
 {
@@ -2046,7 +2059,7 @@ select, input, textarea, textarea.form-control:focus
   display: inline-block !important;
 }
 
-.email-error-p-tag, .current-error-p-tag, .firstname-error-p-tag, .lastname-error-p-tag, .password-error-p-tag, .confirm-error-p-tag{
+.email-error-p-tag, .description-error-p-tag, .current-error-p-tag, .firstname-error-p-tag, .lastname-error-p-tag, .password-error-p-tag, .confirm-error-p-tag{
   color: red;
   float: left;
   display:none;
@@ -2687,6 +2700,13 @@ input[type="password"]:focus
 {
   min-width: 150px !important;
 }
+.description-field-client
+{
+    margin-top: 1px;
+    padding-left: 20px;
+    margin-bottom: 0px;
+}
+
 .btn-client
 {
   background-color: white !important;
@@ -2762,6 +2782,13 @@ input[type="password"]:focus
 {
   color: white !important;
   background-color: #003366;
+}
+
+.description-field-client
+{
+    margin-top: 1px;
+    padding-left: 20px;
+    margin-bottom: 0px;
 }
 /***********************            Media  Queries            ***********************/
 @media (min-width: 768px){
@@ -2878,6 +2905,7 @@ div#popupContact {
     width: 100%;
     line-height: 0px;
     text-align: left;
+    margin-left: 0px;
   }
   .form-sign-in-input-field, .form-sign-up-input-field 
   {

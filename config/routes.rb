@@ -1,5 +1,5 @@
-Rails.application.routes.draw do
 
+Rails.application.routes.draw do
   get 'admins/new'
   get 'admins/dashboard'
   get 'admins/show_all_albums'
@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   
   devise_for :admins
 
-  devise_for :clients
+  devise_for :clients, controllers: {invitations: 'invitations', sessions: 'sessions', registrations: 'registrations'}
+
   mount API => '/'
-    devise_for :photographers , controllers: {registrations: 'registrations', omniauth_callbacks: "photographers/omniauth_callbacks"}
+    devise_for :photographers , controllers: {invitations: 'invitations', sessions: 'sessions', registrations: 'registrations', omniauth_callbacks: "photographers/omniauth_callbacks"}
   devise_scope :photographer do
     authenticated :photographer do
       root :to => 'photographers#show'
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
   get '/get_forms', to: "clients#get_forms"
   get '/setting_partial', to: "photographers#setting_partial"
   get 'download_app', to: "clients#download_app"
+
   post 'photographers/connect_client', to: "photographers#connect_client"
   get "scheduled_events/:date", to: "events#scheduled_events"
   get 'expiries', to: "home#expires", as: :expires

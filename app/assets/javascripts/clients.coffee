@@ -21,12 +21,19 @@ $ ->
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()
 		_form = $(this).closest("form")
+		_this = $(this)
 		id = "#"+$(_form).attr("id")
 		if ($(id).isValid($(id).validate()))
 			$.ajax
 				type: "POST"
 				data: _form.serialize()
 				url:  _form.attr("action")
+				beforeSend: ->
+          $(_this).parent().append(get_ajax_loader_html())
+          $(_this).attr 'disabled', true
+        complete: ->
+          $(_this).find("img").remove()
+          $(_this).attr 'disabled', false
 				success: (data) ->
 					$(".events-section").html(data)
 					$("#abc2").hide()
@@ -36,10 +43,17 @@ $ ->
 		e.preventDefault()
 		console.log("submit");
 		_form = $(this).closest("form")
+		_this = $(this)
 		$.ajax
 			type: "POST"
 			data: _form.serialize()
 			url:  _form.attr("action")
+			beforeSend: ->
+          $(_this).parent().append(get_ajax_loader_html())
+          $(_this).attr 'disabled', true
+      complete: ->
+          $(_this).find("img").remove()
+          $(_this).attr 'disabled', false
 			success: (data) ->
 				$(".package-details").html(data)
 				$("#edit_client_popup").hide()
@@ -138,12 +152,16 @@ $ ->
 
 	$(document).on 'click', '.client_management_popup', (e) ->
 		id = "#"+$(this).data("id")
+		form_name = $(this).data("id")
 		popup = "#"+$(this).data("popup")
+		form_folder = $(this).data("controller")
+		if form_folder
+			form_name = "/" + form_folder + "/" + form_name 
 		e.preventDefault()
 		$.ajax
 			type: "GET"
 			url:  "/get_forms"
-			data: { form_name:  $(this).data("id"), package_id: $(this).data("package-id"), client_id: $(this).data("client-id"), calendar_type: $(this).data("calendar-type") }
+			data: { form_name:  form_name, package_id: $(this).data("package-id"), album_id: $(this).data("album"), client_id: $(this).data("client-id"), calendar_type: $(this).data("calendar-type") }
 			success: (data) ->
 				$(id).html(data)
 				$(popup).show()

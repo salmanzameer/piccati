@@ -10,6 +10,7 @@
         <%= f.text_field :bridal, :placeholder =>"Bride Name", :class => "first-field client_fields client_fields_calandar" %>
         <%= f.text_field :groom, :placeholder =>"Groom Name", :class => "first-field client_fields client_fields_calandar" %>
       <% end %>
+      <%= f.text_area :description, :placeholder =>"Description", :class => "create-lastname first-field client_fields_calandar description-field-client" %>
       <%= f.datetime_field :start_time, :value => f.object.start_time.to_datetime, :placeholder =>"Select Date", :class => "first-field client_fields  client_fields_calandar design-cal-field datetimepicker" %>
     </fieldset>
     <div class="form-calandar-popup-fieldset">

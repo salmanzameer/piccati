@@ -38,10 +38,17 @@ $ ->
 
   $(document).on 'click', '#connect-client-id', (e) ->
     client_id = $('#select2-client-id').val()
+    _this = $(this)
     $.ajax
       type: "POST"
       data: { client_id: client_id }
       url:  "/photographers/connect_client"
+      beforeSend: ->
+        $(_this).parent().append(get_ajax_loader_html())
+        $(_this).attr 'disabled', true
+      complete: ->
+        $(_this).find("img").remove()
+        $(_this).attr 'disabled', false
       success: (data) ->
         $('a.show-client-events[data-id='+client_id+']:first').click()
 
@@ -52,12 +59,9 @@ $ ->
     $.ajax
       type: "GET"
       url:  "/scheduled_events/"+$(this).text().match(/\S+/g)[0]+" "+$(".calendar-title").text()
-      beforeSend: ->
-        $("#loading-image").show()
       success: (data) ->
         $(".scheduled-events").html(data)
-        $("#loading-image").hide()
-
+      
   $(document).on 'click', '.week-sel', (e) ->
     $('.button_class').text('Weekly')
 
@@ -76,6 +80,7 @@ $ ->
   $(document).on 'click', '.event-submit-on-calendar', (e) ->
     e.preventDefault()
     _form = $(this).closest("form")
+    _this = $(this)
     id = "#"+$(_form).attr("id")
     section_class = "."+$(this).data("section-class")
     if $(id).isValid($(id).validate())
@@ -83,6 +88,12 @@ $ ->
         type: "POST"
         data: _form.serialize()
         url:  _form.attr("action")
+        beforeSend: ->
+          $(_this).parent().append(get_ajax_loader_html())
+          $(_this).attr 'disabled', true
+        complete: ->
+          $(_this).find("img").remove()
+          $(_this).attr 'disabled', false
         success: (data) ->
           $(section_class).html(data)
           $("#update-event-popup, #add_calender_event_popup").hide()
@@ -97,12 +108,17 @@ $ ->
 
   $(".settings").click (e) ->
     e.preventDefault()
+    _this = $(this)
     $(".settings").closest("tr").removeClass("Profile-heading")
     $(this).closest("tr").addClass("Profile-heading")
     $.ajax
       type: "GET"
       data: { partial_name: $(this).data("id") }
       url:  "/setting_partial"
+      beforeSend: ->
+        $(_this).attr 'disabled', true
+      complete: ->
+        $(_this).attr 'disabled', false
       success: (data) ->
         $(".show_settings").html(data)
         $('.show-package').first().click()
