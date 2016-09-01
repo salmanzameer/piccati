@@ -3,7 +3,14 @@
       <div class="col-md-12">
         <div class="col-md-12 text-alignment-heading-album">
           <span class="album-text-align"><%= @album.name.titleize %></span>
-          <span class="text-para">by <%= @album.photographer.firstname.titleize+" "+@album.photographer.lastname.titleize %><span class="pull-right button-album-back-pictres"><span><%= link_to "Back", photographer_albums_path(current_photographer), class: "add-album-setting-heading button-album-back-pictres" %></span><span class="button-album-back-pictres-dash">|</span><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album.id), class: "add-album-tag" %></span></span>
+          <span class="text-para">by <%= @album.photographer.firstname.titleize+" "+@album.photographer.lastname.titleize %>
+            <span class="pull-right button-album-back-pictres">
+              <span><%= link_to "Back", photographer_albums_path(current_photographer), class: "add-album-setting-heading button-album-back-pictres" %></span>
+              <span class="button-album-back-pictres-dash">|</span>
+                <%= link_to "Edit Album", "#", class: "client_management_popup add-album-tag", data: { id: "update_album", controller: "albums", popup: "update_album_popup", album: @album.id } %>
+              <span class="button-album-back-pictres-dash">|</span><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album.id), class: "add-album-tag" %>
+            </span>
+          </span>
       	</div>
       	<div class="col-md-12 album-text-align text-para"> 
       		<hr class="hr-album1">
@@ -24,7 +31,10 @@
     <div class="col-md-12">
       <div class="col-md-12 text-alignment-heading-album">
           <span class="album-text-align"><%= @album.name.capitalize %></span>
-          <span class="text-para">by <%= @album.photographer.fullname %><span class="pull-right button-album-back-pictres"><span><%= link_to "Back", photographer_albums_path(current_photographer), class: "add-album-setting-heading button-album-back-pictres" %></span><span class="button-album-back-pictres-dash">|</span><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album.id), class: "add-album-tag" %></span></span>
+          <span class="text-para">by <%= @album.photographer.fullname %><span class="pull-right button-album-back-pictres"><span><%= link_to "Back", photographer_albums_path(current_photographer), class: "add-album-setting-heading button-album-back-pictres" %></span><span class="button-album-back-pictres-dash">|
+          </span>
+                <%= link_to "Edit Album", "#", class: "client_management_popup add-album-tag", data: { id: "update_album", controller: "albums", popup: "update_album_popup", album: @album.id } %>
+              <span class="button-album-back-pictres-dash">|</span><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album.id), class: "add-album-tag" %></span></span>
         </div>
         <div class="col-md-12 album-text-align text-para"> 
           <hr class="hr-album1">
@@ -32,8 +42,13 @@
       </div>
   <% end %>
 </div>
-
+<div id="update_album_popup" style="z-index:9999">
+  <div id="popupContact">
+    <div id="update_album"></div>    
+  </div>
 </div>
+</div>
+
 <script type="text/javascript">
   $(document).ready(function() {
     $('.ul-li').lightGallery();

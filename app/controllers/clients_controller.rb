@@ -97,7 +97,8 @@ class ClientsController < ApplicationController
   def get_forms
     client = Client.find_by_id(params["client_id"])
     package = Package.find_by_id params["package_id"]
-    return render partial: "#{params["form_name"]}", locals: { client: client, package: package }
+    album = Album.find_by_id params["album_id"]
+    return render partial: "#{params["form_name"]}", locals: { client: client, package: package, album: album }
   end
 
   def selected_images

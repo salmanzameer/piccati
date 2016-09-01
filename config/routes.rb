@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :clients
+  devise_for :clients, controllers: {invitations: 'invitations', sessions: 'sessions', registrations: 'registrations'}
   mount API => '/'
-    devise_for :photographers , controllers: {registrations: 'registrations', omniauth_callbacks: "photographers/omniauth_callbacks"}
+    devise_for :photographers , controllers: {invitations: 'invitations', sessions: 'sessions', registrations: 'registrations', omniauth_callbacks: "photographers/omniauth_callbacks"}
   devise_scope :photographer do
     authenticated :photographer do
       root :to => 'photographers#show'
