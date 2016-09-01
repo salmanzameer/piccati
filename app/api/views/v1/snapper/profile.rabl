@@ -14,7 +14,7 @@ child @user, object_root: false do
     child :albums, object_root: false do
 			attributes :id, :name, :description
 			
-      child :images, object_root: false do
+      child :images, if: lambda { |album| album.images.is_approved? } do
         node(:image_id) { |img| img.id }
 				node(:url)      { |img| img.image.url }
         node(:is_liked) { |img| img.likes.is_liked?(@requester)}

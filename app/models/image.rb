@@ -47,6 +47,10 @@ class Image < ActiveRecord::Base
     image.url(:medium)
   end
 
+  def self.is_approved?
+    where(status: 1)
+  end
+
   def after_upload
     # if self.imageable_type == "Event"
     #   photographer = self.imageable.client.photographer

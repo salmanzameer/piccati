@@ -16,6 +16,7 @@
             <% @images.each do |img| %>
               <li style="display: inline;margin-bottom:35px; margin-right: 35px;" data-src="<%= img.image.url%>" class="col-md-2 zero-padding cursor-pointer">
                 <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
+                <span><%= File.basename(img.image_file_name,File.extname(img.image_file_name)) %></span>
               </li>
             <% end %>
           </ul>
