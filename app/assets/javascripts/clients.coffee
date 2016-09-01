@@ -138,12 +138,16 @@ $ ->
 
 	$(document).on 'click', '.client_management_popup', (e) ->
 		id = "#"+$(this).data("id")
+		form_name = $(this).data("id")
 		popup = "#"+$(this).data("popup")
+		form_folder = $(this).data("controller")
+		if form_folder
+			form_name = "/" + form_folder + "/" + form_name 
 		e.preventDefault()
 		$.ajax
 			type: "GET"
 			url:  "/get_forms"
-			data: { form_name:  $(this).data("id"), package_id: $(this).data("package-id"), client_id: $(this).data("client-id"), calendar_type: $(this).data("calendar-type") }
+			data: { form_name:  form_name, package_id: $(this).data("package-id"), album_id: $(this).data("album"), client_id: $(this).data("client-id"), calendar_type: $(this).data("calendar-type") }
 			success: (data) ->
 				$(id).html(data)
 				$(popup).show()
