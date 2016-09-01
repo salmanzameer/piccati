@@ -59,12 +59,9 @@ $ ->
     $.ajax
       type: "GET"
       url:  "/scheduled_events/"+$(this).text().match(/\S+/g)[0]+" "+$(".calendar-title").text()
-      beforeSend: ->
-        $("#loading-image").show()
       success: (data) ->
         $(".scheduled-events").html(data)
-        $("#loading-image").hide()
-
+      
   $(document).on 'click', '.week-sel', (e) ->
     $('.button_class').text('Weekly')
 
