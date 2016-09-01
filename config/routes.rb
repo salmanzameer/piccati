@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  get 'admins/new'
+  get 'admins/dashboard'
+  get 'admins/show_all_albums'
+  get 'admins/album_images'
+  get 'admins/update_all_images'
+  
+  devise_for :admins
+
   devise_for :clients
   mount API => '/'
     devise_for :photographers , controllers: {registrations: 'registrations', omniauth_callbacks: "photographers/omniauth_callbacks"}

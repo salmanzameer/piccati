@@ -19,11 +19,24 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    resource.class.name == "Client" ? download_app_path : photographer_path(resource)
+    if resource.class.name == "Client"
+      download_app_path
+    elsif resource.class.name == "Admin"
+      admins_dashboard_path
+    else
+      photographer_path(resource)
+    end
   end
 
   def after_sign_out_path_for(resource)
     resource == :client ? new_client_session_path : photographer_path(resource)
+    if resource == :client
+      new_client_session_path
+    elsif resource == :admin
+      new_admin_session_path
+    else
+      photographer_path(resource)
+    end
   end
 
   def client_match_token

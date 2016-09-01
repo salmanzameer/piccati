@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>Piccati</title>
+	  <%= favicon_link_tag 'piccati_favicon.png' %>
+	  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+	  <%= stylesheet_link_tag    'admin' %>
+	  <%= javascript_include_tag 'admin' %>
+	  <%= csrf_meta_tags %> 
+	</head>
+
+	<body class="no-skin">
+			<%= render 'layouts/admin/header' %>			
+			<%= yield %>
+			<%= render 'layouts/admin/sidebar' %>
+			<%= render 'layouts/admin/footer' %>						
+
+	</body>
+
+</html>

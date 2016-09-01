@@ -5,4 +5,5 @@ class Album < ActiveRecord::Base
 	belongs_to :photographer
 
   validates :name, presence: true
+  accepts_nested_attributes_for :images
 end

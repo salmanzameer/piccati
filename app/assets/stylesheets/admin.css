@@ -10,14 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  
- *= require simple_calendar
- *= require light-gallery
- *= stub ace-rtl.min
- *= stub ace-skins.min
- *= stub ace.min
- *= admin_dashboard
  *= require bootstrap
  *= require bootstrap-datetimepicker
- *= require_tree .
+ *= stub style
  *= require_self
+ *= require_tree .
  */
