@@ -2,15 +2,15 @@
   <div class="row">
     <div class="col-md-4">
       <%= image_tag("BasicPackage.png",class: "basic-pkg") %>
-      <%= link_to "Buy Now", plan_update_path(plan_type: "Basic"), class: "button btn-basic-pkg" %>
+      <%= link_to "Buy Now", plan_update_path(plan_type: "Standard"), class: "button btn-basic-pkg" %>
     </div>
     <div class="col-md-4">
       <%= image_tag("StandardPackage.png",class: "basic-pkg") %>
-      <%= link_to "Buy Now", plan_update_path(plan_type: "Standard"), class: "button btn-stadard-pkg" %>
+      <%= link_to "Buy Now", plan_update_path(plan_type: "Executive"), class: "button btn-stadard-pkg" %>
     </div>
     <div class="col-md-4">
       <%= image_tag("PremiumPackage.png",class: "basic-pkg") %>
-      <%= link_to "Buy Now", plan_update_path(plan_type: "Pro"), class: "button btn-prem-pkg" %>
+      <%= link_to "Buy Now", plan_update_path(plan_type: "Premium"), class: "button btn-prem-pkg" %>
     </div>
   </div>
 </div>

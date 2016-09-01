@@ -1,0 +1,23 @@
+<table class="table table-striped header-fixed">
+    <tbody class="update-event-table-height">
+      <tr>
+        <td class="min-height-udate-event-tb">Name</td>
+        <td class="min-height-udate-event-tb"><%= package.name %></td>
+        <td class="min-height-udate-event-tb">No. of DSLRs for Pictures</td>
+        <td class="min-height-udate-event-tb"><%= package.picture_dslr_count %></td>
+        <td class="min-height-udate-event-tb">No. of DSLRs for Video</td>
+        <td class="min-height-udate-event-tb"><%= package.video_dslr_count %></td>
+        <td class="min-height-udate-event-tb">Album Leaves</td>
+        <td class="min-height-udate-event-tb"><%= package.album_leaves %></td>
+        <td class="min-height-udate-event-tb">Charges(out of city)</td>
+        <td class="min-height-udate-event-tb"><%= package.other_city_charges %></td>
+      </tr>
+    </tbody>
+</table>
+<button class="button button4 package-settings client_management_popup" data-id= "edit_package" data-popup="edit_pkg_popup" data-package-id= "<%= package.id %>" ><i class="fa fa-plus-circle"></i> Update Package</button>
+
+<div id="edit_pkg_popup" style="z-index: 9999">
+    <div id="popupContact">
+        <div id="edit_package"></div>  
+    </div>
+</div>

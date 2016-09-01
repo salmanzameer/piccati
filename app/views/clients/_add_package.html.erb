@@ -1,0 +1,19 @@
+<%= image_tag ("close1.png"), class: "close", data: { id: "add_pkg_popup" } %>
+<%= form_for Package.new, validate: true, html: { class: "form-action form-calandar-popup", id: 'create-photographer-package-setting' } do |f| %>
+  <center><h2 class="form-calandar-popup-heading-top">Add Package</h2></center>
+  
+  <fieldset  class="form-calandar-popup-fieldset">
+    <%= f.text_field :name, autofocus: true, :placeholder =>"Name", :class => "first-field client_fields client_fields_calandar" %>
+
+    <%= f.text_field :picture_dslr_count, :placeholder =>"Numberof DSLRs for Pictires", :class => "first-field client_fields client_fields_calandar" %>
+
+    <%= f.text_field :video_dslr_count, :placeholder =>"Number of DSLRs for Video", :class => "first-field client_fields client_fields_calandar" %>
+
+    <%= f.text_field :album_leaves, :placeholder =>"Number of Album Leaves", :class => "first-field client_fields client_fields_calandar" %>
+
+    <%= f.text_field :other_city_charges, :placeholder =>"Out of City Charges", :class => "first-field client_fields client_fields_calandar" %>
+      
+    <button type="submit"  class="button button4 bt-add-cli btn-client-magin-zero add-package-setting client_fields_calandar"><i class="fa fa-plus-circle btn-margin-right-ten"></i>Create Package</button>
+
+  </fieldset>
+<% end %>

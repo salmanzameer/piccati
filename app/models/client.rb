@@ -101,7 +101,7 @@ class Client < ActiveRecord::Base
       client_hash = row.to_hash
       client =  Client.find_by_email(client_hash["email"])
       if client
-        current_photographer.photographer_clients.create(client_id: client.id)
+        current_photographer.photographer_clients.where(client_id: client.id).first_or_create
       else
         Client.invite!(client_hash.merge!(skip_invitation: true))
       end

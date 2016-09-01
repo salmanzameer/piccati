@@ -47,6 +47,10 @@
         return 'No Match Found!';
       }
     });
-    $(".select2-chosen").text("Select a Client");   
+    if ('<%= params[:client_id].to_i %>' == 0) {
+      $(".select2-chosen").text("Select a Client"); 
+    }else{
+      $('#select2-client-id').select2().select2("val", '<%= params[:client_id] %>');
+    } 
   });
 </script>

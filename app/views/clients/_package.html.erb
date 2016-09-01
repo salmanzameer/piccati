@@ -7,7 +7,7 @@
         <tbody>
           <tr>
             <td>Package</td>
-            <td><%= @package.package || "nil" %></td>
+            <td><%= @package.package.try(:name) || "nil" %></td>
           </tr>
           <tr>
             <td>Advance</td>

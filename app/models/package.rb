@@ -1,3 +1,9 @@
 class Package < ActiveRecord::Base
-has_many :photographers
+  belongs_to :photographer
+  
+  validates :name, presence: true
+  validates :picture_dslr_count, presence: true
+  validates :video_dslr_count, presence: true
+  validates :album_leaves, presence: true
+  validates :other_city_charges, presence: true
 end

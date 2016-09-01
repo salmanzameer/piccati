@@ -1,0 +1,22 @@
+<div class="tab-pane fade active in" id="profile">
+  <div class="col-md-9"> 
+    <div class="col-md-12 editprofileheading">
+      <p class="edit-prfile-para"> Manage Packages</p>
+    </div>
+    <div class="col-md-12 background-main-edit-profile center-align-content update-profile-field">
+      <fieldset>
+        <div class="package-list col-md-6"> 
+          <%= render partial: "package_list", locals: { packages: @packages } %>
+        </div>
+        <div class="col-md-6">
+          <div class='pkg-settings'></div>
+        </div>
+      </fieldset>
+    </div>      
+  </div>
+  <div id="add_pkg_popup" style="z-index: 9999">
+    <div id="popupContact">
+      <div id="add_package"></div>  
+    </div>
+  </div>
+</div>

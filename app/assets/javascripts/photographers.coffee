@@ -124,6 +124,7 @@ $ ->
         $(_this).attr 'disabled', false
       success: (data) ->
         $(".show_settings").html(data)
+        $('.show-package').first().click()
 
   $(document).on 'click', ".submit-album", (e) ->
      e.preventDefault()
