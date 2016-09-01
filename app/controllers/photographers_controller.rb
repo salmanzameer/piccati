@@ -74,7 +74,7 @@ class PhotographersController < ApplicationController
   end
 
   def setting_partial
-    @packages = Package.all
+    @packages = current_photographer.packages
     return render partial: "#{params["partial_name"]}", locals: { packages: @packages }
   end
 
