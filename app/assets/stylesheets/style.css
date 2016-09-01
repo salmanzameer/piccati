@@ -1845,6 +1845,14 @@ $file-upload-size: 200px;
   flex-direction: column;
 }
 
+.min-height-udate-package-tb
+{
+  min-height: 65px;
+  padding: 8px 8px 8px 18px !important;
+  display: flex !important;
+  justify-content: center;
+  flex-direction: column;
+}
 
 .border-zero-form
 {
