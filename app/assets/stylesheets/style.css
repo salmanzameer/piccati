@@ -2687,6 +2687,12 @@ input[type="password"]:focus
 {
   min-width: 150px !important;
 }
+.description-field-client
+{
+    margin-top: 1px;
+    padding-left: 20px;
+    margin-bottom: 0px;
+}
 
 .btn-client
 {
