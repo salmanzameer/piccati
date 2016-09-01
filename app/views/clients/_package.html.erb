@@ -1,7 +1,7 @@
 <div class="package-details">
   <h1 class="heading-client-mangement heading-clientlist"><%= [@package.client.try(:title), @package.client.firstname.capitalize].join(' ') %></h1>
   <div class="col-md-12 selected-pkg">
-    <button class="client-id edit-package-button" type="button" id="popup" data-client="<%= @package.client.id %>" data-id= "edit_client_popup" data= c = "<%= @package.client.id %>" class="popup edit_client_package"><i class="fa  fa-edit btn-edit" style="font-size: 16px;color: #ddd;"></i></button>  
+    <button class="client-id edit-package-button" type="button" id="popup" data-client="<%= @package.client.id %>" data-id= "edit_client_popup" data= c = "<%= @package.client.id %>" class="popup edit_client_package"><i class="fa  fa-edit" style="font-size: 16px;color: #ddd;"></i></button>  
     <div class="selected-pkg-adjust selected-pkg-adjust-bot">
       <table class="table transparent">
         <tbody>
