@@ -1316,7 +1316,7 @@ input::-webkit-input-placeholder {
 
 .basic-pkg
 {
-  width: 100%;
+  width: 80%;
 }
 
 .heading-clientlist
@@ -1399,6 +1399,11 @@ input::-webkit-input-placeholder {
 .topspacing
 {
   margin-top: 5%;
+}
+
+.topspacing1
+{
+  margin-top: 4%;
 }
 
 .email-edit-field
@@ -1512,39 +1517,39 @@ border-radius: 0px;
   background-color: #82bad6;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 0px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  width: 100%;
+  width: 80%;
 }
 .btn-stadard-pkg
 {
   background-color: #67c26d;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 0px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  width: 100%;
+  width: 80%;
 }
 .btn-prem-pkg
 {
   background-color: #d2cb5f;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 0px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
-  width: 100%;
+  width: 80%;
 }
 
 .bot-spacing
