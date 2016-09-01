@@ -20,3 +20,7 @@
 //= require light-gallery
 //= require rails.validations
 //= require_tree .
+
+function get_ajax_loader_html(css) {
+  return  "<img alt='Please wait' src='/assets/ajax-loader.gif' style='margin-left:5px;' class='loading-img'>";
+}
