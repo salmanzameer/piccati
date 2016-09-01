@@ -1,13 +1,6 @@
-<div class="mailer-main-body" style="padding: 45px;background-color: #eee;">
-	<p style="margin:0px;">
-	<div class="heading-miler-name" style="padding-bottom: 20px;">Dear <%= @resource.fullname %>,</div>
-	You are now one step short of using Piccati, Please verify your email address and join the celebrated community of photographers and clients at Piccati.  
-	<br>
-	<div class="heading-notice-mailer" style="padding-top: 5px;padding-bottom: 20px;">
-		Team Piccati wishes everlasting relationship between photographers and clients. Verify Your Account by clicking on the link below
-	</div>
-	<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
-
-	<div>Kind regards,</div>
-	<div class="heading-mailer-name" style="padding-bottom: 20px;">Team Piccati</div>
-</div>
+<td class="content">
+  <h2>Dear Sadjal Jsdalkdj,</h2>
+  <p>You are now one step short of using Piccati, Please verify your email address and join the celebrated community of photographers and clients at Piccati.<br /> Team Piccati wishes everlasting relationship between photographers and clients. Verfiy Your Account by clicking on the link below.</p>
+  <%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %>
+  <p><pre>Kind regard, Team Piccati</pre></p>
+</td>
