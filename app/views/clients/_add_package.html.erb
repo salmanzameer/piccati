@@ -1,5 +1,5 @@
 <%= image_tag ("close1.png"), class: "close", data: { id: "add_pkg_popup" } %>
-<%= form_for Package.new, validate: true, html: { class: "form-action form-calandar-popup", id: 'create-photographer-package-setting' } do |f| %>
+<%= form_for current_photographer.packages.new, validate: true, html: { class: "form-action form-calandar-popup", id: 'create-photographer-package-setting' } do |f| %>
   <center><h2 class="form-calandar-popup-heading-top">Add Package</h2></center>
   
   <fieldset  class="form-calandar-popup-fieldset">
