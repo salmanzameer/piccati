@@ -9,6 +9,6 @@ class InvitationMailer < ApplicationMailer
 	def client_acknowledge(current_photographer, client)
 		@photographer = current_photographer
 		@client = client
-		mail to: "#{@client.email}", subject: "#{current_photographer.fullname} added you as client on Piccati."
+		mail to: "#{@client.email}", subject: "Photographer added you as a client"
 	end
 end
