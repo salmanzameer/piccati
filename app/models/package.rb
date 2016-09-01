@@ -5,5 +5,4 @@ class Package < ActiveRecord::Base
   validates :picture_dslr_count, presence: true
   validates :video_dslr_count, presence: true
   validates :album_leaves, presence: true
-  validates :other_city_charges, presence: true
 end
