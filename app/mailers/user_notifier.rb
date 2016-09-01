@@ -5,7 +5,7 @@ class UserNotifier < ApplicationMailer
 	  @event_name = event_name
 	  @client = Client.find(enquiry.client_id)
 	  @photographer = Photographer.find(enquiry.photographer_id)
-	  mail( to: @photographer.email, subject: 'Event request')
+	  mail( to: @photographer.email, subject: '#{@client.fullname} requested connection to events image gallery.')
 	end
 
 	def website_form_email(name,email,message)

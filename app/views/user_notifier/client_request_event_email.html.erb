@@ -1,15 +1,19 @@
-<div class="mailer-main-body" style="padding: 45px;background-color: #eee;">
-  <p>
-  <div class="heading-miler-name" style="padding-bottom: 20px;">Dear <%= @photographer.fullname %>,</div>
-  <%= @client.fullname %> has requested you for meeting.
-  <br>
-  <div class="heading-notice-mailer" style="padding-top: 5px;padding-bottom: 20px;">
+<tr style="margin: 0;padding: 0;font-size: 14px;font-family: 'Avenir Next', &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;line-height: 1.6;color: #3b3335;">
+  <td class="content" style="margin: 0;padding: 50px 35px 50px 35px;font-size: 14px;font-family: 'Avenir Next', &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;line-height: 1.6;color: #3b3335;background: #eeeeee;">
+    <h2 style="margin: 0;padding: 0;font-size: 14px;font-family: 'Avenir Next', &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;line-height: 1.25;color: #353333;margin-bottom: 20px;font-weight: bold;">Hello <%= @photographer.fullname %>,</h2>
+    <p style="margin: 0;padding: 0;font-size: 14px;font-family: 'Avenir Next', &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;line-height: 1.6;color: #3b3335;font-weight: normal;margin-bottom: 20px;"><%= @client.fullname %> has requested you for meeting.
+    <br>
+      Following are the client details.
+    <br>
     Email: <%= @client.email %><br>
     Phone: <%= @client.contnumber %><br>
     Event Type: <%= @event_name %><br>
     Event Date: <%= @enquiry.event_date %><br> 
     Number of persons: <%= @enquiry.guests %>
-  </div>
-  <div>Kind regards,</div>
-  <div class="heading-mailer-name" style="padding-bottom: 20px;">Team Piccati</div>
-</div>
+    </p>
+    <p style="margin: 0;padding: 0;font-size: 14px;font-family: 'Avenir Next', &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;line-height: 1.6;color: #3b3335;font-weight: normal;margin-bottom: 20px;">Team Piccati wishes everlasting relationship between photographers and clients.</p>  
+    <p style="margin: 0;padding: 0;font-size: 14px;font-family: 'Avenir Next', &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;line-height: 1.6;color: #3b3335;font-weight: normal;margin-bottom: 20px;">
+      <pre style="margin: 0;padding: 0;font-size: 14px;font-family: 'Avenir Next', &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, Helvetica, Arial, sans-serif;line-height: 1.6;color: #3b3335;font-weight: normal;margin-bottom: 20px;">Kind regard,Team Piccati</pre>
+    </p>
+  </td>
+</tr>
