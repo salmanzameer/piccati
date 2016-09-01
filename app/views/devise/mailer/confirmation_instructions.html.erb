@@ -1,13 +1,14 @@
 <div class="mailer-main-body" style="padding: 45px;background-color: #eee;">
 	<p style="margin:0px;">
-	<div class="heading-miler-name" style="padding-bottom: 20px;">Dear <%= @resource.fullname %>,</div>
+	<div class="heading-miler-name" style="padding-bottom: 20px;padding-left: 213px;
+">Welcome to Piccati</div>
 	You are now one step short of using Piccati, Please verify your email address and join the celebrated community of photographers and clients at Piccati.  
 	<br>
 	<div class="heading-notice-mailer" style="padding-top: 5px;padding-bottom: 20px;">
-		Team Piccati wishes everlasting relationship between photographers and clients. Verify Your Account by clicking on the link below
+	Team Piccati wishes everlasting relationship between photographers and clients. 
 	</div>
+	Verify your account by clicking on the link below
 	<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
 
-	<div>Kind regards,</div>
-	<div class="heading-mailer-name" style="padding-bottom: 20px;">Team Piccati</div>
+	<div>If you did not create Piccati account using this email address, inform us at info@Piccati.com</div>
 </div>
