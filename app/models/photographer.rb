@@ -79,7 +79,7 @@ class Photographer < ActiveRecord::Base
 
   accepts_nested_attributes_for :achievements, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
-  before_create :set_role_type
+  before_create :set_role_type, :set_connects
 
   def decrement_invitation_limit!
     true  
@@ -140,6 +140,12 @@ class Photographer < ActiveRecord::Base
   end   
 
   private
+
+  def set_connects
+    total_connects = 1
+    used_connects =  0
+  end
+
   def generate_authentication_token
     loop do
       token = Devise.friendly_token

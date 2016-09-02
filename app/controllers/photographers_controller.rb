@@ -82,7 +82,7 @@ class PhotographersController < ApplicationController
     @plan = Plan.find_by_name params["plan_type"]
     total_connects = current_photographer.total_connects + @plan.connects
     current_photographer.photographer_plans.create(status: PhotographerPlan::Status::PENDING, expired_at: DateTime.now + 1.year, plan_id: @plan.id)
-    current_photographer.update(plan_type: @plan.name, total_connects: total_connects, expired_at: DateTime.now + 1.year)
+    current_photographer.update(plan_type: @plan.name, total_connects: total_connects)
     UserNotifier.plan_upgraded(current_photographer)
     flash[:notice] = "Your request to upgrad plan is pending for admin approval."
     redirect_to photographer_path(current_photographer)
