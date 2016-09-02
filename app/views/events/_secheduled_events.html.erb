@@ -38,12 +38,21 @@
       <div id="signup_buttons_popup" style="z-index: 9999; display: none">
         <div class="sign-up-popup" id="popupContact">
           <%= image_tag ("close1.png"), class: "close cal-close", data: { id: "signup_buttons_popup" } %>
-          <center><h2 class="form-calandar-popup-heading-top">Client Details</h2></center>
-          <% client = event.client%>
-          Name: <%= client.fullname%><br>
-          Email: <%= client.email%><br>
-          Contact Number: <%= client.contnumber%><br>
-          <%= link_to "Full Profile", photographer_client_event_path(photographer_id: current_photographer.id, client_id: client.id, id: event.id) %> | <%= link_to "Images", all_images_photographer_client_event_path(photographer_id: current_photographer.id, client_id: client.id, id: event.id) %>
+          <div class="form-calandar-popup view-calandar-setting">
+            <center><h2 class="form-calandar-popup-heading-top">Client Details</h2></center>
+            <% client = event.client%>
+            <div class="col-md-6 calendar-pop-table">Name</div>
+            <div class="col-md-6 calendar-pop-table"><%= client.fullname%></div>
+            <div class="col-md-6 calendar-pop-table">Email</div>
+            <div class="col-md-6 calendar-pop-table"><%= client.email%></div>
+            <div class="col-md-6 calendar-pop-table">Contact Number</div>
+            <div class="col-md-6 calendar-pop-table"><%= client.contnumber%></div>
+            <div class="col-md-6 calendar-pop-table">Profile</div>
+            <div class="col-md-6 calendar-pop-table"><%= link_to "Full Profile", photographer_client_event_path(photographer_id: current_photographer.id, client_id: client.id, id: event.id) %></div>
+            <div class="col-md-6 calendar-pop-table">Images</div>
+            <div class="col-md-6 calendar-pop-table"><%= link_to "Upload Images", all_images_photographer_client_event_path(photographer_id: current_photographer.id, client_id: client.id, id: event.id) %>
+            </div>
+          </div>
         </div>
       </div>
       <% end %>

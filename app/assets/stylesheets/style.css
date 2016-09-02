@@ -2790,6 +2790,24 @@ input[type="password"]:focus
     padding-left: 20px;
     margin-bottom: 0px;
 }
+
+.calendar-pop-table
+{
+    line-height: 1.42857143;
+    vertical-align: top;
+    border: 1px solid #ddd;
+    min-height: 52px;
+    padding: 8px 8px 8px 18px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.view-calandar-setting
+{
+  min-height: 320px;
+}
 /***********************            Media  Queries            ***********************/
 @media (min-width: 768px){
 div#popupContact {
