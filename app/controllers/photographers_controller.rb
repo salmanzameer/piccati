@@ -84,8 +84,7 @@ class PhotographersController < ApplicationController
     current_photographer.photographer_plans.create(status: PhotographerPlan::Status::PENDING, expired_at: DateTime.now + 1.year, plan_id: @plan.id)
     current_photographer.update(plan_type: @plan.name, total_connects: total_connects)
     UserNotifier.plan_upgraded(current_photographer)
-    flash[:notice] = "Your request to upgrad plan is pending for admin approval."
-    redirect_to photographer_path(current_photographer)
+    redirect_to :back
   end
 
   def add_achievements
