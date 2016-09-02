@@ -19,7 +19,7 @@
       <div class="row">
         <div class="col-md-12" style="margin-bottom:50px;">
           <ul style="list-style:none;" class="ul-li">
-            <% @album.images.each do |img| %>
+            <% album_check_status(@album).each do |img| %>
               <li style="display: inline-block;width: 170px;margin-bottom:35px; margin-right: 35px;" data-src="<%= img.image.url%>" class="col-md-2 zero-padding cursor-pointer">
                 <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
               </li>

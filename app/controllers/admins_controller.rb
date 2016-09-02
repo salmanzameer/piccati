@@ -33,16 +33,33 @@ class AdminsController < ApplicationController
 
   def change_status
     @p_plan = PhotographerPlan.find(params[:p_plan_id])
-    if @p_plan.status == "pending"
-      @p_plan.update(status: "active")
-    elsif @p_plan.status == "active"
-      @p_plan.update(status: "pending")
+    # Pending => 2
+    # Active => 1
+    # Expired => 0
+    if @p_plan.status == "2"
+      @p_plan.update(status: "1")
+    elsif @p_plan.status == "1"
+      @p_plan.update(status: "2")
+    else
+      @p_plan.update(status: "2")
     end
     redirect_to admins_show_all_photographers_path  
   end
 
-  def show_all_photographers
+  def show_all_photographer_plans
     @photographerPlan = PhotographerPlan.all.order(created_at: 'DESC')
+  end
+
+  def show_all_photographers
+    if request.xhr?
+      if params[:confirmed] == "true"
+        @photographers = Photographer.where.not(confirmed_at: nil).order(created_at: 'DESC')
+      elsif params[:confirmed] == 'false'
+        @photographers = Photographer.where(confirmed_at: nil).order(created_at: 'DESC')        
+      end
+    else
+      @photographers = Photographer.all.order(created_at: 'DESC')      
+    end
   end
 
   def update_all_images
