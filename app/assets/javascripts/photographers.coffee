@@ -161,3 +161,9 @@ $ ->
   $(document).on "click", ".signup_buttons_popup", (e) ->
     e.preventDefault()
     $("#signup_buttons_popup").show()
+
+  $(".show-gallery").click (e) ->
+    e.preventDefault()
+    $('#show-galary').lightGallery();
+
+  
