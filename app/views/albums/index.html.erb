@@ -20,15 +20,22 @@
         <div class="col-md-12" style="margin-bottom:50px;">
           <ul style="list-style:none;" class="ul-li">
             <% @albums.each do |album| %>
-              <li style="display: inline;margin-bottom: 35px; margin-right: 35px;" class="col-md-2 zero-padding cursor-pointer">
-                <% if album.images.present? %>
-                  <%= link_to image_tag(album.images.first.image.url(:medium), style: "width: 100%;"), photographer_album_path(current_photographer, album) %>
-                <% else %>
-                  <%= link_to image_tag("default-album.png", width: 183, height: 183), photographer_album_path(current_photographer, album) %>
-                <% end %>
-                <span class="text-alignment-heading-album" style="float:left;margin-top:10px;"><%= album.name %> | 
-                <%= link_to 'Delete', photographer_album_path(photographer_id: current_photographer.id, id: album.id), style: "color: white;", method: :delete, data: { confirm: 'Are you sure?'} %></span>
-              </li>
+              
+                <li style="display: inline;margin-bottom: 35px; margin-right: 35px;" class="col-md-2 zero-padding cursor-pointer">
+                <div class="hovereffect">
+                  <% if album.images.present? %>
+                    <%= link_to image_tag(album.images.first.image.url(:medium), style: "width: 100%;"), photographer_album_path(current_photographer, album) %>
+                  <% else %>
+                    <%= link_to image_tag("default-album.png", width: 183, height: 183), photographer_album_path(current_photographer, album) %>
+                  <% end %>
+                  <div class="overlay">
+                   <a class="info" href="#">Show</a>
+                   <a class="info" href="#">Delete</a>
+                  </div>
+                </div>
+                  <span class="text-alignment-heading-album" style="float:left;margin-top:10px;"><%= album.name %> | 
+                  <%= link_to 'Delete', photographer_album_path(photographer_id: current_photographer.id, id: album.id), style: "color: white;", method: :delete, data: { confirm: 'Are you sure?'} %></span>
+                </li>
             <% end %>
           </ul>
         </div>
