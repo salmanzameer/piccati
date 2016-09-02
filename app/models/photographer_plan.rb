@@ -13,6 +13,10 @@ class PhotographerPlan < ActiveRecord::Base
     }
   end
 
+  def self.pending_plan?
+    where(status: Status::PENDING).present?  
+  end
+
   def self.active_plan?
     where(status: Status::ACTIVE).present?  
   end

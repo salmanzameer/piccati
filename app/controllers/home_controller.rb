@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
 	
-	def expires
-		flash[:notice] = "You need to upgrade your package plan to continue. if you have already upgraded your plane please wait, admin will approve it as soon as possible "
+	def expires  
+		if current_photographer.photographer_plans.active_plan?
+			redirect_to photographer_path(current_photographer)
+		end
 	end
 end
