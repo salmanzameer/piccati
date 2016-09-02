@@ -77,7 +77,7 @@ class Client < ActiveRecord::Base
     "#{firstname} #{lastname}".titleize
   end
 
-  def get_followings
+  def get_activity
     activities = []
     follows_type = self.follows.pluck(:followable_type).uniq
     follows_type.each do |f|
