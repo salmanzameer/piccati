@@ -2943,3 +2943,16 @@ div#popupContact {
   border-radius: 0px;
   width: 25%;
 }
+
+.del-album-text-popup
+{
+  color: #003366;
+  float: left;
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.btn-album-popup-adj
+{
+  width: 25%;
+}

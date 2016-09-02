@@ -26,8 +26,19 @@
                 <% else %>
                   <%= link_to image_tag("default-album.png", width: 183, height: 183), photographer_album_path(current_photographer, album) %>
                 <% end %>
-                <span class="text-alignment-heading-album" style="float:left;margin-top:10px;"><%= album.name %> | 
-                <%= link_to 'Delete', photographer_album_path(photographer_id: current_photographer.id, id: album.id), style: "color: white;", method: :delete, data: { confirm: 'Are you sure?'} %></span>
+                <span class="text-alignment-heading-album" style="float:left;margin-top:10px;"><%= album.name %> | <%= link_to "Delete", "#", class: "signup_buttons_popup", style: "color: white;" %> 
+                </span>
+                  <div id="signup_buttons_popup" style="z-index: 9999; display: none">
+                    <div class="sign-up-popup" id="popupContact">
+                      <%= image_tag ("close1.png"), class: "close cal-close", data: { id: "signup_buttons_popup" } %>
+                      <div class="form-calandar-popup">
+                        <center><h2 class="form-calandar-popup-heading-top">Signup</h2></center>
+                        <p class="del-album-text-popup">Are you sure you want to delete?</p>
+                        <%= link_to "Cancel", "#", class: "button button4 btn-album-popup-adj border-solid-form close-album-modal" %>
+                        <%= link_to 'Delete', photographer_album_path(photographer_id: current_photographer.id, id: album.id), class: "button button4 btn-album-popup-adj border-solid-form", method: :delete %>
+                      </div>
+                    </div>
+                  </div>
               </li>
             <% end %>
           </ul>
