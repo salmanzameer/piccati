@@ -18,10 +18,16 @@
     	</div>
       <div class="row">
         <div class="col-md-12" style="margin-bottom:50px;">
-          <ul style="list-style:none;" class="ul-li">
+          <ul style="list-style:none;" id="show-galary">
             <% @album.images.each do |img| %>
-              <li style="display: inline-block;width: 170px;margin-bottom:35px; margin-right: 35px;" data-src="<%= img.image.url%>" class="col-md-2 zero-padding cursor-pointer">
-                <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
+              <li style="display: inline-block;margin-bottom:35px; margin-right: 35px;" data-src="<%= img.image.url%>" class="col-md-2 zero-padding cursor-pointer">
+                <div class="hovereffect">
+                  <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
+                  <div class="overlay">
+                    <%= link_to 'Show', "#", style: "color: white;", class: "show-gallery info"%>
+                    <%= link_to 'Delete', photographer_album_image_destroy_path(photographer_id: current_photographer.id, album_id: @album.id, image_id: img.id), style: "color: white;", method: :delete, class: "info" %>
+                  </div>
+                </div>
               </li>
             <% end %>
           </ul>
@@ -48,9 +54,3 @@
   </div>
 </div>
 </div>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('.ul-li').lightGallery();
-  });
-</script>

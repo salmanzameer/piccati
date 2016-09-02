@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     resources :albums do
       get 'public_image'
       post 'public_image'
+      delete 'image_destroy/:id', to: "albums#image_destroy", as: :image_destroy
     end
     member do
       patch 'update_password'
