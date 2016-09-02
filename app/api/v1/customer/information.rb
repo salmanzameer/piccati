@@ -128,9 +128,9 @@ module Customer
       unless @requester.present?
         throw :error, status: 404, message: "Requester not found!"
       end
-      
-      search = params[:search_string].downcase
-      @photographers = Photographer.where("(firstname ILIKE ? OR lastname ILIKE ?)", "%#{search}%", "%#{search}%")
+
+      search = params[:search_string]
+      @photographers = Photographer.where("(firstname ILIKE ? OR lastname ILIKE ?) AND confirmed_at IS NOT NULL", "%#{search}%", "%#{search}%")
     end
 
     desc "Get images with likes greater than 1000 (collection feed)"
