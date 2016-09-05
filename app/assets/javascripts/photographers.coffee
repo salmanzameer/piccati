@@ -170,3 +170,6 @@ $ ->
     e.preventDefault()
     $('#show-galary').lightGallery();
 
+  $('.disable-gallery').click (e) ->
+    e.preventDefault()
+    $('#show-galary').data('lightGallery').destroy(true);

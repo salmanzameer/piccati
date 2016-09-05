@@ -67,11 +67,13 @@ class EventsController < ApplicationController
   end
 
   def upload_images
-    param = { "image" => params[:file] }
     client = current_photographer.clients.find_by_id(params[:client_id])
-    @image = client.events.find_by_id(params[:id]).images.new(param)
-    @image.save
-    client.update_attribute('enabled', true)
+    @image = client.events.find_by_id(params[:id]).images.new(image: params[:file])
+    if current_photographer.memory_available?(@image.image_file_size)
+      client.update_attribute('enabled', true) if @image.save
+    else
+      flash[:notice] = 'You have not enough space.Please upgrade your plan.'
+    end
   end
 
   def upload_image
@@ -125,6 +127,10 @@ class EventsController < ApplicationController
   def selected_images
     @page_name = "Client Management"
     @event = Event.find_by_id params[:id]
+    respond_to do |format|
+      format.html
+      format.csv { send_data @event.to_csv }
+    end
   end
 
   protected 

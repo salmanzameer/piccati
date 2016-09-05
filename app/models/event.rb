@@ -14,7 +14,14 @@ class Event < ActiveRecord::Base
   validates :client_id,   	presence: true
   validates :category_id,   presence: true
 
-	
+  def to_csv(options = {})
+    CSV.generate(options) do |csv|
+      selected.order("image_file_name DESC").each do |image|
+        csv << ([] << image.name)
+      end
+    end
+  end
+
   def selected
     self.images.where(is_liked: true)
   end
