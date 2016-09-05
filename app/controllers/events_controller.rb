@@ -74,6 +74,7 @@ class EventsController < ApplicationController
     else
       flash[:notice] = 'You have not enough space.Please upgrade your plan.'
     end
+    render js: "window.location = '#{all_images_photographer_client_event_path(current_photographer, client, params[:id])}';"
   end
 
   def upload_image

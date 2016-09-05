@@ -16,7 +16,7 @@ class Event < ActiveRecord::Base
 
   def to_csv(options = {})
     CSV.generate(options) do |csv|
-      selected.order("image_file_name DESC").each do |image|
+      selected.order("image_file_name ASC").each do |image|
         csv << ([] << image.name)
       end
     end

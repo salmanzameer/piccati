@@ -5,7 +5,7 @@
         <span class="album-text-align"><%= @event.name.titleize %></span>
         <span class="text-para">by <span class="artist-name"><%= @event.client.firstname.titleize+" "+@event.client.lastname.titleize %></span>
           <span class="pull-right">
-          <%= link_to "CSV", selected_images_photographer_client_event_path(current_photographer, @event.client, @event, format: "csv") %> |<%= link_to 'Back', photographer_client_event_path(current_photographer, @event.client, @event), class: "add-album-tag" %></span>
+          <%= link_to "CSV", selected_images_photographer_client_event_path(current_photographer, @event.client, @event, format: "csv"), class: "add-album-setting-heading button-album-back-pictres" %> |<%= link_to 'Back', photographer_client_event_path(current_photographer, @event.client, @event), class: "add-album-tag" %></span>
         </span>
       </div>
       <div class="col-md-12 album-text-align text-para"> 
