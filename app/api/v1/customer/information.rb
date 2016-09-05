@@ -82,11 +82,6 @@ module Customer
     
     params do
       requires :authentication_token, type: String
-      requires :client_id,            type: String
-    end
-    
-    params do
-      requires :authentication_token, type: String
       requires :user_id,              type: String
     end
 
