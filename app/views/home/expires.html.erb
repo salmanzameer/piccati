@@ -1,16 +1,17 @@
+<div class="devise-noti alert alert-success" role="alert"> You need to upgrade your package plan to continue. if you have already upgraded your plane please wait, admin will approve it as soon as possible </div>
 <div class="container topspacing1 bot-spacing">
   <div class="row">
     <div class="col-md-4 col-xs-4 col-sm-4">
       <%= image_tag("card1.png",class: "basic-pkg") %>
-      <%= link_to "Buy Now", plan_update_path(plan_type: "Standard"), class: "button btn-basic-pkg" %>
+      <%= link_to "Buy Now", any_pending_plan?("Standard"), class: "button btn-basic-pkg" %>
     </div>
     <div class="col-md-4 col-xs-4 col-sm-4">
       <%= image_tag("card2.png",class: "basic-pkg") %>
-      <%= link_to "Buy Now", plan_update_path(plan_type: "Executive"), class: "button btn-stadard-pkg" %>
+      <%= link_to "Buy Now", any_pending_plan?("Executive"), class: "button btn-stadard-pkg" %>
     </div>
     <div class="col-md-4 col-xs-4 col-sm-4">
       <%= image_tag("card3.png",class: "basic-pkg") %>
-      <%= link_to "Buy Now", plan_update_path(plan_type: "Premium"), class: "button btn-prem-pkg" %>
+      <%= link_to "Buy Now", any_pending_plan?("Premium"), class: "button btn-prem-pkg" %>
     </div>
   </div>
 </div>

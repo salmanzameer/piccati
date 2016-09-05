@@ -32,12 +32,14 @@ class AdminsController < ApplicationController
   end
 
   def change_status
-    @p_plan = PhotographerPlan.find(params[:p_plan_id])
-    if @p_plan.status == "pending"
-      @p_plan.update(status: "active")
-    elsif @p_plan.status == "active"
-      @p_plan.update(status: "pending")
+    photographer_plan = PhotographerPlan.find(params[:p_plan_id])
+    if photographer_plan.pending?
+      photographer_plan.update(status: PhotographerPlan::Status::ACTIVE)
+      photographer_plan.photographer.update(expired_at: DateTime.now + 1.year)
+    else
+      photographer_plan.update(status: PhotographerPlan::Status::EXPIRED)
     end
+    
     redirect_to admins_show_all_photographers_path  
   end
 
@@ -55,7 +57,6 @@ class AdminsController < ApplicationController
   def album_images
     album_id = params[:album_id]
     @album = Album.find(album_id)
-    # @album_images = Album.find(album_id).images.order(created_at: 'DESC')
   end
 
   def show_all_albums
@@ -64,15 +65,15 @@ class AdminsController < ApplicationController
 
   private 
 
-    def admin_param
-    	params.require(:admin).permit(:email, :password)
-    end
+  def admin_param
+  	params.require(:admin).permit(:email, :password)
+  end
 
-    def image_param
-      params.require(:album).permit(images_attributes: [:status, :id])
-    end
+  def image_param
+    params.require(:album).permit(images_attributes: [:status, :id])
+  end
 
-    def plan_params
-      #params.require(:plan).permit(:name, :connects, :storage)
-    end
+  def plan_params
+    #params.require(:plan).permit(:name, :connects, :storage)
+  end
 end

@@ -32,8 +32,8 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @album.destroy
     @album.create_activity(key: "deleted an album", owner: current_photographer)
+    @album.destroy
     respond_to do |format|
       format.html { redirect_to photographer_albums_path, notice: 'Album was successfully destroyed.' }
       format.json { head :no_content }
@@ -44,6 +44,12 @@ class AlbumsController < ApplicationController
     @page_name = "My Albums"
     @album = Album.find(params[:album_id])
     @album.images.create(image: params[:file])     
+  end
+
+  def image_destroy
+    @image = Image.find(params[:image_id])
+    @image.destroy
+    redirect_to photographer_album_path(photographer_id: params[:photographer_id], id: params[:id])
   end
 
   private
