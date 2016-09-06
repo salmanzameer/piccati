@@ -27,6 +27,9 @@
         <td class="min-height-udate-event-tb">Gallery</td>
         <td class="min-height-udate-event-tb"><%= link_to 'View Photos', all_images_photographer_client_event_path(current_photographer, event.client.id, event), class: "btn btn-uploadimage1", style: "border: 1px solid #ccc;width: 105px;" %>
         </td>
+        <td class="min-height-udate-event-tb">Share url</td>
+        <td class="min-height-udate-event-tb"><%= link_to 'Share With Client', share_image_url_path(client_id: event.client.id), class: "btn btn-uploadimage1 share_url_client", style: "border: 1px solid #ccc;width: 131px;" %>
+        </td>
       <% end %>
     </tr>
   </tbody>
