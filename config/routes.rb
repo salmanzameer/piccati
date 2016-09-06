@@ -6,11 +6,15 @@ Rails.application.routes.draw do
   get 'admins/album_images'
   get 'admins/update_all_images'
   get 'admins/show_all_plans'
-  get 'admins/show_all_photographers'
+  post 'admins/edit_plan'
+  post 'admins/update_plan'
+  get 'admins/show_all_photographerplans'
   get 'admins/change_status'
   get 'admins/new_plan'
   post 'admins/create_plan'
   get 'admins/destroy_plan'
+  get 'admins/show_all_clients'
+  get 'admins/show_all_photographers'
 
   devise_for :clients, controllers: {invitations: 'invitations', sessions: 'sessions', registrations: 'registrations'}
 

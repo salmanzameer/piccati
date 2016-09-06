@@ -28,6 +28,7 @@
 				      <td><%= plan.updated_at %></td>
 				      <td>
 				      	<%= link_to "Delete",admins_destroy_plan_path(plan_id: plan.id), class: "btn btn-primary btn_setting" %>
+				      	<%= link_to "Edit",admins_edit_plan_path(plan_id: plan.id), class: "btn btn-primary btn_setting", method: :update %>
 				      </td>
 				    </tr>
 				  <% end %>

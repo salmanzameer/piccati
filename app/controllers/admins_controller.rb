@@ -26,6 +26,16 @@ class AdminsController < ApplicationController
     @plan = Plan.new(plan_params)
   end
 
+  def edit_plan
+    @plan = Plan.find(params[:plan_id])
+  end
+
+  def update_plan
+    @plan = Plan.find(params[:plan][:plan_id])
+    @plan.update_attributes(name: params[:plan][:name], storage: params[:plan][:storage], connects: params[:plan][:connects])
+    redirect_to admins_show_all_plans_path
+  end
+
   def create_plan
     Plan.create(name: params[:plan][:name],storage: params[:plan][:storage], connects: params[:plan][:connects])
     redirect_to admins_show_all_photographers_path
@@ -43,7 +53,7 @@ class AdminsController < ApplicationController
     redirect_to admins_show_all_photographers_path  
   end
 
-  def show_all_photographers
+  def show_all_photographerplans
     @photographerPlan = PhotographerPlan.all.order(created_at: 'DESC')
   end
 
@@ -63,6 +73,26 @@ class AdminsController < ApplicationController
     @albums = Album.all.order(created_at: 'DESC')
   end
 
+  def show_all_clients
+    if request.xhr?
+      if params[:client_type] == "true"
+        @clients = Client.includes(:photographer_clients).where( photographer_clients: {is_connected: true} ).all
+      elsif params[:client_type] == "false"
+        @clients = Client.includes(:photographer_clients).where( photographer_clients: {is_connected: false} ).all
+      end
+    else
+      @clients = Client.all.order(created_at: 'DESC')    
+    end 
+  end
+
+  def show_all_photographers
+    if request.xhr?
+      @photographers = Photographer.all.where(plan_type: params[:plan_type]).order(created_at: 'DESC')    
+    else
+      @photographers = Photographer.all.order(created_at: 'DESC')
+    end
+  end
+
   private 
 
   def admin_param
@@ -74,6 +104,6 @@ class AdminsController < ApplicationController
   end
 
   def plan_params
-    #params.require(:plan).permit(:name, :connects, :storage)
+    params.require(:plan).permit(:name, :connects, :storage)
   end
 end

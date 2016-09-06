@@ -1,3 +1,7 @@
+h1 {
+  font-family: initial !important;
+}
+
 .ace-save-state{
   padding-right: 0px;
   height: 27px;  
@@ -67,6 +71,11 @@
   width: 100%;
 }
 
+.photographers_container {
+  position: absolute;
+  left: 19em;  
+}
+
 .admin_photgraphers_container {
   position: absolute;
   left: 28em;  
@@ -95,9 +104,36 @@
 }
 
 .btn_setting {
-  background-color: none !important;
+/*  background-color: none !important;*/
+  height: 23px !important;
+  line-height: 9px !important;
 }
 
 .plan_form_field {
   border: 1px solid #dcdcdc !important;
+}
+
+.button-container {
+  left: 68em;
+  position: absolute;
+  top: 4.9em;
+
+}
+
+.sidebar_settings {
+  overflow: hidden;
+}
+
+.admin_logo_text {
+  position: absolute;left: 3em;top: 0.8em;
+}
+
+.edit_plan {
+  position: absolute;
+  left: 37em;
+  top: 9em;
+}
+
+.edit_heading {
+  position: absolute;left: 15em;
 }

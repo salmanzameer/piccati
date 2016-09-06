@@ -1,9 +1,9 @@
 <div class="container">
 	<center>
-		<h1 class="container_heading">Listing All Photographer Plans</h1>		
+		<h1 class="container_heading">Listing All Photographers</h1>		
 	</center>
-	<div class="admin_photgraphers_container">
-		<% if @photographerPlan.present? %>
+	<div class="photographers_container">
+		<% if @photographers.present? %>
 			
 			<table class="table table-striped table-bordered">
 			  <thead>
@@ -11,28 +11,28 @@
 			      <th>ID</th>
 			      <th>First Name</th>
 			      <th>Last Name</th>
+			      <th>Email</th>
+			      <th>Role</th>
+			      <th>Confirmed</th>
+			      <th>Clients</th>
+			      <th>Connects</th>
+			      <th>Available</th>
 			      <th>Plan</th>
-			      <th>Plan Status</th>
-			      <th class="border_right">Action</th>
 			    </tr>
 			  </thead>
-				<% @photographerPlan.each do |p_plan| %>
+				<% @photographers.each do |photographer| %>
 				  <tbody>
 				    <tr>
-				      <td><%= p_plan.id %></td>
-				      <td><%= p_plan.photographer.firstname %></td>
-				      <td><%= p_plan.photographer.lastname %></td>
-				      <td><%= p_plan.plan.name %></td>
-				      <td><%= p_plan.status %></td>
-				      <% if p_plan.pending? %>
-				      	<td>
-						      <%= link_to "Activate", admins_change_status_path(p_plan_id: p_plan.id), class: "btn btn-primary admin_plans_btn" %>				      		
-				      	</td>
-					    <% else %>
-					    	<td>
-						    	<%= link_to "Deactivate", admins_change_status_path(p_plan_id: p_plan.id), class: "btn btn-primary admin_plans_btn "%>					    		
-					    	</td>
-					    <% end %>
+				      <td><%= photographer.id %></td>
+				      <td><%= photographer.firstname %></td>
+				      <td><%= photographer.lastname %></td>
+				      <td><%= photographer.email %></td>
+				      <td><%= photographer.role_type %></td>
+				      <td><%= photographer.confirmed? %></td>
+				      <td><%= photographer.clients.count %></td>
+				      <td><%= photographer.total_connects %></td>
+				      <td><%= photographer.used_connects %></td>
+				      <td><%= check_p_plan_type(photographer) %></td>
 				    </tr>
 				  </tbody>
 		  	<% end %>
@@ -41,4 +41,12 @@
 			<h3>No Photographer Plans Found</h3>
 		<% end %>
 	</div>
+</div>
+<div class="button-container">
+	<div class="button-header">
+		<label>Photographer Type</label>
+	</div>
+	<button class="btn btn-primary Executive btn_setting">Executive</button>	
+	<button class="btn btn-primary Premium btn_setting">Premium</button>
+	<button class="btn btn-primary Standard btn_setting">Standard</button>	
 </div>

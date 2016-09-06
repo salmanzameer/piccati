@@ -1,0 +1,45 @@
+<div class="container">
+	<center>
+		<h1 class="container_heading">Listing All Clients</h1>		
+	</center>
+	<div class="admin_photgraphers_container">
+		<% if @clients.present? %>
+			
+			<table class="table table-striped table-bordered">
+			  <thead>
+			    <tr>
+			      <th>ID</th>
+			      <th>First Name</th>
+			      <th>Last Name</th>
+			      <th>Email</th>
+			      <th>Contact</th>
+			      <th>Confirmed</th>
+			      <th>Photographers</th>
+			    </tr>
+			  </thead>
+				<% @clients.each do |client| %>
+				  <tbody>
+				    <tr>
+				      <td><%= client.id %></td>
+				      <td><%= client.firstname %></td>
+				      <td><%= client.lastname %></td>
+				      <td><%= client.email %></td>
+				      <td><%= client.contnumber %></td>
+				      <td><%= client.confirmed? %></td>
+				      <td><%= client.photographers.count %></td>
+				    </tr>
+				  </tbody>
+		  	<% end %>
+			</table>					
+		<% else %>
+			<h3>No Clients Found</h3>
+		<% end %>
+	</div>
+</div>
+<div class="button-container">
+	<div class="button-header">
+		<label>Client Type</label>
+	</div>
+	<button class="btn btn-primary free btn_setting">Not Connected</button>	
+	<button class="btn btn-primary connected btn_setting">Connected</button>
+</div>
