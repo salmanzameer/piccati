@@ -24,7 +24,7 @@
 				      <td><%= p_plan.photographer.lastname %></td>
 				      <td><%= p_plan.plan.name %></td>
 				      <td><%= p_plan.status %></td>
-				      <% if p_plan.status == "pending" %>
+				      <% if p_plan.pending? %>
 				      	<td>
 						      <%= link_to "Activate", admins_change_status_path(p_plan_id: p_plan.id), class: "btn btn-primary admin_plans_btn" %>				      		
 				      	</td>

@@ -79,9 +79,10 @@ module Customer
     end
 
     desc "Get images of photographers liked followed by client (feed)"
+    
     params do
       requires :authentication_token, type: String
-      requires :user_id,            type: String
+      requires :user_id,              type: String
     end
 
     get "/feed", rabl: "v1/customer/get_client_feed" do
@@ -114,8 +115,8 @@ module Customer
         throw :error, status: 404, message: "Requester not found!"
       end
 
-      search = params[:search_string].downcase
-      @photographers = Photographer.where("(firstname LIKE ? OR lastname LIKE ?) AND confirmed_at IS NOT NULL", "%#{search}%", "%#{search}%")
+      search = params[:search_string]
+      @photographers = Photographer.where("(firstname ILIKE ? OR lastname ILIKE ?) AND confirmed_at IS NOT NULL", "%#{search}%", "%#{search}%")
     end
 
     desc "Get images with likes greater than 1000 (collection feed)"

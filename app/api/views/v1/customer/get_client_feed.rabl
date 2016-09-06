@@ -6,6 +6,7 @@ child @activities , object_root: false do
     attributes :id, :title, :firstname, :lastname, :created_at
     node(:profile_image) { |owner| owner.avatar.url  }
   end
+  
   child :trackable, if: lambda { |activity| activity.trackable_type == "Image" }  do
     node(:image_id) { |trackable| trackable.id }
     node(:image_url) { |trackable| trackable.image.url }
@@ -25,7 +26,7 @@ child @activities , object_root: false do
 
   child :trackable, if: lambda { |activity| activity.trackable_type == "Photographer" }  do
   end
-
+  
   node(:activity) { |activity| activity.key }
 end
 

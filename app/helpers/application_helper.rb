@@ -8,6 +8,14 @@ module ApplicationHelper
     event.images.where(is_liked: true)
   end
 
+  def any_pending_plan?(type)
+    if current_photographer.photographer_plans.pending_plan?
+      "#"
+    else
+      plan_update_path(plan_type: type)
+    end
+  end
+
   def default_url
 		if photographer_signed_in?
 			photographer_path(current_photographer)
