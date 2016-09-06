@@ -1512,7 +1512,7 @@ border-radius: 0px;
 {
   width: 100%;
 }
-.btn-basic-pkg
+.btn-standard-pkg
 {
   background-color: #82bad6;
   border: none;
@@ -1525,7 +1525,7 @@ border-radius: 0px;
   cursor: pointer;
   width: 80%;
 }
-.btn-stadard-pkg
+.btn-executive-pkg
 {
   background-color: #67c26d;
   border: none;
@@ -1538,7 +1538,7 @@ border-radius: 0px;
   cursor: pointer;
   width: 80%;
 }
-.btn-prem-pkg
+.btn-premium-pkg
 {
   background-color: #d2cb5f;
   border: none;

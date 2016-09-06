@@ -44,7 +44,7 @@ class EventsController < ApplicationController
 
   def create
     create_event
-    @events  = @client.events
+    @events  = @client.events.where(photographer_id: current_photographer.id)
     @package = current_photographer.photographer_clients.where(client_id: @client.id, active: true).first
     return render partial: "clients/events", locals: { events: @events, client: @client }
   end
