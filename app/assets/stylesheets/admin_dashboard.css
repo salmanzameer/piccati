@@ -101,3 +101,11 @@
 .plan_form_field {
   border: 1px solid #dcdcdc !important;
 }
+
+.user-info small {
+    display: inline-block;
+}
+
+.user-info {
+    font-weight: bolder;
+} 
