@@ -30,7 +30,7 @@
                   <%= select_tag "Clients", options_from_collection_for_select(@clients, :id, :firstname), id: "select2-client-id", class: "first-field name-field zero-border full-width-show" %> 
                 </div>
                 <div class="">
-                  <%= link_to "Connect Client", "#", class: "button button4", id: "connect-client-id" %>
+                  <%= link_to "Connect Client", "#", class: "button button4 connect_client_link", id: "" %>
                 </div>
               </fieldset>
             </div>
@@ -47,10 +47,15 @@
         return 'No Match Found!';
       }
     });
+    $('#select2-client-id').on("select2-selecting", function(e) { 
+      $(".connect_client_link").attr("id", "connect-client-id");
+    });
+    
     if ('<%= params[:client_id].to_i %>' == 0) {
       $(".select2-chosen").text("Select a Client"); 
     }else{
-      $('#select2-client-id').select2().select2("val", '<%= params[:client_id] %>');
-    } 
+      $('#select2-client-id').select2("val", '<%= params[:client_id] %>');
+      $(".connect_client_link").attr("id", "connect-client-id");
+    }
   });
 </script>
