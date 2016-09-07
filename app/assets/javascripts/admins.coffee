@@ -6,20 +6,21 @@ $ ->
 	$('#checkAll').change ->
 	  $('input:checkbox').prop 'checked', $(this).prop('checked')
 
-	$('.btn_ajax_1').click (e) ->
+	$('#types').change (e) ->
 		e.preventDefault()
 		$.ajax
 			url: '/admins/show_all_photographers'
 			type: 'GET'
-			data: {confirmed: 'true'}
+			data: {plan_type: $('#types :selected ').text() }
 			success: (data) ->
-				$('.no-skin').html(data)
+				$('.table-container').html($(data).find('.photographers_details'))
 
-	$('.btn_ajax_2').click (e) ->
+	$('#client_type').change (e) ->
 		e.preventDefault()
 		$.ajax
-			url: '/admins/show_all_photographers'
+			url: '/admins/show_all_clients'
 			type: 'GET'
-			data: {confirmed: 'false'}
+			data: {client_type: $('#client_type :selected ').text() }
 			success: (data) ->
-				$('.no-skin').html(data)
+				$('.table-container').html($(data).find('.clients_details'))
+				

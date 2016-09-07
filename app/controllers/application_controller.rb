@@ -53,7 +53,7 @@ class ApplicationController < ActionController::Base
         if (remaining_days <= 0)
           redirect_to expires_path
         end
-      elsif current_photographer.expired_at < Date.today
+      elsif !current_photographer.photographer_plans.active_plan?
         redirect_to expires_path
       end
     end

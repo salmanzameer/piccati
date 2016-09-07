@@ -11,6 +11,8 @@ class AdminsController < ApplicationController
   end
 
   def dashboard
+    @clients = Client.count
+    @photographers = Photographer.count
   end
 
   def destroy_plan
@@ -19,11 +21,21 @@ class AdminsController < ApplicationController
   end
 
   def show_all_plans
-    @plans = Plan.all.order(created_at: 'DESC')    
+    @plans = Plan.all.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)    
   end
 
   def new_plan
     @plan = Plan.new(plan_params)
+  end
+
+  def edit_plan
+    @plan = Plan.find(params[:plan_id])
+  end
+
+  def update_plan
+    @plan = Plan.find(params[:plan][:plan_id])
+    @plan.update_attributes(name: params[:plan][:name], storage: params[:plan][:storage], connects: params[:plan][:connects])
+    redirect_to admins_show_all_plans_path
   end
 
   def create_plan
@@ -32,34 +44,19 @@ class AdminsController < ApplicationController
   end
 
   def change_status
-    @p_plan = PhotographerPlan.find(params[:p_plan_id])
-    # Pending => 2
-    # Active => 1
-    # Expired => 0
-    if @p_plan.status == "2"
-      @p_plan.update(status: "1")
-    elsif @p_plan.status == "1"
-      @p_plan.update(status: "2")
+    photographer_plan = PhotographerPlan.find(params[:p_plan_id])
+    if photographer_plan.pending?
+      photographer_plan.update(status: PhotographerPlan::Status::ACTIVE)
+      photographer_plan.photographer.update(expired_at: DateTime.now + 1.year)
     else
-      @p_plan.update(status: "2")
+      photographer_plan.update(status: PhotographerPlan::Status::EXPIRED)
     end
-    redirect_to admins_show_all_photographers_path  
+    
+    redirect_to admins_show_all_photographerplans_path  
   end
 
-  def show_all_photographer_plans
-    @photographerPlan = PhotographerPlan.all.order(created_at: 'DESC')
-  end
-
-  def show_all_photographers
-    if request.xhr?
-      if params[:confirmed] == "true"
-        @photographers = Photographer.where.not(confirmed_at: nil).order(created_at: 'DESC')
-      elsif params[:confirmed] == 'false'
-        @photographers = Photographer.where(confirmed_at: nil).order(created_at: 'DESC')        
-      end
-    else
-      @photographers = Photographer.all.order(created_at: 'DESC')      
-    end
+  def show_all_photographerplans
+    @photographerPlans = PhotographerPlan.all.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
   end
 
   def update_all_images
@@ -72,11 +69,31 @@ class AdminsController < ApplicationController
   def album_images
     album_id = params[:album_id]
     @album = Album.find(album_id)
-    # @album_images = Album.find(album_id).images.order(created_at: 'DESC')
   end
 
   def show_all_albums
-    @albums = Album.all.order(created_at: 'DESC')
+    @albums = Album.all.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def show_all_clients
+    if request.xhr?
+      #binding.pry
+      if params[:client_type] == "Connected"
+        @clients = Client.includes(:photographer_clients).where( photographer_clients: {is_connected: true} ).order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+      elsif params[:client_type] == "Not Connected"
+        @clients = Client.includes(:photographer_clients).where( photographer_clients: {is_connected: false} ).order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+      end
+    else
+      @clients = Client.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)    
+    end 
+  end
+
+  def show_all_photographers 
+    if request.xhr?
+      @photographers = Photographer.all.where(plan_type: params[:plan_type]).order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)    
+    else
+      @photographers = Photographer.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+    end
   end
 
   private 
@@ -92,4 +109,5 @@ class AdminsController < ApplicationController
     def plan_params
       #params.require(:plan).permit(:name, :connects, :storage)
     end
+
 end
