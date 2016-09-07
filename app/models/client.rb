@@ -58,6 +58,13 @@ class Client < ActiveRecord::Base
     end
   end
 
+  def get_event_images
+    Image.joins("inner join events on images.imageable_id = events.id")
+    .joins("inner join clients on clients.id = events.client_id")
+    .select("images.*")
+    .where("clients.id = #{id} AND images.imageable_type = 'Event'")
+  end
+
   def is_connected?(current_photographer)
     photographer_clients.where(photographer_id: current_photographer.id).first.is_connected
   end
