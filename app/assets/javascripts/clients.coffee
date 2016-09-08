@@ -122,19 +122,18 @@ $ ->
 		    $('.searchbox-icon').css 'display', 'block'
 		    submitIcon.click()
 		  return
-	$(document).on 'keyup', '.search_client_email', (e) ->
-		$.ajax
-			type: "GET"
-			url: "/search_clients"
-			data: { email:  $(this).val() }
-			success: (data) ->
-				$(".searched_email").html(data)
-				$(".searched_email").show()
-				$(".error-p-tag").hide()
+	# $(document).on 'keyup', '.search_client_email', (e) ->
+	# 	$.ajax
+	# 		type: "GET"
+	# 		url: "/search_clients"
+	# 		data: { email:  $(this).val() }
+	# 		success: (data) ->
+	# 			$(".searched_email").html(data)
+	# 			$(".searched_email").show()
+	# 			$(".error-p-tag").hide()
 
 	$(document).on 'focusout', '.search_client_email', (e) ->
 		e.preventDefault()
-		$(".searched_email").hide()
 		$.ajax
 			type: "GET"
 			url:  "/clients/search_client_fields"
