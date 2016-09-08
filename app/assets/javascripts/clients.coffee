@@ -3,6 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+	$(document).on 'click', '.submit', (e) ->
+		console.log("submit clicked")
+		if $('.message').length > 0
+			$(this).attr 'disabled', false
+		else
+			$(this).attr 'disabled', true
+
 	$(document).on 'click', '.event-submit-on-calendar, .connect-with-client, .update-event, .submit-event', (e) ->
 		$('.connect-client-form, #add-event-form, #update-event-model, #add-calender-event-model').find('input').filter(->
 	  	if $(this).val() == ''
@@ -20,6 +27,11 @@ $ ->
 
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()
+		console.log("clicked event create")
+		if $('.message').length > 0
+			$('.submit-event').attr 'disabled', false
+		else
+			$('.submit-event').attr 'disabled', true
 		_form = $(this).closest("form")
 		_this = $(this)
 		id = "#"+$(_form).attr("id")
