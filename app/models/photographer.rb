@@ -1,5 +1,6 @@
 class Photographer < ActiveRecord::Base
   include PublicActivity::Common
+  after_create :set_default_plan
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_save :ensure_authentication_token
@@ -89,8 +90,15 @@ class Photographer < ActiveRecord::Base
     self.role_type = "Studio"
   end
 
+  def set_default_plan
+    @plan = Plan.find_by_name "Default"
+    self.photographer_plans.create(status: PhotographerPlan::Status::PENDING, expired_at: DateTime.now + 1.year, plan_id: @plan.id)
+    self.update(plan_type: @plan.name)
+  end
+
   def memory_available?(size)
-    ((memory_consumed + size.to_f)/(1024*1024)) <= photographer_plans.active_plan.storage
+    memory = photographer_plans.active_plan? ? photographer_plans.active_plan.storage : 5
+    ((memory_consumed + size.to_f)/(1024*1024)) <= memory
   end
 
   def memory_refactor(size)
