@@ -47,6 +47,10 @@ class Image < ActiveRecord::Base
     image.url(:medium)
   end
 
+  def is_approved?
+    status == 1
+  end
+  
   def name
     File.basename(image_file_name,File.extname(image_file_name))
   end

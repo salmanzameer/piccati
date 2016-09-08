@@ -170,6 +170,13 @@ $ ->
     e.preventDefault()
     $('#show-galary').lightGallery();
 
+  $(document).on "click", ".share_url_client", (e) ->
+    e.preventDefault()
+    $.ajax
+      type: "POST"
+      url:  $(this).attr("href")
+    success: (data) ->
+
   $('.disable-gallery').click (e) ->
     e.preventDefault()
     $('#show-galary').data('lightGallery').destroy(true);

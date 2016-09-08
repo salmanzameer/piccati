@@ -1,3 +1,30 @@
+h1 {
+  font-family: initial !important;
+}
+.navbar-default {
+    background-color: #003366 !important;
+    border-color: #003366 !important;
+}
+
+.ace-nav>li.light-blue>a {
+  background-color: #003366;
+}
+.ace-nav>li.light-blue>a:focus, .ace-nav>li.light-blue>a:hover, .ace-nav>li.open.light-blue>a {
+  background-color: #003366;
+}
+
+.dropdown, .dropup {
+  position: absolute !important; 
+  left: 57.3em;
+  top: 4.9em;
+}
+
+button.btn:active {
+/*  color: #003366 !important;
+*/  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 .ace-save-state{
   padding-right: 0px;
   height: 27px;  
@@ -67,6 +94,19 @@
   width: 100%;
 }
 
+.photographers_container {
+  position: absolute;
+  left: 19em;  
+}
+.plans_container {
+  position: absolute;
+  left: 24em;    
+}
+
+.admin_clients_container {
+  position: absolute;
+  left: 24em;      
+}
 .admin_photgraphers_container {
   position: absolute;
   left: 28em;  
@@ -77,7 +117,7 @@
   line-height: 8px !important; 
 }
 .container_heading {
-  margin-left: 4em;
+  margin-left: 3em;
 }
 .border_right {
   border-right-width: 0px !important;
@@ -95,9 +135,105 @@
 }
 
 .btn_setting {
-  background-color: none !important;
+/*  background-color: none !important;*/
+  height: 23px !important;
+  line-height: 9px !important;
+}
+
+.btn_ajax_1 {
+  height: 28px !important;
+  line-height: 1px !important;
+  left: 64em;
+  bottom: 1em;
+  position: absolute;
+}
+.btn_ajax_1:active {
+  top: 26px !important; 
+}
+.btn_ajax_2:active {
+  top: 26px !important; 
+}
+
+.btn_ajax_2 {
+  height: 28px !important;
+  line-height: 1px !important;
+  left: 54em;
+  bottom: 1em;
+  position: absolute;
 }
 
 .plan_form_field {
   border: 1px solid #dcdcdc !important;
 }
+
+.photographers_container {
+  left: 17em;
+  top: 6em;
+}
+
+.button-container {
+    left: 72.8em;
+    position: absolute;
+    top: 1.9em;
+}
+
+.sidebar_settings {
+  overflow: hidden;
+}
+
+.admin_logo_text {
+  position: absolute;left: 3em;top: 0.8em;
+}
+
+.edit_plan {
+  position: absolute;
+  left: 37em;
+  top: 9em;
+}
+
+.edit_heading {
+  position: absolute;left: 15em;
+}
+
+.dropdown_settings {
+  height: 23px !important;
+  line-height: 0px !important;
+  background-color: #003366 !important;
+}
+
+.clients-button-container {
+  left: 59.6em;
+  position: absolute;
+  top: 0.9em;
+}
+
+.bigger-120 {
+  margin-right: 13em;
+}
+.admin_header_image {
+  position: absolute;height: 35px;padding-bottom: 9px;
+}
+
+.select_admin {
+  height: 23px !important;
+  padding: 0px 6px !important;
+}
+
+.admin_dashboard_section {
+  position: absolute;
+  left: 31em;
+  top: 7em;  
+}
+
+.admin_dashboard_settings {
+  position: absolute;
+  left: 24em;  
+}
+
+.user-info small {
+    display: inline-block;
+}
+
+.user-info {
+    font-weight: bolder;
+} 

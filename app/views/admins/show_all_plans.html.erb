@@ -1,41 +1,45 @@
 <div class="container">
 	<center>
 		<h1 class="container_heading">Listing All Plans Below</h1>
+	</cente>
+	<center>
+		<div class="plans_container">
+			<% if @plans.present? %>
+				<center>
+					<table class="table table-striped table-bordered">
+					  <thead>
+					    <tr>
+					      <th>ID</th>
+					      <th>Name</th>
+					      <th>Storage</th>
+					      <th>Connects</th>
+					      <th>created_at</th>
+					      <th>updated_at</th>
+					      <th>Action</th>
+					    </tr>
+					  </thead>
+						<% @plans.each do |plan| %>
+					  <tbody>
+					    <tr>
+					      <td><%= plan.id %></td>
+					      <td><%= plan.name %></td>
+					      <td><%= plan.storage %></td>
+					      <td><%= plan.connects %></td>
+					      <td><%= time_ago_in_words plan.created_at %></td>
+					      <td><%= time_ago_in_words plan.updated_at %></td>
+					      <td>
+					      	<%= link_to "Delete",admins_destroy_plan_path(plan_id: plan.id), class: "btn btn-primary btn_setting" %>
+					      	<%= link_to "Edit",admins_edit_plan_path(plan_id: plan.id), class: "btn btn-primary btn_setting", method: :update %>
+					      </td>
+					    </tr>
+					  <% end %>
+					  </tbody>
+					</table>				
+				</center>					
+			<% else %>
+				<h3>No Plans Found</h3>
+			<% end %>
+		</div>		
 	</center>
-	<div class="admin_photgraphers_container">
-		<% if @plans.present? %>
-			<center>
-				<table class="table table-striped table-bordered">
-				  <thead>
-				    <tr>
-				      <th>ID</th>
-				      <th>Name</th>
-				      <th>Storage</th>
-				      <th>Connects</th>
-				      <th>created_at</th>
-				      <th>updated_at</th>
-				      <th>Action</th>
-				    </tr>
-				  </thead>
-					<% @plans.each do |plan| %>
-				  <tbody>
-				    <tr>
-				      <td><%= plan.id %></td>
-				      <td><%= plan.name %></td>
-				      <td><%= plan.storage %></td>
-				      <td><%= plan.connects %></td>
-				      <td><%= plan.created_at %></td>
-				      <td><%= plan.updated_at %></td>
-				      <td>
-				      	<%= link_to "Delete",admins_destroy_plan_path(plan_id: plan.id), class: "btn btn-primary btn_setting" %>
-				      </td>
-				    </tr>
-				  <% end %>
-				  </tbody>
-				</table>				
-			</center>					
-		<% else %>
-			<h3>No Plans Found</h3>
-		<% end %>
-	</div>
+
 </div>
