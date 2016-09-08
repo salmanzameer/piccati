@@ -12,18 +12,18 @@ class UserNotifier < ApplicationMailer
 		@name = name
 		@email = email
 		@message = message
-		mail( to: "info@piccati.com", subject: 'Contact Us')
+		mail( to: "Piccati <admin@piccati.com>", subject: 'Contact Us')
 	end
 
 	def connection_added(photographer,client)
 		@photographer = photographer
 		@client = client
-		mail( to: @client.email, subject: 'Connected with you.')
+		mail( to: @client.email, subject: "Photographer #{photographer.firstname} is now connected with you")
 	end
 
 	def plan_upgraded(photographer)
 		@photographer = photographer
-		mail( to: @photographer.email, subject: 'Upgrad Plan')
+		mail( to: @photographer.email, subject: 'Upgrade Plan')
 	end
 
 	def share_download_url(photographer, client, token)

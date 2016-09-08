@@ -21,18 +21,18 @@ class AlbumsController < ApplicationController
 
   def create
     @album = current_photographer.albums.create(album_params)
-    @album.create_activity(key: "shared an album", owner: current_photographer)
+    @album.create_activity(key: "Shared an album #{@album.name}", owner: current_photographer)
     redirect_to photographer_albums_path
   end
 
   def update
     @album.update(album_params)
-    @album.create_activity(key: "updated an album", owner: current_photographer)
+    @album.create_activity(key: "Updated an album #{@album.name}", owner: current_photographer)
     redirect_to photographer_album_path
   end
 
   def destroy
-    @album.create_activity(key: "deleted an album", owner: current_photographer)
+    @album.create_activity(key: "Deleted an album", owner: current_photographer)
     @album.destroy
     respond_to do |format|
       format.html { redirect_to photographer_albums_path, notice: 'Album was successfully destroyed.' }
