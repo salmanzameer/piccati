@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get  'admins/new'
   get  'admins/dashboard'
   get  'admins/show_all_albums'
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
   get  'admins/new_plan'
   post 'admins/create_plan'
   get  'admins/destroy_plan'
+  get  'admins/show_all_clients'
+  get  'admins/show_all_photographers'
 
   devise_for :clients, controllers: { invitations: 'invitations', sessions: 'sessions', registrations: 'registrations' }
 
