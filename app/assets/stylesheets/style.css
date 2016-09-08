@@ -3188,3 +3188,25 @@ transition-delay:.2s;
   font-size: 16px;
   line-height: 35px
 }
+
+.accept-setting
+{
+  position:absolute;
+  left: 17px;
+  top: 11px;
+}
+
+.terms-and-conditions-setting
+{
+  position:absolute;
+  left: 75px;
+  top: 11px;
+}
+
+.sign-up-checkbox
+{
+  float:left;
+  position:absolute;
+  margin: 16px 4px 0px 0px !important;
+  left: 0px;top: 5px;
+}
