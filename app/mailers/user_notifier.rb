@@ -25,4 +25,11 @@ class UserNotifier < ApplicationMailer
 		@photographer = photographer
 		mail( to: @photographer.email, subject: 'Upgrad Plan')
 	end
+
+	def share_download_url(photographer, client, token)
+		@photographer = photographer
+		@client = client
+		@token	= token
+		mail( to: @client.email, subject: 'Download images url')
+	end
 end

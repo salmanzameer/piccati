@@ -106,6 +106,14 @@ class ClientsController < ApplicationController
     @events = @client.events
   end
 
+  def share_image_url
+    connected_client = current_photographer.photographer_clients.where(client_id: params[:client_id]).is_connected?.first
+    token = SecureRandom.urlsafe_base64
+    connected_client.update_attribute('token', token)
+    UserNotifier.share_download_url(current_photographer, connected_client.client, token).deliver_now
+    flash[:notice] = "Email has been sent to client with download url"
+  end
+
   def event 
     @event = Event.find_by_id(params[:id])
     return render partial: "event", locals: { event: @event }
