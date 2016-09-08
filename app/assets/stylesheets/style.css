@@ -2567,6 +2567,7 @@ li.plupload_delete a
 {
   width: 80% !important;
   float: left;
+  outline: none;
 }
 
 .login-form label,.sign_up-form label
@@ -3218,4 +3219,9 @@ transition-delay:.2s;
   width: 335px !important;
   height: 166px;
   
+}
+
+.sign-up-pop-alignment
+{
+  padding-top: 1px;
 }
