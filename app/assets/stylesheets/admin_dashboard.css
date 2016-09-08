@@ -229,3 +229,11 @@ button.btn:active {
   position: absolute;
   left: 24em;  
 }
+
+.user-info small {
+    display: inline-block;
+}
+
+.user-info {
+    font-weight: bolder;
+} 

@@ -5,6 +5,13 @@
     </div>
     <div class="col-md-12 background-main-edit-profile center-align-content update-profile-field">
       <fieldset>
+        <div class="col-md-12">
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+              40% Profile Completion (success)
+            </div>
+          </div>
+        </div>
         <%= form_for(current_photographer, as: :photographer, url: registration_path(:photographer),validate: true, html: { multipart: true, class: "dropdown-edit form-edit-profile-view", id: "edit-photographer" }) do |f| %>
         <div class="col-md-6">
           <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], current_photographer.title ), {prompt: true  } , class: "form-control zero-border form-setting-forall", style:"height: 50px;")   %>
