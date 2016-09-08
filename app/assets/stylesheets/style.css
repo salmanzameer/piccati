@@ -787,7 +787,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
   color: #d74b4b;
 }
 
-#edit_pkg_popup, #add_pkg_popup, #abc2, #abc, #edit_client_popup, #update-event-popup, #add_client_popup, #add_event_popup, #add_calender_event_popup, #add_album_popup, #signup_buttons_popup {
+#edit_pkg_popup, #add_pkg_popup, #update_album_popup, #abc2, #abc, #edit_client_popup, #update-event-popup, #add_client_popup, #add_event_popup, #add_calender_event_popup, #add_album_popup, #signup_buttons_popup {
       width:100%;
       height:100%;
       top:0;
@@ -1512,7 +1512,7 @@ border-radius: 0px;
 {
   width: 100%;
 }
-.btn-basic-pkg
+.btn-standard-pkg
 {
   background-color: #82bad6;
   border: none;
@@ -1525,7 +1525,7 @@ border-radius: 0px;
   cursor: pointer;
   width: 80%;
 }
-.btn-stadard-pkg
+.btn-executive-pkg
 {
   background-color: #67c26d;
   border: none;
@@ -1538,7 +1538,7 @@ border-radius: 0px;
   cursor: pointer;
   width: 80%;
 }
-.btn-prem-pkg
+.btn-premium-pkg
 {
   background-color: #d2cb5f;
   border: none;

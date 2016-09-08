@@ -12,8 +12,7 @@
 
 			<div class="navbar-header pull-left">
 				<%= link_to admins_dashboard_path,class: "navbar-brand" do %>
-					<i class="fa fa-leaf"></i>
-					Piccati Admin
+						<%= image_tag "piccati-logo-white.svg",class: "admin_header_image" %>
 				<% end %>
 			</div>
 
@@ -278,8 +277,8 @@
 						<a data-toggle="dropdown" href="#" class="dropdown-toggle">
 						
 							<span class="user-info">
-								<small>Welcome,</small>
-								Jason
+								<small>Welcome <%= current_admin.name %></small>
+
 							</span>
 
 							<i class="ace-icon fa fa-caret-down"></i>
