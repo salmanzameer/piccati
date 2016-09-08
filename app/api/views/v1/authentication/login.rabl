@@ -1,7 +1,7 @@
 object false
 
 child @user => :user do
-	  attributes :id, :firstname, :email, :contnumber, :website, :authentication_token, :username, :lastname, :title
+	  attributes :id, :firstname, :email, :contnumber, :website, :authentication_token, :username, :lastname, :title, :terms_and_condition
     node(:url) { @user.avatar.url }
     if @user.class.name == "Client"
       node(:role_type) { "Client"  }

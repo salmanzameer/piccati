@@ -36,7 +36,7 @@
                     <div class="sign-up-popup" id="popupContact">
                       <%= image_tag ("close1.png"), class: "close cal-close", data: { id: "signup_buttons_popup" } %>
                       <div class="form-calandar-popup">
-                        <center><h2 class="form-calandar-popup-heading-top">Signup</h2></center>
+                        <center><h2 class="form-calandar-popup-heading-top">Confirm Delete</h2></center>
                         <p class="del-album-text-popup">Are you sure you want to delete?</p>
                         <%= link_to "Cancel", "#", class: "button button4 btn-album-popup-adj border-solid-form close-album-modal" %>
                         <%= link_to 'Delete', photographer_album_path(photographer_id: current_photographer.id, id: album.id), class: "button button4 btn-album-popup-adj border-solid-form", method: :delete %>
