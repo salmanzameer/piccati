@@ -2,17 +2,19 @@ Rails.application.routes.draw do
 
   get  'admins/new'
   get  'admins/dashboard'
-  get  'admins/show_all_albums'
+  get  'admins/albums', as: :admin_albums
   get  'admins/album_images'
   get  'admins/update_all_images'
-  get  'admins/show_all_plans'
-  get  'admins/show_all_photographers'
+  get  'admins/plans', as: :admin_plans
+  get  'admins/photographer_plans', as: :photographer_plans
+  post 'admins/edit_plan'
+  post 'admins/update_plan'
   get  'admins/change_status'
   get  'admins/new_plan'
   post 'admins/create_plan'
   get  'admins/destroy_plan'
-  get  'admins/show_all_clients'
-  get  'admins/show_all_photographers'
+  get  'admins/clients', as: :admin_client
+  get  'admins/photographers', as: :admin_photographer
 
   devise_for :clients, controllers: { invitations: 'invitations', sessions: 'sessions', registrations: 'registrations' }
 

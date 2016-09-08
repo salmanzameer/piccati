@@ -17,10 +17,10 @@ class AdminsController < ApplicationController
 
   def destroy_plan
     @plan = Plan.find(params[:plan_id]).destroy
-    redirect_to admins_show_all_plans_path  
+    redirect_to admin_plans_path  
   end
 
-  def show_all_plans
+  def plans
     @plans = Plan.all.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)    
   end
 
@@ -40,7 +40,7 @@ class AdminsController < ApplicationController
 
   def create_plan
     Plan.create(name: params[:plan][:name],storage: params[:plan][:storage], connects: params[:plan][:connects])
-    redirect_to admins_show_all_photographers_path
+    redirect_to admin_plans_path
   end
 
   def change_status
@@ -52,17 +52,17 @@ class AdminsController < ApplicationController
       photographer_plan.update(status: PhotographerPlan::Status::EXPIRED)
     end
     
-    redirect_to admins_show_all_photographerplans_path  
+    redirect_to photographer_plans_path  
   end
 
-  def show_all_photographerplans
+  def photographer_plans
     @photographerPlans = PhotographerPlan.all.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
   end
 
   def update_all_images
     album = Album.find(params[:album][:album_id])
     if album.update(image_param)
-      redirect_to admins_show_all_albums_path
+      redirect_to admin_albums_path
     end
   end
 
@@ -71,11 +71,11 @@ class AdminsController < ApplicationController
     @album = Album.find(album_id)
   end
 
-  def show_all_albums
+  def albums
     @albums = Album.all.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
   end
 
-  def show_all_clients
+  def clients
     if request.xhr?
       #binding.pry
       if params[:client_type] == "Connected"
@@ -88,7 +88,7 @@ class AdminsController < ApplicationController
     end 
   end
 
-  def show_all_photographers 
+  def photographers 
     if request.xhr?
       @photographers = Photographer.all.where(plan_type: params[:plan_type]).order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)    
     else

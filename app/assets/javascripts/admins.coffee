@@ -9,7 +9,7 @@ $ ->
 	$('#types').change (e) ->
 		e.preventDefault()
 		$.ajax
-			url: '/admins/show_all_photographers'
+			url: '/admins/photographers'
 			type: 'GET'
 			data: {plan_type: $('#types :selected ').text() }
 			success: (data) ->
@@ -18,7 +18,7 @@ $ ->
 	$('#client_type').change (e) ->
 		e.preventDefault()
 		$.ajax
-			url: '/admins/show_all_clients'
+			url: '/admins/clients'
 			type: 'GET'
 			data: {client_type: $('#client_type :selected ').text() }
 			success: (data) ->
