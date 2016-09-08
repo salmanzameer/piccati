@@ -89,6 +89,14 @@ class Photographer < ActiveRecord::Base
     self.role_type = "Studio"
   end
 
+  def memory_available?(size)
+    ((memory_consumed + size.to_f)/(1024*1024)) <= photographer_plans.active_plan.storage
+  end
+
+  def memory_refactor(size)
+    update_attributes(memory_consumed: (memory_consumed - size))
+  end
+
   class << self
     def current_photographer=(photographer)
       Thread.current[:current_photographer] = photographer
@@ -110,7 +118,7 @@ class Photographer < ActiveRecord::Base
       photographer.firstname = auth.info.name   
     end
   end
-  
+
   def self.new_with_session(params, session)
       super.tap do |photographer|
         if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]

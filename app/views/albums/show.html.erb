@@ -5,7 +5,8 @@
           <span class="album-text-align"><%= @album.name.titleize %></span>
           <span class="text-para">by <%= @album.photographer.firstname.titleize+" "+@album.photographer.lastname.titleize %>
             <span class="pull-right button-album-back-pictres">
-              <span><%= link_to "Back", photographer_albums_path(current_photographer), class: "add-album-setting-heading button-album-back-pictres" %></span>
+              <span class="button-album-back-pictres-dash">|
+              <%= link_to "Back", photographer_albums_path(current_photographer), class: "add-album-setting-heading button-album-back-pictres" %></span>
               <span class="button-album-back-pictres-dash">|</span>
                 <%= link_to "Edit Album", "#", class: "client_management_popup add-album-tag", data: { id: "update_album", controller: "albums", popup: "update_album_popup", album: @album.id } %>
               <span class="button-album-back-pictres-dash">|</span><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album.id), class: "add-album-tag" %>
@@ -25,7 +26,7 @@
                   <img style="width: 100%;" src="<%= img.image.url(:medium) %>" />
                   <div class="overlay">
                     <%= link_to 'Show', "#", style: "color: white;", class: "show-gallery info"%>
-                    <%= link_to 'Delete', photographer_album_image_destroy_path(photographer_id: current_photographer.id, album_id: @album.id, image_id: img.id), style: "color: white;", method: :delete, class: "info" %>
+                    <%= link_to 'Delete', photographer_album_image_destroy_path(photographer_id: current_photographer.id, album_id: @album.id, image_id: img.id), style: "color: white;", method: :delete, class: "disable-gallery info" %>
                   </div>
                 </div>
               </li>
@@ -39,7 +40,7 @@
           <span class="album-text-align"><%= @album.name.capitalize %></span>
           <span class="text-para">by <%= @album.photographer.fullname %><span class="pull-right button-album-back-pictres"><span><%= link_to "Back", photographer_albums_path(current_photographer), class: "add-album-setting-heading button-album-back-pictres" %></span><span class="button-album-back-pictres-dash">|
           </span>
-                <%= link_to "Edit Album", "#", class: "client_management_popup add-album-tag", data: { id: "update_album", controller: "albums", popup: "update_album_popup", album: @album.id } %>
+              <%= link_to "Edit Album", "#", class: "client_management_popup add-album-tag", data: { id: "update_album", controller: "albums", popup: "update_album_popup", album: @album.id } %>
               <span class="button-album-back-pictres-dash">|</span><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album.id), class: "add-album-tag" %></span></span>
         </div>
         <div class="col-md-12 album-text-align text-para"> 

@@ -176,3 +176,7 @@ $ ->
       type: "POST"
       url:  $(this).attr("href")
     success: (data) ->
+
+  $('.disable-gallery').click (e) ->
+    e.preventDefault()
+    $('#show-galary').data('lightGallery').destroy(true);

@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   before_filter :authenticate_photographer!
-   before_filter :trial_expired?
+  before_filter :trial_expired?
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -43,11 +43,17 @@ class AlbumsController < ApplicationController
   def public_image
     @page_name = "My Albums"
     @album = Album.find(params[:album_id])
-    @album.images.create(image: params[:file])     
+    @image = @album.images.new(image: params[:file])
+    if current_photographer.memory_available?(@image.image_file_size)
+      @image.save
+    else
+      flash[:notice] = 'You have not enough space.Please upgrade your plan.'
+    end
   end
 
   def image_destroy
     @image = Image.find(params[:image_id])
+    current_photographer.memory_refactor(@image.image_file_size)
     @image.destroy
     redirect_to photographer_album_path(photographer_id: params[:photographer_id], id: params[:id])
   end

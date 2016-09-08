@@ -50,16 +50,16 @@ class Image < ActiveRecord::Base
   def is_approved?
     status == 1
   end
-
+  
+  def name
+    File.basename(image_file_name,File.extname(image_file_name))
+  end
+    
   def after_upload
-    # if self.imageable_type == "Event"
-    #   photographer = self.imageable.client.photographer
-    # elsif self.imageable_type == "Album"
-    #   photographer = self.imageable.photographer
-    # end  
-    # old_memory = photographer.memory_consumed
-    # new_memory = self.image_file_size + old_memory
-    # photographer.update_attributes(memory_consumed: new_memory)
+    photographer = self.imageable.photographer
+    old_memory = photographer.memory_consumed
+    new_memory = self.image_file_size + old_memory
+    photographer.update_attributes(memory_consumed: new_memory)
   end
 
 end

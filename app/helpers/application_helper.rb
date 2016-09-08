@@ -8,11 +8,11 @@ module ApplicationHelper
     event.images.where(is_liked: true)
   end
 
-  def any_pending_plan?(type)
+  def any_pending_plan?(plan)
     if current_photographer.photographer_plans.pending_plan?
       "#"
     else
-      plan_update_path(plan_type: type)
+      plan_update_path(plan_id: plan)
     end
   end
 
