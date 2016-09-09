@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831132630) do
+ActiveRecord::Schema.define(version: 20160908104517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160831132630) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
@@ -113,6 +114,7 @@ ActiveRecord::Schema.define(version: 20160831132630) do
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
     t.text     "description"
+    t.boolean  "terms_and_condition"
   end
 
   add_index "clients", ["confirmation_token"], name: "index_clients_on_confirmation_token", unique: true, using: :btree
@@ -217,6 +219,7 @@ ActiveRecord::Schema.define(version: 20160831132630) do
     t.boolean  "active",          default: true
     t.boolean  "is_connected",    default: false
     t.integer  "package_id"
+    t.string   "token"
   end
 
   create_table "photographer_plans", force: :cascade do |t|
@@ -279,6 +282,7 @@ ActiveRecord::Schema.define(version: 20160831132630) do
     t.datetime "feature_image_updated_at"
     t.integer  "total_connects",              default: 1
     t.integer  "used_connects",               default: 0
+    t.boolean  "terms_and_condition"
   end
 
   add_index "photographers", ["confirmation_token"], name: "index_photographers_on_confirmation_token", unique: true, using: :btree
