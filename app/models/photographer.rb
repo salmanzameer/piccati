@@ -28,6 +28,7 @@ class Photographer < ActiveRecord::Base
   validates :password, presence: true, on: :create
   validates_confirmation_of :password, on: :create
 
+  ProfileContributions = {title: 10, firstname: 10, lastname: 10, email: 10, contactnumber: 10, package: 10, avatar: 20, feature_image: 20}
   if Rails.env.production?
     has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
     :default_url => "user-avatar.png",
@@ -93,12 +94,12 @@ class Photographer < ActiveRecord::Base
 
   def set_default_plan
     @plan = Plan.find_by_name "Default"
-    self.photographer_plans.create(status: PhotographerPlan::Status::PENDING, expired_at: DateTime.now + 1.year, plan_id: @plan.id)
-    self.update(plan_type: @plan.name)
+    self.photographer_plans.create(status: PhotographerPlan::Status::ACTIVE, expired_at: DateTime.now + 1.year, plan_id: @plan.id)
+    self.update(plan_type: @plan.name, expired_at: DateTime.now + 15.days)
   end
 
   def memory_available?(size)
-    memory = photographer_plans.active_plan? ? photographer_plans.active_plan.storage : 5
+    memory = photographer_plans.active_plan? ? photographer_plans.active.plan.storage : 5
     ((memory_consumed + size.to_f)/(1024*1024)) <= memory
   end
 

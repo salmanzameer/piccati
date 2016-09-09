@@ -1,5 +1,5 @@
 class PhotographerPlan < ActiveRecord::Base
-  scope :active_plan, -> { where(status: Status::ACTIVE).first.plan }
+  scope :active, -> { where(status: Status::ACTIVE).first }
   belongs_to :photographer
   belongs_to :plan
 
