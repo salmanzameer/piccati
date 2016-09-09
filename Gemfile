@@ -24,6 +24,7 @@ gem 'plupload-rails'
 gem 'paperclip', '~> 4.2'
 gem 'paperclip-watermark'
 gem 'client_side_validations'
+gem 'friendly_id'
 
 gem 'raygun4ruby'
 

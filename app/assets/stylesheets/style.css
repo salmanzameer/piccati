@@ -1865,7 +1865,8 @@ $file-upload-size: 200px;
 .profile-name-set
 {
   font-weight: normal;
-  margin-left: 5px;
+  margin-left: 2px;
+  margin-right: 3px;
 }
 
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {

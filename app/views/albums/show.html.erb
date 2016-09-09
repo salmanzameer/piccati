@@ -9,7 +9,7 @@
               <%= link_to "Back", photographer_albums_path(current_photographer), class: "add-album-setting-heading button-album-back-pictres" %></span>
               <span class="button-album-back-pictres-dash">|</span>
                 <%= link_to "Edit Album", "#", class: "client_management_popup add-album-tag", data: { id: "update_album", controller: "albums", popup: "update_album_popup", album: @album.id } %>
-              <span class="button-album-back-pictres-dash">|</span><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album.id), class: "add-album-tag" %>
+              <span class="button-album-back-pictres-dash">|</span><%= link_to 'Add Pictures', photographer_album_public_image_path(album_id: @album), class: "add-album-tag" %>
             </span>
           </span>
       	</div>

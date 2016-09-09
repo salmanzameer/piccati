@@ -1,5 +1,10 @@
 class Album < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
+
+
   include PublicActivity::Common
+  
   before_destroy :memory_refactor
   has_many :images, as: :imageable, dependent: :destroy
 	belongs_to :photographer

@@ -1,4 +1,8 @@
 class Photographer < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :firstname, use: [:slugged, :finders]
+
+
   include PublicActivity::Common
   after_create :set_default_plan
   # Include default devise modules. Others available are:
