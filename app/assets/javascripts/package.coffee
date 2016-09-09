@@ -27,6 +27,9 @@ $ ->
         url:  _form.attr("action")
         success: (data) ->
           $(".package-list").html(data)
+          progress = $('.add-package-setting').data('progress')+10
+          $('.c100').addClass("p" + progress)
+          $('.progress-text').text(progress+"%")
           $("#add_pkg_popup, #edit_pkg_popup").hide()
           if id == "#edit-photographer-package-setting"
             $('.show-package[data-id='+"#{package_id}"+']:first').click()

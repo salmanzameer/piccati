@@ -19,6 +19,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
+    if current_photographer
+      if (current_photographer.photographer_plans.active_plan? && remaining_days <= 0)
+        current_photographer.photographer_plans.active.update_attribute("status", PhotographerPlan::Status::EXPIRED)
+      end
+    end
     if resource.class.name == "Client"
       download_app_path
     elsif resource.class.name == "Admin"
@@ -44,16 +49,12 @@ class ApplicationController < ActionController::Base
   end
 
   def remaining_days
-    ((current_photographer.created_at + 15.days).to_date - Date.today).round
+    ((current_photographer.expired_at).to_date - Date.today).round
   end
 
   def trial_expired?
     if current_photographer
-      if true #current_photographer.expired_at.blank?
-        if true#(remaining_days <= 0)
-          redirect_to expires_path
-        end
-      elsif !current_photographer.photographer_plans.active_plan?
+      if (remaining_days <= 0) || !current_photographer.photographer_plans.active_plan?
         redirect_to expires_path
       end
     end

@@ -25,8 +25,8 @@
            <span class="profile-name-set"><%= current_photographer.firstname.titleize %></span><span class="caret"></span></a>
             <ul class="dropdown-menu ul-padding dropdown-menu-right main-profile-ul-menu">
               <li>
-                <div class="c100 p40 small green">
-                    <span>40%</span>
+                <div class="c100 p<%= profile_completeness %> small green">
+                    <span class="progress-text"><%= profile_completeness %>%</span>
                     <div class="slice">
                         <div class="bar"></div>
                         <div class="fill"></div>

@@ -1,11 +1,10 @@
 class HomeController < ApplicationController
 	
 	def expires  
-    @plans = Plan.all
-    # binding.pry
-		# if current_photographer.photographer_plans.active_plan?
-		# 	redirect_to photographer_path(current_photographer)
-		# end
+    @plans = Plan.where("name not in (?)", ["Default"])
+		if current_photographer.photographer_plans.active_plan?
+			redirect_to photographer_path(current_photographer)
+		end
 	end
 
 	def download
