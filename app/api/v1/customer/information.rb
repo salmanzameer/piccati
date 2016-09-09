@@ -134,7 +134,7 @@ module Customer
         throw :error, status: 404, message: "Requester not found!"
       end
 
-      @images = Image.where(imageable_type: "Album").where("likes_count > 100").order("likes_count DESC").paginate( page: params[:page], per_page: 10 )
+      @images = Image.where(imageable_type: "Album").order("likes_count DESC").paginate( page: params[:page], per_page: 10 )
     end
 
     desc "Get images of photographers liked followed by client (feed)"
