@@ -35,12 +35,11 @@ module Customer
       unless @image
         throw :error, status: 404, message: "Image not found!"
       end
-
       @like = @image.likes.where({client_id: @client.id}).first_or_initialize(client_id: @client.id)
       @like.update(like: params[:like], unlike: !params[:like])
 
       message = @like.like ? "Liked" : "Unliked"
-      @image.create_activity(key: "#{message} an image", owner: @client, recipient: @image.imageable.photographer)
+      @image.create_activity(key: "#{message} an image of #{@image.imageable.name}", owner: @client, recipient: @image.imageable.photographer)
 
     end
 
