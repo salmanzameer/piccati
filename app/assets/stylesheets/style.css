@@ -1077,7 +1077,7 @@ table.head tr td {
 
 .event-btn
 {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 
@@ -2567,6 +2567,7 @@ li.plupload_delete a
 {
   width: 80% !important;
   float: left;
+  outline: none;
 }
 
 .login-form label,.sign_up-form label
@@ -3209,4 +3210,39 @@ transition-delay:.2s;
   position:absolute;
   margin: 16px 4px 0px 0px !important;
   left: 0px;top: 5px;
+}
+.logout-profile-btn
+{
+  min-height: 50px;
+  display: flex !important;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: white !important;
+  background-color: #003366;
+}
+
+.divider-setting
+{
+  margin-bottom: 0px !important;
+}
+
+.profile-info-menu-ul
+{
+  height: 90px;
+  margin-top: 15px;
+  color:black;
+}
+
+.main-profile-ul-menu
+{
+  margin-left: 15px;
+  width: 335px !important;
+  height: 166px;
+  
+}
+
+.sign-up-pop-alignment
+{
+  padding-top: 1px;
 }
