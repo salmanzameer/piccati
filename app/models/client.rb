@@ -20,7 +20,7 @@ class Client < ActiveRecord::Base
   validates :lastname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
   validates :contnumber, presence: true, format: { with: /\A^(?:00|\+|0)?[1-9][[0-9]+[ \( \) \-]]*$\z/,  message: 'invalid'}
   validates :email, presence: true
-  validates :terms_and_condition, presence: true
+  validates :terms_and_condition, presence: true, on: :create
   validates :password, presence: true
   validates_confirmation_of :password
 
