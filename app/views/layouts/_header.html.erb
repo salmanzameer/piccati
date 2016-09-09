@@ -23,18 +23,19 @@
             </li>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;"><%= image_tag (current_photographer.avatar), class: "img-circle", style: "width:30px;height:30px;" %>
            <span class="profile-name-set"><%= current_photographer.firstname.titleize %></span><span class="caret"></span></a>
-            <ul class="dropdown-menu ul-padding" style="margin-left: 15px;width: 180px;">
-              <li style="height: 30px;">
-                <div class="c100 p12 small green">
-                    <span>12%</span>
+            <ul class="dropdown-menu ul-padding dropdown-menu-right main-profile-ul-menu">
+              <li>
+                <div class="c100 p40 small green">
+                    <span>40%</span>
                     <div class="slice">
                         <div class="bar"></div>
                         <div class="fill"></div>
                     </div>
                 </div>
               </li>
-              <li class="name-prof1" style="height: 60px;"><%= link_to('My Profile', profile_photographer_path(current_photographer), class: "logout-btn-prof") %></li>
-              <li><%= link_to('Logout', destroy_photographer_session_path, :method => :delete) %></li>
+              <div class="profile-info-menu-ul"><div><%= current_photographer.firstname.titleize %><%= current_photographer.lastname.titleize %></div><div><%= current_photographer.email %></div><div><%= link_to('My Profile', profile_photographer_path(current_photographer)) %></div></div>
+              <li class="divider divider-setting"></li>
+              <li><%= link_to('Logout', destroy_photographer_session_path, :method => :delete ,class:"logout-profile-btn") %></li>
             </ul>
           </li>
           <% elsif current_client %>

@@ -49,6 +49,12 @@
                   </div>
                   <div class="form-group input-field-setting">
                    <div class="col-sm-12 zero-padding">
+                    <%= f.check_box :terms_and_condition, class:"sign-up-checkbox" %>
+                    <font class="signup-accept accept-setting">Accept</font> <%= link_to "terms and conditions.", "#", class: "signup-terms-link signup_buttons_popup terms-and-conditions-setting"%>
+                   </div>
+                  </div>
+                  <div class="form-group input-field-setting">
+                   <div class="col-sm-12 zero-padding">
                     <button type="submit" class="button button4 mB70 form-sign-up-input-field-btn"><i class="fa fa-plus-circle btn-sign-up-registration"></i>Submit</button>
                    </div>
                   </div>
@@ -59,4 +65,13 @@
       <% end %>
       </div>
     </div>
+</div>
+
+
+<div id="signup_buttons_popup" style="z-index: 9999; display: none">
+  <div class="sign-up-popup" id="popupContact">
+    <%= image_tag ("close1.png"), class: "close cal-close", data: { id: "signup_buttons_popup" } %>
+    <center><h2 class="form-calandar-popup-heading-top">Terms & Conditions</h2></center>
+    <div class="terms-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas placerat urna lobortis, interdum risus sed, pharetra arcu. Curabitur luctus suscipit est a auctor. Sed eget maximus nibh, in rutrum sem. Etiam et consequat nulla. Ut dui lorem, tempus id orci ornare, ultrices mollis sapien. Praesent tristique non nunc non pharetra. Maecenas feugiat augue sit amet neque pharetra posuere. Mauris leo nunc, sodales quis malesuada eget, vulputate ac magna. Nulla eu faucibus neque. Morbi imperdiet sodales ex, ac luctus felis mollis vitae. Fusce ut libero pulvinar, gravida est at, scelerisque massa.</div>
+  </div>
 </div>
