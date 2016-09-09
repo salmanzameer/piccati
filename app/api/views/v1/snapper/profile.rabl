@@ -10,21 +10,23 @@ child @user, object_root: false do
     
     node(:rating) { |user| user.rating }
     node(:badge)  { |user| user.badge }
-	  
+    
     child :albums, object_root: false do
-			attributes :id, :name, :description
-			
-      child :images, object_root: false do
-        node(:image_id) { |img| img.id }
-				node(:url)      { |img| img.image.url }
-        node(:is_liked) { |img| img.likes.is_liked?(@requester)}
-			end
-		end
+      attributes :id, :name, :description
+      
+      node(:images) do |album|
+        album.images.map do |node|
+          if node.is_approved?
+            partial('v1/snapper/images', object: node)
+          end
+        end
+      end      
+    end
     node(:number_of_clients) { |photographer| photographer.clients.count }
     node(:number_of_follows) { |photographer| photographer.followers_count }
     node(:number_of_likes)   { |photographer| photographer.images_likes_count }
     node(:is_connected)      { |photographer| photographer.photographer_clients.client_connected?(@requester) }
-	end
+  end
 end
 
 node(:status) { 1 }

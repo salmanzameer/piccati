@@ -1,5 +1,6 @@
 class Photographer < ActiveRecord::Base
   include PublicActivity::Common
+  after_create :set_default_plan
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_save :ensure_authentication_token
@@ -22,6 +23,7 @@ class Photographer < ActiveRecord::Base
   validates :firstname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
   #validates :lastname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
   validates :contnumber, presence: true, format: { with: /\A^(?:00|\+|0)?[1-9][[0-9]+[ \( \) \-]]*$\z/,  message: 'invalid contact'}
+  validates :terms_and_condition, presence: true
   validates :email, presence: true
   validates :password, presence: true, on: :create
   validates_confirmation_of :password, on: :create
@@ -89,6 +91,21 @@ class Photographer < ActiveRecord::Base
     self.role_type = "Studio"
   end
 
+  def set_default_plan
+    @plan = Plan.find_by_name "Default"
+    self.photographer_plans.create(status: PhotographerPlan::Status::PENDING, expired_at: DateTime.now + 1.year, plan_id: @plan.id)
+    self.update(plan_type: @plan.name)
+  end
+
+  def memory_available?(size)
+    memory = photographer_plans.active_plan? ? photographer_plans.active_plan.storage : 5
+    ((memory_consumed + size.to_f)/(1024*1024)) <= memory
+  end
+
+  def memory_refactor(size)
+    update_attributes(memory_consumed: (memory_consumed - size))
+  end
+
   class << self
     def current_photographer=(photographer)
       Thread.current[:current_photographer] = photographer
@@ -110,7 +127,7 @@ class Photographer < ActiveRecord::Base
       photographer.firstname = auth.info.name   
     end
   end
-  
+
   def self.new_with_session(params, session)
       super.tap do |photographer|
         if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]

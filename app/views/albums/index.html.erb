@@ -21,13 +21,29 @@
           <ul style="list-style:none;" class="ul-li">
             <% @albums.each do |album| %>
               <li style="display: inline;margin-bottom: 35px; margin-right: 35px;" class="col-md-2 zero-padding cursor-pointer">
-                <% if album.images.present? %>
-                  <%= link_to image_tag(album.images.first.image.url(:medium), style: "width: 100%;"), photographer_album_path(current_photographer, album) %>
-                <% else %>
-                  <%= link_to image_tag("default-album.png", width: 183, height: 183), photographer_album_path(current_photographer, album) %>
-                <% end %>
-                <span class="text-alignment-heading-album" style="float:left;margin-top:10px;"><%= album.name %></span>
-              </li>
+                <div class="hovereffect">
+                  <% if album.images.present? %>
+                    <%= image_tag(album.images.first.image.url(:medium), style: "width: 100%;") %>
+                  <% else %>
+                    <%= image_tag("default-album.png", width: 183, height: 183)%>
+                  <% end %>
+                  <div class="overlay">
+                   <%= link_to "Show", photographer_album_path(current_photographer, album),class: "info", style: "color: white;" %>
+                   <%= link_to "Delete", "#", class: "signup_buttons_popup info", style: "color: white;" %>
+                  </div>
+                </div>
+                  <div id="signup_buttons_popup" style="z-index: 9999; display: none">
+                    <div class="sign-up-popup" id="popupContact">
+                      <%= image_tag ("close1.png"), class: "close cal-close", data: { id: "signup_buttons_popup" } %>
+                      <div class="form-calandar-popup">
+                        <center><h2 class="form-calandar-popup-heading-top">Confirm Delete</h2></center>
+                        <p class="del-album-text-popup">Are you sure you want to delete?</p>
+                        <%= link_to "Cancel", "#", class: "button button4 btn-album-popup-adj border-solid-form close-album-modal" %>
+                        <%= link_to 'Delete', photographer_album_path(photographer_id: current_photographer.id, id: album.id), class: "button button4 btn-album-popup-adj border-solid-form", method: :delete %>
+                      </div>
+                    </div>
+                  </div>
+                </li>
             <% end %>
           </ul>
         </div>

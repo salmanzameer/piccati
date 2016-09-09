@@ -39,7 +39,7 @@ module Customer
       @like = @image.likes.where({client_id: @client.id}).first_or_initialize(client_id: @client.id)
       @like.update(like: params[:like], unlike: !params[:like])
 
-      message = @like.like ? "liked" : "unliked"
+      message = @like.like ? "Liked" : "Unliked"
       @image.create_activity(key: "#{message} an image", owner: @client, recipient: @image.imageable.photographer)
 
     end
@@ -82,36 +82,22 @@ module Customer
     
     params do
       requires :authentication_token, type: String
-      requires :client_id,            type: String
+      requires :user_id,              type: String
     end
 
-    get "/get_client_feed", rabl: "v1/customer/get_client_feed" do
+    get "/feed", rabl: "v1/customer/get_client_feed" do
 
-      @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
-      unless @client
-        throw :error, status: 404, message: "Client not found!"
+      user = Client.find_by_id_and_authentication_token(params[:user_id], params[:authentication_token])
+      
+      unless user
+       user =  Photographer.find_by_id_and_authentication_token(params[:user_id], params[:authentication_token])
       end
 
-      @activities = @client.get_followings
+      unless user
+        throw :error, status: 404, message: "User not found!"
+      end
+      @activities = user.get_activity
     end
-    # params do
-    #   requires :authentication_token, type: String
-    #   requires :user_id,            type: String
-    # end
-
-    # get "/feed", rabl: "v1/customer/get_client_feed" do
-
-    #   user = Client.find_by_id_and_authentication_token(params[:user_id], params[:authentication_token])
-      
-    #   unless user
-    #    user =  Photographer.find_by_id_and_authentication_token(params[:user_id], params[:authentication_token])
-    #   end
-
-    #   unless user
-    #     throw :error, status: 404, message: "User not found!"
-    #   end
-    #   @activities = user.get_activity
-    # end
 
     desc "Search Photographer"
     params do
@@ -241,7 +227,7 @@ module Customer
       end
       @image.update_attributes(is_liked: params[:is_liked])
 
-      message = @image.is_liked ? "liked" : "unliked"
+      message = @image.is_liked ? "Selected" : "Unselected"
       @image.create_activity(key: "#{message} an image", owner: @client, recipient: @image.imageable.photographer)
     end
 
@@ -285,7 +271,7 @@ module Customer
       photographer = Photographer.find(params[:photographer_id])
       @client.send("#{params[:follow_type]}", photographer)
       
-      photographer.create_activity(key: "followed you", owner: @client, recipient: photographer)
+      photographer.create_activity(key: "Started following you", owner: @client, recipient: photographer)
     end
 
     desc "Request photographer"
@@ -312,7 +298,7 @@ module Customer
         guests:     params[:guests] 
         )
       @enquiry.save
-      @enquiry.create_activity(key: "Requested an Event", owner: @client, recipient: @enquiry.photographer)
+      @enquiry.create_activity(key: "Sent a request for an event", owner: @client, recipient: @enquiry.photographer)
       UserNotifier.client_request_event_email(@enquiry,params[:event_name]).deliver_now
     end 
     desc "Get email form from piccati.com"

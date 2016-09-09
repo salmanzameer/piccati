@@ -13,7 +13,8 @@ module Authentication
       requires :password_confirmation, type: String
       optional :website, type: String
       optional :avatar, type: Rack::Multipart::UploadedFile
-      requires :role_type, type: String   
+      requires :role_type, type: String
+      requires :terms_and_condition, type: Boolean   
     end
     post :register, rabl: "v1/authentication/register"  do
       @client = Client.find_by_email params[:email]
@@ -35,7 +36,8 @@ module Authentication
         city:         params[:city],
         password:     params[:password],
         password_confirmation:     params[:password_confirmation],
-        website:      params[:website]
+        website:      params[:website],
+        terms_and_condition: params[:terms_and_condition]
         )
       if klass.name == "Photographer"
         @user.role_type = role_type

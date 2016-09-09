@@ -5,4 +5,4 @@ development:
   username: muneeb
   password: muneeb
   host: localhost
-  port: 5432
+  port: 5433

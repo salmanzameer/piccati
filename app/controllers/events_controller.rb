@@ -44,7 +44,7 @@ class EventsController < ApplicationController
 
   def create
     create_event
-    @events  = @client.events
+    @events  = @client.events.where(photographer_id: current_photographer.id)
     @package = current_photographer.photographer_clients.where(client_id: @client.id, active: true).first
     return render partial: "clients/events", locals: { events: @events, client: @client }
   end
@@ -67,11 +67,14 @@ class EventsController < ApplicationController
   end
 
   def upload_images
-    param = { "image" => params[:file] }
     client = current_photographer.clients.find_by_id(params[:client_id])
-    @image = client.events.find_by_id(params[:id]).images.new(param)
-    @image.save
-    client.update_attribute('enabled', true)
+    @image = client.events.find_by_id(params[:id]).images.new(image: params[:file])
+    if current_photographer.memory_available?(@image.image_file_size)
+      client.update_attribute('enabled', true) if @image.save
+    else
+      flash[:notice] = 'You have not enough space.Please upgrade your plan.'
+    end
+    render js: "window.location = '#{all_images_photographer_client_event_path(current_photographer, client, params[:id])}';"
   end
 
   def upload_image
@@ -125,6 +128,10 @@ class EventsController < ApplicationController
   def selected_images
     @page_name = "Client Management"
     @event = Event.find_by_id params[:id]
+    respond_to do |format|
+      format.html
+      format.csv { send_data @event.to_csv }
+    end
   end
 
   protected 

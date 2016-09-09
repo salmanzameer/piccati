@@ -6,3 +6,21 @@ $ ->
 	$('#checkAll').change ->
 	  $('input:checkbox').prop 'checked', $(this).prop('checked')
 
+	$('#types').change (e) ->
+		e.preventDefault()
+		$.ajax
+			url: '/admins/photographers'
+			type: 'GET'
+			data: {plan_type: $('#types :selected ').text() }
+			success: (data) ->
+				$('.table-container').html($(data).find('.photographers_details'))
+
+	$('#client_type').change (e) ->
+		e.preventDefault()
+		$.ajax
+			url: '/admins/clients'
+			type: 'GET'
+			data: {client_type: $('#client_type :selected ').text() }
+			success: (data) ->
+				$('.table-container').html($(data).find('.clients_details'))
+				

@@ -1,0 +1,50 @@
+<div class="container">
+	<center>
+		<h1 class="container_heading">Listing All Clients</h1>		
+	</center>
+	<div class="clients-button-container">
+	    Client
+	    <select class="form-control select_admin" id="client_type">
+		    <option >Type</option>
+		    <option class="connected">Connected</option>
+		    <option class="free">Not Connected</option>
+	  	</select>
+	</div>
+	<div class="table-container">
+		<div class="clients_details">
+			<div class="admin_clients_container">
+				<% if @clients.present? %>
+					<table class="table table-striped table-bordered">
+					  <thead>
+					    <tr>
+					      <th>ID</th>
+					      <th>First Name</th>
+					      <th>Last Name</th>
+					      <th>Email</th>
+					      <th>Contact</th>
+					      <th>Confirmed</th>
+					      <th>Photographers</th>
+					    </tr>
+					  </thead>
+						<% @clients.each do |client| %>
+						  <tbody>
+						    <tr>
+						      <td><%= client.id %></td>
+						      <td><%= client.firstname %></td>
+						      <td><%= client.lastname %></td>
+						      <td><%= client.email %></td>
+						      <td><%= client.contnumber %></td>
+						      <td><%= client.confirmed? %></td>
+						      <td><%= client.photographers.count %></td>
+						    </tr>
+						  </tbody>
+				  	<% end %>
+					</table>					
+				<% else %>
+					<h3>No Clients Found</h3>
+				<% end %>
+			</div>					
+		</div>
+	</div>
+</div>
+
