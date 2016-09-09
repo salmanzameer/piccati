@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: gallery_development
-  username: protonlabs3
-  password: password
+  username: muneeb
+  password: muneeb
   host: localhost
   port: 5432
