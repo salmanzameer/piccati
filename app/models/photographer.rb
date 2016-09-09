@@ -144,6 +144,14 @@ class Photographer < ActiveRecord::Base
     "#{firstname} #{lastname}".titleize
   end
 
+  def album_featured_image_url
+    if self.feature_image.present?
+      self.feature_image.url
+    elsif self.albums.present?
+      self.albums.first.images.first.image.url if self.albums.first.images.present?
+    end
+  end
+
   def images_likes_count
     count = 0
     self.albums.each do |album|
