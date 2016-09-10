@@ -22,10 +22,16 @@ class AdminsController < ApplicationController
 
   def plans
     @plans = Plan.all.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)    
+    respond_to do |f|
+      f.js
+    end
   end
 
   def new_plan
     @plan = Plan.new(plan_params)
+    respond_to do |f|
+      f.js
+    end
   end
 
   def edit_plan
@@ -57,6 +63,9 @@ class AdminsController < ApplicationController
 
   def photographer_plans
     @photographerPlans = PhotographerPlan.all.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+    respond_to do |f|
+      f.js
+    end
   end
 
   def update_all_images
@@ -73,6 +82,9 @@ class AdminsController < ApplicationController
 
   def albums
     @albums = Album.all.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+    respond_to do |f|
+      f.js
+    end
   end
 
   def clients
@@ -85,14 +97,24 @@ class AdminsController < ApplicationController
       end
     else
       @clients = Client.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)    
+    end
+    respond_to do |f|
+      f.js
     end 
   end
 
   def photographers 
-    if request.xhr?
-      @photographers = Photographer.all.where(plan_type: params[:plan_type]).order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)    
-    else
-      @photographers = Photographer.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+    # if request.xhr?
+    #   binding.pry
+    #   @photographers = Photographer.all.where(plan_type: params[:plan_type]).order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)    
+    # else
+    #   binding.pry
+    #   @photographers = Photographer.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+    # end
+    # binding.pry
+    @photographers = Photographer.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+    respond_to do |f|
+      f.js
     end
   end
 

@@ -19,7 +19,6 @@ module Snapper
 	    unless @photographer
 	      throw :error, status: 404, message: "Photographer not found!"
 	    end
-      
       @total_photographers = @photographer.count
 	  end
 

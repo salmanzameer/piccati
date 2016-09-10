@@ -1,4 +1,8 @@
 class Photographer < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :firstname, use: [:slugged, :finders]
+
+
   include PublicActivity::Common
   after_create :set_default_plan
   # Include default devise modules. Others available are:
@@ -139,6 +143,14 @@ class Photographer < ActiveRecord::Base
 
   def fullname
     "#{firstname} #{lastname}".titleize
+  end
+
+  def album_featured_image_url
+    if self.feature_image.present?
+      self.feature_image.url
+    elsif self.albums.present?
+      self.albums.first.images.first.image.url if self.albums.first.images.present?
+    end
   end
 
   def images_likes_count

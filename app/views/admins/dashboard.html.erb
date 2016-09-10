@@ -1,28 +1,29 @@
-<div class="container">
-	<center>
-		<h1>Admin Dashboard</h1>
-	</center>
-	<div class="row ">
-		<div class="col-md-6">
-			<table class="table table-striped table-bordered admin_dashboard_settings">
-				<thead>
-					<th>Total Photographers</th>
-					<th>Total Clients</th>						
-				</thead>
-				<tbody>
-					<td>
-						<% if @photographers.present? %>
-							<%= @photographers %>
-						<% end %>
-					</td>
-					<td>
-						<% if @clients.present? %>
-							<%= @clients %>
-						<% end %>	
-					</td>
-				</tbody>
-			</table>			
-	</div>	
-	</div>
+<div class="loading-grid">
+	<div class="container">
+		<center>
+			<h1>Admin Dashboard</h1>
+		</center>
+		<div class="row ">
+			<div class="col-md-6">
+				<table class="table table-striped table-bordered admin_dashboard_settings">
+					<thead>
+						<th>Total Photographers</th>
+						<th>Total Clients</th>						
+					</thead>
+					<tbody>
+						<td>
+							<% if @photographers.present? %>
+								<%= @photographers %>
+							<% end %>
+						</td>
+						<td>
+							<% if @clients.present? %>
+								<%= @clients %>
+							<% end %>	
+						</td>
+					</tbody>
+				</table>			
+			</div>	
+		</div>
 	</div>
 </div>

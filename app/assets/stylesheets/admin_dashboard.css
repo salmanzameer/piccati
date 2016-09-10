@@ -1,3 +1,9 @@
+.selected {
+  color: #4B88B7 !important;
+  background-color: #F1F5F9 !important;
+  text-decoration: none !important;
+}
+
 h1 {
   font-family: initial !important;
 }

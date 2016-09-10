@@ -23,4 +23,8 @@ $ ->
 			data: {client_type: $('#client_type :selected ').text() }
 			success: (data) ->
 				$('.table-container').html($(data).find('.clients_details'))
+
+	$('.unselected').click ->
+  	$('.unselected').removeClass 'selected'
+  	$(this).addClass 'selected'			
 				
