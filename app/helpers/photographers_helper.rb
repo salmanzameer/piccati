@@ -9,7 +9,7 @@ module PhotographersHelper
 
    def profile_completeness
     contribution = Photographer::ProfileContributions
-    profile = 50
+    profile = 45
     profile += contribution[:feature_image] if current_photographer.feature_image.present?
     profile += contribution[:avatar] if current_photographer.avatar.present?
     profile += contribution[:package] if current_photographer.packages.count > 0
