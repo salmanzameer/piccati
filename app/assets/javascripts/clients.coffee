@@ -174,3 +174,14 @@ $ ->
 			type: "POST"
 			url:  "/invite_client"
 			data: { id: $(this).data("id") }
+
+	$(document).on 'change', '.package-dropdown', (e) ->
+		_id = $('.package-dropdown').val()
+		e.preventDefault()
+		$.ajax
+			type: "GET"
+			url:  "/client_package_update/"+_id
+			success: (data) ->
+				$("#photographer_client_total").val(data)
+
+			
