@@ -4,7 +4,7 @@
 
 $ ->
 	$(document).on 'click', '.event-submit-on-calendar, .connect-with-client, .update-event, .submit-event', (e) ->
-		$('.connect-client-form, #add-event-form, #update-event-model, #add-calender-event-model').find('input').filter(->
+		$('.connect-client-form, #add-event-form, #update-event-model, #add-calender-event-model').find('input, select').filter(->
 	  	if $(this).val() == ''
 	    	$(this).focus()
 	    	$(this).focusout()

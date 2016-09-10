@@ -11,16 +11,15 @@ class Photographer < ActiveRecord::Base
   acts_as_followable
   acts_as_follower
 
-  has_many    :photographer_clients  
-  has_many    :packages
+  has_many    :photographer_clients, dependent: :delete_all
+  has_many    :packages, dependent: :delete_all
   has_many    :clients, through: :photographer_clients
   has_many    :events
-  has_many    :photographer_plans
+  has_many    :photographer_plans, dependent: :delete_all
   has_one     :plan, through: :photographer_plans
-  belongs_to  :package
   has_many    :achievements
-  has_many    :albums
-  has_many    :invite_clients
+  has_many    :albums, dependent: :destroy
+  has_many    :invite_clients, dependent: :delete_all
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
