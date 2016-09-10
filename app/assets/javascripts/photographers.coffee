@@ -164,7 +164,7 @@ $ ->
 
   $(document).on "click", ".close-album-modal", (e) ->
     e.preventDefault()
-    $("#signup_buttons_popup").hide()
+    $("#delete_album_popup").hide()
 
   $(".show-gallery").click (e) ->
     e.preventDefault()

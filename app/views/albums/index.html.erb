@@ -5,7 +5,7 @@
     <div class="col-md-12">
       <div class="col-md-12 text-alignment-heading-album">
         <span class="album-text-align">All Albums</span>
-        <span class="text-para">by <%= current_photographer.firstname.titleize+" "+current_photographer.lastname.titleize %>
+        <span class="text-para">by <%= current_photographer.fullname.titleize %>
           <span class="pull-right button-album-back-pictres">
             <i class="fa fa-plus-circle"></i>
             <%= link_to "Add Album", "#", class: "client_management_popup add-album-setting-heading", data: { id: "add_album", popup: "add_album_popup", client_id: "" } %>
@@ -29,21 +29,15 @@
                   <% end %>
                   <div class="overlay">
                    <%= link_to "Show", photographer_album_path(current_photographer, album),class: "info", style: "color: white;" %>
-                   <%= link_to "Delete", "#", class: "signup_buttons_popup info", style: "color: white;" %>
+                   <%= link_to "Delete", "#", class: "signup_buttons_popup info client_management_popup", style: "color: white;", data: { id: "delete_album", controller: "albums", popup: "delete_album_popup", album: album.id } %>
                   </div>
                 </div>
-                  <div id="signup_buttons_popup" style="z-index: 9999; display: none">
-                    <div class="sign-up-popup" id="popupContact">
-                      <%= image_tag ("close1.png"), class: "close cal-close", data: { id: "signup_buttons_popup" } %>
-                      <div class="form-calandar-popup">
-                        <center><h2 class="form-calandar-popup-heading-top">Confirm Delete</h2></center>
-                        <p class="del-album-text-popup">Are you sure you want to delete?</p>
-                        <%= link_to "Cancel", "#", class: "button button4 btn-album-popup-adj border-solid-form close-album-modal" %>
-                        <%= link_to 'Delete', photographer_album_path(photographer_id: current_photographer.id, id: album.id), class: "button button4 btn-album-popup-adj border-solid-form", method: :delete %>
-                      </div>
-                    </div>
+                <div id="delete_album_popup" style="z-index:9999">
+                  <div id="popupContact">
+                    <div id="delete_album"></div>    
                   </div>
-                </li>
+                </div>
+              </li>
             <% end %>
           </ul>
         </div>
