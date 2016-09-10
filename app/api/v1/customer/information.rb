@@ -35,7 +35,7 @@ module Customer
       unless @image
         throw :error, status: 404, message: "Image not found!"
       end
-      @like = @image.likes.where({client_id: @client.id}).first_or_initialize(client_id: @client.id)
+      @like = @image.likes.where({client_id: @client.id}).first_or_initialize
       @like.update(like: params[:like], unlike: !params[:like])
 
       message = @like.like ? "Liked" : "Unliked"
