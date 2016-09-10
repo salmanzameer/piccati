@@ -11,28 +11,27 @@ class Photographer < ActiveRecord::Base
   acts_as_followable
   acts_as_follower
 
-  has_many    :photographer_clients  
-  has_many    :packages
+  has_many    :photographer_clients, dependent: :delete_all
+  has_many    :packages, dependent: :delete_all
   has_many    :clients, through: :photographer_clients
   has_many    :events
-  has_many    :photographer_plans
+  has_many    :photographer_plans, dependent: :delete_all
   has_one     :plan, through: :photographer_plans
-  belongs_to  :package
   has_many    :achievements
-  has_many    :albums
-  has_many    :invite_clients
+  has_many    :albums, dependent: :destroy
+  has_many    :invite_clients, dependent: :delete_all
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
-  validates :firstname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
-  #validates :lastname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
+  validates :firstname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' } # as studio name
+  # validates_format_of :lastname, :with => /\A[a-zA-Z_\s]+\z/, message: 'alphabets only'
   validates :contnumber, presence: true, format: { with: /\A^(?:00|\+|0)?[1-9][[0-9]+[ \( \) \-]]*$\z/,  message: 'invalid contact'}
   validates :terms_and_condition, presence: true, on: :create
   validates :email, presence: true
   validates :password, presence: true, on: :create
   validates_confirmation_of :password, on: :create
 
-  ProfileContributions = {title: 10, firstname: 10, lastname: 10, email: 10, contactnumber: 10, package: 10, avatar: 20, feature_image: 20}
+  ProfileContributions = {studioname: 15, email: 15, contactnumber: 15, package: 15, avatar: 20, feature_image: 20}
   if Rails.env.production?
     has_attached_file :avatar, styles: { original: "500x500", medium: "300x300>"},
     :default_url => "user-avatar.png",

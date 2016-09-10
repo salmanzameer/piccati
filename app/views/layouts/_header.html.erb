@@ -33,7 +33,7 @@
                     </div>
                 </div>
               </li>
-              <div class="profile-info-menu-ul"><div><%= current_photographer.firstname.titleize %><%= current_photographer.lastname.titleize %></div><div><%= current_photographer.email %></div><div><%= link_to('My Profile', profile_photographer_path(current_photographer)) %></div></div>
+              <div class="profile-info-menu-ul"><div><%= current_photographer.firstname.titleize %></div><div><%= current_photographer.email %></div><div><%= link_to('My Profile', profile_photographer_path(current_photographer)) %></div></div>
               <li class="divider divider-setting"></li>
               <li><%= link_to('Logout', destroy_photographer_session_path, :method => :delete ,class:"logout-profile-btn") %></li>
             </ul>

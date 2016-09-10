@@ -27,7 +27,7 @@ $ ->
         url:  _form.attr("action")
         success: (data) ->
           $(".package-list").html(data)
-          progress = $('.add-package-setting').data('progress')+10
+          progress = $('.add-package-setting').data('progress')+15
           $('.c100').addClass("p" + progress)
           $('.progress-text').text(progress+"%")
           $("#add_pkg_popup, #edit_pkg_popup").hide()
