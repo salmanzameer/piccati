@@ -1,8 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: gallery_development
-  username: muneeb
-  password: muneeb
+  database: piccati_development
+  username: admin
+  password: admin
   host: localhost
-  port: 5432
