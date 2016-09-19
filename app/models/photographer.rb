@@ -89,6 +89,20 @@ class Photographer < ActiveRecord::Base
     self.role_type = "Studio"
   end
 
+  def set_default_plan
+    photographer_plans.create(status: PhotographerPlan::Status::ACTIVE, expired_at: DateTime.now + 15.days, plan_id: Plan.default.id)
+    update(plan_type: Plan.default.name, expired_at: DateTime.now + 15.days)
+  end
+
+  def memory_available?(size)
+    memory = photographer_plans.active_plan? ? photographer_plans.active.plan.storage : 5
+    ((memory_consumed + size.to_f)/(1024*1024)) <= memory
+  end
+
+  def memory_refactor(size)
+    update_attributes(memory_consumed: (memory_consumed - size))
+  end
+
   class << self
     def current_photographer=(photographer)
       Thread.current[:current_photographer] = photographer
