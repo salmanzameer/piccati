@@ -78,6 +78,9 @@ class AdminsController < ApplicationController
   def album_images
     album_id = params[:album_id]
     @album = Album.find(album_id)
+    respond_to do |f|
+      f.js
+    end
   end
 
   def albums

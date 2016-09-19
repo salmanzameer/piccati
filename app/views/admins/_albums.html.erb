@@ -7,7 +7,7 @@
 				<% @albums.each do |album| %>			
 			<div class="col-md-3">
 				<% if album.images.present? %>
-		      <%= link_to image_tag(album.images.first.image.url(:medium), class: "admin_image_settings"), admins_album_images_path(album_id: album.id) %>
+		      <%= link_to image_tag(album.images.first.image.url(:medium), class: "admin_image_settings"), admins_album_images_path(album_id: album.id), remote: true %>
 					<%= will_paginate @albums %>
 		      <% else %>
 		          <%= link_to image_tag("default-album.png", width: 205, height: 205) %>
