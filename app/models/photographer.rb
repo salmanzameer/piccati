@@ -140,7 +140,7 @@ class Photographer < ActiveRecord::Base
   end
 
   def fullname
-    "#{firstname} #{lastname}".titleize
+    "#{firstname}".titleize
   end
 
   def album_featured_image_url
