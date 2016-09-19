@@ -24,3 +24,7 @@
 function get_ajax_loader_html(css) {
   return  "<img alt='Please wait' src='/assets/ajax-loader.gif' style='margin-left:5px;' class='loading-img'>";
 }
+
+function get_big_ajax_loader_html(css) {
+  return  "<img alt='Please wait' src='/assets/default.svg' style='margin-left:5px;' class='loading-img'>";
+}

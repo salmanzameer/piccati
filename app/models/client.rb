@@ -17,9 +17,10 @@ class Client < ActiveRecord::Base
 
   validates_format_of :email,:with => Devise::email_regexp
   validates :firstname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
-  validates :lastname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
+  # validates :lastname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' }
   validates :contnumber, presence: true, format: { with: /\A^(?:00|\+|0)?[1-9][[0-9]+[ \( \) \-]]*$\z/,  message: 'invalid'}
   validates :email, presence: true
+  validates :terms_and_condition, presence: true, on: :create
   validates :password, presence: true
   validates_confirmation_of :password
 
@@ -58,6 +59,13 @@ class Client < ActiveRecord::Base
     end
   end
 
+  def get_event_images
+    Image.joins("inner join events on images.imageable_id = events.id")
+    .joins("inner join clients on clients.id = events.client_id")
+    .select("images.*")
+    .where("clients.id = #{id} AND images.imageable_type = 'Event'")
+  end
+
   def is_connected?(current_photographer)
     photographer_clients.where(photographer_id: current_photographer.id).first.is_connected
   end
@@ -77,7 +85,7 @@ class Client < ActiveRecord::Base
     "#{firstname} #{lastname}".titleize
   end
 
-  def get_followings
+  def get_activity
     activities = []
     follows_type = self.follows.pluck(:followable_type).uniq
     follows_type.each do |f|

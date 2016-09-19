@@ -116,7 +116,7 @@
 							</li> -->
 
 							<li class="">
-								<%= link_to admins_new_plan_path	do %>
+								<%= link_to admins_new_plan_path, class:"unselected", remote: :true	do %>
 									<i class="menu-icon fa fa-caret-right"></i>
 									New Plan
 								<% end %>
@@ -125,7 +125,7 @@
 							</li>
 
 							<li class="">
-								<%= link_to admins_show_all_plans_path do %>
+								<%= link_to admin_plans_path, class:"unselected", remote: :true do %>
 									<i class="menu-icon fa fa-caret-right"></i>
 									All Plans
 								<% end %>
@@ -245,7 +245,7 @@
 
 						<ul class="submenu">
 							<li class="">
-								<%= link_to admins_show_all_albums_path do %>
+								<%= link_to admin_albums_path, class:"unselected", remote: :true do %>
 									<i class="menu-icon fa fa-caret-right"></i>
 									Show All Albums
 								<% end %>
@@ -265,7 +265,7 @@
 					</li>
 
 					<li class="">
-						<a href="" class="dropdown-toggle">
+						<a href="" class="dropdown-toggle sidebar_settings">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
 							Photographers
 							<b class="arrow fa fa-angle-down"></b>
@@ -274,13 +274,19 @@
 
 						<ul class="submenu">
 							<li class="">
-								<%= link_to admins_show_all_photographers_path do %>
+								<%= link_to photographer_plans_path, class:"unselected", remote: :true do %>
 									<i class="menu-icon fa fa-caret-right"></i>
 									Photographer Plans
 								<% end %>
 								<b class="arrow"></b>
 							</li>
-
+							<li class="">
+								<%= link_to admin_photographer_path, class:"unselected", remote: :true do %>
+									<i class="menu-icon fa fa-caret-right"></i>
+									All Photographers
+								<% end %>
+								<b class="arrow"></b>
+							</li>
 <!-- 							<li class="">
 								<a href="form-elements-2.html">
 									<i class="menu-icon fa fa-caret-right"></i>
@@ -316,6 +322,25 @@
 
 								<b class="arrow"></b>
 							</li> -->
+						</ul>
+					</li>
+
+					<li class="">
+						<a href="" class="dropdown-toggle">
+							<i class="menu-icon fa fa-pencil-square-o"></i>
+							Clients
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<%= link_to admin_client_path, class:"unselected", remote: :true do %>
+									<i class="menu-icon fa fa-caret-right"></i>
+									All Clients
+								<% end %>
+								<b class="arrow"></b>
+							</li>
 						</ul>
 					</li>
 

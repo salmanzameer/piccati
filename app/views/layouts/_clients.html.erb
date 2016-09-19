@@ -35,7 +35,7 @@
             <tr class="photographer-clients-list">
               <td class="table-row-width zero-border zero-padding">
                 <div class="col-md-8 center-align-tag">
-                  <%= link_to client.fullname, "#", class: "show-client-events client-event-anchor-design", data: { id: client.id, photographer_id: current_photographer.id } %>
+                  <%= link_to client.fullname, "#", class: "show-client-events client-event-anchor-design", data: { id: client.id, photographer_id: current_photographer.slug } %>
                 </div>
                 <% if client.is_invited?(current_photographer) %>
                   <div class="col-md-4 center-align-tag">
@@ -87,6 +87,6 @@
   $(function(){
     $( "#uploadBtn" ).change(function() {
       $("#uploadFile").val($(this).val());
-    };
+    });
   });
 </script>

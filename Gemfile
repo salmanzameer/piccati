@@ -10,6 +10,8 @@ gem 'sass-rails', '~> 5.0'
 
 gem 'public_activity'
 
+gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
+gem 'zip-zip'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -22,6 +24,7 @@ gem 'plupload-rails'
 gem 'paperclip', '~> 4.2'
 gem 'paperclip-watermark'
 gem 'client_side_validations'
+gem 'friendly_id'
 
 gem 'raygun4ruby'
 

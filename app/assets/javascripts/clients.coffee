@@ -4,7 +4,7 @@
 
 $ ->
 	$(document).on 'click', '.event-submit-on-calendar, .connect-with-client, .update-event, .submit-event', (e) ->
-		$('.connect-client-form, #add-event-form, #update-event-model, #add-calender-event-model').find('input').filter(->
+		$('.connect-client-form, #add-event-form, #update-event-model, #add-calender-event-model').find('input, select').filter(->
 	  	if $(this).val() == ''
 	    	$(this).focus()
 	    	$(this).focusout()
@@ -20,6 +20,7 @@ $ ->
 
 	$(document).on 'click', '.submit-event', (e) ->
 		e.preventDefault()
+		console.log("clicked event create")
 		_form = $(this).closest("form")
 		_this = $(this)
 		id = "#"+$(_form).attr("id")
@@ -122,19 +123,18 @@ $ ->
 		    $('.searchbox-icon').css 'display', 'block'
 		    submitIcon.click()
 		  return
-	$(document).on 'keyup', '.search_client_email', (e) ->
-		$.ajax
-			type: "GET"
-			url: "/search_clients"
-			data: { email:  $(this).val() }
-			success: (data) ->
-				$(".searched_email").html(data)
-				$(".searched_email").show()
-				$(".error-p-tag").hide()
+	# $(document).on 'keyup', '.search_client_email', (e) ->
+	# 	$.ajax
+	# 		type: "GET"
+	# 		url: "/search_clients"
+	# 		data: { email:  $(this).val() }
+	# 		success: (data) ->
+	# 			$(".searched_email").html(data)
+	# 			$(".searched_email").show()
+	# 			$(".error-p-tag").hide()
 
 	$(document).on 'focusout', '.search_client_email', (e) ->
 		e.preventDefault()
-		$(".searched_email").hide()
 		$.ajax
 			type: "GET"
 			url:  "/clients/search_client_fields"
@@ -174,3 +174,14 @@ $ ->
 			type: "POST"
 			url:  "/invite_client"
 			data: { id: $(this).data("id") }
+
+	$(document).on 'change', '.package-dropdown', (e) ->
+		_id = $('.package-dropdown').val()
+		e.preventDefault()
+		$.ajax
+			type: "GET"
+			url:  "/client_package_update/"+_id
+			success: (data) ->
+				$("#photographer_client_total").val(data)
+
+			

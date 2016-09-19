@@ -1,0 +1,55 @@
+<div class="container">
+	<center>
+		<h1 class="container_heading">Listing All Photographers</h1>		
+	</center>
+	<div class="button-container">
+		Photographer
+		<select class="form-control select_admin" id="types">
+			<option >Select Type</option>
+			<option id="executive">Executive</option>
+			<option id="premium">Premium</option>
+			<option id="standard">Standard</option>
+		</select>
+	</div>
+	<div class="table-container">
+		<div class="photographers_details">
+			<div class="admin_photgraphers_container photographers_container">
+				<% if @photographers.present? %>
+					<table class="table table-striped table-bordered">
+						<thead>
+							<th>ID</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Email</th>
+							<th>Role</th>
+							<th>Plan</th>
+							<th>Clients</th>
+							<th>Total Connects</th>
+							<th>Used Connects</th>
+							<th>Confirmed</th>
+						</thead>
+						<% @photographers.each do |p| %>
+							<tbody>
+								<tr>
+									<td><%= p.id %></td>
+									<td><%= p.firstname %></td>
+									<td><%= p.lastname %></td>
+									<td><%= p.email %></td>				      
+									<td><%= p.role_type %></td>
+									<td><%= check_p_plan_type(p) %></td>				      
+									<td><%= p.clients.count %></td>				      
+									<td><%= p.total_connects %></td>
+									<td><%= p.used_connects %></td>
+									<td><%= p.confirmed_at? %></td>				      
+								</tr>
+							</tbody>
+						<% end %>
+					</table>					
+				<% else %>
+					<h3>No Photographers Found</h3>
+				<% end %>
+			<%= will_paginate @photographers %>
+			</div>
+		</div>
+	</div>
+</div>

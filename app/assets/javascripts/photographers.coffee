@@ -158,6 +158,25 @@ $ ->
 
     reader.readAsDataURL $(this).prop("files")[0]
 
-  $(".signup_buttons_popup").click (e) ->
+  $(document).on "click", ".signup_buttons_popup", (e) ->
     e.preventDefault()
-    $("#signup_buttons_popup").show()  
+    $("#signup_buttons_popup").show()
+
+  $(document).on "click", ".close-album-modal", (e) ->
+    e.preventDefault()
+    $("#delete_album_popup").hide()
+
+  $(".show-gallery").click (e) ->
+    e.preventDefault()
+    $('#show-galary').lightGallery();
+
+  $(document).on "click", ".share_url_client", (e) ->
+    e.preventDefault()
+    $.ajax
+      type: "POST"
+      url:  $(this).attr("href")
+    success: (data) ->
+
+  $('.disable-gallery').click (e) ->
+    e.preventDefault()
+    $('#show-galary').data('lightGallery').destroy(true);

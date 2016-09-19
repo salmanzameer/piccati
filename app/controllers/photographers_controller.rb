@@ -79,7 +79,7 @@ class PhotographersController < ApplicationController
   end
 
   def plan_update
-    @plan = Plan.find_by_name params["plan_type"]
+    @plan = Plan.find_by_id params["plan_id"]
     total_connects = current_photographer.total_connects + @plan.connects
     current_photographer.photographer_plans.create(status: PhotographerPlan::Status::PENDING, expired_at: DateTime.now + 1.year, plan_id: @plan.id)
     current_photographer.update(plan_type: @plan.name, total_connects: total_connects)
