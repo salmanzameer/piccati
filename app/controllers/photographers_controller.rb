@@ -104,6 +104,6 @@ class PhotographersController < ApplicationController
   end
 
   def photographer_params
-    params.require(:photographer).permit(:email, :password, :password_confirmation)
+    params.require(:photographer).permit(:email, :password, :password_confirmation, :current_password)
   end
 end

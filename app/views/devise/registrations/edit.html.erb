@@ -27,30 +27,50 @@
             </div>
             <div class="col-md-12 background-main-edit-profile">
               <fieldset>
-               <%= form_for(resource, as: resource_name, url: registration_path(resource_name),validate: true, html: { multipart: true, class: "dropdown-edit form-edit-profile-view", id: "edit-photographer" }) do |f| %>
-               <div class="col-md-6" style="margin-top:15px;margin-bottom:15px;">
-                 <%= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  } , class: "form-control zero-border form-setting-forall", style:"height: 50px;")   %>
-                 <%= f.text_field :firstname, autofocus: true, :placeholder => 'First Name', class: "first-field name-field zero-border", :id =>'form-firstname' %>      
-                <%= f.text_field :lastname, :placeholder => 'First Name', class: "first-field name-field zero-border", :id =>'form-firstname' %>
-                
-                <div class="custom-file-upload">
-                  <input id="uploadFile" disabled="disabled" class= "first-field name-field zero-border"  style="background: none;width: 46%;"/>
-                  <div class="fileUpload btn btn-primary">
-                    <span>Change profile image</span>
-                    <%= f.file_field :avatar, class: "first-field zero-border upload-file-btn width-chosen-field", id: "uploadBtn",  class: "upload"%>
+              <div class="col-md-12">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: <%= profile_completeness %>%">
+                    <%= profile_completeness%>% Profile Completion (success)
                   </div>
                 </div>
               </div>
-              <div class="col-md-6" style="margin-top:15px;margin-bottom:15px;">
-                <%= f.text_field :contnumber, :placeholder => 'Contact Number' ,class: "first-field name-field border-zero-form", :id =>'form-contact' %>
-                <%= f.email_field :email, :placeholder => 'Email' ,class: "first-field name-field email-edit-field", :id =>'form-username' %>
-                  <div class="custom-file-upload">
-                    <input id="watermark-url" disabled="disabled" class= "first-field name-field zero-border" style="background: none;width: 46%;"/>
+               <%= form_for(resource, as: resource_name, url: registration_path(resource_name),validate: true, html: { multipart: true, class: "dropdown-edit form-edit-profile-view", id: "edit-photographer" }) do |f| %>
+               <div class="col-md-6" style="margin-top:15px;margin-bottom:15px;">
+                 <%#= f.select(:title , options_for_select(['Mr',  'Miss','Mrs',  'Dr'], resource.title ), {prompt: true  } , class: "form-control zero-border form-setting-forall", style:"height: 50px;")   %>
+                 <% placeholder = resource_name == :client ? 'Full Name' : 'Studio Name' %>
+                 <%= f.text_field :firstname, autofocus: true, :placeholder => placeholder, class: "first-field name-field zero-border", :id =>'form-firstname' %>      
+                  <%= f.text_field :contnumber, :placeholder => 'Contact Number' ,class: "first-field name-field border-zero-form", :id =>'form-contact' %>
+                  <%= f.email_field :email, :placeholder => 'Email' ,class: "first-field name-field email-edit-field", :id =>'form-username' %>
+                
+                  <div class="custom-file-upload edit-profile-profile-image-field">
+                    <% picture_url = current_photographer.avatar.present? ? current_photographer.avatar.url : "user-avatar.png"%>
+                    <%= image_tag (picture_url), class: "add-profile-image img-circle", style: "width: 60px;height: 60px;float: left;margin-left: 20px;"%>
+                    <input id="uploadFile" disabled="disabled" class= "first-field name-field zero-border choosed-file"  style="background: none;width: 46%; opacity:0;"/>
                     <div class="fileUpload btn btn-primary">
-                      <span>Change watermark</span>
-                      <%= f.file_field :watermark_logo, class: "first-field zero-border upload-file-btn width-chosen-field", id: "upload-watermark",  class: "upload"%>
+                      <span>Change profile image</span>
+                      <%= f.file_field :avatar, class: "first-field zero-border upload-file-btn width-chosen-field", id: "uploadBtn",  class: "upload"%>
                     </div>
                   </div>
+              </div>
+              <div class="col-md-6">
+                <div class="custom-file-upload">
+                  <% feature_image_url = current_photographer.feature_image.present? ? current_photographer.feature_image.url : "placeholder-image.png"%>
+                  <%= image_tag (feature_image_url), class: "add-feature-image img-circle", style: "width: 60px;height: 60px;float: left;margin-left: 20px;"%>
+                  <input id="featured" disabled="disabled" class= "first-field name-field zero-border choosed-file"  style="background: none;width: 46%; opacity:0;"/>
+                  <div class="fileUpload btn btn-primary">
+                    <span>Change featured image</span>
+                    <%= f.file_field :feature_image, class: "first-field zero-border upload-file-btn width-chosen-field", id: "featured-image",  class: "upload"%>
+                  </div>
+                </div>
+                <div class="custom-file-upload">
+                  <% watermark_image_url = current_photographer.watermark_logo.present? ? current_photographer.watermark_logo.url : "placeholder-image.png"%>
+                  <%= image_tag (watermark_image_url), class: "add-watermark-image img-circle", style: "width: 60px;height: 60px;float: left;margin-left: 20px;"%>
+                  <input id="watermark-url" disabled="disabled" class= "first-field name-field zero-border choosed-file" style="background: none;width: 46%; opacity:0;"/>
+                  <div class="fileUpload btn btn-primary">
+                    <span>Change watermark</span>
+                    <%= f.file_field :watermark_logo, class: "first-field zero-border upload-file-btn width-chosen-field", id: "upload-watermark",  class: "upload"%>
+                  </div>
+                </div>
               </div>
             </fieldset>
           </div>
