@@ -69,15 +69,22 @@ class AdminsController < ApplicationController
   end
 
   def update_all_images
-    album = Album.find(params[:album][:album_id])
-    if album.update(image_param)
-      redirect_to admin_albums_path
+    @album = Album.find(params[:album][:album_id])
+    # @album.images.paginate(:page => params[:page], :per_page => 8)
+    if @album.update(image_param)
+      respond_to do |f|
+        f.js {  flash[:notice] = "Approved Successfully" }
+      end
     end
   end
 
   def album_images
     album_id = params[:album_id]
     @album = Album.find(album_id)
+    # @album.images.paginate(:page => params[:page], :per_page => 8)
+    respond_to do |f|
+      f.js
+    end
   end
 
   def albums
