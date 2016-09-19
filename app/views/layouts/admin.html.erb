@@ -10,7 +10,10 @@
 	</head>
 
 	<body class="no-skin">
-			<%= render 'layouts/admin/header' %>			
+			<%= render 'layouts/admin/header' %>
+			<div class="flash_notice">
+				<%#= render 'layouts/flash' %>
+			</div>				
 			<%= yield %>
 			<%= render 'layouts/admin/sidebar' %>
 			<%= render 'layouts/admin/footer' %>						

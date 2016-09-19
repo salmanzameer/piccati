@@ -1,0 +1,9 @@
+$(".loading-grid").html("<%= escape_javascript(render partial: 'album_images', locals: { album: @album } ) %>");
+
+$(".flash_notice").html("<%= escape_javascript(render partial: 'layouts/flash' ) %>");
+
+$(document).ready(function() {
+  return setTimeout((function() {
+    $('.devise-noti').remove();
+  }), 3000);
+});

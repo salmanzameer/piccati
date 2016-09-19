@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get  'admins/dashboard'
   get  'admins/albums', as: :admin_albums
   get  'admins/album_images'
-  get  'admins/update_all_images'
+  post  'admins/update_all_images'
   get  'admins/plans', as: :admin_plans
   get  'admins/photographer_plans', as: :photographer_plans
   post 'admins/edit_plan'
