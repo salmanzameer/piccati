@@ -26,11 +26,11 @@
 				      <td><%= check_p_plan_status(p_plan) %></td>
 				      <% if p_plan.pending? %>
 				      	<td>
-						      <%= link_to "Activate", admins_change_status_path(p_plan_id: p_plan.id), class: "btn btn-primary admin_plans_btn" %>				      		
+						      <%= link_to "Activate", admins_change_status_path(p_plan_id: p_plan.id), class: "btn btn-primary admin_plans_btn", remote: true %>				      		
 				      	</td>
 					    <% else %>
 					    	<td>
-						    	<%= link_to "Deactivate", admins_change_status_path(p_plan_id: p_plan.id), class: "btn btn-primary admin_plans_btn "%>					    		
+						    	<%= link_to "Deactivate", admins_change_status_path(p_plan_id: p_plan.id), class: "btn btn-primary admin_plans_btn", remote: true %>					    		
 					    	</td>
 					    <% end %>
 				    </tr>

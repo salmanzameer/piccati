@@ -51,6 +51,10 @@ class Image < ActiveRecord::Base
     status == 1
   end
   
+  def is_liked?(client)
+    likes.where(client_id: client.id).first.try(:like)
+  end
+
   def name
     File.basename(image_file_name,File.extname(image_file_name))
   end

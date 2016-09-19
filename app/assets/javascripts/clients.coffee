@@ -4,7 +4,7 @@
 
 $ ->
 	$(document).on 'click', '.event-submit-on-calendar, .connect-with-client, .update-event, .submit-event', (e) ->
-		$('.connect-client-form, #add-event-form, #update-event-model, #add-calender-event-model').find('input').filter(->
+		$('.connect-client-form, #add-event-form, #update-event-model, #add-calender-event-model').find('input, select').filter(->
 	  	if $(this).val() == ''
 	    	$(this).focus()
 	    	$(this).focusout()
@@ -175,3 +175,14 @@ $ ->
 			type: "POST"
 			url:  "/invite_client"
 			data: { id: $(this).data("id") }
+
+	$(document).on 'change', '.package-dropdown', (e) ->
+		_id = $('.package-dropdown').val()
+		e.preventDefault()
+		$.ajax
+			type: "GET"
+			url:  "/client_package_update/"+_id
+			success: (data) ->
+				$("#photographer_client_total").val(data)
+
+			

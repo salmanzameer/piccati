@@ -11,6 +11,11 @@ class PackagesController < ApplicationController
     return render partial: "photographers/package", locals: { package: @package }
   end
 
+  def client_package_update
+    @package = Package.find_by_id params[:package_id]
+    return render text: @package.price
+  end
+
   def update
     @package = Package.find_by_id params[:id]
     @package.update(package_params)
@@ -21,6 +26,6 @@ class PackagesController < ApplicationController
   protected 
 
   def package_params
-    params.require(:package).permit(:name, :picture_dslr_count, :video_dslr_count, :album_leaves, :other_city_charges)
+    params.require(:package).permit(:name, :picture_dslr_count, :video_dslr_count, :album_leaves, :other_city_charges, :price)
   end
 end

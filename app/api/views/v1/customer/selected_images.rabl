@@ -1,7 +1,9 @@
 object false
 
 child @images , object_root: false do
-  attributes :id, :is_liked, :imageable_type, :imageable_id
+  attributes :id, :imageable_type, :imageable_id
+  
+  node(:is_selected) { |img| img.is_liked  }
   node(:url) { |img| img.image_url  }
 end
 node(:images_count) {@images.count}

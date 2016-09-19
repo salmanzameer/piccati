@@ -49,7 +49,8 @@ Rails.application.routes.draw do
   post 'share_image_url/:client_id',   to: "clients#share_image_url",        as: :share_image_url
   
   resources :packages
-  
+  get  '/client_package_update/:package_id', to: "packages#client_package_update"
+
   resources :photographers do
     get  'export_clients', to: "clients#export_clients_csv", as: :export_clients_csv
     post 'import_clients', to: "clients#import_clients_csv", as: :import_clients_csv

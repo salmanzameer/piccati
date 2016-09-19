@@ -3,7 +3,7 @@
       <div class="col-md-12">
         <div class="col-md-12 text-alignment-heading-album">
           <span class="album-text-align"><%= @album.name.titleize %></span>
-          <span class="text-para">by <%= @album.photographer.firstname.titleize+" "+@album.photographer.lastname.titleize %>
+          <span class="text-para">by <%= @album.photographer.fullname.titleize %>
             <span class="pull-right button-album-back-pictres">
               <span class="button-album-back-pictres-dash">|
               <%= link_to "Back", photographer_albums_path(current_photographer), class: "add-album-setting-heading button-album-back-pictres" %></span>

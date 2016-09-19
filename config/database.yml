@@ -2,6 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: piccati_development
-  username: admin
-  password: admin
+  username: postgres
+  password: postgres
   host: localhost
+  port: 5432
