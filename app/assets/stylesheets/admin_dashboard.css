@@ -71,9 +71,15 @@ button.btn:active {
 
 
 .container {
-  position: absolute;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
+.sidebar-left-admin
+{
+  position:absolute;
+  top: 50px;
+}
 
 .admin_image_settings {
   width: 100%;
@@ -85,9 +91,10 @@ button.btn:active {
 }
 
 .update-album {
-  position: absolute;
-  top: 0.5em;
-  right: 0em;
+    position: absolute;
+    top: 90px;
+    float: left;
+    padding-left: 15px;
 }
 
 .album_images_checkbox {
@@ -178,9 +185,9 @@ button.btn:active {
 }
 
 .button-container {
-    left: 72.8em;
-    position: absolute;
-    top: 1.9em;
+  position: absolute;
+  top: 90px;
+  right: 160px;
 }
 
 .sidebar_settings {
@@ -208,9 +215,9 @@ button.btn:active {
 }
 
 .clients-button-container {
-  left: 59.6em;
   position: absolute;
-  top: 0.9em;
+  top: 90px;
+  right: 160px;
 }
 
 .bigger-120 {
@@ -243,3 +250,27 @@ button.btn:active {
 .user-info {
     font-weight: bolder;
 } 
+
+.spacing-ablbum-heding
+{
+  margin: 30px 0px 30px 0px;
+}
+
+.album-pictures-spacing
+{
+  margin: 0px 0px 30px 0px;
+}
+
+.menu-top-setting
+{
+  margin: 7px 40px 0px 0px !important;
+}
+
+.album-approval-btn
+{
+  float: right;
+  left: 785px;
+  top: 12px;
+  width: 125px;
+  height: 40px !important;
+}
