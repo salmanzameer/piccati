@@ -32,6 +32,7 @@
                    <%= link_to "Delete", "#", class: "signup_buttons_popup info client_management_popup", style: "color: white;", data: { id: "delete_album", controller: "albums", popup: "delete_album_popup", album: album.id } %>
                   </div>
                 </div>
+                <span style="margin-top:15px;"><%= album.name %></span>
                 <div id="delete_album_popup" style="z-index:9999">
                   <div id="popupContact">
                     <div id="delete_album"></div>    
