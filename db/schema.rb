@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908104517) do
+ActiveRecord::Schema.define(version: 20160910114842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,10 @@ ActiveRecord::Schema.define(version: 20160908104517) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "photographer_id"
+    t.string   "slug"
   end
+
+  add_index "albums", ["slug"], name: "index_albums_on_slug", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -206,6 +209,7 @@ ActiveRecord::Schema.define(version: 20160908104517) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.text     "description"
+    t.integer  "price"
   end
 
   create_table "photographer_clients", force: :cascade do |t|
@@ -283,11 +287,13 @@ ActiveRecord::Schema.define(version: 20160908104517) do
     t.integer  "total_connects",              default: 1
     t.integer  "used_connects",               default: 0
     t.boolean  "terms_and_condition"
+    t.string   "slug"
   end
 
   add_index "photographers", ["confirmation_token"], name: "index_photographers_on_confirmation_token", unique: true, using: :btree
   add_index "photographers", ["email"], name: "index_photographers_on_email", unique: true, using: :btree
   add_index "photographers", ["reset_password_token"], name: "index_photographers_on_reset_password_token", unique: true, using: :btree
+  add_index "photographers", ["slug"], name: "index_photographers_on_slug", using: :btree
 
   create_table "plans", force: :cascade do |t|
     t.string   "name"

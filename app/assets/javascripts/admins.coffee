@@ -26,5 +26,7 @@ $ ->
 
 	$('.unselected').click ->
   	$('.unselected').removeClass 'selected'
-  	$(this).addClass 'selected'			
+  	$(this).addClass 'selected'
+
+  			
 				
