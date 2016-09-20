@@ -30,6 +30,7 @@
           </div>
         </div>
         <div class="col-md-6">
+          <%= f.text_area :description, :placeholder => 'Description' ,class: "first-field name-field border-zero-form description-prfile-text-area", :id =>'form-contact' %>
           <div class="custom-file-upload">
             <% feature_image_url = current_photographer.feature_image.present? ? current_photographer.feature_image.url : "placeholder-image.png"%>
             <%= image_tag (feature_image_url), class: "add-feature-image img-circle", style: "width: 60px;height: 60px;float: left;margin-left: 20px;"%>
