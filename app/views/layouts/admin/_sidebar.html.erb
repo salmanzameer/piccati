@@ -233,36 +233,7 @@
 						</ul>
 					</li>
 
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<i class="menu-icon fa fa-list"></i>
-							<span class="menu-text"> Albums </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-						<b class="arrow"></b>
-
-						<ul class="submenu">
-							<li class="">
-								<%= link_to admin_albums_path, class:"unselected", remote: :true do %>
-									<i class="menu-icon fa fa-caret-right"></i>
-									Show All Albums
-								<% end %>
-
-								<b class="arrow"></b>
-							</li>
-
-<!-- 							<li class="">
-								<a href="jqgrid.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									jqGrid plugin
-								</a>
-
-								<b class="arrow"></b>
-							</li> -->
-						</ul>
-					</li>
+					
 
 					<li class="">
 						<a href="" class="dropdown-toggle sidebar_settings">
@@ -284,6 +255,13 @@
 								<%= link_to admin_photographer_path, class:"unselected", remote: :true do %>
 									<i class="menu-icon fa fa-caret-right"></i>
 									All Photographers
+								<% end %>
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<%= link_to photographers_for_approval_path, class:"unselected", remote: :true do %>
+									<i class="menu-icon fa fa-caret-right"></i>
+									Approve Photographers
 								<% end %>
 								<b class="arrow"></b>
 							</li>
