@@ -38,7 +38,7 @@ module Customer
       @like = @image.likes.where({client_id: @client.id}).first_or_initialize
       @like.update(like: params[:like], unlike: !params[:like])
 
-      message = @like.like ? "Liked" : "Unliked"
+      message = @like.like ? "liked" : "unliked"
       @image.create_activity(key: "#{message} an image of #{@image.imageable.name}", owner: @client, recipient: @image.imageable.photographer)
 
     end
@@ -115,7 +115,7 @@ module Customer
       end
 
       search = params[:search_string]
-      @photographers = Photographer.where("(firstname ILIKE ? OR lastname ILIKE ?) AND confirmed_at IS NOT NULL", "%#{search}%", "%#{search}%")
+      @photographers = Photographer.where("(firstname ILIKE ?) AND confirmed_at IS NOT NULL AND is_approved IS TRUE", "%#{search}%")
     end
 
     desc "Get images with likes greater than 1000 (collection feed)"
@@ -124,6 +124,7 @@ module Customer
       requires :requester_id,         type: String
       optional :page,                 type: Integer
     end
+    
     get "/get_collection_feed", rabl: "v1/customer/get_collection_feed" do
 
       @requester = Client.find_by_id_and_authentication_token(params[:requester_id], params[:authentication_token])
@@ -226,7 +227,7 @@ module Customer
       end
       @image.update_attributes(is_liked: params[:is_liked])
 
-      message = @image.is_liked ? "Selected" : "Unselected"
+      message = @image.is_liked ? "selected" : "unselected"
       @image.create_activity(key: "#{message} an image", owner: @client, recipient: @image.imageable.photographer)
     end
 
@@ -270,7 +271,7 @@ module Customer
       photographer = Photographer.find(params[:photographer_id])
       @client.send("#{params[:follow_type]}", photographer)
       
-      photographer.create_activity(key: "Started following you", owner: @client, recipient: photographer)
+      photographer.create_activity(key: "started following you", owner: @client, recipient: photographer)
     end
 
     desc "Request photographer"
@@ -297,7 +298,7 @@ module Customer
         guests:     params[:guests] 
         )
       @enquiry.save
-      @enquiry.create_activity(key: "Sent a request for an event", owner: @client, recipient: @enquiry.photographer)
+      @enquiry.create_activity(key: "sent a request for an event", owner: @client, recipient: @enquiry.photographer)
       UserNotifier.client_request_event_email(@enquiry,params[:event_name]).deliver_now
     end 
     desc "Get email form from piccati.com"

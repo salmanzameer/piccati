@@ -1,23 +1,27 @@
 <div class="container">
 	<center>
-		<h1>Listing All Albums Images Below</h1>	
+		<h1 class="spacing-ablbum-heding">Listing All Albums Images Below</h1>	
 	</center>
+	
 	<div class="album_container" ">
 		<% if @album.images.present? %>
-			<%= form_for(@album, url: admins_update_all_images_path, method: :get) do |f| %>
+			<%= form_for(@album, url: admins_update_all_images_path, method: :post, remote: :true) do |f| %>
 				<%= f.hidden_field :album_id, :value => @album.id %>
 				<%= f.fields_for :images do |f_f| %>
-					<div class="album_images_container col-md-3">
+					<div class="album_images_container col-md-3 album-pictures-spacing">
 						<%= image_tag f_f.object.image.url(:medium), class: "album_image_width" %>
-						<label>Approved:</label>
+						<label>Approve:</label>
 						<%= f_f.check_box :status %>
 					</div>
 				<% end %>
+				<%#= will_paginate f.images %>
 				<div class="update-album">
-					<%= f.submit "Approve", class: "btn btn-primary btn_setting" %>
+					<%= f.submit "Approve", class: "btn btn-primary btn_setting album-approval-btn" %>
 					<p><label><input type="checkbox" id="checkAll"/> Check all</label></p>
 				</div>
-			<% end %> 
+
+			<% end %>
+
 		<% else %>
 			<h1>No images found</h1>
 		<% end %>

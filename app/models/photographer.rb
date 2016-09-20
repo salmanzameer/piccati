@@ -96,9 +96,8 @@ class Photographer < ActiveRecord::Base
   end
 
   def set_default_plan
-    @plan = Plan.find_by_name "Default"
-    self.photographer_plans.create(status: PhotographerPlan::Status::ACTIVE, expired_at: DateTime.now + 1.year, plan_id: @plan.id)
-    self.update(plan_type: @plan.name, expired_at: DateTime.now + 15.days)
+    photographer_plans.create(status: PhotographerPlan::Status::ACTIVE, expired_at: DateTime.now + 15.days, plan_id: Plan.default.id)
+    update(plan_type: Plan.default.name, expired_at: DateTime.now + 15.days)
   end
 
   def memory_available?(size)
@@ -141,7 +140,7 @@ class Photographer < ActiveRecord::Base
   end
 
   def fullname
-    "#{firstname} #{lastname}".titleize
+    "#{firstname}".titleize
   end
 
   def album_featured_image_url

@@ -15,10 +15,12 @@ module Snapper
     end
     
     get :photographers, rabl: "v1/snapper/photographers_index" do
-	    @photographer = Photographer.where("confirmed_at IS NOT NULL").paginate( page: params[:page], per_page: 10 ).order("created_at ASC")
-	    unless @photographer
+	    @photographer = Photographer.where("confirmed_at IS NOT NULL AND is_approved IS TRUE").paginate( page: params[:page], per_page: 10 ).order("created_at ASC")
+	    
+      unless @photographer
 	      throw :error, status: 404, message: "Photographer not found!"
 	    end
+      
       @total_photographers = @photographer.count
 	  end
 

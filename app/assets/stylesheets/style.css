@@ -297,6 +297,7 @@ a {
   {
     background-color: #003366;
     border-color: #003366;
+    border-radius: 0px;
   }
   .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand 
   {
@@ -785,7 +786,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
   color: #d74b4b;
 }
 
-#edit_pkg_popup, #add_pkg_popup, #delete_album_popup, #update_album_popup, #abc2, #abc, #edit_client_popup, #update-event-popup, #add_client_popup, #add_event_popup, #add_calender_event_popup, #add_album_popup, #signup_buttons_popup {
+#edit_pkg_popup, #add_pkg_popup, #update_album_popup, #abc2, #abc, #edit_client_popup, #update-event-popup, #add_client_popup, #add_event_popup, #add_calender_event_popup, #add_album_popup, #signup_buttons_popup {
       width:100%;
       height:100%;
       top:0;
@@ -3254,4 +3255,12 @@ transition-delay:.2s;
   height: 102px;
   margin-bottom: 0px;
   line-height: 65px;
+}
+.loading-big-img
+{
+  width: 50%;
+  z-index: 99999999;
+  position: absolute;
+  left: 50%;
+  top: 0px;
 }

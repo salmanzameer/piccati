@@ -151,6 +151,7 @@ $ ->
 				$('#update-event-model').enableClientSideValidations()
 
 	$(document).on 'click', '.client_management_popup', (e) ->
+		$("#gif_loader").show()
 		id = "#"+$(this).data("id")
 		form_name = $(this).data("id")
 		popup = "#"+$(this).data("popup")

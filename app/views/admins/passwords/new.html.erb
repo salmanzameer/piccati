@@ -1,16 +1,35 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
+<center>
+  <p class="admin-heading">Forgot your password?</p>
+</center>
+<div>
+    <div class="container container-table">
+      <div class="row vertical-center-row">
+        <div class="col-md-4 col-xs-3 col-sm-3"></div>
+        <div class="text-center col-md-4 col-xs-12 col-sm-6">
+          <div class="panel panel-default admin-panel">
+            <div class="panel-body">
+              <div class="form-horizontal">
+               <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post ,class:"admin_signin"}) do |f| %>
+  				<%= devise_error_messages! %>
+                  <div class="admin-label">
+                    <%= f.label :email %>
+                  </div>
+                  <div class="form-group input-field-setting">
+                      <div class="col-sm-12 zero-padding">
+                      	<%= f.email_field :email, autofocus: true ,class: "admin_signin admin-input"%>
+                      </div>
+                  </div>
+                  <div class="form-group input-field-setting">
+                    <div class="col-sm-12 zero-padding">
+                      <%= f.submit "Send me reset password instructions" ,class: "btn button4 admin_signin_btn mT25"%>
+                    </div>
+                  </div>
+                <% end %>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
 <%= render "admins/shared/links" %>

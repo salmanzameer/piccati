@@ -26,5 +26,5 @@ function get_ajax_loader_html(css) {
 }
 
 function get_big_ajax_loader_html(css) {
-  return  "<img alt='Please wait' src='/assets/default.svg' style='margin-left:5px;' class='loading-img'>";
+  return  "<img alt='Please wait' src='/assets/default.svg' style='margin-left:5px;' class='loading-img loading-big-img'>";
 }
