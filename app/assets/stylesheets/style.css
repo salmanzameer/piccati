@@ -566,7 +566,7 @@ a {
       display:none;
       position:fixed;
       background-color: rgba(49, 49, 49, 0.76);
-      overflow:auto
+      overflow:auto;
       }
 
   input[type="text"]:focus, textarea:focus, textarea.form-control  {
@@ -668,7 +668,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
       display:none;
       position:fixed;
       background-color: rgba(49, 49, 49, 0.76);
-      overflow:auto
+      overflow:auto;
       }
 
   #container {
@@ -794,7 +794,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
       display:none;
       position:fixed;
       background-color: rgba(49, 49, 49, 0.76);
-      overflow:auto
+      overflow:auto;
       }
       img#close {
       position:absolute;
