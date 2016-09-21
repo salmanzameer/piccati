@@ -121,10 +121,10 @@ button.btn:active {
 
 .admin_clients_container {
   position: absolute;
-  left: 24em;      
+  left: 16em;      
 }
 .admin_photgraphers_container {
-  padding: 30px 0px 0px 200px;   
+  padding: 30px 0px 0px 140px;   
 }
 
 .admin_plans_btn{
@@ -352,7 +352,7 @@ div#popupContact {
 }
 
 
-.table-plans tr, tr >th , .table-photgrapher-plans tr, tr >th
+.table-plans tr, tr >th , .table-photgrapher-plans tr, tr >th , .table-approved-photographer tr, tr >th
 {
   text-align: center;
 }
