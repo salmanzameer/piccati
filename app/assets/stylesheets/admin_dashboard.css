@@ -116,8 +116,7 @@ button.btn:active {
   left: 19em;  
 }
 .plans_container {
-  position: absolute;
-  left: 24em;    
+  padding: 30px 0px 0px 200px;   
 }
 
 .admin_clients_container {
@@ -125,8 +124,7 @@ button.btn:active {
   left: 24em;      
 }
 .admin_photgraphers_container {
-  position: absolute;
-  left: 28em;  
+  padding: 30px 0px 0px 200px;   
 }
 
 .admin_plans_btn{
@@ -147,8 +145,8 @@ button.btn:active {
 
 #new_plan {
   position: absolute;
-  left: 25em;
-  width: 500px;
+  padding: 30px 0px 0px 200px;
+  width: 700px;
 }
 
 .btn_setting {
@@ -316,4 +314,44 @@ div#popupContact {
 {
     font-size: 25px;
     padding: 10px;
+}
+
+.heading-admin-side
+{
+  padding: 10px 0px 0px 215px;
+}
+
+.heading-plan-admin-side
+{
+  padding: 10px 0px 0px 200px;
+}
+
+.btn-plan-admin
+{
+  width: 100%;
+  height: 50px;
+}
+
+
+.table-plans-list
+{
+  display: flex;
+  justify-content: center;
+}
+
+.link-plans-btn
+{
+  width: 75px;
+  margin: 0px 15px 0px 0px
+}
+
+.link-plans-btn-width
+{
+  width: 75px;
+}
+
+
+.table-plans tr, tr >th , .table-photgrapher-plans tr, tr >th
+{
+  text-align: center;
 }
