@@ -1,1 +1,6 @@
 $(".loading-grid").html("<%= escape_javascript(render partial: 'clients' ) %>");
+
+$(".pagination a").click(function(){
+    $.get(this.href, null, null, "script");
+    return false;
+});
