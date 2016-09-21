@@ -1,0 +1,64 @@
+<div class="container">
+	<center>
+		<h1 class="container_heading spacing-ablbum-heding">Listing All Photographers</h1>		
+	</center>
+	<div class="table-container">
+		<div class="photographers_details">
+			<div class="admin_photgraphers_container">
+				<% if @photographers.present? %>
+					<table class="table table-striped table-bordered">
+						<thead>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Email</th>
+							<th>Contact</th>
+							<th>Confirmed</th>
+							<th class="border_right">Action</th>
+						</thead>
+						<% @photographers.each do |p| %>
+							<tbody>
+								<tr>
+									<td><%= link_to p.firstname, "#", class: "photographer_image_popup popup_link" %></td>
+									<td><%= p.lastname %></td>
+									<td><%= p.email %></td>				      
+									<td><%= p.contnumber %></td>
+									<td><%= p.confirmed_at? %></td>
+									<td>
+										<% if p.is_approved == false %>
+							    		<%= button_to "Approve", approve_photographer_path(p.id), class: "btn btn-primary admin_plans_btn",method: :get, remote: true %>
+							    	<% else %>
+							    		<%= button_to "Approve", approve_photographer_path(p.id), class: "btn btn-primary admin_plans_btn",method: :get, remote: true, disabled: :true %>
+							    	<% end %>	    		
+					    		</td>				      
+								</tr>
+							</tbody>
+							<div id="photographer_image_popup" style="z-index: 9999; display: none">
+  							<div class="image_popup" id="popupContact">
+    							<%= image_tag ("close1.png"), class: "close cal-close", data: { id: "photographer_image_popup" } %>
+    							<div class="sign-up-pop-alignment">
+							      <center><h2>Images</h2></center>
+								      <div class="col-md-6">
+								      <center>
+								      	<%= image_tag(p.avatar.url(:medium), class: "album_image_width img-photographer-profile-sett ") %>
+								      </center>
+								      <p class="para-photographer-pop-admin"> Profile Image </p>
+								      </div>
+								      <div class="col-md-6">
+								      <center>
+								      	<%= image_tag(p.feature_image.url(:medium), class: "album_image_width img-photographer-profile-sett ") %>
+								      </center>
+								      <p class="para-photographer-pop-admin"> Featured Image </p>
+								      </div>
+							    </div>
+  							</div>
+							</div>
+						<% end %>
+					</table>					
+				<% else %>
+					<h3>No Photographers Found</h3>
+				<% end %>
+			<%= will_paginate @photographers %>
+			</div>
+		</div>
+	</div>
+</div>

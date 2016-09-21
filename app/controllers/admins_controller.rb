@@ -68,6 +68,23 @@ class AdminsController < ApplicationController
     end
   end
 
+  def photographers_for_approval
+    @photographers = Photographer.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+    respond_to do |f|
+      f.js
+    end
+  end
+
+  def approve_photographer
+    @photographers = Photographer.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+    @photographer = Photographer.find(params[:photographer_id])
+    @photographer.is_approved = true
+    @photographer.save
+    respond_to do |f|
+      f.js
+    end
+  end
+
   def update_all_images
     @album = Album.find(params[:album][:album_id])
     # @album.images.paginate(:page => params[:page], :per_page => 8)
@@ -87,8 +104,9 @@ class AdminsController < ApplicationController
     end
   end
 
-  def albums
-    @albums = Album.all.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+  def photographer_albums
+    @photographer = Photographer.find(params[:photographer_id])
+    @albums = @photographer.albums.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
     respond_to do |f|
       f.js
     end
