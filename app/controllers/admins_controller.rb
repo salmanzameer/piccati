@@ -98,7 +98,6 @@ class AdminsController < ApplicationController
   def album_images
     album_id = params[:album_id]
     @album = Album.find(album_id)
-    # @album.images.paginate(:page => params[:page], :per_page => 8)
     respond_to do |f|
       f.js
     end
@@ -106,7 +105,7 @@ class AdminsController < ApplicationController
 
   def photographer_albums
     @photographer = Photographer.find(params[:photographer_id])
-    @albums = @photographer.albums.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+    @albums = @photographer.albums.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 8)
     respond_to do |f|
       f.js
     end

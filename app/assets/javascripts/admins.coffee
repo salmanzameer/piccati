@@ -28,5 +28,6 @@ $ ->
   	$('.unselected').removeClass 'selected'
   	$(this).addClass 'selected'
 
-  			
-				
+  $(document).on "click", ".photographer_image_popup", (e) ->
+    e.preventDefault()
+    $("#photographer_image_popup").show()

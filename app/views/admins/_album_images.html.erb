@@ -1,6 +1,7 @@
 <div class="container">
+	<%= link_to "Back", admin_photographer_albums_path(@album.photographer.id), remote: true, class: "link-back" %>
 	<center>
-		<h1 class="spacing-ablbum-heding">Listing All Albums Images Below</h1>	
+		<h1 class="spacing-ablbum-heding">Listing Album Images Below</h1>	
 	</center>
 	
 	<div class="album_container" ">
@@ -8,13 +9,13 @@
 			<%= form_for(@album, url: admins_update_all_images_path, method: :post, remote: :true) do |f| %>
 				<%= f.hidden_field :album_id, :value => @album.id %>
 				<%= f.fields_for :images do |f_f| %>
+
 					<div class="album_images_container col-md-3 album-pictures-spacing">
 						<%= image_tag f_f.object.image.url(:medium), class: "album_image_width" %>
 						<label>Approve:</label>
 						<%= f_f.check_box :status %>
 					</div>
 				<% end %>
-				<%#= will_paginate f.images %>
 				<div class="update-album">
 					<%= f.submit "Approve", class: "btn btn-primary btn_setting album-approval-btn" %>
 					<p><label><input type="checkbox" id="checkAll"/> Check all</label></p>
