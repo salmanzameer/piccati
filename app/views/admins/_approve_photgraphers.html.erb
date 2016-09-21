@@ -1,12 +1,10 @@
 <div class="container">
-	<center>
-		<h1 class="container_heading spacing-ablbum-heding">Listing All Photographers</h1>		
-	</center>
+		<h1 class="container_heading spacing-ablbum-heding heading-admin-side">Listing All Photographers</h1>		
 	<div class="table-container">
 		<div class="photographers_details">
 			<div class="admin_photgraphers_container">
 				<% if @photographers.present? %>
-					<table class="table table-striped table-bordered">
+					<table class="table table-striped table-bordered table-approved-photographer">
 						<thead>
 							<th>First Name</th>
 							<th>Last Name</th>
