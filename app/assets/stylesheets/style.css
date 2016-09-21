@@ -407,7 +407,7 @@ a {
       display:none;
       position:fixed;
       background-color: rgba(49, 49, 49, 0.76);
-      overflow:auto
+      overflow:auto;
       }
       img#close {
       position:absolute;
