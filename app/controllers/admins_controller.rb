@@ -112,31 +112,28 @@ class AdminsController < ApplicationController
   end
 
   def clients
-    if request.xhr?
-      #binding.pry
-      if params[:client_type] == "Connected"
-        @clients = Client.includes(:photographer_clients).where( photographer_clients: {is_connected: true} ).order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
-      elsif params[:client_type] == "Not Connected"
-        @clients = Client.includes(:photographer_clients).where( photographer_clients: {is_connected: false} ).order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
-      end
-    else
-      @clients = Client.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)    
+    clients = Client.includes(:photographer_clients)
+    
+    if params[:type] && params[:type] != "All"
+      clients = clients.where(photographer_clients: { is_connected: params[:type] })
     end
+
+    @clients = clients.order(created_at: 'DESC').paginate(page: params[:page], per_page: 20)
+    
     respond_to do |f|
       f.js
     end 
   end
 
   def photographers 
-    # if request.xhr?
-    #   binding.pry
-    #   @photographers = Photographer.all.where(plan_type: params[:plan_type]).order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)    
-    # else
-    #   binding.pry
-    #   @photographers = Photographer.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
-    # end
-    # binding.pry
-    @photographers = Photographer.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+    photographers = Photographer
+    
+    if params[:type] && params[:type] != "All"
+      photographers = photographers.where(plan_type: params[:type])  
+    end
+
+    @photographers = photographers.order(created_at: 'DESC').paginate(page: params[:page], per_page: 20)
+
     respond_to do |f|
       f.js
     end

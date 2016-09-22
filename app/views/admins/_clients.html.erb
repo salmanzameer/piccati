@@ -2,12 +2,11 @@
 		<h1 class="heading-admin-side">Listing All Clients</h1>		
 	<div class="clients-button-container">
 	    Client
-	    <select class="form-control select_admin" id="client_type">
-		    <option >Type</option>
-		    <option class="connected">Connected</option>
-		    <option class="free">Not Connected</option>
-	  	</select>
+	    <%= form_tag(admin_client_path, remote: true) do %>
+	    	<%= select_tag "client_type", options_for_select([["All", 'All'], ["Connected", true], ["Not Connected", false]], params[:type]), id: "client_type" %>
+	    <% end %>
 	</div>
+
 	<div class="table-container">
 		<div class="clients_details">
 			<div class="admin_clients_container">
