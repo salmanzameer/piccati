@@ -171,6 +171,7 @@ module Customer
       @followings = @client.all_following
       puts "okok1111"
       @following_count = @followings.count
+      puts "okok2222"
     end
 
     desc "Get clients of a photographer"
