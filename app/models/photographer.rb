@@ -5,6 +5,7 @@ class Photographer < ActiveRecord::Base
 
   include PublicActivity::Common
   after_create :set_default_plan
+  before_destroy :stop_follow
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_save :ensure_authentication_token
@@ -86,6 +87,10 @@ class Photographer < ActiveRecord::Base
   accepts_nested_attributes_for :achievements, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
   before_create :set_role_type, :set_connects
+
+  def stop_follow
+    self.followings.delete_all
+  end
 
   def decrement_invitation_limit!
     true  
