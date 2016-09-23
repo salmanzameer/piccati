@@ -16,6 +16,11 @@ module ApplicationHelper
     end
   end
 
+  def navbar_icon(page)
+    page ||= ""
+    page.downcase.split(" ").join("-")+".svg"
+  end
+
   def default_url
 		if photographer_signed_in?
 			photographer_path(current_photographer)

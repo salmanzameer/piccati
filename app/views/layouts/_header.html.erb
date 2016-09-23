@@ -11,14 +11,13 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav pull-right">
           <% if current_photographer %>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;"><%= image_tag("Clients.png", class: "img-circle img-setting-header") %><%= @page_name.present? ? @page_name : "My Profile" %> <span class="caret"></span></a>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;"><%= image_tag(navbar_icon(@page_name), class: "img-setting-header") %><%= @page_name.present? ? @page_name : "My Profile" %> <span class="caret"></span></a>
               <ul class="dropdown-menu ul-padding main-menu" style="margin-left:15px;">
                 <li class="name-prof1"><%= link_to "Studio Management", photographer_path(current_photographer), class: "header-ul-list-setting" %></li>
                 <li class="name-prof1"><%= link_to "Client Management", photographer_clients_path(current_photographer), class: "header-ul-list-setting" %></li>
                 <li class="name-prof1"><%= link_to "My Calendar", photographer_events_info_path(current_photographer), class: "header-ul-list-setting" %></li>
                 <li class="name-prof1"><%= link_to "My Albums", photographer_albums_path(current_photographer), class: "header-ul-list-setting" %></li>
                 <li class="name-prof1"><%= link_to "Connects", settings_photographer_path(current_photographer), class: "header-ul-list-setting" %></li>
-                <li class="name-prof1"><%= link_to "My Profile", profile_photographer_path(current_photographer), class: "header-ul-list-setting" %></li>
               </ul>
             </li>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top: 12px;padding-bottom: 6px;"><%= image_tag (current_photographer.avatar), class: "img-circle", style: "width:30px;height:30px;" %>

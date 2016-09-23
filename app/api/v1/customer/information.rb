@@ -154,6 +154,23 @@ module Customer
       @follower_count = @followers.count
     end
 
+    desc "Get followings"
+    params do
+      requires :authentication_token, type: String
+      requires :client_id,      type: String
+    end
+
+    get "/get_followings", rabl: "v1/customer/get_followings" do
+
+      @client = Client.find_by_id_and_authentication_token(params[:client_id], params[:authentication_token])
+      unless @client
+        throw :error, status: 404, message: "Client not found!"
+      end
+
+      @followings = @client.all_following
+      @following_count = @followings.count
+    end
+
     desc "Get clients of a photographer"
     params do
       requires :authentication_token, type: String
