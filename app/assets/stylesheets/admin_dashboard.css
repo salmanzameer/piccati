@@ -1,3 +1,15 @@
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: 'SegoeUI';
+  src: url('/assets/segoeui.eot'); /* IE9 Compat Modes */
+  src: url('/assets/segoeui.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('/assets/segoeui.woff2') format('woff2'), /* Modern Browsers */
+    url('/assets/segoeui.woff') format('woff'), /* Modern Browsers */
+    url('/assets/segoeui.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('/assets/segoeui.svg') format('svg'); /* Legacy iOS */  font-weight: normal;
+  font-style: normal;
+}
+
 .link-back {
     float: right;
 }
@@ -13,7 +25,7 @@
 }
 
 h1 {
-  font-family: initial !important;
+    font-family: 'SegoeUI' !important;
 }
 .navbar-default {
     background-color: #003366 !important;
@@ -125,8 +137,7 @@ button.btn:active {
 }
 
 .admin_clients_container {
-  position: absolute;
-  left: 16em;      
+  padding: 30px 0px 0px 140px;        
 }
 .admin_photgraphers_container {
   padding: 30px 0px 0px 140px;   
@@ -323,13 +334,11 @@ div#popupContact {
 .heading-admin-side
 {
   padding: 10px 0px 0px 140px;
-  text-decoration: underline;
 }
 
 .heading-plan-admin-side
 {
   padding: 10px 0px 0px 140px;
-  text-decoration: underline;
 }
 
 .btn-plan-admin
@@ -359,7 +368,7 @@ div#popupContact {
 
 .table-plans tr, tr >th , .table-photgrapher-plans tr, tr >th , .table-approved-photographer tr, tr >th
 {
-  text-align: center;
+  text-align: left;
 }
 
 .infobox-container
