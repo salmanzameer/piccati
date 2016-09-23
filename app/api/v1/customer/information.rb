@@ -157,7 +157,7 @@ module Customer
     desc "Get followings"
     params do
       requires :authentication_token, type: String
-      requires :client_id,      type: String
+      requires :client_id,      type: Integer
     end
 
     get "/get_followings", rabl: "v1/customer/get_followings" do
