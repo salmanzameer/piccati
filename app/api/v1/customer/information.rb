@@ -167,7 +167,9 @@ module Customer
         throw :error, status: 404, message: "Client not found!"
       end
 
+      puts "okok"
       @followings = @client.all_following
+      puts "okok1111"
       @following_count = @followings.count
     end
 
