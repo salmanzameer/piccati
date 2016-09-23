@@ -12,7 +12,7 @@
     <tr>
       <% if event.wedding? %>
         <td class="min-height-udate-event-tb border-event-tb">Bride & Groom</td>
-        <td class="min-height-udate-event-tb border-event-tb"><%= @event.groom %> &amp; <%= @event.bridal %></td>
+        <td class="min-height-udate-event-tb border-event-tb"><%= @event.bridal %> &amp; <%= @event.groom %></td>
       <% end %>
       <td class="min-height-udate-event-tb border-event-tb">Event Date</td>
       <td class="min-height-udate-event-tb border-event-tb"><%= @event.start_time.present? ? @event.start_time.strftime("%b %d, %Y") : nil %></td>

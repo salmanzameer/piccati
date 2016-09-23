@@ -14,7 +14,7 @@ module Authentication
       optional :website, type: String
       optional :avatar, type: Rack::Multipart::UploadedFile
       requires :role_type, type: String
-      requires :terms_and_condition, type: Boolean   
+      optional :terms_and_condition, type: Boolean   
     end
     post :register, rabl: "v1/authentication/register"  do
       @client = Client.find_by_email params[:email]
