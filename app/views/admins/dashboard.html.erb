@@ -217,46 +217,27 @@
 			</div>
 
 			<div class="col-md-8 col-xs-8 notification-view col-md-offset-2">
-			<div class="notification-bar-heading">
-				Your Notifications
-			</div>
-			<a href="#">
-				<div class="pd10">
-			  		<div class="col-md-1 col-xs-2">
-			  			<img src="http://files.greatermedia.com/uploads/sites/13/2016/05/adele.jpg" style="width:45px;height:45px;">
-			  		</div>
-			  		<div class="col-md-11 col-xs-10">
-			  			<b>Venom 11</b> has * number of views.<span style="float:right;"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span> 5 hours ago</span></span><br>
-			  			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis.</p>
-			  		</div>
-			  		<hr class="hr-line-notification col-md-11 col-xs-12">
-		  		</div>
-		  	</a>
-	  		<a href="#">
-				<div class="pd10">
-			  		<div class="col-md-1 col-xs-2">
-			  			<img src="http://files.greatermedia.com/uploads/sites/13/2016/05/adele.jpg" style="width:45px;height:45px;">
-			  		</div>
-			  		<div class="col-md-11 col-xs-10">
-			  			<b>Venom 11</b> has * number of views.<span style="float:right;"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span> 5 hours ago</span></span><br>
-			  			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis.</p>
-			  		</div>
-			  		<hr class="hr-line-notification col-md-11 col-xs-12">
-		  		</div>
-		  	</a>
-	  		<a href="#">
-				<div class="pd10">
-			  		<div class="col-md-1 col-xs-2">
-			  			<img src="http://files.greatermedia.com/uploads/sites/13/2016/05/adele.jpg" style="width:45px;height:45px;">
-			  		</div>
-			  		<div class="col-md-11 col-xs-10">
-			  			<b>Venom 11</b> has * number of views.<span style="float:right;"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span> 5 hours ago</span></span><br>
-			  			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo massa sed ipsum porttitor facilisis.</p>
-			  		</div>
-			  		<hr class="hr-line-notification col-md-11 col-xs-12">
-		  		</div>
-		  	</a>
-		  	</div>
+				<div class="notification-bar-heading">
+					Photohrapher Notifications
+				</div>
+				<% @activities.each do |activity|%>
+					<% photographer = Photographer.find(activity.owner_id) %>
+					<% if Album.exists?(activity.trackable_id) %>
+						<% album = Album.find(activity.trackable_id) %>
+						<%= link_to admins_album_images_path(album_id: album.id), remote: true do %>
+							<div class="pd10">
+					  		<div class="col-md-1 col-xs-2">
+					  			<%= image_tag photographer.avatar.url, class: "photographer-noti-image" %>
+					  		</div>
+					  		<div class="col-md-11 col-xs-10">
+					  			<b><%= photographer.fullname %></b> <%= activity.key %><span style="float:right;"><span> <%= time_ago_in_words(activity.created_at) %></span></span><br>
+					  		</div>
+					  		<hr class="hr-line-notification col-md-11 col-xs-12">
+				  		</div>
+			  		<% end %>
+			  	<% end %>
+			  <% end %>
+		  </div>
 		</div>
 	</div>
 </div>

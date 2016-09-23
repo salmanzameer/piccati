@@ -1,8 +1,9 @@
 <div class="container">
 		<h1 class="heading-plan-admin-side">Listing All Plans Below</h1>
-	<center>
+	
 		<div class="plans_container">
 			<% if @plans.present? %>
+				<%= will_paginate @plans %>
 				<center>
 					<table class="table table-striped table-bordered table-plans">
 					  <thead>
@@ -31,11 +32,10 @@
 					  <% end %>
 					  </tbody>
 					</table>				
-				</center>					
+				</center>
+				<%= will_paginate @plans %>					
 			<% else %>
 				<h3>No Plans Found</h3>
 			<% end %>
-		</div>		
-	</center>
-
+		</div>
 </div>

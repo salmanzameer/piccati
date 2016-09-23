@@ -11,6 +11,7 @@ class AdminsController < ApplicationController
   end
 
   def dashboard
+    @activities = PublicActivity::Activity.where(trackable_type: "Album").order(created_at: 'DESC')
     @clients = Client.count
     @photographers = Photographer.count
   end
@@ -105,7 +106,7 @@ class AdminsController < ApplicationController
 
   def photographer_albums
     @photographer = Photographer.find(params[:photographer_id])
-    @albums = @photographer.albums.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 8)
+    @albums = @photographer.albums.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
     respond_to do |f|
       f.js
     end
@@ -118,7 +119,7 @@ class AdminsController < ApplicationController
       clients = clients.where(photographer_clients: { is_connected: params[:type] })
     end
 
-    @clients = clients.order(created_at: 'DESC').paginate(page: params[:page], per_page: 20)
+    @clients = clients.order(created_at: 'DESC').paginate(page: params[:page], per_page: 10)
     
     respond_to do |f|
       f.js
@@ -132,7 +133,7 @@ class AdminsController < ApplicationController
       photographers = photographers.where(plan_type: params[:type])  
     end
 
-    @photographers = photographers.order(created_at: 'DESC').paginate(page: params[:page], per_page: 20)
+    @photographers = photographers.order(created_at: 'DESC').paginate(page: params[:page], per_page: 10)
 
     respond_to do |f|
       f.js
