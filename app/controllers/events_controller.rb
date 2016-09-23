@@ -68,9 +68,11 @@ class EventsController < ApplicationController
 
   def upload_images
     client = current_photographer.clients.find_by_id(params[:client_id])
-    @image = client.events.find_by_id(params[:id]).images.new(image: params[:file])
-    if current_photographer.memory_available?(@image.image_file_size)
-      client.update_attribute('enabled', true) if @image.save
+    event = client.events.find_by_id(params[:id])
+    @image = event.images.new(image: params[:file])
+    if current_photographer.memory_available?(@image.image_file_size) && @image.save
+      client.update_attribute('enabled', true)
+      @image.create_activity(key: "added an image to event #{event.name}", owner: client, recipient: current_photographer)
     else
       flash[:notice] = 'You have not enough space.Please upgrade your plan.'
     end
