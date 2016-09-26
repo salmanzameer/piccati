@@ -3283,3 +3283,87 @@ transition-delay:.2s;
   border-right-width: 0px;
   border-bottom-width: 0px;
 }
+
+#popupContact1
+{
+  margin: 35px auto;
+}
+
+.background-album-popup
+{
+  background-color: #e9ebee;
+}
+
+.full-pg-album-pop-up
+{
+  height: 92%;
+}
+
+.full-pg-height
+{
+  height: 100%;
+}
+
+.pdRightzero
+{
+  padding-right: 0px;
+}
+
+.pdLeftzero
+{
+  padding-left: 0px;
+}
+
+.dropzone-album
+{
+  width: 100%;
+  border: 0px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.dz-image
+{
+  border-radius: 0px !important; 
+}
+
+.dropzone .dz-preview .dz-progress .dz-upload 
+{
+    background: linear-gradient(to bottom, #4db53c, #444);
+}
+
+.close-pop-album-create
+{
+  top: 40px;
+  right: 25px;
+  position: relative;
+  z-index: 1;
+}
+
+.dropzone .dz-preview .dz-image
+{
+  width: 183px;
+  height: 183px;
+}
+
+.dropzone .dz-preview .dz-image img
+{
+  width: 100%;
+}
+
+.left_alignment_text
+{
+  text-align: left;
+}
+
+.tag_friend_albump_pop
+{
+  text-align:left;
+  color:#555;
+}
+
+.tag_friend_albump_pop p
+{
+  margin:10px 0px;
+  color: #777;
+}

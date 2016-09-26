@@ -1,4 +1,4 @@
-<%= form_tag photographer_album_public_image_path(current_photographer.id, @album.id), class: "dropzone",style:"", multipart: true do %>
+<%= form_tag photographer_album_public_image_path(current_photographer.id, @album.id), class: "dropzone dropzone-album",style:"", multipart: true do %>
   <div class="fallback">
     <%= file_field_tag :file %>
   </div>
@@ -8,7 +8,7 @@
   $(function() {
     var myDropzone = new Dropzone(".dropzone");
     myDropzone.on("queuecomplete", function(file) {
-    $(".submit-album").click();
+    // $(".submit-album").click();
     });
   });
 </script>

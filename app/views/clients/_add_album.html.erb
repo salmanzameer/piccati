@@ -1,14 +1,16 @@
-<%= form_for @album ,url: photographer_album_path(current_photographer.id, @album.id), method: :put, validate: true, html: { id: "add-photographer-album", class: "form-action form-calandar-popup" } do |f| %>
-  <center><h2 class="form-calandar-popup-heading-top">Add an album</h2></center>
-  <fieldset class="form-calandar-popup-fieldset">
-    <div class="row">
+<%= form_for @album ,url: photographer_album_path(current_photographer.id, @album.id), method: :put, validate: true, html: { id: "add-photographer-album", class: "form-action form-calandar-popup background-album-popup full-pg-height" } do |f| %>
+  <h2 class="form-calandar-popup-heading-top left_alignment_text">Add an album</h2>
+  <fieldset>
       <div class="email-add-client-field-view">
-        <%= f.text_field :name, autocomplete: :off, autofocus: true, placeholder: "Album name", class: "first-field client_fields client_fields_calandar", style: "border: 1px solid #cccccc !important;" %>
+        <%= f.text_field :name, autocomplete: :off, autofocus: true, placeholder: "Album name", class: "first-field client_fields", style: "border: 1px solid #cccccc !important;" %>
       </div>
       <div class="email-add-client-field-view">
-        <%= f.text_area :description, autocomplete: :off, placeholder: "Album description", class: "first-field client_fields client_fields_calandar", style: "border: 1px solid #cccccc !important;height: 150px;margin-top:1px;padding-left: 20px;"%>
+        <%= f.text_area :description, autocomplete: :off, placeholder: "Album description", class: "first-field client_fields", style: "border: 1px solid #cccccc !important;height: 55px;margin-top:1px;padding-left: 20px;"%>
       </div>
-        <button type="submit"  class="button button4 bt-add-cli client_fields_calandar submit-album"><i class="fa fa-plus-circle btn-margin-right-ten"></i>Add Album</button>
-    </div>
+      <div class="tag_friend_albump_pop">
+        <h4>Tagged in this album</h4>
+        <p>Click anywhere on photos to tag friends</p>
+      </div>
+        <button type="submit"  class="button button4 bt-add-cli submit-album"><i class="fa fa-plus-circle btn-margin-right-ten"></i>Add Album</button>
   </fieldset>
 <% end %>
