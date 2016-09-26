@@ -15,12 +15,12 @@
 <div class="show">
 <div id = 'uploader' style="margin-left: 344px;">
 </div>
-<script>
-  <% session_key_name = Rails.application.config.session_options[:key] %>
+<!-- <script>
+  <%# session_key_name = Rails.application.config.session_options[:key] %>
   $(function() {
     $("#uploader").pluploadQueue({
       runtimes: 'html5,flash,silverlight',
-      url: "<%= upload_images_photographer_client_event_path(current_photographer.id,@client.id,@event.id) %>",
+      url: "<%#= upload_images_photographer_client_event_path(current_photographer.id,@client.id,@event.id) %>",
       max_file_size: '20mb',
       multiple_queues: true,
       flash_swf_url: "/assets/jquery_plupload/plupload.flash.swf",
@@ -28,8 +28,8 @@
       multipart: true,
       multipart_params: {
         '_http_accept': 'application/javascript',
-        'authenticity_token' : "<%= form_authenticity_token %>",
-        "<%= session_key_name %>" : encodeURIComponent("<%= u cookies[session_key_name] %>")
+        'authenticity_token' : "<%#= form_authenticity_token %>",
+        "<%#= session_key_name %>" : encodeURIComponent("<%#= u cookies[session_key_name] %>")
       },
       init : {
          UploadComplete: function(up, files)
@@ -40,4 +40,19 @@
     });
   });
  uploader.init();
- </script>
+ </script> -->
+
+<%= form_tag upload_images_photographer_client_event_path(current_photographer.id,@client.id,@event.id), class: "dropzone", multipart: true do %>
+  <div class="fallback">
+    <%= file_field_tag :file %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+$(function() {
+  var myDropzone = new Dropzone(".dropzone");
+  myDropzone.on("queuecomplete", function(file) {
+    window.location.href = "<%= all_images_photographer_client_event_path(current_photographer.id, @client.id, @event.id) %>";
+  });
+});
+</script>

@@ -1,5 +1,4 @@
-<%= image_tag ("close1.png"), class: "close cal-close", data: { id: "add_album_popup" } %>
-<%= form_for current_photographer.albums.new ,url: photographer_albums_path(current_photographer), method: :post, validate: true, html: { id: "add-photographer-album", class: "form-action form-calandar-popup" } do |f| %>
+<%= form_for @album ,url: photographer_album_path(current_photographer.id, @album.id), method: :put, validate: true, html: { id: "add-photographer-album", class: "form-action form-calandar-popup" } do |f| %>
   <center><h2 class="form-calandar-popup-heading-top">Add an album</h2></center>
   <fieldset class="form-calandar-popup-fieldset">
     <div class="row">

@@ -49,6 +49,7 @@ class AlbumsController < ApplicationController
     else
       flash[:notice] = 'You have not enough space.Please upgrade your plan.'
     end
+      render js: "window.location = '#{photographer_album_public_image_path(current_photographer.id, @album.id)}';"
   end
 
   def image_destroy
@@ -56,6 +57,13 @@ class AlbumsController < ApplicationController
     current_photographer.memory_refactor(@image.image_file_size)
     @image.destroy
     redirect_to photographer_album_path(photographer_id: params[:photographer_id], id: params[:id])
+  end
+
+  def untitled_album
+    @album = current_photographer.albums.find_or_create_by(name:"Untitled")
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

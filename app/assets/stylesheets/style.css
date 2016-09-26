@@ -2819,6 +2819,12 @@ div#popupContact {
     width: 600px;
     margin: 150px auto;
 }
+div#popup-event{
+  width: 1255px;
+  height: 595px;
+  margin: 52px auto;
+}
+
 }
 
 @media (min-width: 322px) and (max-width: 980px)

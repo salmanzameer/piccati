@@ -25,3 +25,7 @@ $ ->
         $(".clients-table").html(data)
         url = "/photographers/#{photographer_id}/clients/#{client_id}/events/#{id}"
         window.history.pushState("", "", url)
+
+  $(document).on 'click', '.add-photo-click', (e) ->
+    e.preventDefault()
+    $(".dropzone").click()

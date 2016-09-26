@@ -15,6 +15,7 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require moxie
+//= require dropzone
 //= require plupload.dev
 //= require jquery.plupload.queue
 //= require light-gallery

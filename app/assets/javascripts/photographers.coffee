@@ -180,3 +180,17 @@ $ ->
   $('.disable-gallery').click (e) ->
     e.preventDefault()
     $('#show-galary').data('lightGallery').destroy(true);
+
+  $(document).on 'click', '.add-album-ajax', (e) ->
+    e.preventDefault()
+    _this = $(this)
+    photographer_id = _this.data("photographerId")
+    $.ajax
+      type: "GET"
+      url:  "/photographers/"+photographer_id+"/albums/untitled_album"
+      success: (data) ->
+        $("#add_album_popup").modal("show")
+
+  $(document).on 'click', '.close-link', (e) ->
+    e.preventDefault()
+    $("#add_album_popup").modal("hide")

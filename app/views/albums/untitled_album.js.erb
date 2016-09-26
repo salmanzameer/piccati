@@ -1,0 +1,2 @@
+$(".untitled-album-fields").html("<%= escape_javascript(render partial: 'clients/add_album', locals: { album: @album} ) %>");
+$(".album-pictures-dropzone").html("<%= escape_javascript(render partial: 'upload_album_pictures', locals: { album: @album} ) %>");
