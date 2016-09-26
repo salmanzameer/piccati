@@ -44,8 +44,8 @@ class AlbumsController < ApplicationController
     @page_name = "My Albums"
     @album = Album.find(params[:album_id])
     @image = @album.images.new(image: params[:file])
-    if current_photographer.memory_available?(@image.image_file_size)
-      @image.save
+    if current_photographer.memory_available?(@image.image_file_size) && @image.save
+      @image.create_activity(key: "added an image to album #{@album.name}", owner: current_photographer)
     else
       flash[:notice] = 'You have not enough space.Please upgrade your plan.'
     end

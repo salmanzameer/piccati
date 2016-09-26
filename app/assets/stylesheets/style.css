@@ -407,7 +407,7 @@ a {
       display:none;
       position:fixed;
       background-color: rgba(49, 49, 49, 0.76);
-      overflow:auto
+      overflow:auto;
       }
       img#close {
       position:absolute;
@@ -566,7 +566,7 @@ a {
       display:none;
       position:fixed;
       background-color: rgba(49, 49, 49, 0.76);
-      overflow:auto
+      overflow:auto;
       }
 
   input[type="text"]:focus, textarea:focus, textarea.form-control  {
@@ -668,7 +668,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
       display:none;
       position:fixed;
       background-color: rgba(49, 49, 49, 0.76);
-      overflow:auto
+      overflow:auto;
       }
 
   #container {
@@ -786,7 +786,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
   color: #d74b4b;
 }
 
-#edit_pkg_popup, #add_pkg_popup, #update_album_popup, #abc2, #abc, #edit_client_popup, #update-event-popup, #add_client_popup, #add_event_popup, #add_calender_event_popup, #add_album_popup, #signup_buttons_popup {
+#edit_pkg_popup, #add_pkg_popup, #update_album_popup, #delete_album_popup, #abc2, #abc, #edit_client_popup, #update-event-popup, #add_client_popup, #add_event_popup, #add_calender_event_popup, #add_album_popup, #signup_buttons_popup {
       width:100%;
       height:100%;
       top:0;
@@ -794,7 +794,7 @@ input[type="email"], input[type="password"], input[type="text"], textarea, texta
       display:none;
       position:fixed;
       background-color: rgba(49, 49, 49, 0.76);
-      overflow:auto
+      overflow:auto;
       }
       img#close {
       position:absolute;
@@ -2322,6 +2322,11 @@ select, input, textarea, textarea.form-control:focus
   margin-bottom: 70px;
 }
 
+.mB20
+{
+  margin-bottom: 20px;
+}
+
 .right-padding-twenty-four
 {
   padding-right: 24px;
@@ -2350,7 +2355,7 @@ select, input, textarea, textarea.form-control:focus
 
 .error-message-update-password
 {
-    width: 77%;
+    width: 100%;
     float: left;
 }
 
@@ -2505,13 +2510,13 @@ li.plupload_delete a
 }
 
 .reset-password {
-    width: 700px;
+    width: 420px;
     padding-left: 0px;
-    padding-right: 100px;
+    padding-right: 60px;
 }
 
 .reset-password-input{
-      width: 61%;
+      width: 100%;
     float: left;
 }
 
@@ -3253,6 +3258,15 @@ transition-delay:.2s;
   padding-top: 1px;
 }
 
+.description-prfile-text-area
+{
+  padding-left: 20px;
+  margin-top: 0px;
+  width: 100%;
+  height: 102px;
+  margin-bottom: 0px;
+  line-height: 65px;
+}
 .loading-big-img
 {
   width: 50%;
@@ -3260,4 +3274,12 @@ transition-delay:.2s;
   position: absolute;
   left: 50%;
   top: 0px;
+}
+
+.border-event-tb
+{
+  border-left-width: 1px;
+  border-top-width: 1px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
 }

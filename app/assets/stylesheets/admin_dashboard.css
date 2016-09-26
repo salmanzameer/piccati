@@ -1,3 +1,27 @@
+.photographer-noti-image {
+  width: 45px;
+  height: 45px;
+}
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: 'SegoeUI';
+  src: url('/assets/segoeui.eot'); /* IE9 Compat Modes */
+  src: url('/assets/segoeui.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('/assets/segoeui.woff2') format('woff2'), /* Modern Browsers */
+    url('/assets/segoeui.woff') format('woff'), /* Modern Browsers */
+    url('/assets/segoeui.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('/assets/segoeui.svg') format('svg'); /* Legacy iOS */  font-weight: normal;
+  font-style: normal;
+}
+
+.link-back {
+    float: right;
+}
+
+.devise-noti {
+  padding-left: 192px !important;
+}
+
 .selected {
   color: #4B88B7 !important;
   background-color: #F1F5F9 !important;
@@ -5,7 +29,7 @@
 }
 
 h1 {
-  font-family: initial !important;
+    font-family: 'SegoeUI' !important;
 }
 .navbar-default {
     background-color: #003366 !important;
@@ -42,6 +66,7 @@ button.btn:active {
     padding-bottom: 9px;
     margin: 0px 0 20px !important; 
     border-bottom: 1px solid #eee;
+    background-color: rgba(49, 49, 49, 0.76);
   }
 
 #sidebar-toggle-icon {
@@ -112,17 +137,14 @@ button.btn:active {
   left: 19em;  
 }
 .plans_container {
-  position: absolute;
-  left: 24em;    
+  padding: 30px 0px 0px 140px;   
 }
 
 .admin_clients_container {
-  position: absolute;
-  left: 24em;      
+  padding: 30px 0px 0px 140px;        
 }
 .admin_photgraphers_container {
-  position: absolute;
-  left: 28em;  
+  padding: 30px 0px 0px 140px;   
 }
 
 .admin_plans_btn{
@@ -143,8 +165,8 @@ button.btn:active {
 
 #new_plan {
   position: absolute;
-  left: 25em;
-  width: 500px;
+  padding: 30px 0px 0px 125px;
+  width: 700px;
 }
 
 .btn_setting {
@@ -239,8 +261,7 @@ button.btn:active {
 }
 
 .admin_dashboard_settings {
-  position: absolute;
-  left: 24em;  
+      top: 150px; 
 }
 
 .user-info small {
@@ -274,3 +295,269 @@ button.btn:active {
   width: 125px;
   height: 40px !important;
 }
+
+#photographer_image_popup
+{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+    position: fixed;
+    background-color: rgba(49, 49, 49, 0.76);
+    overflow: auto;
+}
+
+div#popupContact {
+    position: relative;
+    width: auto;
+    margin: 10px;
+    font-family: 'SegoeUI';
+    width: 600px;
+    margin: 150px auto;
+}
+
+.img-photographer-profile-sett
+{
+  width: 95%;
+}
+
+.sign-up-pop-alignment
+{
+  background-color: #fff;
+  padding: 1px;
+  min-height: 430px;
+}
+
+.para-photographer-pop-admin
+{
+    font-size: 25px;
+    padding: 10px;
+}
+
+.heading-admin-side
+{
+  padding: 10px 0px 0px 140px;
+}
+
+.heading-plan-admin-side
+{
+  padding: 10px 0px 0px 140px;
+}
+
+.btn-plan-admin
+{
+  width: 100%;
+  height: 50px;
+}
+
+
+.table-plans-list
+{
+  display: flex;
+  justify-content: center;
+}
+
+.link-plans-btn
+{
+  width: 75px;
+  margin: 0px 15px 0px 0px
+}
+
+.link-plans-btn-width
+{
+  width: 75px;
+}
+
+
+.table-plans tr, tr >th , .table-photgrapher-plans tr, tr >th , .table-approved-photographer tr, tr >th
+{
+  text-align: left;
+}
+
+.infobox-container
+{
+  padding: 50px 0px 0px 0px; 
+}
+
+.widget-header-small
+{
+  padding: 5px 0px 0px 0px;
+}
+
+.btn-pie-table
+{
+  margin: 0px 0px 5px 0px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+}
+
+#piechart-placeholder
+{
+  margin: 0px 0px 225px 0px;
+}
+
+.legend
+{
+  right: 100px;
+  top: 140px;
+  position: absolute;
+  width: 100%;
+}
+
+.infobox
+{
+  height: 84px !important;
+  padding: 20px 10px 10px 13px;
+}
+
+.notification-view
+{
+  padding: 30px 15px 0px 120px;
+}
+
+.notification-bar-heading
+{
+  background-color: #dcdcdc;
+  padding: 10px;
+}
+
+.pd10
+{
+  padding: 5px 0px 0px 0px;
+}
+
+.hr-line-notification
+{
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/* 
+  PIE Chart
+*/
+  .pie1 {
+    position:absolute;
+    width:100px;
+    height:200px;
+    overflow:hidden;
+    left:150px;
+    -moz-transform-origin:left center;
+    -ms-transform-origin:left center;
+    -o-transform-origin:left center;
+    -webkit-transform-origin:left center;
+    transform-origin:left center;
+  }
+  .pie1.big {
+    width:200px;
+    height:200px;
+    left:50px;
+    -moz-transform-origin:center center;
+    -ms-transform-origin:center center;
+    -o-transform-origin:center center;
+    -webkit-transform-origin:center center;
+    transform-origin:center center;
+  }
+  .pie1:BEFORE {
+    content:"";
+    position:absolute;
+    width:100px;
+    height:200px;
+    left:-100px;
+    border-radius:100px 0 0 100px;
+    -moz-transform-origin:right center;
+    -ms-transform-origin:right center;
+    -o-transform-origin:right center;
+    -webkit-transform-origin:right center;
+    transform-origin:right center;
+    
+  }
+ /* if it's part of a big piece, bring it back into the square */
+  .pie1.big:BEFORE {
+    left:0px;
+  }
+/* 
+  big pieces will also need a second semicircle, pointed in the
+  opposite direction to hide the first part behind.
+*/
+  .pie1.big:AFTER {
+    content:"";
+    position:absolute;
+    width:100px;
+    height:200px;
+    left:100px;
+    border-radius:0 100px 100px 0;
+  }
+/*
+  add colour to each piece.
+*/
+  .pie1:nth-of-type(1):BEFORE,
+  .pie1:nth-of-type(1):AFTER {
+    background-color:blue;  
+  }
+  .pie1:nth-of-type(2):AFTER,
+  .pie1:nth-of-type(2):BEFORE {
+    background-color:green; 
+  }
+  .pie1:nth-of-type(3):AFTER,
+  .pie1:nth-of-type(3):BEFORE {
+    background-color:red; 
+  }
+  .pie1:nth-of-type(4):AFTER,
+  .pie1:nth-of-type(4):BEFORE {
+    background-color:orange;  
+  }
+/*
+  now rotate each piece based on their cumulative starting
+  position
+*/
+  .pie1[data-start="30"] {
+    -moz-transform: rotate(30deg); /* Firefox */
+    -ms-transform: rotate(30deg); /* IE */
+    -webkit-transform: rotate(30deg); /* Safari and Chrome */
+    -o-transform: rotate(30deg); /* Opera */
+    transform:rotate(30deg);
+  }
+  .pie1[data-start="60"] {
+    -moz-transform: rotate(60deg); /* Firefox */
+    -ms-transform: rotate(60deg); /* IE */
+    -webkit-transform: rotate(60deg); /* Safari and Chrome */
+    -o-transform: rotate(60deg); /* Opera */
+    transform:rotate(60deg);
+  }
+  .pie1[data-start="100"] {
+    -moz-transform: rotate(100deg); /* Firefox */
+    -ms-transform: rotate(100deg); /* IE */
+    -webkit-transform: rotate(100deg); /* Safari and Chrome */
+    -o-transform: rotate(100deg); /* Opera */
+    transform:rotate(100deg);
+  }
+/*
+  and rotate the amount of the pie that's showing.
+
+  NOTE: add an extra degree to all but the final piece, 
+  to fill in unsightly gaps.
+*/
+  .pie1[data-value="30"]:BEFORE {
+    -moz-transform: rotate(31deg); /* Firefox */
+    -ms-transform: rotate(31deg); /* IE */
+    -webkit-transform: rotate(31deg); /* Safari and Chrome */
+    -o-transform: rotate(31deg); /* Opera */
+    transform:rotate(31deg);
+  }
+  .pie1[data-value="40"]:BEFORE {
+    -moz-transform: rotate(41deg); /* Firefox */
+    -ms-transform: rotate(41deg); /* IE */
+    -webkit-transform: rotate(41deg); /* Safari and Chrome */
+    -o-transform: rotate(41deg); /* Opera */
+    transform:rotate(41deg);
+  }
+  .pie1[data-value="260"]:BEFORE {
+    -moz-transform: rotate(260deg); /* Firefox */
+    -ms-transform: rotate(260deg); /* IE */
+    -webkit-transform: rotate(260deg); /* Safari and Chrome */
+    -o-transform: rotate(260deg); /* Opera */
+    transform:rotate(260deg);
+  }
+
+

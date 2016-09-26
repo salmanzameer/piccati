@@ -175,6 +175,12 @@ $ ->
 			type: "POST"
 			url:  "/invite_client"
 			data: { id: $(this).data("id") }
+			success: (data) ->
+				setTimeout (->
+		      $('.devise-noti').remove()
+		      return
+		    ), 3000
+
 
 	$(document).on 'change', '.package-dropdown', (e) ->
 		_id = $('.package-dropdown').val()

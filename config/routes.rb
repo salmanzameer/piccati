@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get  'admins/new'
   get  'admins/dashboard'
-  get  'admins/albums', as: :admin_albums
+  get  'admins/photographer/albums/:photographer_id', to: "admins#photographer_albums", as: :admin_photographer_albums
   get  'admins/album_images'
   post 'admins/update_all_images'
   get  'admins/plans', as: :admin_plans
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get  'admins/destroy_plan'
   get  'admins/clients', as: :admin_client
   get  'admins/photographers', as: :admin_photographer
+  get  'admins/photographers_for_approval', as: :photographers_for_approval
+  get  'admins/approve_photographer/:photographer_id', to: "admins#approve_photographer", as: :approve_photographer
 
   devise_for :clients, controllers: { invitations: 'invitations', sessions: 'sessions', registrations: 'registrations' }
 

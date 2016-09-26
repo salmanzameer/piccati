@@ -5,6 +5,7 @@ class Photographer < ActiveRecord::Base
 
   include PublicActivity::Common
   after_create :set_default_plan
+  before_destroy :stop_follow
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_save :ensure_authentication_token
@@ -26,7 +27,7 @@ class Photographer < ActiveRecord::Base
   validates :firstname, presence: true, format: { with: /\A[a-zA-Z_\s]+\z/, message: 'alphabets only' } # as studio name
   # validates_format_of :lastname, :with => /\A[a-zA-Z_\s]+\z/, message: 'alphabets only'
   validates :contnumber, presence: true, format: { with: /\A^(?:00|\+|0)?[1-9][[0-9]+[ \( \) \-]]*$\z/,  message: 'invalid contact'}
-  validates :terms_and_condition, presence: true, on: :create
+  #validates :terms_and_condition, presence: true, on: :create
   validates :email, presence: true
   validates :password, presence: true, on: :create
   validates_confirmation_of :password, on: :create
@@ -86,6 +87,10 @@ class Photographer < ActiveRecord::Base
   accepts_nested_attributes_for :achievements, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
   before_create :set_role_type, :set_connects
+
+  def stop_follow
+    self.followings.delete_all
+  end
 
   def decrement_invitation_limit!
     true  

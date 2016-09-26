@@ -1,25 +1,20 @@
 <div class="container">
-	<center>
-		<h1 class="container_heading spacing-ablbum-heding">Listing All Photographers</h1>		
-	</center>
+		<h1 class="container_heading spacing-ablbum-heding heading-plan-admin-side">Listing All Photographers</h1>		
+	
 	<div class="button-container">
 		Photographer
-		<select class="form-control select_admin" id="types">
-			<option >Select Type</option>
-			<option id="executive">Executive</option>
-			<option id="premium">Premium</option>
-			<option id="standard">Standard</option>
-		</select>
+		<%= form_tag(admin_photographer_path) do %>
+	    	<%= select_tag "plan_type", options_for_select([["All", 'All'], ["Default", "Default"], ["Standard", "Standard"], ["Executive", "Executive"], ["Premium", "Premium"]], params[:type]) %>
+	    <% end %>
 	</div>
 	<div class="table-container">
 		<div class="photographers_details">
 			<div class="admin_photgraphers_container">
 				<% if @photographers.present? %>
+					<%= will_paginate @photographers %>
 					<table class="table table-striped table-bordered">
 						<thead>
-							<th>ID</th>
 							<th>First Name</th>
-							<th>Last Name</th>
 							<th>Email</th>
 							<th>Role</th>
 							<th>Plan</th>
@@ -27,28 +22,28 @@
 							<th>Total Connects</th>
 							<th>Used Connects</th>
 							<th>Confirmed</th>
+							<th>Albums</th>
 						</thead>
 						<% @photographers.each do |p| %>
 							<tbody>
 								<tr>
-									<td><%= p.id %></td>
 									<td><%= p.firstname %></td>
-									<td><%= p.lastname %></td>
 									<td><%= p.email %></td>				      
 									<td><%= p.role_type %></td>
-									<td><%= check_p_plan_type(p) %></td>				      
+									<td><%= p.plan_type %></td>				      
 									<td><%= p.clients.count %></td>				      
 									<td><%= p.total_connects %></td>
 									<td><%= p.used_connects %></td>
-									<td><%= p.confirmed_at? %></td>				      
+									<td><%= p.confirmed_at? %></td>
+									<td><%= link_to "View", admin_photographer_albums_path(p.id), remote: :true %></td>	      
 								</tr>
 							</tbody>
 						<% end %>
-					</table>					
+					</table>
+					<%= will_paginate @photographers %>					
 				<% else %>
 					<h3>No Photographers Found</h3>
 				<% end %>
-			<%= will_paginate @photographers %>
 			</div>
 		</div>
 	</div>

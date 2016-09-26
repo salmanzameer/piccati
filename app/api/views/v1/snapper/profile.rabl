@@ -1,11 +1,13 @@
 object false
 
 child @user, object_root: false do
-  attributes :id, :title, :firstname, :lastname, :contnumber, :email, :website, :description
+  attributes :id, :firstname, :lastname, :contnumber, :email, :website, :description
   
   node(:is_followed) { |user| @requester.following?(user) }
   node(:url) { |img| img.avatar.url }
-  
+  if @user.class.name == "Client"
+    node(:number_of_followings) { |client| client.all_following.count }
+  end
   if @user.class.name == "Photographer"
     
     node(:rating) { |user| user.rating }

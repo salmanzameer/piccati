@@ -1,21 +1,23 @@
 	<div class="container">
+	<%= link_to "Back", admin_photographer_path, remote: true, class: "link-back" %>
 		<center>
-			<h1 class="spacing-ablbum-heding">Listing All Albums Below</h1>	
+			<h1 class="spacing-ablbum-heding">Listing <%= @photographer.firstname %> Albums Below</h1>	
 		</center>
-		<div class="album_container" ">
+		<div class="album_container">
 			<div>
 				<%= will_paginate @albums%>
 			</div>
 			<% if @albums.present? %>
 				<% @albums.each do |album| %>			
-			<div class="col-md-3 spacing-ablbum-heding">
-				<% if album.images.present? %>
-		      <%= link_to image_tag(album.images.first.image.url(:medium), class: "admin_image_settings"), admins_album_images_path(album_id: album.id), remote: true %>
-					<%= will_paginate @albums %>
-		      <% else %>
-		          <%= link_to image_tag("default-album.png", width: 205, height: 205) %>
-				<% end %>			
-			</div>
+					<div class="col-md-3 spacing-ablbum-heding">
+						<% if album.images.present? %>
+							<p><%= album.name %></p>
+				      <%= link_to image_tag(album.images.first.image.url(:medium), class: "admin_image_settings"), admins_album_images_path(album_id: album.id), remote: true %>
+				    <% else %>
+				    	<p><%= album.name %></p>
+				      <%= link_to image_tag("default-album.png", width: 205, height: 205, class: "admin_image_settings"), admins_album_images_path(album_id: album.id), remote: true %>
+						<% end %>			
+					</div>
 				<% end %> 
 			<% else %>
 				<h4>No Albums listed yet</h4>

@@ -19,15 +19,17 @@
                   <%#= f.select(:role_type , options_for_select(['Freelancer', 'Studio'], 'Freelancer' ), {prompt: false }, class: "form-title form-control client_fields_calandar1 zero-border mT1", :id => "form-title" , style: "height: 50px;border-radius: 0px;")   %>
                   <div class="form-group input-field-setting">
                    <div class="col-sm-12 zero-padding">
-                   <% placeholder = resource_name == :client ? 'Full Name' : 'Studio Name' %>
+                   <% placeholder = resource_name == :client ? 'First Name' : 'Studio Name' %>
                     <%= f.text_field :firstname, :placeholder => placeholder ,class: "form-firstname form-control  form-box-s zero-border mT1 form-sign-up-input-field input-lg" %>
                    </div>
                   </div>
-         <!--          <div class="form-group input-field-setting">
-                   <div class="col-sm-12 zero-padding">
-                    <%#= f.text_field :lastname, :placeholder => 'Last Name' ,class: "form-lastname form-control  form-box-s zero-border mT1 form-sign-up-input-field input-lg" %>
-                   </div>
-                  </div> -->
+                  <% if resource_name == :client %>
+                    <div class="form-group input-field-setting">
+                     <div class="col-sm-12 zero-padding">
+                      <%= f.text_field :lastname, :placeholder => 'Last Name' ,class: "form-lastname form-control  form-box-s zero-border mT1 form-sign-up-input-field input-lg" %>
+                     </div>
+                    </div>
+                  <% end %>
                   <div class="form-group input-field-setting">
                    <div class="col-sm-12 zero-padding">
                     <%= f.email_field :email, :placeholder => 'Email' ,class: "form-username form-control zero-border mT1 form-sign-up-input-field input-lg" %>
@@ -48,13 +50,13 @@
                     <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'Password Confirmation', class: "form-password form-control zero-border mT1 form-sign-up-input-field input-lg" %>
                    </div>
                   </div>
-                  <div class="form-group input-field-setting">
+                  <!-- <div class="form-group input-field-setting">
                    <div class="col-sm-12 zero-padding">
                     <%= f.check_box :terms_and_condition, class:"sign-up-checkbox" %>
                     <font class="signup-accept accept-setting">Confirm</font> <%#= link_to "terms and conditions.", "#", class: "signup-terms-link signup_buttons_popup terms-and-conditions-setting"%>
                    </div>
                   </div>
-                  <div class="form-group input-field-setting">
+                   --><div class="form-group input-field-setting">
                    <div class="col-sm-12 zero-padding">
                     <button type="submit" class="button button4 mB70 form-sign-up-input-field-btn"><i class="fa fa-plus-circle btn-sign-up-registration"></i>Submit</button>
                    </div>

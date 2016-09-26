@@ -42,6 +42,36 @@ module Authentication
       @user.update_attribute('avatar', params[:avatar].tempfile)
     end  
 
+    desc "Edit User profile"
+    params do
+      requires :id, type: Integer
+      requires :firstname, type: String
+      optional :lastname, type: String
+      optional :description, type: String
+      requires :contnumber, type: String
+      requires :city, type: String
+      optional :website, type: String
+      requires :authentication_token, type: String
+    end
+
+    put :edit_profile, rabl: "v1/authentication/edit_profile" do
+
+      @user = Client.find_by_id_and_authentication_token(params[:id], params[:authentication_token])
+      @user = Photographer.find_by_id_and_authentication_token(params[:id], params[:authentication_token]) unless @user.present?
+
+      unless @user
+        throw :error, status: 404, message: "User not found"
+      end
+      @user.assign_attributes({ firstname: params[:firstname], contnumber: params[:contnumber], city: params[:city] })
+      if @user.class.name == "Photographer"
+        @user.website = params[:website]
+        @user.description = params[:description]
+      else
+        @user.lastname = params[:lastname]
+      end
+      @user.save(validate: false)
+    end
+
     desc "Forgot password (STEP I)"
     params do
       requires :email, type: String

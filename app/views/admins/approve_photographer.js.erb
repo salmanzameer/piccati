@@ -1,5 +1,4 @@
-$(".loading-grid").html("<%= escape_javascript(render partial: 'clients' ) %>");
-
+$(".loading-grid").html("<%= escape_javascript(render partial: 'approve_photgraphers' ) %>");
 $(".pagination a").click(function(){
     $.get(this.href, null, null, "script");
     return false;

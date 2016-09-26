@@ -1,6 +1,7 @@
 class Image < ActiveRecord::Base
   include PublicActivity::Common
-  
+  default_scope { order('id ASC') }
+
   after_create :after_upload
   has_many :likes
   belongs_to :client

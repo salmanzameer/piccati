@@ -40,7 +40,7 @@ class ClientsController < ApplicationController
 
     client.photographer_clients.where(photographer_id: current_photographer.id).first_or_create
     flash[:notice] = "Invitation has been sent to client"
-    redirect_to photographer_clients_path(current_photographer)
+    redirect_to photographer_client_path(current_photographer, client)
   end
 
   def invite_client

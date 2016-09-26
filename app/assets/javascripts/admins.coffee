@@ -14,17 +14,18 @@ $ ->
 			data: {plan_type: $('#types :selected ').text() }
 			success: (data) ->
 				$('.table-container').html($(data).find('.photographers_details'))
-
-	$('#client_type').change (e) ->
+	
+	$(document).on "change", "#client_type, #plan_type", (e) -> 
 		e.preventDefault()
 		$.ajax
-			url: '/admins/clients'
+			url: $(this).closest('form').attr('action')
 			type: 'GET'
-			data: {client_type: $('#client_type :selected ').text() }
-			success: (data) ->
-				$('.table-container').html($(data).find('.clients_details'))
-
+			data: { type: $("#"+$(this).attr('id')+" :selected").val() }
+			
 	$('.unselected').click ->
   	$('.unselected').removeClass 'selected'
-  	$(this).addClass 'selected'			
-				
+  	$(this).addClass 'selected'
+
+  $(document).on "click", ".photographer_image_popup", (e) ->
+    e.preventDefault()
+    $("#photographer_image_popup").show()

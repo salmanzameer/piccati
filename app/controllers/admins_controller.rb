@@ -11,6 +11,7 @@ class AdminsController < ApplicationController
   end
 
   def dashboard
+    @activities = PublicActivity::Activity.where(trackable_type: "Album").order(created_at: 'DESC')
     @clients = Client.count
     @photographers = Photographer.count
   end
@@ -68,6 +69,23 @@ class AdminsController < ApplicationController
     end
   end
 
+  def photographers_for_approval
+    @photographers = Photographer.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+    respond_to do |f|
+      f.js
+    end
+  end
+
+  def approve_photographer
+    @photographers = Photographer.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+    @photographer = Photographer.find(params[:photographer_id])
+    @photographer.is_approved = true
+    @photographer.save
+    respond_to do |f|
+      f.js
+    end
+  end
+
   def update_all_images
     @album = Album.find(params[:album][:album_id])
     # @album.images.paginate(:page => params[:page], :per_page => 8)
@@ -81,45 +99,42 @@ class AdminsController < ApplicationController
   def album_images
     album_id = params[:album_id]
     @album = Album.find(album_id)
-    # @album.images.paginate(:page => params[:page], :per_page => 8)
     respond_to do |f|
       f.js
     end
   end
 
-  def albums
-    @albums = Album.all.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+  def photographer_albums
+    @photographer = Photographer.find(params[:photographer_id])
+    @albums = @photographer.albums.order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
     respond_to do |f|
       f.js
     end
   end
 
   def clients
-    if request.xhr?
-      #binding.pry
-      if params[:client_type] == "Connected"
-        @clients = Client.includes(:photographer_clients).where( photographer_clients: {is_connected: true} ).order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
-      elsif params[:client_type] == "Not Connected"
-        @clients = Client.includes(:photographer_clients).where( photographer_clients: {is_connected: false} ).order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
-      end
-    else
-      @clients = Client.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)    
+    clients = Client.includes(:photographer_clients)
+    
+    if params[:type] && params[:type] != "All"
+      clients = clients.where(photographer_clients: { is_connected: params[:type] })
     end
+
+    @clients = clients.order(created_at: 'DESC').paginate(page: params[:page], per_page: 10)
+    
     respond_to do |f|
       f.js
     end 
   end
 
   def photographers 
-    # if request.xhr?
-    #   binding.pry
-    #   @photographers = Photographer.all.where(plan_type: params[:plan_type]).order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)    
-    # else
-    #   binding.pry
-    #   @photographers = Photographer.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
-    # end
-    # binding.pry
-    @photographers = Photographer.all.order(created_at: 'DESC').order(created_at: 'DESC').paginate(:page => params[:page], :per_page => 10)
+    photographers = Photographer
+    
+    if params[:type] && params[:type] != "All"
+      photographers = photographers.where(plan_type: params[:type])  
+    end
+
+    @photographers = photographers.order(created_at: 'DESC').paginate(page: params[:page], per_page: 10)
+
     respond_to do |f|
       f.js
     end
