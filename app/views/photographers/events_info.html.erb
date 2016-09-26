@@ -1,4 +1,5 @@
-<div class="col-md-6"></div>
+<div class="col-md-3 col-md-offset-3">
+</div>
 <div class="dropdown col-md-6 drop-down-btn-cal">
   <button class="btn btn-default dropdown-toggle drop-down-btn-cal-beauty btn-dropdown-design" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     <span class="button_class"><%= params[:calendar_type].present? ? params[:calendar_type].capitalize+"ly" : "Monthly" %></span>
@@ -14,3 +15,4 @@
 		<%= render partial: "calender_and_info", calendar_event: @calendar_event %>
 	</div>
 </div>
+<label class="pick-month" data-photographer-id = "<%= current_photographer.id %>"></label>

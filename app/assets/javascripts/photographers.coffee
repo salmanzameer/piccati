@@ -3,6 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+
+  $(document).on "click", ".month", (e) ->
+    photographer_id = $('.pick-month').data("photographer-id")
+    start_date = $('.yearValue').text() + "-" + $(this).data('m') + "-" + "01"
+    url = "/photographers/#{photographer_id}/events_info?start_date=" + start_date
+    window.location = url
+
   $(document).on "focus", ".datetimepicker", (e) ->
     $('.datetimepicker').datetimepicker format: 'dddd, MMMM Do YYYY HH:mm'
 
