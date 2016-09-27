@@ -222,20 +222,17 @@
 				</div>
 				<% @activities.each do |activity|%>
 					<% photographer = Photographer.find(activity.owner_id) %>
-					<% if Album.exists?(activity.trackable_id) %>
-						<% album = Album.find(activity.trackable_id) %>
-						<%= link_to admins_album_images_path(album_id: album.id), remote: true do %>
-							<div class="pd10">
-					  		<div class="col-md-1 col-xs-2">
-					  			<%= image_tag photographer.avatar.url, class: "photographer-noti-image" %>
-					  		</div>
-					  		<div class="col-md-11 col-xs-10">
-					  			<b><%= photographer.fullname %></b> <%= activity.key %><span style="float:right;"><span> <%= time_ago_in_words(activity.created_at) %></span></span><br>
-					  		</div>
-					  		<hr class="hr-line-notification col-md-11 col-xs-12">
+					<%= link_to show_activity_path(activity_id: activity.id), remote: :true do %>
+						<div class="pd10">
+				  		<div class="col-md-1 col-xs-2">
+				  			<%= image_tag photographer.avatar.url, class: "photographer-noti-image" %>
 				  		</div>
-			  		<% end %>
-			  	<% end %>
+				  		<div class="col-md-11 col-xs-10">
+				  			<b><%= photographer.fullname %></b> <%= activity.key %><span style="float:right;"><span> <%= time_ago_in_words(activity.created_at) %></span></span><br>
+				  		</div>
+				  		<hr class="hr-line-notification col-md-11 col-xs-12">
+			  		</div>
+		  		<% end %>
 			  <% end %>
 		  </div>
 		</div>

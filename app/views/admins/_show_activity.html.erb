@@ -1,0 +1,55 @@
+<% if @album.present? %>
+	<div class="container">
+		<%= link_to "Back", admins_dashboard_path, class: "link-back" %>
+		<center>
+			<h1 class="spacing-ablbum-heding">Listing Album <%= @album.name %> Images Below</h1>
+		</center>	
+		<div class="album_container" ">
+			<% if @album.images.present? %>
+				<%= form_for(@album, url: admins_update_all_images_path, method: :post, remote: :true) do |f| %>
+					<%= f.hidden_field :album_id, :value => @album.id %>
+					<%= f.fields_for :images do |f_f| %>
+						<div class="album_images_container col-md-3 album-pictures-spacing">
+							<%= image_tag f_f.object.image.url(:medium), class: "album_image_width" %>
+							<label>Approve:</label>
+							<%= f_f.check_box :status %>
+						</div>
+					<% end %>
+					<div class="update-album">
+						<%= f.submit "Approve", class: "btn btn-primary btn_setting album-approval-btn" %>
+						<p><label><input type="checkbox" id="checkAll"/> Check all</label></p>
+					</div>
+				<% end %>
+			<% else %>
+				<h1>Album is Empty</h1>
+			<% end %>
+		</div>
+	</div>
+<% elsif @image.present? %>
+	<div class="container">
+		<%= link_to "Back", admins_dashboard_path, class: "link-back" %>
+		<center>
+			<h1 class="spacing-ablbum-heding">Showing Uploaded Image Below</h1>
+		</center>	
+		<div class="album_container" ">
+				<%= form_for(@image, url: admins_approve_image_path, method: :post, remote: :true) do |f| %>
+						<div class="album_images_container col-md-3 album-pictures-spacing">
+							<%= f.hidden_field :image_id, :value => @image.id %>
+							<%= image_tag f.object.image.url(:medium), class: "album_image_width" %>
+							<label>Approve:</label>
+							<%= f.check_box :status %>
+						</div>
+					<div class="update-album">
+						<%= f.submit "Approve", class: "btn btn-primary btn_setting album-approval-btn" %>
+					</div>
+				<% end %>
+		</div>
+	</div>
+<% else %>
+	<div class="container">
+		<%= link_to "Back", admins_dashboard_path, class: "link-back" %>
+		<center>
+			<h1 class="spacing-ablbum-heding">Removed by Photographer</h1>	
+		</center>
+	</div>
+<% end %>
