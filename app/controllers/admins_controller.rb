@@ -11,7 +11,7 @@ class AdminsController < ApplicationController
   end
 
   def dashboard
-    @activities = PublicActivity::Activity.where(trackable_type: "Album").order(created_at: 'DESC')
+    @activities = PublicActivity::Activity.where("trackable_type = ? or trackable_type = ?", "Album", "Image").order(created_at: 'DESC')
     @clients = Client.count
     @photographers = Photographer.count
   end
@@ -86,10 +86,36 @@ class AdminsController < ApplicationController
     end
   end
 
+  def show_activity
+    @activity = PublicActivity::Activity.find(params[:activity_id])
+    @image
+    @album
+    if @activity.trackable_type == "Image"
+      if Image.exists?(@activity.trackable_id)
+        @image = Image.find(@activity.trackable_id)
+      end
+    else
+      if Album.exists?(@activity.trackable_id)
+        @album = Album.find(@activity.trackable_id)
+      end
+    end
+    respond_to do |f|
+      f.js
+    end
+  end
+
   def update_all_images
     @album = Album.find(params[:album][:album_id])
-    # @album.images.paginate(:page => params[:page], :per_page => 8)
     if @album.update(image_param)
+      respond_to do |f|
+        f.js {  flash[:notice] = "Approved Successfully" }
+      end
+    end
+  end
+
+  def approve_image
+    @image = Image.find(params[:image][:image_id])
+    if @image.update_attribute("status", params[:image][:status])
       respond_to do |f|
         f.js {  flash[:notice] = "Approved Successfully" }
       end

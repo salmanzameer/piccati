@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   get  'admins/photographers', as: :admin_photographer
   get  'admins/photographers_for_approval', as: :photographers_for_approval
   get  'admins/approve_photographer/:photographer_id', to: "admins#approve_photographer", as: :approve_photographer
-
+  get  'admins/show_activity/:activity_id', to: "admins#show_activity", as: :show_activity
+  post 'admins/approve_image'
+  
   devise_for :clients, controllers: { invitations: 'invitations', sessions: 'sessions', registrations: 'registrations' }
 
   devise_for :admins

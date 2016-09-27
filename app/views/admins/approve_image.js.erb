@@ -1,0 +1,9 @@
+$(".loading-grid").html("<%= escape_javascript(render partial: 'show_activity', locals: { image: @image } ) %>");
+
+$(".flash_notice").html("<%= escape_javascript(render partial: 'layouts/flash' ) %>");
+
+$(document).ready(function() {
+  return setTimeout((function() {
+    $('.devise-noti').remove();
+  }), 3000);
+});
