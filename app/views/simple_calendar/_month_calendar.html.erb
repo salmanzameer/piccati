@@ -1,3 +1,4 @@
+<input id="year-n-month-picker" type="text">
 <div class="simple-calendar">
   <div class="calendar-heading">
     <% if request.xhr? %>
@@ -56,4 +57,10 @@
       <% end %>
     </tbody>
   </table>
-</div>      
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#year-n-month-picker').Monthpicker();
+  });
+</script>

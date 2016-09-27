@@ -3367,3 +3367,17 @@ transition-delay:.2s;
   margin:10px 0px;
   color: #777;
 }
+.monthpicker_input
+{
+  height: 35px !important;
+  color: #fff !important;
+  width: 170px !important;
+  background-color: #003366;
+  border: 0px solid rgb(204, 204, 204) !important;
+  padding: 2px 10px 10px 20px !important;
+}
+
+.pick-month
+{
+  display: block;
+}
